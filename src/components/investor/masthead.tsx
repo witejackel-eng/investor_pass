@@ -2,6 +2,7 @@
 import { useStore, type View } from "@/stores/app-store";
 import { cn } from "@/lib/utils";
 import { Search, Bookmark, FolderOpen, User as UserIcon, LogOut, Crown } from "lucide-react";
+import { ThemeToggle } from "@/components/investor/theme-toggle";
 
 export function Masthead() {
   const { view, go, user, logout } = useStore();
@@ -34,6 +35,8 @@ export function Masthead() {
         </nav>
 
         <div className="flex items-center gap-3 text-[0.8rem] font-semibold">
+          {/* Theme toggle */}
+          <ThemeToggle />
           {/* Cmd+K hint */}
           <button
             onClick={() => {
