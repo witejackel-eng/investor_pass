@@ -12,6 +12,7 @@ import { TimelineView } from "@/components/investor/views-timeline";
 import { PassageView } from "@/components/investor/views-passage";
 import { ConceptView } from "@/components/investor/views-concept";
 import { EventView } from "@/components/investor/views-event";
+import { CommandPalette } from "@/components/investor/command-palette";
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
@@ -53,6 +54,7 @@ export default function Home() {
       <Masthead />
       <main className="flex-1">{renderView()}</main>
       <Footer />
+      <CommandPalette />
     </div>
   );
 }

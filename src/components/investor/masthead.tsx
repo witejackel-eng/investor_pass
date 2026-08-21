@@ -34,6 +34,17 @@ export function Masthead() {
         </nav>
 
         <div className="flex items-center gap-3 text-[0.8rem] font-semibold">
+          {/* Cmd+K hint */}
+          <button
+            onClick={() => {
+              window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true }));
+            }}
+            className="hidden items-center gap-1.5 border border-rule bg-paper-2 px-2 py-1 font-mono text-[0.65rem] text-graphite hover:border-ink hover:text-ink transition-colors lg:inline-flex"
+            title="Command palette (Cmd+K)"
+          >
+            <Search className="h-3 w-3" />
+            <kbd>⌘K</kbd>
+          </button>
           {user ? (
             <>
               {user.entitlement === "pro" && (

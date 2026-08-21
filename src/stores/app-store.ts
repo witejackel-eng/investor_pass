@@ -87,6 +87,18 @@ export const useStore = create<State>((set, get) => ({
     set({ view, params });
     window.history.pushState(null, "", toHash(view, params));
     window.scrollTo({ top: 0, behavior: "smooth" });
+    // Track recently viewed (entity pages only)
+    const entityViews = ["investor", "topic", "company", "year", "source", "passage", "concept", "event"];
+    if (entityViews.includes(view) && (params.slug || params.id || params.year)) {
+      try {
+        const raw = localStorage.getItem("ip_recently_viewed");
+        const prev: any[] = raw ? JSON.parse(raw) : [];
+        const id = params.slug || params.id || params.year || "";
+        const filtered = prev.filter((i) => !(i.view === view && i.slug === id));
+        const next = [{ view, slug: id, label: "", ts: Date.now() }, ...filtered].slice(0, 8);
+        localStorage.setItem("ip_recently_viewed", JSON.stringify(next));
+      } catch {}
+    }
   },
   back: () => window.history.back(),
 

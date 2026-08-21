@@ -103,6 +103,9 @@ export function HomeView() {
         </div>
       </section>
 
+      {/* Recently viewed */}
+      <RecentlyViewed />
+
       {/* What is it */}
       <section className="mt-12 border-t-2 border-ink py-8">
         <div className="section-head">
@@ -308,7 +311,9 @@ export function InvestorView({ slug }: { slug: string }) {
           <h2>Themes</h2>
           <p className="kicker">{investor.stats.themes} INDEXED</p>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Top themes bar chart — visual heatmap */}
+        <TopThemesBarChart themes={data.themes} onSelect={(s) => go("topic", { slug: s, investor: slug })} />
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {data.themes.slice(0, 12).map((t) => (
             <button key={t.slug} onClick={() => go("topic", { slug: t.slug, investor: slug })} className="border border-rule p-3 text-left hover:border-ink hover:bg-paper-2 transition-colors">
               <p className="font-display font-semibold tracking-tight">{t.name}</p>
@@ -382,6 +387,91 @@ export function Loading() {
   return (
     <div className="mx-auto flex max-w-[1320px] items-center justify-center px-4 py-24">
       <div className="font-mono text-sm text-graphite">Loading…</div>
+    </div>
+  );
+}
+
+// ── Recently viewed section (home page) ────────────────────────────────────
+function RecentlyViewed() {
+  const go = useStore((s) => s.go);
+  const [items, setItems] = useState<{ view: string; slug: string; label: string; ts: number }[]>(() => {
+    try {
+      const raw = typeof window !== "undefined" ? localStorage.getItem("ip_recently_viewed") : null;
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  if (items.length === 0) return null;
+
+  const viewLabels: Record<string, string> = {
+    investor: "Investor", topic: "Topic", company: "Company", year: "Year",
+    source: "Source", passage: "Passage", concept: "Concept", event: "Event",
+  };
+
+  return (
+    <section className="mt-8 border-t-2 border-ink py-6">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Clock className="h-4 w-4 text-signal-dark" />
+          <p className="kicker text-signal-dark">CONTINUE EXPLORING</p>
+        </div>
+        <button
+          onClick={() => { localStorage.removeItem("ip_recently_viewed"); setItems([]); }}
+          className="chip hover:chip-signal"
+        >
+          CLEAR
+        </button>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {items.map((item, i) => (
+          <button
+            key={i}
+            onClick={() => go(item.view as any, item.view === "year" ? { year: item.slug, investor: "buffett" } : { slug: item.slug, investor: "buffett" })}
+            className="group flex items-center gap-2 border border-rule bg-paper-2 px-3 py-2 hover:border-ink transition-colors"
+          >
+            <span className="chip chip-ink">{viewLabels[item.view] || item.view}</span>
+            <span className="font-display text-sm font-medium capitalize">{item.slug.replace(/-/g, " ")}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ── Top themes bar chart (investor profile) ────────────────────────────────
+function TopThemesBarChart({ themes, onSelect }: { themes: { slug: string; name: string; passageCount: number }[]; onSelect: (slug: string) => void }) {
+  const top = themes.filter((t) => t.passageCount > 0).slice(0, 10);
+  if (top.length === 0) return null;
+  const max = Math.max(...top.map((t) => t.passageCount));
+
+  return (
+    <div className="mt-4 space-y-1.5">
+      <p className="kicker mb-2">TOP THEMES BY REFERENCE COUNT</p>
+      {top.map((t) => {
+        const pct = (t.passageCount / max) * 100;
+        return (
+          <button
+            key={t.slug}
+            onClick={() => onSelect(t.slug)}
+            className="group flex w-full items-center gap-3 py-1 hover:bg-paper-2 -mx-2 px-2 transition-colors"
+          >
+            <span className="w-32 truncate text-right font-display text-sm font-medium">{t.name}</span>
+            <div className="relative h-5 flex-1 border-l border-rule">
+              <div
+                className="absolute left-0 top-0 h-full bg-signal/20 group-hover:bg-signal/30 transition-colors"
+                style={{ width: `${pct}%` }}
+              />
+              <div
+                className="absolute left-0 top-0 h-full border-r-2 border-signal"
+                style={{ width: `${pct}%` }}
+              />
+              <span className="absolute left-2 top-0 flex h-full items-center font-mono text-xs text-ink">{t.passageCount}</span>
+            </div>
+          </button>
+        );
+      })}
     </div>
   );
 }

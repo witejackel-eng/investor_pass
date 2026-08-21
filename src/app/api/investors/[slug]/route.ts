@@ -25,6 +25,16 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     where: { source: { personId: person.id }, visibility: "public" },
   });
 
+  // Fetch themes with passage counts for the bar chart
+  const themesWithCounts = await db.theme.findMany({
+    where: { persons: { some: { personId: person.id } } },
+    include: {
+      passages: {
+        where: { passage: { source: { personId: person.id } } },
+      },
+    },
+  });
+
   return json({
     investor: {
       slug: person.slug,
@@ -54,7 +64,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
       description: s.description,
       passageCount: s._count.passages,
     })),
-    themes: person.personThemes.map((pt) => ({ slug: pt.theme.slug, name: pt.theme.name, description: pt.theme.description })),
+    themes: themesWithCounts
+      .map((t) => ({ slug: t.slug, name: t.name, description: t.description, passageCount: t.passages.length }))
+      .sort((a, b) => b.passageCount - a.passageCount),
     companies: person.personCompanies.map((pc) => ({ slug: pc.company.slug, name: pc.company.name, ticker: pc.company.ticker, description: pc.company.description })),
     decisions: person.decisions.map((d) => ({
       id: d.id,
