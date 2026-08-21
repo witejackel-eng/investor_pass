@@ -5,9 +5,10 @@ import { apiGet, apiPost, apiDelete } from "@/lib/client";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate, ProBadge } from "@/components/investor/entity-chips";
 import { Loading } from "./views-core";
-import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal, Download } from "lucide-react";
+import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal, Download, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
+import { HighlightedText } from "@/components/investor/highlighted-text";
 
 // ── Search view ────────────────────────────────────────────────────────────
 type SearchHit = {
@@ -202,7 +203,9 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
                     </button>
                   </div>
                   <button onClick={() => go("passage", { id: hit.passageId, investor: "buffett" })} className="block w-full text-left">
-                    <p className="mt-2 max-w-[820px] font-reader text-base leading-relaxed group-hover:text-ink">{hit.text}</p>
+                    <p className="mt-2 max-w-[820px] font-reader text-base leading-relaxed group-hover:text-ink">
+                      <HighlightedText text={hit.text} tokens={initialQuery ? initialQuery.split(/\s+/) : []} />
+                    </p>
                   </button>
                   {hit.context && <p className="mt-1 font-reader text-sm italic text-graphite">{hit.context}</p>}
                   <div className="mt-2 flex flex-wrap gap-3">
@@ -572,7 +575,23 @@ export function SavedSearchesView() {
                 <p className="font-display font-semibold tracking-tight">{s.title}</p>
                 <p className="font-mono text-xs text-graphite">{s.query || "(no query)"} · {Object.entries(s.filters || {}).filter(([, v]) => v).length} filters</p>
               </button>
-              <button onClick={() => remove(s.id)} className="chip hover:chip-signal"><Trash2 className="h-3 w-3" /></button>
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => {
+                    const params = new URLSearchParams();
+                    if (s.query) params.set("q", s.query);
+                    for (const [k, v] of Object.entries(s.filters || {})) { if (v) params.set(k, String(v)); }
+                    const url = `${window.location.origin}/#/view=search&${params.toString()}`;
+                    navigator.clipboard.writeText(url);
+                    toast.success("Search URL copied to clipboard");
+                  }}
+                  className="chip"
+                  title="Copy shareable URL"
+                >
+                  <Share2 className="h-3 w-3" /> SHARE
+                </button>
+                <button onClick={() => remove(s.id)} className="chip hover:chip-signal"><Trash2 className="h-3 w-3" /></button>
+              </div>
             </div>
           ))}
         </div>
@@ -642,7 +661,12 @@ export function CollectionsView() {
             <div key={c.id} className="border border-rule p-4">
               <div className="flex items-start justify-between">
                 <p className="font-display text-lg font-bold tracking-tight">{c.title}</p>
-                <button onClick={() => remove(c.id)} className="chip hover:chip-signal"><Trash2 className="h-3 w-3" /></button>
+                <div className="flex items-center gap-1.5">
+                  <button onClick={() => exportCollectionMd(c)} className="chip" title="Export as Markdown">
+                    <Download className="h-3 w-3" />
+                  </button>
+                  <button onClick={() => remove(c.id)} className="chip hover:chip-signal"><Trash2 className="h-3 w-3" /></button>
+                </div>
               </div>
               {c.description && <p className="mt-1 font-reader text-sm text-graphite">{c.description}</p>}
               <p className="mt-2 font-mono text-xs text-graphite">{c.items?.length || 0} items</p>
@@ -707,4 +731,28 @@ function downloadFile(content: string, filename: string, mime: string) {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+// Export a single collection as Markdown
+function exportCollectionMd(c: any) {
+  let md = `# ${c.title}\n\n`;
+  if (c.description) md += `${c.description}\n\n`;
+  md += `Exported ${new Date().toISOString().slice(0, 10)} · ${c.items?.length || 0} items\n\n`;
+  const kindLabels: Record<string, string> = {
+    passage: "Passages", source: "Sources", company: "Companies", theme: "Themes",
+  };
+  const grouped: Record<string, any[]> = {};
+  for (const item of c.items || []) {
+    if (!grouped[item.kind]) grouped[item.kind] = [];
+    grouped[item.kind].push(item);
+  }
+  for (const [kind, items] of Object.entries(grouped)) {
+    md += `## ${kindLabels[kind] || kind}\n\n`;
+    for (const item of items) {
+      md += `- ${item.label}\n`;
+    }
+    md += "\n";
+  }
+  downloadFile(md, `${c.title.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}.md`, "text/markdown");
+  toast.success("Collection exported as Markdown");
 }
