@@ -114,11 +114,20 @@ export async function searchPassages(
   }
 
   // Token-based text match (LIKE OR). If no tokens, return all filtered.
+  // Matches passage text, source title, AND tag names (themes, concepts,
+  // companies, events) so searching "moats" or "Coca-Cola" finds tagged passages.
   if (tokens.length) {
     const orClauses: any[] = [];
     for (const t of tokens) {
       orClauses.push({ text: { contains: t } });
       orClauses.push({ source: { title: { contains: t } } });
+      orClauses.push({ source: { publisher: { contains: t } } });
+      orClauses.push({ passageThemes: { some: { theme: { name: { contains: t } } } } });
+      orClauses.push({ passageThemes: { some: { theme: { slug: { contains: t } } } } });
+      orClauses.push({ passageConcepts: { some: { concept: { name: { contains: t } } } } });
+      orClauses.push({ passageCompanies: { some: { company: { name: { contains: t } } } } });
+      orClauses.push({ passageCompanies: { some: { company: { canonicalName: { contains: t } } } } });
+      orClauses.push({ passageEvents: { some: { event: { name: { contains: t } } } } });
     }
     where.AND.push({ OR: orClauses });
   }

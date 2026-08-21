@@ -13,6 +13,7 @@ export type View =
   | "home"
   | "investors"
   | "investor"
+  | "timeline"
   | "topic"
   | "company"
   | "year"

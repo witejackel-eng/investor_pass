@@ -42,7 +42,7 @@ export function TopicView({ slug, investor }: { slug: string; investor?: string 
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-4 border-t border-ink pt-4 md:grid-cols-3">
-        <Stat n={data.stats.passageCount} l="Indexed references" />
+        <Stat n={data.stats.passageCount + data.stats.hiddenPassages} l="Indexed references" />
         <Stat n={data.years.length} l="Years covered" />
         <Stat n={data.companies.length} l="Companies linked" />
       </div>
@@ -50,26 +50,32 @@ export function TopicView({ slug, investor }: { slug: string; investor?: string 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_280px]">
         <div>
           <p className="kicker mb-3">SELECTED REFERENCES</p>
-          <div className="space-y-4">
-            {data.passages.slice(0, 5).map((p) => (
-              <div key={p.id} className="border-t border-rule pt-3">
-                <div className="flex items-center gap-2">
-                  <button onClick={() => go("source", { slug: p.source.slug })} className="font-mono text-xs uppercase tracking-wider text-signal-dark hover:underline">
-                    {p.source.title}
-                  </button>
-                  {p.source.year && <span className="font-mono text-xs text-graphite">· {p.source.year}</span>}
-                  {p.visibility === "pro" && <ProBadge />}
-                </div>
-                <p className="mt-2 font-reader text-base leading-relaxed">{p.text}</p>
-                {p.context && <p className="mt-1 font-reader text-sm italic text-graphite">{p.context}</p>}
-                <div className="mt-2">
-                  <EntityChips items={p.companies} kind="company" investorSlug={inv} />
-                </div>
-              </div>
-            ))}
-          </div>
-          {data.stats.hiddenPassages > 0 && (
+          {data.passages.length === 0 && data.stats.hiddenPassages > 0 ? (
             <PremiumGate hiddenCount={data.stats.hiddenPassages} onUpgrade={() => go("upgrade")} />
+          ) : (
+            <>
+              <div className="space-y-4">
+                {data.passages.slice(0, 5).map((p) => (
+                  <div key={p.id} className="border-t border-rule pt-3">
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => go("source", { slug: p.source.slug })} className="font-mono text-xs uppercase tracking-wider text-signal-dark hover:underline">
+                        {p.source.title}
+                      </button>
+                      {p.source.year && <span className="font-mono text-xs text-graphite">· {p.source.year}</span>}
+                      {p.visibility === "pro" && <ProBadge />}
+                    </div>
+                    <p className="mt-2 font-reader text-base leading-relaxed">{p.text}</p>
+                    {p.context && <p className="mt-1 font-reader text-sm italic text-graphite">{p.context}</p>}
+                    <div className="mt-2">
+                      <EntityChips items={p.companies} kind="company" investorSlug={inv} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {data.stats.hiddenPassages > 0 && (
+                <PremiumGate hiddenCount={data.stats.hiddenPassages} onUpgrade={() => go("upgrade")} />
+              )}
+            </>
           )}
         </div>
         <aside className="space-y-6">
@@ -149,7 +155,7 @@ export function CompanyView({ slug, investor }: { slug: string; investor?: strin
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-4 border-t border-ink pt-4 md:grid-cols-4">
-        <Stat n={data.stats.passageCount} l="References" />
+        <Stat n={data.stats.passageCount + data.stats.hiddenPassages} l="References" />
         <Stat n={data.years.length} l="Years" />
         <Stat n={data.themes.length} l="Themes" />
         <Stat n={data.decisions.length} l="Decisions" />
@@ -158,22 +164,28 @@ export function CompanyView({ slug, investor }: { slug: string; investor?: strin
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_280px]">
         <div>
           <p className="kicker mb-3">REFERENCES</p>
-          <div className="space-y-4">
-            {data.passages.slice(0, 6).map((p) => (
-              <div key={p.id} className="border-t border-rule pt-3">
-                <div className="flex items-center gap-2">
-                  <button onClick={() => go("source", { slug: p.source.slug })} className="font-mono text-xs uppercase tracking-wider text-signal-dark hover:underline">
-                    {p.source.title}
-                  </button>
-                  {p.source.year && <span className="font-mono text-xs text-graphite">· {p.source.year}</span>}
-                  {p.visibility === "pro" && <ProBadge />}
-                </div>
-                <p className="mt-2 font-reader text-base leading-relaxed">{p.text}</p>
-                <div className="mt-2"><EntityChips items={p.themes} kind="theme" investorSlug={inv} /></div>
+          {data.passages.length === 0 && data.stats.hiddenPassages > 0 ? (
+            <PremiumGate hiddenCount={data.stats.hiddenPassages} onUpgrade={() => go("upgrade")} />
+          ) : (
+            <>
+              <div className="space-y-4">
+                {data.passages.slice(0, 6).map((p) => (
+                  <div key={p.id} className="border-t border-rule pt-3">
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => go("source", { slug: p.source.slug })} className="font-mono text-xs uppercase tracking-wider text-signal-dark hover:underline">
+                        {p.source.title}
+                      </button>
+                      {p.source.year && <span className="font-mono text-xs text-graphite">· {p.source.year}</span>}
+                      {p.visibility === "pro" && <ProBadge />}
+                    </div>
+                    <p className="mt-2 font-reader text-base leading-relaxed">{p.text}</p>
+                    <div className="mt-2"><EntityChips items={p.themes} kind="theme" investorSlug={inv} /></div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          {data.stats.hiddenPassages > 0 && <PremiumGate hiddenCount={data.stats.hiddenPassages} onUpgrade={() => go("upgrade")} />}
+              {data.stats.hiddenPassages > 0 && <PremiumGate hiddenCount={data.stats.hiddenPassages} onUpgrade={() => go("upgrade")} />}
+            </>
+          )}
         </div>
         <aside className="space-y-6">
           {data.decisions.length > 0 && (

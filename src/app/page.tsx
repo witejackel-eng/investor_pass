@@ -7,6 +7,7 @@ import { HomeView, InvestorsView, InvestorView } from "@/components/investor/vie
 import { TopicView, CompanyView, YearView, SourceView } from "@/components/investor/views-entity";
 import { SearchView, LibraryView, BookmarksView, SavedSearchesView, CollectionsView } from "@/components/investor/views-product";
 import { LoginView, SignupView, UpgradeView, AccountView, AdminView } from "@/components/investor/views-auth";
+import { TimelineView } from "@/components/investor/views-timeline";
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
@@ -20,6 +21,7 @@ export default function Home() {
       case "home": return <HomeView />;
       case "investors": return <InvestorsView />;
       case "investor": return params.slug ? <InvestorView slug={params.slug} /> : <InvestorsView />;
+      case "timeline": return params.slug ? <TimelineView slug={params.slug} /> : <InvestorsView />;
       case "topic": return params.slug ? <TopicView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "company": return params.slug ? <CompanyView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "year": return params.year ? <YearView year={params.year} investor={params.investor} /> : <HomeView />;

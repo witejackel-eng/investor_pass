@@ -32,8 +32,10 @@ export function HomeView() {
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 lg:px-8">
       {/* Hero */}
-      <section className="border-t-2 border-ink py-8">
-        <div className="grid gap-6 lg:grid-cols-[8fr_4fr]">
+      <section className="relative overflow-hidden border-t-2 border-ink py-8">
+        {/* Grid paper texture */}
+        <div className="grid-paper pointer-events-none absolute inset-0 opacity-40" />
+        <div className="relative grid gap-6 lg:grid-cols-[8fr_4fr]">
           <div>
             <p className="kicker">INVESTOR / PASS — V1</p>
             <h1 className="mt-3 font-display text-[clamp(2.8rem,7vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.07em]">
@@ -60,7 +62,7 @@ export function HomeView() {
             <p className="kicker text-signal-dark">LAUNCH COLLECTION</p>
             {buffett && (
               <button onClick={() => go("investor", { slug: "buffett" })} className="mt-2 block w-full text-left">
-                <div className="border border-ink bg-paper p-4 transition-shadow hover:shadow-[3px_3px_0_0_var(--ink)]">
+                <div className="border border-ink bg-paper p-4 transition-all hover:shadow-[3px_3px_0_0_var(--ink)] hover:-translate-y-0.5">
                   <p className="font-display text-2xl font-bold tracking-tight">{buffett.name}</p>
                   <p className="mt-1 font-reader text-sm text-graphite">{buffett.shortDescription}</p>
                   {buffett.yearSpan && (
@@ -308,12 +310,13 @@ export function InvestorView({ slug }: { slug: string }) {
 
       {/* Timeline link */}
       <section className="mt-10 border-t-2 border-ink pt-4">
-        <button onClick={() => go("search", { person: slug })} className="flex w-full items-center justify-between border border-ink p-4 text-left hover:bg-paper-2 transition-colors">
+        <button onClick={() => go("timeline", { slug })} className="flex w-full items-center justify-between border border-ink p-4 text-left hover:bg-paper-2 transition-colors group">
           <div>
-            <p className="kicker">/ TIMELINE & SOURCES</p>
+            <p className="kicker text-signal-dark">/ TIMELINE</p>
             <p className="mt-1 font-display text-xl font-bold">Browse by year and source</p>
+            <p className="mt-1 font-reader text-sm text-graphite">A chronological view of sources, decisions, themes, and companies across the full record.</p>
           </div>
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-5 w-5 shrink-0 group-hover:translate-x-1 transition-transform" />
         </button>
       </section>
 

@@ -385,8 +385,11 @@ async function ensure(model: any, where: any) {
   return model.upsert({ where: { slug: where.slug }, update: {}, create: where });
 }
 async function lk(model: any, ids: Record<string, string>) {
+  // Build the compound unique key name from the field names
+  // e.g. { passageId, themeId } → "passageId_themeId"
+  const keyName = Object.keys(ids).join("_");
   try {
-    await model.upsert({ where: { id: ids }, update: {}, create: ids });
+    await model.upsert({ where: { [keyName]: ids }, update: {}, create: ids });
   } catch {
     /* ignore duplicate */
   }
