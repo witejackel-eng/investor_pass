@@ -9,6 +9,7 @@ import { SearchView, LibraryView, BookmarksView, SavedSearchesView, CollectionsV
 import { LoginView, SignupView, UpgradeView, AccountView, AdminView } from "@/components/investor/views-auth";
 import { TimelineView } from "@/components/investor/views-timeline";
 import { PassageView } from "@/components/investor/views-passage";
+import { ConceptView } from "@/components/investor/views-concept";
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
@@ -28,6 +29,7 @@ export default function Home() {
       case "year": return params.year ? <YearView year={params.year} investor={params.investor} /> : <HomeView />;
       case "source": return params.slug ? <SourceView slug={params.slug} /> : <HomeView />;
       case "passage": return params.id ? <PassageView id={params.id} investor={params.investor} /> : <HomeView />;
+      case "concept": return params.slug ? <ConceptView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "search": return <SearchView initialQuery={params.q || ""} person={params.person} theme={params.theme} company={params.company} concept={params.concept} event={params.event} />;
       case "library": return <LibraryView />;
       case "bookmarks": return <BookmarksView />;

@@ -5,8 +5,9 @@ import { apiGet, apiPost, apiDelete } from "@/lib/client";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate, ProBadge } from "@/components/investor/entity-chips";
 import { Loading } from "./views-core";
-import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight } from "lucide-react";
+import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal } from "lucide-react";
 import { toast } from "sonner";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
 
 // ── Search view ────────────────────────────────────────────────────────────
 type SearchHit = {
@@ -44,6 +45,7 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
     decade: "",
   });
   const [showFilters, setShowFilters] = useState(false);
+  const activeFilterCount = [filters.person, filters.theme, filters.company, filters.sourceType, filters.yearFrom, filters.yearTo, filters.decade].filter(Boolean).length;
   const [themesList, setThemesList] = useState<any[]>([]);
   const [companiesList, setCompaniesList] = useState<any[]>([]);
   const pageSize = 20;
@@ -116,17 +118,19 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button onClick={() => setShowFilters(!showFilters)} className="chip chip-ink">
           {showFilters ? "HIDE FILTERS" : "SHOW FILTERS"}
+          {activeFilterCount > 0 && <span className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-signal text-[0.55rem] text-white">{activeFilterCount}</span>}
         </button>
         <button onClick={saveSearch} className="chip">
           <Save className="h-3 w-3" /> SAVE SEARCH
         </button>
         {(filters.theme || filters.company || filters.yearFrom) && (
-          <span className="kicker">{[filters.theme, filters.company, filters.yearFrom && `from ${filters.yearFrom}`].filter(Boolean).join(" · ")}</span>
+          <span className="kicker hidden sm:inline">{[filters.theme, filters.company, filters.yearFrom && `from ${filters.yearFrom}`].filter(Boolean).join(" · ")}</span>
         )}
       </div>
 
+      {/* Desktop inline filters */}
       {showFilters && (
-        <div className="mt-4 border border-ink bg-paper-2 p-4">
+        <div className="mt-4 hidden border border-ink bg-paper-2 p-4 sm:block">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <FilterSelect label="Investor" value={filters.person} onChange={(v) => setFilters({ ...filters, person: v })} options={[{ value: "buffett", label: "Warren Buffett" }]} />
             <FilterSelect label="Theme" value={filters.theme} onChange={(v) => setFilters({ ...filters, theme: v })} options={themesList.map((t) => ({ value: t.slug, label: t.name }))} />
@@ -146,6 +150,27 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
               <Trash2 className="h-3 w-3" /> CLEAR
             </button>
           </div>
+        </div>
+      )}
+
+      {/* Mobile filter drawer (Sheet) */}
+      <FilterSheet
+        open={showFilters}
+        onOpenChange={setShowFilters}
+        filters={filters}
+        setFilters={setFilters}
+        themesList={themesList}
+        companiesList={companiesList}
+      />
+
+      {/* Active filter chips (mobile) */}
+      {activeFilterCount > 0 && (
+        <div className="mt-3 flex flex-wrap items-center gap-1.5 sm:hidden">
+          <span className="kicker">ACTIVE:</span>
+          {filters.theme && <span className="chip chip-signal">{themesList.find((t) => t.slug === filters.theme)?.name || filters.theme} <button onClick={() => setFilters({ ...filters, theme: "" })} className="ml-1 opacity-60">×</button></span>}
+          {filters.company && <span className="chip chip-signal">{companiesList.find((c) => c.slug === filters.company)?.name || filters.company} <button onClick={() => setFilters({ ...filters, company: "" })} className="ml-1 opacity-60">×</button></span>}
+          {filters.yearFrom && <span className="chip chip-signal">from {filters.yearFrom} <button onClick={() => setFilters({ ...filters, yearFrom: "" })} className="ml-1 opacity-60">×</button></span>}
+          {filters.decade && <span className="chip chip-signal">{filters.decade}s <button onClick={() => setFilters({ ...filters, decade: "" })} className="ml-1 opacity-60">×</button></span>}
         </div>
       )}
 
@@ -222,6 +247,67 @@ function FilterInput({ label, value, onChange, type = "text" }: { label: string;
       <span className="kicker">{label}</span>
       <input type={type} value={value} onChange={(e) => onChange(e.target.value)} className="mt-1 w-full border border-rule bg-paper px-2 py-1.5 font-reader text-sm" />
     </label>
+  );
+}
+
+// Mobile filter drawer (Sheet) — master prompt §36
+function FilterSheet({
+  open,
+  onOpenChange,
+  filters,
+  setFilters,
+  themesList,
+  companiesList,
+}: {
+  open: boolean;
+  onOpenChange: (v: boolean) => void;
+  filters: any;
+  setFilters: (f: any) => void;
+  themesList: any[];
+  companiesList: any[];
+}) {
+  return (
+    <Sheet open={open} onOpenChange={onOpenChange}>
+      <SheetContent side="bottom" className="sm:hidden max-h-[85vh] overflow-y-auto scroll-thin">
+        <SheetHeader>
+          <SheetTitle className="font-display text-lg font-bold tracking-tight flex items-center gap-2">
+            <SlidersHorizontal className="h-4 w-4" /> Filters
+          </SheetTitle>
+        </SheetHeader>
+        <div className="grid gap-4 px-4 pb-6">
+          <FilterSelect label="Investor" value={filters.person} onChange={(v) => setFilters({ ...filters, person: v })} options={[{ value: "buffett", label: "Warren Buffett" }]} />
+          <FilterSelect label="Theme" value={filters.theme} onChange={(v) => setFilters({ ...filters, theme: v })} options={themesList.map((t: any) => ({ value: t.slug, label: t.name }))} />
+          <FilterSelect label="Company" value={filters.company} onChange={(v) => setFilters({ ...filters, company: v })} options={companiesList.map((c: any) => ({ value: c.slug, label: c.name }))} />
+          <FilterSelect label="Source type" value={filters.sourceType} onChange={(v) => setFilters({ ...filters, sourceType: v })} options={[
+            { value: "shareholder_letter", label: "Shareholder Letter" },
+            { value: "speech", label: "Speech" },
+            { value: "article", label: "Article" },
+          ]} />
+          <div className="grid grid-cols-2 gap-3">
+            <FilterInput label="Year from" value={filters.yearFrom} onChange={(v) => setFilters({ ...filters, yearFrom: v })} type="number" />
+            <FilterInput label="Year to" value={filters.yearTo} onChange={(v) => setFilters({ ...filters, yearTo: v })} type="number" />
+          </div>
+          <FilterSelect label="Decade" value={filters.decade} onChange={(v) => setFilters({ ...filters, decade: v })} options={[
+            { value: "1970", label: "1970s" }, { value: "1980", label: "1980s" }, { value: "1990", label: "1990s" },
+            { value: "2000", label: "2000s" }, { value: "2010", label: "2010s" }, { value: "2020", label: "2020s" },
+          ]} />
+        </div>
+        <SheetFooter className="flex-row gap-2 border-t border-rule pt-4">
+          <button
+            onClick={() => { setFilters({ person: "", theme: "", company: "", concept: "", event: "", yearFrom: "", yearTo: "", sourceType: "", decade: "" }); }}
+            className="chip flex-1 justify-center"
+          >
+            <Trash2 className="h-3 w-3" /> CLEAR ALL
+          </button>
+          <button
+            onClick={() => onOpenChange(false)}
+            className="flex-1 bg-ink py-2 text-sm font-semibold text-paper hover:bg-signal-dark"
+          >
+            APPLY
+          </button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
   );
 }
 

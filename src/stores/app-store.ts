@@ -19,6 +19,7 @@ export type View =
   | "year"
   | "source"
   | "passage"
+  | "concept"
   | "search"
   | "library"
   | "bookmarks"

@@ -5,7 +5,7 @@ import { apiGet } from "@/lib/client";
 import { EntityChips, PremiumGate, SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { Loading } from "./views-core";
-import { ArrowLeft, ExternalLink, Lock, ChevronRight } from "lucide-react";
+import { ArrowLeft, ExternalLink, Lock, ChevronRight, Link2 } from "lucide-react";
 
 // ── Topic (theme) view ─────────────────────────────────────────────────────
 type TopicData = {
@@ -15,6 +15,7 @@ type TopicData = {
   companies: { slug: string; name: string }[];
   concepts: { slug: string; name: string }[];
   sources: { slug: string; title: string; year: number | null }[];
+  relatedThemes: { slug: string; name: string; count: number }[];
   passages: any[];
 };
 
@@ -79,6 +80,19 @@ export function TopicView({ slug, investor }: { slug: string; investor?: string 
           )}
         </div>
         <aside className="space-y-6">
+          {data.relatedThemes.length > 0 && (
+            <div>
+              <p className="kicker mb-2 flex items-center gap-1.5"><Link2 className="h-3 w-3" /> RELATED THEMES</p>
+              <p className="font-reader text-xs text-graphite mb-2">Themes that co-occur with this one:</p>
+              <div className="flex flex-wrap gap-1.5">
+                {data.relatedThemes.map((rt) => (
+                  <button key={rt.slug} onClick={() => go("topic", { slug: rt.slug, investor: inv })} className="chip chip-signal group" title={`${rt.count} co-occurrences`}>
+                    {rt.name} <span className="ml-1 opacity-60">{rt.count}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           <div>
             <p className="kicker mb-2">YEARS</p>
             <div className="flex flex-wrap gap-1.5">

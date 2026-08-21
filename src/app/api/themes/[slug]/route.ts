@@ -49,6 +49,18 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
     sources.set(pt.passage.source.slug, { slug: pt.passage.source.slug, title: pt.passage.source.title, year: pt.passage.source.year });
   }
 
+  // Related themes: themes that co-occur with this theme in the same passages
+  const relatedThemesMap = new Map<string, { slug: string; name: string; count: number }>();
+  for (const pt of filtered) {
+    for (const t of pt.passage.passageThemes) {
+      if (t.theme.slug === slug) continue;
+      const existing = relatedThemesMap.get(t.theme.slug);
+      if (existing) existing.count++;
+      else relatedThemesMap.set(t.theme.slug, { slug: t.theme.slug, name: t.theme.name, count: 1 });
+    }
+  }
+  const relatedThemes = [...relatedThemesMap.values()].sort((a, b) => b.count - a.count).slice(0, 10);
+
   return json({
     theme: {
       slug: theme.slug,
@@ -63,6 +75,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
     companies: [...companies.values()].sort((a, b) => a.name.localeCompare(b.name)),
     concepts: [...concepts.values()].sort((a, b) => a.name.localeCompare(b.name)),
     sources: [...sources.values()].sort((a, b) => (a.year ?? 0) - (b.year ?? 0)),
+    relatedThemes,
     passages: filtered.map((pt) => ({
       id: pt.passage.id,
       text: pt.passage.text,

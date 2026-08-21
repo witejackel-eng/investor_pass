@@ -24,7 +24,8 @@ export function EntityChips({
             else if (kind === "company") go("company", { slug: it.slug, investor: investorSlug });
             else if (kind === "source") go("source", { slug: it.slug });
             else if (kind === "event") go("search", { event: it.slug });
-            else go("search", { concept: it.slug });
+            else if (kind === "concept") go("concept", { slug: it.slug, investor: investorSlug });
+            else go("search", { q: it.slug });
           }}
           className="chip"
         >
