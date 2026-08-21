@@ -35,6 +35,17 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     },
   });
 
+  // Fetch companies with passage counts
+  const companiesWithCounts = await db.company.findMany({
+    where: { persons: { some: { personId: person.id } } },
+    include: {
+      passages: {
+        where: { passage: { source: { personId: person.id } } },
+      },
+      industry: true,
+    },
+  });
+
   return json({
     investor: {
       slug: person.slug,
@@ -67,7 +78,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     themes: themesWithCounts
       .map((t) => ({ slug: t.slug, name: t.name, description: t.description, passageCount: t.passages.length }))
       .sort((a, b) => b.passageCount - a.passageCount),
-    companies: person.personCompanies.map((pc) => ({ slug: pc.company.slug, name: pc.company.name, ticker: pc.company.ticker, description: pc.company.description })),
+    companies: companiesWithCounts
+      .map((c) => ({ slug: c.slug, name: c.name, ticker: c.ticker, description: c.description, passageCount: c.passages.length, industry: c.industry?.name || null }))
+      .sort((a, b) => b.passageCount - a.passageCount),
     decisions: person.decisions.map((d) => ({
       id: d.id,
       title: d.title,

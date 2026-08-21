@@ -329,8 +329,26 @@ export function InvestorView({ slug }: { slug: string }) {
           <h2>Companies</h2>
           <p className="kicker">{investor.stats.companies} INDEXED</p>
         </div>
+        {/* Companies heatmap — sized by passage count */}
+        <div className="mb-6 flex flex-wrap gap-2">
+          {data.companies.filter((c: any) => c.passageCount > 0).slice(0, 14).map((c: any) => {
+            const size = Math.max(0.75, Math.min(1.6, 0.75 + c.passageCount * 0.15));
+            return (
+              <button
+                key={c.slug}
+                onClick={() => go("company", { slug: c.slug, investor: slug })}
+                className="group border border-rule bg-paper px-3 py-1.5 hover:border-ink hover:bg-paper-2 transition-all"
+                style={{ fontSize: `${size}rem` }}
+                title={`${c.name} — ${c.passageCount} passages${c.industry ? ` · ${c.industry}` : ""}`}
+              >
+                <span className="font-display font-semibold tracking-tight">{c.name}</span>
+                <span className="ml-1.5 font-mono text-[0.6rem] text-graphite">{c.passageCount}</span>
+              </button>
+            );
+          })}
+        </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {data.companies.slice(0, 12).map((c) => (
+          {data.companies.slice(0, 12).map((c: any) => (
             <button key={c.slug} onClick={() => go("company", { slug: c.slug, investor: slug })} className="border border-rule p-3 text-left hover:border-ink hover:bg-paper-2 transition-colors">
               <div className="flex items-center justify-between">
                 <p className="font-display font-semibold tracking-tight">{c.name}</p>

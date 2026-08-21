@@ -5,7 +5,7 @@ import { apiGet, apiPost, apiDelete } from "@/lib/client";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate, ProBadge } from "@/components/investor/entity-chips";
 import { Loading } from "./views-core";
-import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal } from "lucide-react";
+import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal, Download } from "lucide-react";
 import { toast } from "sonner";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
 
@@ -174,58 +174,173 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
         </div>
       )}
 
-      {/* Results */}
-      <div className="mt-6">
-        {loading ? (
-          <Loading />
-        ) : hits.length === 0 ? (
-          <div className="border-t border-rule py-12 text-center font-reader text-graphite">
-            No results. Try a broader query, or remove filters.
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {hits.map((hit) => (
-              <div key={hit.passageId} className="group border-t border-rule pt-4 transition-colors hover:bg-paper-2/50 -mx-2 px-2 py-3">
-                <div className="flex items-center gap-2">
-                  <button onClick={() => go("source", { slug: hit.source.slug })} className="font-mono text-xs uppercase tracking-wider text-signal-dark hover:underline">
-                    {hit.source.title}
+      {/* Results + Facets */}
+      <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_220px]">
+        <div>
+          {loading ? (
+            <Loading />
+          ) : hits.length === 0 ? (
+            <div className="border-t border-rule py-12 text-center font-reader text-graphite">
+              No results. Try a broader query, or remove filters.
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {hits.map((hit) => (
+                <div key={hit.passageId} className="group border-t border-rule pt-4 transition-colors hover:bg-paper-2/50 -mx-2 px-2 py-3">
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => go("source", { slug: hit.source.slug })} className="font-mono text-xs uppercase tracking-wider text-signal-dark hover:underline">
+                      {hit.source.title}
+                    </button>
+                    {hit.source.year && <span className="font-mono text-xs text-graphite">· {hit.source.year}</span>}
+                    {hit.visibility === "pro" && <ProBadge />}
+                    <button
+                      onClick={() => go("passage", { id: hit.passageId, investor: "buffett" })}
+                      className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity chip"
+                      title="View passage context"
+                    >
+                      CONTEXT →
+                    </button>
+                  </div>
+                  <button onClick={() => go("passage", { id: hit.passageId, investor: "buffett" })} className="block w-full text-left">
+                    <p className="mt-2 max-w-[820px] font-reader text-base leading-relaxed group-hover:text-ink">{hit.text}</p>
                   </button>
-                  {hit.source.year && <span className="font-mono text-xs text-graphite">· {hit.source.year}</span>}
-                  {hit.visibility === "pro" && <ProBadge />}
-                  <button
-                    onClick={() => go("passage", { id: hit.passageId, investor: "buffett" })}
-                    className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity chip"
-                    title="View passage context"
-                  >
-                    CONTEXT →
-                  </button>
+                  {hit.context && <p className="mt-1 font-reader text-sm italic text-graphite">{hit.context}</p>}
+                  <div className="mt-2 flex flex-wrap gap-3">
+                    {hit.themes.length > 0 && <EntityChips items={hit.themes} kind="theme" investorSlug="buffett" />}
+                    {hit.companies.length > 0 && <EntityChips items={hit.companies} kind="company" investorSlug="buffett" />}
+                  </div>
                 </div>
-                <button onClick={() => go("passage", { id: hit.passageId, investor: "buffett" })} className="block w-full text-left">
-                  <p className="mt-2 max-w-[820px] font-reader text-base leading-relaxed group-hover:text-ink">{hit.text}</p>
-                </button>
-                {hit.context && <p className="mt-1 font-reader text-sm italic text-graphite">{hit.context}</p>}
-                <div className="mt-2 flex flex-wrap gap-3">
-                  {hit.themes.length > 0 && <EntityChips items={hit.themes} kind="theme" investorSlug="buffett" />}
-                  {hit.companies.length > 0 && <EntityChips items={hit.companies} kind="company" investorSlug="buffett" />}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
+
+          {/* Pagination */}
+          {total > pageSize && (
+            <div className="mt-8 flex items-center justify-center gap-4 border-t border-rule pt-4">
+              <button disabled={page <= 1} onClick={() => doSearch(page - 1)} className="chip disabled:opacity-40">← PREV</button>
+              <span className="kicker">PAGE {page} OF {Math.ceil(total / pageSize)}</span>
+              <button disabled={page * pageSize >= total} onClick={() => doSearch(page + 1)} className="chip disabled:opacity-40">NEXT →</button>
+            </div>
+          )}
+
+          {user?.entitlement !== "pro" && total > 0 && (
+            <PremiumGate hiddenCount={0} onUpgrade={() => go("upgrade")} label="" />
+          )}
+        </div>
+
+        {/* Facets sidebar — theme/company distribution from current results */}
+        {!loading && hits.length > 0 && (
+          <aside className="hidden lg:block">
+            <SearchFacets hits={hits} filters={filters} setFilters={setFilters} />
+          </aside>
         )}
       </div>
+    </div>
+  );
+}
 
-      {/* Pagination */}
-      {total > pageSize && (
-        <div className="mt-8 flex items-center justify-center gap-4 border-t border-rule pt-4">
-          <button disabled={page <= 1} onClick={() => doSearch(page - 1)} className="chip disabled:opacity-40">← PREV</button>
-          <span className="kicker">PAGE {page} OF {Math.ceil(total / pageSize)}</span>
-          <button disabled={page * pageSize >= total} onClick={() => doSearch(page + 1)} className="chip disabled:opacity-40">NEXT →</button>
+// Search facets sidebar — theme/company/year distribution from current results
+function SearchFacets({ hits, filters, setFilters }: { hits: SearchHit[]; filters: any; setFilters: (f: any) => void }) {
+  const go = useStore((s) => s.go);
+
+  // Aggregate counts from the current page of hits
+  const themeCounts = new Map<string, { slug: string; name: string; count: number }>();
+  const companyCounts = new Map<string, { slug: string; name: string; count: number }>();
+  const yearCounts = new Map<number, number>();
+  const sourceTypeCounts = new Map<string, number>();
+
+  for (const h of hits) {
+    for (const t of h.themes) {
+      const e = themeCounts.get(t.slug);
+      if (e) e.count++;
+      else themeCounts.set(t.slug, { slug: t.slug, name: t.name, count: 1 });
+    }
+    for (const c of h.companies) {
+      const e = companyCounts.get(c.slug);
+      if (e) e.count++;
+      else companyCounts.set(c.slug, { slug: c.slug, name: c.name, count: 1 });
+    }
+    if (h.source.year) yearCounts.set(h.source.year, (yearCounts.get(h.source.year) || 0) + 1);
+    sourceTypeCounts.set(h.source.sourceType, (sourceTypeCounts.get(h.source.sourceType) || 0) + 1);
+  }
+
+  const topThemes = [...themeCounts.values()].sort((a, b) => b.count - a.count).slice(0, 8);
+  const topCompanies = [...companyCounts.values()].sort((a, b) => b.count - a.count).slice(0, 8);
+  const topYears = [...yearCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+  const sourceTypeLabels: Record<string, string> = {
+    shareholder_letter: "Letters", speech: "Speeches", article: "Articles", meeting_transcript: "Meetings",
+  };
+
+  const toggle = (key: string, value: string) => {
+    setFilters({ ...filters, [key]: filters[key] === value ? "" : value });
+  };
+
+  return (
+    <div className="sticky top-20 space-y-6">
+      <div>
+        <p className="kicker mb-2 border-t border-ink pt-2">THEMES</p>
+        <div className="space-y-1">
+          {topThemes.map((t) => (
+            <button
+              key={t.slug}
+              onClick={() => toggle("theme", t.slug)}
+              className={`flex w-full items-center justify-between py-0.5 text-left font-reader text-sm hover:text-signal-dark ${filters.theme === t.slug ? "font-semibold text-signal-dark" : "text-graphite"}`}
+            >
+              <span className="truncate">{t.name}</span>
+              <span className="font-mono text-xs">{t.count}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+      {topCompanies.length > 0 && (
+        <div>
+          <p className="kicker mb-2 border-t border-ink pt-2">COMPANIES</p>
+          <div className="space-y-1">
+            {topCompanies.map((c) => (
+              <button
+                key={c.slug}
+                onClick={() => toggle("company", c.slug)}
+                className={`flex w-full items-center justify-between py-0.5 text-left font-reader text-sm hover:text-signal-dark ${filters.company === c.slug ? "font-semibold text-signal-dark" : "text-graphite"}`}
+              >
+                <span className="truncate">{c.name}</span>
+                <span className="font-mono text-xs">{c.count}</span>
+              </button>
+            ))}
+          </div>
         </div>
       )}
-
-      {user?.entitlement !== "pro" && total > 0 && (
-        <PremiumGate hiddenCount={0} onUpgrade={() => go("upgrade")} label="" />
+      {topYears.length > 0 && (
+        <div>
+          <p className="kicker mb-2 border-t border-ink pt-2">YEARS</p>
+          <div className="flex flex-wrap gap-1">
+            {topYears.map(([y, c]) => (
+              <button
+                key={y}
+                onClick={() => go("year", { year: String(y), investor: "buffett" })}
+                className="chip"
+              >
+                {y} <span className="opacity-60">{c}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       )}
+      <div>
+        <p className="kicker mb-2 border-t border-ink pt-2">SOURCE TYPES</p>
+        <div className="space-y-1">
+          {[...sourceTypeCounts.entries()].sort((a, b) => b[1] - a[1]).map(([st, c]) => (
+            <button
+              key={st}
+              onClick={() => toggle("sourceType", st)}
+              className={`flex w-full items-center justify-between py-0.5 text-left font-reader text-sm hover:text-signal-dark ${filters.sourceType === st ? "font-semibold text-signal-dark" : "text-graphite"}`}
+            >
+              <span>{sourceTypeLabels[st] || st}</span>
+              <span className="font-mono text-xs">{c}</span>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -379,9 +494,16 @@ export function BookmarksView() {
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 lg:px-8">
       <button onClick={() => go("library")} className="kicker hover:text-ink">← LIBRARY</button>
-      <div className="mt-2 border-t-2 border-ink pt-4">
-        <p className="kicker text-signal-dark">/ BOOKMARKS</p>
-        <h1 className="mt-2 font-display text-[clamp(2rem,5vw,4rem)] font-semibold tracking-tight">Saved items</h1>
+      <div className="mt-2 flex items-start justify-between gap-4 border-t-2 border-ink pt-4">
+        <div>
+          <p className="kicker text-signal-dark">/ BOOKMARKS</p>
+          <h1 className="mt-2 font-display text-[clamp(2rem,5vw,4rem)] font-semibold tracking-tight">Saved items</h1>
+        </div>
+        {bookmarks.length > 0 && (
+          <button onClick={() => exportBookmarksMd(bookmarks)} className="chip chip-ink" title="Export as Markdown">
+            <Download className="h-3 w-3" /> EXPORT MD
+          </button>
+        )}
       </div>
       {loading ? <Loading /> : bookmarks.length === 0 ? (
         <p className="mt-8 border-t border-rule py-12 text-center font-reader text-graphite">No bookmarks yet. Save sources, passages, companies, or themes as you explore.</p>
@@ -551,4 +673,38 @@ function ProRequired({ onUpgrade }: { onUpgrade: () => void }) {
       <button onClick={onUpgrade} className="mt-4 bg-ink px-5 py-2 text-sm font-semibold text-paper hover:bg-signal-dark">START PRO — $9/MONTH</button>
     </div>
   );
+}
+
+// Export bookmarks as Markdown
+function exportBookmarksMd(bookmarks: any[]) {
+  const grouped: Record<string, any[]> = {};
+  for (const b of bookmarks) {
+    if (!grouped[b.kind]) grouped[b.kind] = [];
+    grouped[b.kind].push(b);
+  }
+  const kindLabels: Record<string, string> = {
+    source: "Sources", passage: "Passages", company: "Companies", theme: "Themes", search: "Searches",
+  };
+  let md = `# Investor/Pass — Bookmarks\n\nExported ${new Date().toISOString().slice(0, 10)}\n\n`;
+  for (const [kind, items] of Object.entries(grouped)) {
+    md += `## ${kindLabels[kind] || kind}\n\n`;
+    for (const b of items) {
+      md += `- [${b.label}](https://investor-pass.vercel.app/#/view=${b.kind === "search" ? "search" : b.kind === "theme" ? "topic" : b.kind}&slug=${b.entityId})\n`;
+    }
+    md += "\n";
+  }
+  downloadFile(md, "investor-pass-bookmarks.md", "text/markdown");
+  toast.success("Bookmarks exported as Markdown");
+}
+
+function downloadFile(content: string, filename: string, mime: string) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
