@@ -361,10 +361,16 @@ export function SourceView({ slug }: { slug: string }) {
         <p className="kicker mb-3">INDEXED PASSAGES · {data.passages.length}</p>
         <div className="space-y-6">
           {data.passages.map((p) => (
-            <article key={p.id} className="border-t border-rule pt-4">
+            <article key={p.id} className="group border-t border-rule pt-4">
               <div className="flex items-center gap-2">
                 {p.section && <span className="chip chip-ink">{p.section}</span>}
                 {p.visibility === "pro" && <ProBadge />}
+                <button
+                  onClick={() => go("passage", { id: p.id, investor: data.source.person.slug })}
+                  className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity chip"
+                >
+                  CONTEXT →
+                </button>
               </div>
               <p className="mt-3 max-w-[760px] font-reader text-lg leading-relaxed">{p.text}</p>
               {p.context && <p className="mt-2 max-w-[760px] font-reader text-sm italic text-graphite">{p.context}</p>}
@@ -393,6 +399,27 @@ export function SourceView({ slug }: { slug: string }) {
         </div>
         {data.hiddenPassageCount > 0 && <PremiumGate hiddenCount={data.hiddenPassageCount} onUpgrade={() => go("upgrade")} />}
       </section>
+
+      {/* Related sources — master prompt §14 */}
+      {data.relatedSources.length > 0 && (
+        <section className="mt-8 border-t-2 border-ink pt-4">
+          <p className="kicker mb-3">RELATED SOURCES</p>
+          <div className="space-y-2">
+            {data.relatedSources.map((rs: any, i: number) => (
+              <button key={i} onClick={() => go("source", { slug: rs.slug })} className="flex w-full items-center justify-between gap-4 border-t border-rule py-2 text-left hover:bg-paper-2 -mx-2 px-2 transition-colors">
+                <div>
+                  <p className="font-display text-sm font-semibold tracking-tight">{rs.title}</p>
+                  <div className="mt-0.5 flex items-center gap-2">
+                    <SourceTypeBadge type={rs.sourceType} />
+                    {rs.year && <span className="font-mono text-xs text-graphite">{rs.year}</span>}
+                  </div>
+                </div>
+                <ChevronRight className="h-4 w-4 shrink-0 text-graphite" />
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Disclaimer */}
       <p className="mt-8 border-t border-rule pt-4 font-reader text-sm italic text-graphite">

@@ -160,15 +160,24 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
         ) : (
           <div className="space-y-4">
             {hits.map((hit) => (
-              <div key={hit.passageId} className="border-t border-rule pt-4">
+              <div key={hit.passageId} className="group border-t border-rule pt-4 transition-colors hover:bg-paper-2/50 -mx-2 px-2 py-3">
                 <div className="flex items-center gap-2">
                   <button onClick={() => go("source", { slug: hit.source.slug })} className="font-mono text-xs uppercase tracking-wider text-signal-dark hover:underline">
                     {hit.source.title}
                   </button>
                   {hit.source.year && <span className="font-mono text-xs text-graphite">· {hit.source.year}</span>}
                   {hit.visibility === "pro" && <ProBadge />}
+                  <button
+                    onClick={() => go("passage", { id: hit.passageId, investor: "buffett" })}
+                    className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity chip"
+                    title="View passage context"
+                  >
+                    CONTEXT →
+                  </button>
                 </div>
-                <p className="mt-2 max-w-[820px] font-reader text-base leading-relaxed">{hit.text}</p>
+                <button onClick={() => go("passage", { id: hit.passageId, investor: "buffett" })} className="block w-full text-left">
+                  <p className="mt-2 max-w-[820px] font-reader text-base leading-relaxed group-hover:text-ink">{hit.text}</p>
+                </button>
                 {hit.context && <p className="mt-1 font-reader text-sm italic text-graphite">{hit.context}</p>}
                 <div className="mt-2 flex flex-wrap gap-3">
                   {hit.themes.length > 0 && <EntityChips items={hit.themes} kind="theme" investorSlug="buffett" />}

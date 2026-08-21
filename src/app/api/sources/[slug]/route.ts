@@ -32,6 +32,48 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
 
   const visiblePassages = source.passages.filter((p) => isPro || p.visibility === "public");
 
+  // Dynamically compute related sources: other sources by the same person that
+  // share themes or companies with this source. Ranked by overlap count.
+  const themeIds = new Set(source.passages.flatMap((p) => p.passageThemes.map((pt) => pt.themeId)));
+  const companyIds = new Set(source.passages.flatMap((p) => p.passageCompanies.map((pc) => pc.companyId)));
+  const relatedSources: { slug: string; title: string; year: number | null; sourceType: string; overlap: number }[] = [];
+
+  if (themeIds.size > 0 || companyIds.size > 0) {
+    const otherSources = await db.source.findMany({
+      where: {
+        personId: source.personId,
+        id: { not: source.id },
+      },
+      include: {
+        passages: {
+          include: {
+            passageThemes: { select: { themeId: true } },
+            passageCompanies: { select: { companyId: true } },
+          },
+        },
+      },
+    });
+    for (const os of otherSources) {
+      let overlap = 0;
+      for (const p of os.passages) {
+        for (const pt of p.passageThemes) if (themeIds.has(pt.themeId)) overlap++;
+        for (const pc of p.passageCompanies) if (companyIds.has(pc.companyId)) overlap++;
+      }
+      if (overlap > 0) {
+        relatedSources.push({ slug: os.slug, title: os.title, year: os.year, sourceType: os.sourceType, overlap });
+      }
+    }
+    relatedSources.sort((a, b) => b.overlap - a.overlap);
+  }
+  // Merge with any explicitly curated related sources (deduped)
+  const seenSlugs = new Set(relatedSources.map((r) => r.slug));
+  for (const r of [...source.relatedSourcesA.map((r) => r.sourceB), ...source.relatedSourcesB.map((r) => r.sourceA)]) {
+    if (!seenSlugs.has(r.slug)) {
+      relatedSources.push({ ...r, overlap: 0 });
+      seenSlugs.add(r.slug);
+    }
+  }
+
   return json({
     source: {
       id: source.id,
@@ -66,9 +108,12 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
       description: d.description,
       company: d.company ? { slug: d.company.slug, name: d.company.name } : null,
     })),
-    relatedSources: [
-      ...source.relatedSourcesA.map((r) => r.sourceB),
-      ...source.relatedSourcesB.map((r) => r.sourceA),
-    ],
+    relatedSources: relatedSources.slice(0, 8).map((r) => ({
+      slug: r.slug,
+      title: r.title,
+      year: r.year,
+      sourceType: r.sourceType,
+      overlap: r.overlap,
+    })),
   });
 }
