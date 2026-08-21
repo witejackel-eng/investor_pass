@@ -235,8 +235,10 @@ type InvestorDetail = {
 export function InvestorView({ slug }: { slug: string }) {
   const go = useStore((s) => s.go);
   const [data, setData] = useState<InvestorDetail | null>(null);
+  const [years, setYears] = useState<{ year: number; sources: number; passages: number }[]>([]);
   useEffect(() => {
     apiGet<InvestorDetail>(`/api/investors/${slug}`).then(setData);
+    apiGet<{ years: { year: number; sources: number; passages: number }[] }>(`/api/investors/${slug}/years`).then((d) => setYears(d.years));
   }, [slug]);
   if (!data) return <Loading />;
   const { investor } = data;
@@ -272,6 +274,33 @@ export function InvestorView({ slug }: { slug: string }) {
           <p>{investor.bio}</p>
         </div>
       </section>
+
+      {/* Browse by Year — visual grid */}
+      {years.length > 0 && (
+        <section className="mt-10 border-t-2 border-ink pt-4">
+          <div className="section-head">
+            <h2>Browse by year</h2>
+            <p className="kicker">{years.length} YEARS INDEXED</p>
+          </div>
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+            {years.map((y) => {
+              const intensity = Math.min(1, y.passages / 6);
+              return (
+                <button
+                  key={y.year}
+                  onClick={() => go("year", { year: String(y.year), investor: slug })}
+                  className="group relative border border-rule p-3 text-center transition-all hover:border-ink hover:-translate-y-0.5"
+                  style={{ background: intensity > 0 ? `rgba(47, 91, 255, ${0.04 + intensity * 0.16})` : undefined }}
+                >
+                  <p className="font-display text-lg font-bold tracking-tight">{y.year}</p>
+                  <p className="font-mono text-[0.55rem] uppercase tracking-wider text-graphite">{y.passages}p · {y.sources}s</p>
+                  {intensity > 0.5 && <div className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full bg-signal" />}
+                </button>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Themes */}
       <section className="mt-10 border-t-2 border-ink pt-4">
