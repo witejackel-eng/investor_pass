@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useStore } from "@/stores/app-store";
+import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import { Masthead } from "@/components/investor/masthead";
 import { Footer } from "@/components/investor/footer";
 import { HomeView, InvestorsView, InvestorView } from "@/components/investor/views-core";
@@ -10,9 +11,11 @@ import { LoginView, SignupView, UpgradeView, AccountView, AdminView } from "@/co
 import { TimelineView } from "@/components/investor/views-timeline";
 import { PassageView } from "@/components/investor/views-passage";
 import { ConceptView } from "@/components/investor/views-concept";
+import { EventView } from "@/components/investor/views-event";
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
+  useKeyboardShortcuts();
 
   useEffect(() => {
     loadUser();
@@ -30,6 +33,7 @@ export default function Home() {
       case "source": return params.slug ? <SourceView slug={params.slug} /> : <HomeView />;
       case "passage": return params.id ? <PassageView id={params.id} investor={params.investor} /> : <HomeView />;
       case "concept": return params.slug ? <ConceptView slug={params.slug} investor={params.investor} /> : <HomeView />;
+      case "event": return params.slug ? <EventView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "search": return <SearchView initialQuery={params.q || ""} person={params.person} theme={params.theme} company={params.company} concept={params.concept} event={params.event} />;
       case "library": return <LibraryView />;
       case "bookmarks": return <BookmarksView />;

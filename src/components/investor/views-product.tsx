@@ -133,8 +133,8 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
         <div className="mt-4 hidden border border-ink bg-paper-2 p-4 sm:block">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <FilterSelect label="Investor" value={filters.person} onChange={(v) => setFilters({ ...filters, person: v })} options={[{ value: "buffett", label: "Warren Buffett" }]} />
-            <FilterSelect label="Theme" value={filters.theme} onChange={(v) => setFilters({ ...filters, theme: v })} options={themesList.map((t) => ({ value: t.slug, label: t.name }))} />
-            <FilterSelect label="Company" value={filters.company} onChange={(v) => setFilters({ ...filters, company: v })} options={companiesList.map((c) => ({ value: c.slug, label: c.name }))} />
+            <FilterSelect label="Theme" value={filters.theme} onChange={(v) => setFilters({ ...filters, theme: v })} options={themesList.map((t) => ({ value: t.slug, label: t.name, count: t.passageCount }))} />
+            <FilterSelect label="Company" value={filters.company} onChange={(v) => setFilters({ ...filters, company: v })} options={companiesList.map((c) => ({ value: c.slug, label: c.name, count: c.passageCount }))} />
             <FilterSelect label="Source type" value={filters.sourceType} onChange={(v) => setFilters({ ...filters, sourceType: v })} options={[
               { value: "shareholder_letter", label: "Shareholder Letter" },
               { value: "speech", label: "Speech" },
@@ -230,13 +230,13 @@ export function SearchView({ initialQuery, person, theme, company, concept, even
   );
 }
 
-function FilterSelect({ label, value, onChange, options }: { label: string; value: string; onChange: (v: string) => void; options: { value: string; label: string }[] }) {
+function FilterSelect({ label, value, onChange, options }: { label: string; value: string; onChange: (v: string) => void; options: { value: string; label: string; count?: number }[] }) {
   return (
     <label className="block">
       <span className="kicker">{label}</span>
       <select value={value} onChange={(e) => onChange(e.target.value)} className="mt-1 w-full border border-rule bg-paper px-2 py-1.5 font-reader text-sm">
         <option value="">Any</option>
-        {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+        {options.map((o) => <option key={o.value} value={o.value}>{o.label}{o.count !== undefined ? ` (${o.count})` : ""}</option>)}
       </select>
     </label>
   );
@@ -276,8 +276,8 @@ function FilterSheet({
         </SheetHeader>
         <div className="grid gap-4 px-4 pb-6">
           <FilterSelect label="Investor" value={filters.person} onChange={(v) => setFilters({ ...filters, person: v })} options={[{ value: "buffett", label: "Warren Buffett" }]} />
-          <FilterSelect label="Theme" value={filters.theme} onChange={(v) => setFilters({ ...filters, theme: v })} options={themesList.map((t: any) => ({ value: t.slug, label: t.name }))} />
-          <FilterSelect label="Company" value={filters.company} onChange={(v) => setFilters({ ...filters, company: v })} options={companiesList.map((c: any) => ({ value: c.slug, label: c.name }))} />
+          <FilterSelect label="Theme" value={filters.theme} onChange={(v) => setFilters({ ...filters, theme: v })} options={themesList.map((t: any) => ({ value: t.slug, label: t.name, count: t.passageCount }))} />
+          <FilterSelect label="Company" value={filters.company} onChange={(v) => setFilters({ ...filters, company: v })} options={companiesList.map((c: any) => ({ value: c.slug, label: c.name, count: c.passageCount }))} />
           <FilterSelect label="Source type" value={filters.sourceType} onChange={(v) => setFilters({ ...filters, sourceType: v })} options={[
             { value: "shareholder_letter", label: "Shareholder Letter" },
             { value: "speech", label: "Speech" },

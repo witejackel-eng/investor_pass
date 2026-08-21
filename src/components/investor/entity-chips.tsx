@@ -23,7 +23,7 @@ export function EntityChips({
             if (kind === "theme") go("topic", { slug: it.slug, investor: investorSlug });
             else if (kind === "company") go("company", { slug: it.slug, investor: investorSlug });
             else if (kind === "source") go("source", { slug: it.slug });
-            else if (kind === "event") go("search", { event: it.slug });
+            else if (kind === "event") go("event", { slug: it.slug, investor: investorSlug });
             else if (kind === "concept") go("concept", { slug: it.slug, investor: investorSlug });
             else go("search", { q: it.slug });
           }}

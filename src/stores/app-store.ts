@@ -20,6 +20,7 @@ export type View =
   | "source"
   | "passage"
   | "concept"
+  | "event"
   | "search"
   | "library"
   | "bookmarks"

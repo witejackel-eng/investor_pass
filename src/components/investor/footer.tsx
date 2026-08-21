@@ -33,6 +33,15 @@ export function Footer() {
             </ul>
           </div>
           <div>
+            <p className="kicker mb-2">KEYBOARD</p>
+            <ul className="space-y-1.5 text-graphite">
+              <li className="font-mono text-xs"><kbd className="border border-rule bg-paper-2 px-1">/</kbd> Search</li>
+              <li className="font-mono text-xs"><kbd className="border border-rule bg-paper-2 px-1">g</kbd> + <kbd className="border border-rule bg-paper-2 px-1">i</kbd> Investors</li>
+              <li className="font-mono text-xs"><kbd className="border border-rule bg-paper-2 px-1">g</kbd> + <kbd className="border border-rule bg-paper-2 px-1">l</kbd> Library</li>
+              <li className="font-mono text-xs"><kbd className="border border-rule bg-paper-2 px-1">Esc</kbd> Back</li>
+            </ul>
+          </div>
+          <div>
             <p className="kicker mb-2">LEGAL</p>
             <ul className="space-y-1.5 text-graphite">
               <li className="font-reader">Paraphrased summaries, not reproductions</li>
