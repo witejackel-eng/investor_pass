@@ -2,13 +2,13 @@
   "personSlug": "dalio",
   "sources": [
     {
-      "slug": "economic-machine-transcript",
-      "title": "How the Economic Machine Works (Transcript)",
+      "slug": "how-the-economic-machine-works",
+      "title": "How the Economic Machine Works (Transcript Page)",
       "year": 2013,
       "sourceType": "speech",
-      "publisher": "Bridgewater Associates / economicprinciples.org",
-      "url": "https://economicprinciples.org/downloads/HowTheEconomicMachineWorksTranscript.pdf",
-      "format": "pdf"
+      "publisher": "Ray Dalio / economicprinciples.org",
+      "url": "https://economicprinciples.org/how-the-economic-machine-works",
+      "format": "html"
     }
   ]
 }

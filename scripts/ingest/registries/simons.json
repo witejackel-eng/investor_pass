@@ -9,6 +9,15 @@
       "publisher": "TED Conferences",
       "url": "https://www.ted.com/talks/jim_simons_a_rare_interview_with_the_mathematician_who_cracked_wall_street/transcript",
       "format": "html"
+    },
+    {
+      "slug": "simons-foundation-cheeger-interview",
+      "title": "Jim Simons on His Career in Mathematics (Interview with Jeff Cheeger)",
+      "year": 2012,
+      "sourceType": "interview",
+      "publisher": "Simons Foundation",
+      "url": "https://www.simonsfoundation.org/2012/09/28/simons-foundation-chair-jim-simons-on-his-career-in-mathematics/",
+      "format": "html"
     }
   ]
 }

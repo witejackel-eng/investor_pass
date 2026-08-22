@@ -2,12 +2,12 @@
   "personSlug": "templeton",
   "sources": [
     {
-      "slug": "16-rules-investment-success",
-      "title": "16 Rules for Investment Success",
-      "year": 1993,
-      "sourceType": "essay",
-      "publisher": "John Templeton Foundation / World Monitor: The Christian Science Monitor Monthly",
-      "url": "https://www.templetonworldcharity.org/learning/twelve-rules-for-investment-success",
+      "slug": "templeton-prize-address-1985",
+      "title": "Templeton Prize Address",
+      "year": 1985,
+      "sourceType": "speech",
+      "publisher": "Templeton Prize Foundation",
+      "url": "https://www.templetonprize.org/laureate-sub/hardy-templeton-speech/",
       "format": "html"
     }
   ]

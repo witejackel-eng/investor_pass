@@ -1,0 +1,32 @@
+{
+  "personSlug": "ackman",
+  "sources": [
+    {
+      "slug": "letter-to-investors-jan-2022",
+      "title": "Letter to Investors (Netflix position)",
+      "year": 2022,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pershing Square Capital Management",
+      "url": "https://assets.pershingsquareholdings.com/2022/01/26170421/Pershing-Square-Capital-Management-L.P.-Releases-Letter-to-Investors-01-26-2022.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "psth-letter-2021",
+      "title": "Letter to Shareholders from PSTH CEO Bill Ackman",
+      "year": 2021,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pershing Square Tontine Holdings",
+      "url": "https://www.pershingsquareholdings.com/wp-content/uploads/2021/07/Letter-to-Shareholders-from-PSTH-CEO-Bill-Ackman.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "psh-annual-report-2025",
+      "title": "Pershing Square Holdings 2025 Annual Report (incl. Letter to Shareholders)",
+      "year": 2026,
+      "sourceType": "annual_report",
+      "publisher": "Pershing Square Holdings, Ltd.",
+      "url": "https://assets.pershingsquareholdings.com/wp-content/uploads/2026/02/18175039/Pershing-Square-Holdings-Ltd.-2025-Annual-Report.pdf",
+      "format": "pdf"
+    }
+  ]
+}

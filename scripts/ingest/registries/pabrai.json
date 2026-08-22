@@ -1,0 +1,698 @@
+{
+  "personSlug": "pabrai",
+  "sources": [
+    {
+      "slug": "pabrai-l120899",
+      "title": "Letter to Partners (Dec 1999)",
+      "year": 1999,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_120899.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010102",
+      "title": "Letter to Partners (Jan 2002)",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_010102.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010103",
+      "title": "Letter to Partners (Jan 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_010103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010104",
+      "title": "Letter to Partners (Jan 2004)",
+      "year": 2004,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_010104.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l020102",
+      "title": "Letter to Partners (Feb 2002)",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_020102.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l020103",
+      "title": "Letter to Partners (Feb 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_020103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l020200",
+      "title": "Letter to Partners (Feb 2000)",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_020200.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l020301",
+      "title": "Letter to Partners (Feb 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_020301.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l030900",
+      "title": "Letter to Partners (Mar 2000)",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_030900.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040102",
+      "title": "Letter to Partners (Apr 2002)",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_040102.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040201",
+      "title": "Letter to Partners (Apr 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_040201.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l060101",
+      "title": "Letter to Partners (Jun 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_060101.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l060102",
+      "title": "Letter to Partners (Jun 2002)",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_060102.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l060103",
+      "title": "Letter to Partners (Jun 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_060103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070102",
+      "title": "Letter to Partners (Jul 2002)",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_070102.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070103",
+      "title": "Letter to Partners (Jul 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_070103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070104",
+      "title": "Letter to Partners (Jul 2004)",
+      "year": 2004,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_070104.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070300",
+      "title": "Letter to Partners (Jul 2000)",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_070300.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070501",
+      "title": "Letter to Partners (Jul 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_070501.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l080101",
+      "title": "Letter to Partners (Aug 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_080101.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l080102",
+      "title": "Letter to Partners (Aug 2002)",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_080102.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l081103",
+      "title": "Letter to Partners (Aug 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_081103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l081800",
+      "title": "Letter to Partners (Aug 2000)",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_081800.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l090101",
+      "title": "Letter to Partners (Sep 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_090101.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100101",
+      "title": "Letter to Partners (Oct 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_100101.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100600",
+      "title": "Letter to Partners (Oct 2000)",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_100600.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l101103",
+      "title": "Letter to Partners (Oct 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_101103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l120101",
+      "title": "Letter to Partners (Dec 2001)",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_120101.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l120400",
+      "title": "Letter to Partners (Dec 2000)",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_120400.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l121103",
+      "title": "Letter to Partners (Dec 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2003id_/http://www.pabraifunds.com/l_121103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l032199",
+      "title": "Letter to Partners (Mar 1999)",
+      "year": 1999,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2016id_/http://pabraifunds.com/website/l_032199.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010106",
+      "title": "Letter to Partners (Jan 2006)",
+      "year": 2006,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2006id_/http://pabraifunds.com/website/l_010106.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010107",
+      "title": "Letter to Partners (Jan 2007)",
+      "year": 2007,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2007id_/http://pabraifunds.com/website/l_010107.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010109",
+      "title": "Letter to Partners (Jan 2009)",
+      "year": 2009,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2009id_/http://pabraifunds.com/website/l_010109.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010110",
+      "title": "Letter to Partners (Jan 2010)",
+      "year": 2010,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2010id_/http://pabraifunds.com/website/l_010110.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010111",
+      "title": "Letter to Partners (Jan 2011)",
+      "year": 2011,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2011id_/http://pabraifunds.com/website/l_010111.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010112",
+      "title": "Letter to Partners (Jan 2012)",
+      "year": 2012,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2012id_/http://pabraifunds.com/website/l_010112.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010113",
+      "title": "Letter to Partners (Jan 2013)",
+      "year": 2013,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2013id_/http://pabraifunds.com/website/l_010113.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010114",
+      "title": "Letter to Partners (Jan 2014)",
+      "year": 2014,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2014id_/http://pabraifunds.com/website/l_010114.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010115",
+      "title": "Letter to Partners (Jan 2015)",
+      "year": 2015,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2015id_/http://pabraifunds.com/website/l_010115.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010116",
+      "title": "Letter to Partners (Jan 2016)",
+      "year": 2016,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2016id_/http://pabraifunds.com/website/l_010116.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010118",
+      "title": "Letter to Partners (Jan 2018)",
+      "year": 2018,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2018id_/http://pabraifunds.com/website/l_010118.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010119",
+      "title": "Letter to Partners (Jan 2019)",
+      "year": 2019,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2019id_/http://pabraifunds.com/website/l_010119.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l010121",
+      "title": "Letter to Partners (Jan 2021)",
+      "year": 2021,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2021id_/http://pabraifunds.com/website/l_010121.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040103",
+      "title": "Letter to Partners (Apr 2003)",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2019id_/http://pabraifunds.com/website/l_040103.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040105",
+      "title": "Letter to Partners (Apr 2005)",
+      "year": 2005,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2025id_/http://pabraifunds.com/website/l_040105.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040106",
+      "title": "Letter to Partners (Apr 2006)",
+      "year": 2006,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2006id_/http://pabraifunds.com/website/l_040106.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040111",
+      "title": "Letter to Partners (Apr 2011)",
+      "year": 2011,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2011id_/http://pabraifunds.com/website/l_040111.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040113",
+      "title": "Letter to Partners (Apr 2013)",
+      "year": 2013,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2013id_/http://pabraifunds.com/website/l_040113.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040115",
+      "title": "Letter to Partners (Apr 2015)",
+      "year": 2015,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2015id_/http://pabraifunds.com/website/l_040115.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040116",
+      "title": "Letter to Partners (Apr 2016)",
+      "year": 2016,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2016id_/http://pabraifunds.com/website/l_040116.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l040119",
+      "title": "Letter to Partners (Apr 2019)",
+      "year": 2019,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2019id_/http://pabraifunds.com/website/l_040119.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070106",
+      "title": "Letter to Partners (Jul 2006)",
+      "year": 2006,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2006id_/http://pabraifunds.com/website/l_070106.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070109",
+      "title": "Letter to Partners (Jul 2009)",
+      "year": 2009,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2009id_/http://pabraifunds.com/website/l_070109.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070112",
+      "title": "Letter to Partners (Jul 2012)",
+      "year": 2012,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2012id_/http://pabraifunds.com/website/l_070112.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070114",
+      "title": "Letter to Partners (Jul 2014)",
+      "year": 2014,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2014id_/http://pabraifunds.com/website/l_070114.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070115",
+      "title": "Letter to Partners (Jul 2015)",
+      "year": 2015,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2015id_/http://pabraifunds.com/website/l_070115.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070116",
+      "title": "Letter to Partners (Jul 2016)",
+      "year": 2016,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2016id_/http://pabraifunds.com/website/l_070116.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070117",
+      "title": "Letter to Partners (Jul 2017)",
+      "year": 2017,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2017id_/http://pabraifunds.com/website/l_070117.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070118",
+      "title": "Letter to Partners (Jul 2018)",
+      "year": 2018,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2018id_/http://pabraifunds.com/website/l_070118.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l070119",
+      "title": "Letter to Partners (Jul 2019)",
+      "year": 2019,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2019id_/http://pabraifunds.com/website/l_070119.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100106",
+      "title": "Letter to Partners (Oct 2006)",
+      "year": 2006,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2006id_/http://pabraifunds.com/website/l_100106.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100108",
+      "title": "Letter to Partners (Oct 2008)",
+      "year": 2008,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2008id_/http://pabraifunds.com/website/l_100108.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100111",
+      "title": "Letter to Partners (Oct 2011)",
+      "year": 2011,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2011id_/http://pabraifunds.com/website/l_100111.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100113",
+      "title": "Letter to Partners (Oct 2013)",
+      "year": 2013,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2013id_/http://pabraifunds.com/website/l_100113.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100114",
+      "title": "Letter to Partners (Oct 2014)",
+      "year": 2014,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2014id_/http://pabraifunds.com/website/l_100114.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100116",
+      "title": "Letter to Partners (Oct 2016)",
+      "year": 2016,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2016id_/http://pabraifunds.com/website/l_100116.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100117",
+      "title": "Letter to Partners (Oct 2017)",
+      "year": 2017,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2017id_/http://pabraifunds.com/website/l_100117.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100118",
+      "title": "Letter to Partners (Oct 2018)",
+      "year": 2018,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2018id_/http://pabraifunds.com/website/l_100118.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l100119",
+      "title": "Letter to Partners (Oct 2019)",
+      "year": 2019,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2019id_/http://pabraifunds.com/website/l_100119.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-l120105",
+      "title": "Letter to Partners (Dec 2005)",
+      "year": 2005,
+      "sourceType": "shareholder_letter",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2006id_/http://pabraifunds.com/website/l_120105.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-am-transcript-2005",
+      "title": "Annual Meeting Transcript 2005",
+      "year": 2005,
+      "sourceType": "meeting_transcript",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2006id_/http://www.pabraifunds.com/website/2005_PIF_AM_Transcript.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-am-transcript-2011",
+      "title": "Annual Meeting Transcript 2011",
+      "year": 2011,
+      "sourceType": "meeting_transcript",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2012id_/http://www.pabraifunds.com/website/2011_PIF_AM_Transcript.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-am-transcript-2012",
+      "title": "Annual Meeting Transcript 2012",
+      "year": 2012,
+      "sourceType": "meeting_transcript",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2025id_/http://www.pabraifunds.com/website/2012_PIF_AM_Transcript.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-am-transcript-2017",
+      "title": "Annual Meeting Transcript 2017",
+      "year": 2017,
+      "sourceType": "meeting_transcript",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2018id_/http://www.pabraifunds.com/website/2017_PIF_AM_Transcript.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-am-transcript-2018",
+      "title": "Annual Meeting Transcript 2018",
+      "year": 2018,
+      "sourceType": "meeting_transcript",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2019id_/http://www.pabraifunds.com/website/2018_PIF_AM_Transcript.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "pabrai-am-transcript-2019",
+      "title": "Annual Meeting Transcript 2019",
+      "year": 2019,
+      "sourceType": "meeting_transcript",
+      "publisher": "Pabrai Investment Funds (via Internet Archive)",
+      "url": "https://web.archive.org/web/2019id_/http://www.pabraifunds.com/website/2019_PIF_AM_Transcript.pdf",
+      "format": "pdf"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "personSlug": "swensen",
+  "sources": [
+    {
+      "slug": "yale-endowment-report-2021",
+      "title": "Yale Endowment Annual Report 2021",
+      "year": 2021,
+      "sourceType": "annual_report",
+      "publisher": "Yale University Investments Office (mirror)",
+      "url": "https://swensenmemorial.com/img/2021-Endowment-Report.pdf",
+      "format": "pdf"
+    }
+  ]
+}

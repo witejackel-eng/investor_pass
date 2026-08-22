@@ -1,0 +1,14 @@
+{
+  "personSlug": "greenblatt",
+  "sources": [
+    {
+      "slug": "knowledge-project-interview",
+      "title": "The Knowledge Project Podcast Interview (Transcript)",
+      "year": null,
+      "sourceType": "interview",
+      "publisher": "Farnam Street / fs.blog",
+      "url": "https://fs.blog/knowledge-project-podcast/joel-greenblatt/",
+      "format": "html"
+    }
+  ]
+}

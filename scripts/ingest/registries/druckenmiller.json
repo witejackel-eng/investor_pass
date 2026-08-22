@@ -18,6 +18,24 @@
       "publisher": "Cove Street Capital (transcript)",
       "url": "https://gist.githubusercontent.com/timhwang21/e6a2b24e064182dd9099ad00e4f4f9a6/raw",
       "format": "html"
+    },
+    {
+      "slug": "cnbc-delivering-alpha-2022",
+      "title": "CNBC Delivering Alpha Interview with Joe Kernen",
+      "year": 2022,
+      "sourceType": "interview",
+      "publisher": "CNBC",
+      "url": "https://nbcuniversalnewsgroup.com/cnbc/2022/09/28/cnbc-transcript-duquesne-family-office-chairman-ceo-stanley-druckenmiller-speaks-with-cnbcs-joe-kernen-live-during-the-cnbc-delivering-alpha-conference-today/",
+      "format": "html"
+    },
+    {
+      "slug": "cnbc-squawk-box-2024",
+      "title": "CNBC Squawk Box Exclusive Interview",
+      "year": 2024,
+      "sourceType": "interview",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/2024/05/07/cnbc-exclusive-cnbc-transcript-billionaire-investor-stanley-druckenmiller-speaks-with-cnbcs-squawk-box-today.html",
+      "format": "html"
     }
   ]
 }
