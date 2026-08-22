@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { useStore } from "@/stores/app-store";
-import { Search, X, SlidersHorizontal } from "lucide-react";
+import { useStore, type ViewParams } from "@/stores/app-store";
+import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const PLACEHOLDERS = [
@@ -21,12 +21,18 @@ export function SearchBar({
   compact?: boolean;
 }) {
   const go = useStore((s) => s.go);
+  const params = useStore((s) => s.params);
   const [q, setQ] = useState(initialQuery);
   const [phIndex] = useState(() => Math.floor(Math.random() * PLACEHOLDERS.length));
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    go("search", { q });
+    // Preserve active filters; only the query is replaced
+    const next: ViewParams = { q };
+    for (const [k, v] of Object.entries(params)) {
+      if (k !== "q" && k !== "page" && v) next[k] = v;
+    }
+    go("search", next);
   };
 
   return (
