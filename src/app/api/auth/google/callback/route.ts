@@ -30,7 +30,7 @@ export async function GET(req: Request) {
 
   const store = await cookies();
   const expectedState = store.get("ip_oauth_state")?.value;
-  store.delete("ip_oauth_state").catch(() => {});
+  store.delete("ip_oauth_state");
 
   if (!code || !state || !expectedState || state !== expectedState) {
     return oauthRedirect(req, "state_mismatch");
