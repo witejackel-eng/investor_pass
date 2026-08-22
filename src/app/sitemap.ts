@@ -18,7 +18,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [
     { url: `${BASE}/investors`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/legal`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
+
+  for (const slug of ["terms", "privacy", "cookies", "copyright", "disclaimer", "refunds"]) {
+    entries.push({ url: `${BASE}/legal/${slug}`, lastModified: now, changeFrequency: "yearly", priority: 0.3 });
+  }
 
   try {
     const data = await getSitemapData();

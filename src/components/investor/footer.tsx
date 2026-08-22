@@ -44,9 +44,12 @@ export function Footer() {
           <div>
             <p className="kicker mb-2">LEGAL</p>
             <ul className="space-y-1.5 text-graphite">
-              <li className="font-reader">Paraphrased summaries, not reproductions</li>
-              <li className="font-reader">Links to original sources</li>
-              <li className="font-reader">No claim of fair use by word count</li>
+              <li><Link href="/legal/terms" className="hover:text-ink">Terms of Service</Link></li>
+              <li><Link href="/legal/privacy" className="hover:text-ink">Privacy Policy</Link></li>
+              <li><Link href="/legal/cookies" className="hover:text-ink">Cookie &amp; Storage</Link></li>
+              <li><Link href="/legal/copyright" className="hover:text-ink">Copyright &amp; IP</Link></li>
+              <li><Link href="/legal/disclaimer" className="hover:text-ink">Investment Disclaimer</Link></li>
+              <li><Link href="/legal/refunds" className="hover:text-ink">Refunds &amp; Cancellation</Link></li>
             </ul>
           </div>
         </div>
