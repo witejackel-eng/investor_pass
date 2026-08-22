@@ -7,6 +7,15 @@ import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { Loading } from "./views-core";
 import { ArrowLeft, ExternalLink, Sparkles, Link2, ChevronRight, ArrowRight } from "lucide-react";
 
+type RailItem = {
+  id: string;
+  section: string | null;
+  title: string;
+  year: number | null;
+  personSlug: string;
+  personName: string;
+};
+
 type PassageDetail = {
   passage: {
     id: string;
@@ -35,6 +44,11 @@ type PassageDetail = {
   companies: { slug: string; name: string; ticker: string | null }[];
   events: { slug: string; name: string }[];
   relatedThemes: { slug: string; name: string; count: number }[];
+  rails?: {
+    earlier: RailItem[];
+    later: RailItem[];
+    sameConceptElsewhere: RailItem[];
+  };
   navigation: {
     index: number;
     total: number;
@@ -72,6 +86,26 @@ function WhyTagChips({ tags, investorSlug }: { tags: string[][]; investorSlug: s
           {kindLabels[kind] || kind}: {label}
         </button>
       ))}
+    </div>
+  );
+}
+
+// One rail of the related-thinking loop (earlier / later / same idea elsewhere)
+function RailColumn({ label, items, onOpen }: { label: string; items: RailItem[]; onOpen: (item: RailItem) => void }) {
+  if (items.length === 0) return null;
+  return (
+    <div>
+      <p className="kicker mb-1">{label}</p>
+      <div className="space-y-0.5">
+        {items.map((item) => (
+          <button key={item.id} onClick={() => onOpen(item)} className="block w-full border-t border-rule py-2 text-left hover:text-signal-dark transition-colors">
+            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-graphite">
+              {item.year ?? "N.D."} · {item.personName}
+            </p>
+            <p className="mt-0.5 font-display text-sm font-semibold leading-tight">{item.section || item.title}</p>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -247,6 +281,20 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
                     <span className="ml-1 opacity-60 group-hover:opacity-100">{rt.count}</span>
                   </button>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* Related thinking rails — temporal + cross-investor loop (spec §12.4) */}
+          {data.rails && (data.rails.earlier.length > 0 || data.rails.later.length > 0 || data.rails.sameConceptElsewhere.length > 0) && (
+            <div className="mt-6 border-t border-rule pt-4">
+              <p className="kicker flex items-center gap-1.5 mb-3">
+                <Link2 className="h-3 w-3" /> RELATED THINKING
+              </p>
+              <div className="grid gap-5 sm:grid-cols-3">
+                <RailColumn label="EARLIER" items={data.rails.earlier} onOpen={(item) => go("passage", { id: item.id, investor: item.personSlug })} />
+                <RailColumn label="LATER" items={data.rails.later} onOpen={(item) => go("passage", { id: item.id, investor: item.personSlug })} />
+                <RailColumn label="SAME IDEA ELSEWHERE" items={data.rails.sameConceptElsewhere} onOpen={(item) => go("passage", { id: item.id, investor: item.personSlug })} />
               </div>
             </div>
           )}

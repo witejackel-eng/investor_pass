@@ -41,6 +41,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
 
   // Related themes: themes that co-occur with this passage's themes in other passages
   const themeIds = passage.passageThemes.map((pt) => pt.themeId);
+  const conceptIds = passage.passageConcepts.map((pc) => pc.conceptId);
   const relatedThemes: { slug: string; name: string; count: number }[] = [];
   if (themeIds.length > 0) {
     const coOccurrences = await db.passageTheme.findMany({
@@ -54,6 +55,88 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
       else themeCount.set(co.theme.slug, { slug: co.theme.slug, name: co.theme.name, count: 1 });
     }
     relatedThemes.push(...[...themeCount.values()].sort((a, b) => b.count - a.count).slice(0, 8));
+  }
+
+  // Related thinking rails (spec §12.4): earlier/later same-investor thinking
+  // under the anchor theme or company, plus the same idea at other investors.
+  const anchorThemeId = passage.passageThemes[0]?.themeId;
+  const anchorCompanyId = passage.passageCompanies[0]?.companyId;
+  const tagFilter = anchorThemeId
+    ? ({ passageThemes: { some: { themeId: anchorThemeId } } } as const)
+    : anchorCompanyId
+      ? ({ passageCompanies: { some: { companyId: anchorCompanyId } } } as const)
+      : null;
+  const visibilityClause = isPro ? { in: ["public", "pro"] } : ("public" as const);
+  const year = passage.source.year;
+
+  type RailItem = {
+    id: string;
+    section: string | null;
+    title: string;
+    year: number | null;
+    personSlug: string;
+    personName: string;
+  };
+  type PassageRow = {
+    id: string;
+    section: string | null;
+    source: { title: string; year: number | null; person: { slug: string; name: string } };
+  };
+  const toRailItem = (p: PassageRow): RailItem => ({
+    id: p.id,
+    section: p.section,
+    title: p.source.title,
+    year: p.source.year,
+    personSlug: p.source.person.slug,
+    personName: p.source.person.name,
+  });
+  let passageRows: PassageRow[] = [];
+
+  const earlier: RailItem[] = [];
+  const later: RailItem[] = [];
+  const sameConceptElsewhere: RailItem[] = [];
+
+  if (tagFilter && year != null) {
+    passageRows = await db.passage.findMany({
+      where: {
+        AND: [tagFilter, { visibility: visibilityClause }, { id: { not: id } }, { source: { personId: passage.source.personId, year: { lt: year } } }],
+      },
+      select: { id: true, section: true, source: { select: { title: true, year: true, person: { select: { slug: true, name: true } } } } },
+      orderBy: [{ source: { year: "desc" } }, { sequence: "desc" }],
+      take: 4,
+    });
+    earlier.push(...passageRows.map(toRailItem));
+
+    passageRows = await db.passage.findMany({
+      where: {
+        AND: [tagFilter, { visibility: visibilityClause }, { id: { not: id } }, { source: { personId: passage.source.personId, year: { gt: year } } }],
+      },
+      select: { id: true, section: true, source: { select: { title: true, year: true, person: { select: { slug: true, name: true } } } } },
+      orderBy: [{ source: { year: "asc" } }, { sequence: "asc" }],
+      take: 4,
+    });
+    later.push(...passageRows.map(toRailItem));
+  }
+
+  const sharedIdeaClauses = [
+    ...(themeIds.length ? [{ passageThemes: { some: { themeId: { in: themeIds } } } }] : []),
+    ...(conceptIds.length ? [{ passageConcepts: { some: { conceptId: { in: conceptIds } } } }] : []),
+  ];
+  if (sharedIdeaClauses.length > 0) {
+    passageRows = await db.passage.findMany({
+      where: {
+        AND: [
+          { visibility: visibilityClause },
+          { id: { not: id } },
+          { source: { personId: { not: passage.source.personId } } },
+          { OR: sharedIdeaClauses },
+        ],
+      },
+      select: { id: true, section: true, source: { select: { title: true, year: true, person: { select: { slug: true, name: true } } } } },
+      orderBy: [{ source: { year: "desc" } }, { sequence: "desc" }],
+      take: 4,
+    });
+    sameConceptElsewhere.push(...passageRows.map(toRailItem));
   }
 
   return json({
@@ -84,6 +167,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     companies: passage.passageCompanies.map((pco) => ({ slug: pco.company.slug, name: pco.company.name, ticker: pco.company.ticker })),
     events: passage.passageEvents.map((pe) => ({ slug: pe.event.slug, name: pe.event.name })),
     relatedThemes,
+    rails: { earlier, later, sameConceptElsewhere },
     navigation: {
       index: idx + 1,
       total: visibleSiblings.length,

@@ -74,6 +74,51 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     }
   }
 
+  // Related thinking rails at source level (spec §12.4): earlier/later sources
+  // by the same investor, plus other investors' sources under the same themes.
+  const visibilityClause = isPro ? { in: ["public", "pro"] } : ("public" as const);
+  const srcYear = source.year;
+
+  const earlierSources = srcYear != null
+    ? await db.source.findMany({
+        where: { personId: source.personId, id: { not: source.id }, year: { lt: srcYear } },
+        select: { slug: true, title: true, year: true, sourceType: true },
+        orderBy: { year: "desc" },
+        take: 4,
+      })
+    : [];
+  const laterSources = srcYear != null
+    ? await db.source.findMany({
+        where: { personId: source.personId, id: { not: source.id }, year: { gt: srcYear } },
+        select: { slug: true, title: true, year: true, sourceType: true },
+        orderBy: { year: "asc" },
+        take: 4,
+      })
+    : [];
+
+  const topThemeIds = [...themeIds].slice(0, 5);
+  let sameThemeElsewhere: { slug: string; title: string; year: number | null; personName: string }[] = [];
+  if (topThemeIds.length > 0) {
+    const rows = await db.passageTheme.findMany({
+      where: {
+        themeId: { in: topThemeIds },
+        passage: { visibility: visibilityClause, source: { personId: { not: source.personId } } },
+      },
+      include: { passage: { include: { source: { include: { person: { select: { name: true, slug: true } } } } } } },
+      take: 60,
+    });
+    const bySource = new Map<string, { slug: string; title: string; year: number | null; personName: string }>();
+    for (const row of rows) {
+      const s = row.passage.source;
+      if (!bySource.has(s.slug)) {
+        bySource.set(s.slug, { slug: s.slug, title: s.title, year: s.year, personName: s.person.name });
+      }
+    }
+    sameThemeElsewhere = [...bySource.values()]
+      .sort((a, b) => (b.year ?? 0) - (a.year ?? 0))
+      .slice(0, 4);
+  }
+
   return json({
     source: {
       id: source.id,
@@ -115,5 +160,10 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
       sourceType: r.sourceType,
       overlap: r.overlap,
     })),
+    rails: {
+      earlier: earlierSources,
+      later: laterSources,
+      sameThemeElsewhere,
+    },
   });
 }

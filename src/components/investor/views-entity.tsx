@@ -323,6 +323,11 @@ type SourceData = {
   hiddenPassageCount: number;
   decisions: any[];
   relatedSources: any[];
+  rails?: {
+    earlier: { slug: string; title: string; year: number | null }[];
+    later: { slug: string; title: string; year: number | null }[];
+    sameThemeElsewhere: { slug: string; title: string; year: number | null; personName: string }[];
+  };
 };
 
 export function SourceView({ slug }: { slug: string }) {
@@ -414,6 +419,30 @@ export function SourceView({ slug }: { slug: string }) {
         {data.hiddenPassageCount > 0 && <PremiumGate hiddenCount={data.hiddenPassageCount} onUpgrade={() => go("upgrade")} />}
       </section>
 
+      {/* Related thinking rails (spec §12.4) */}
+      {data.rails && (data.rails.earlier.length > 0 || data.rails.later.length > 0 || data.rails.sameThemeElsewhere.length > 0) && (
+        <section className="mt-8 border-t-2 border-ink pt-4">
+          <p className="kicker mb-3">RELATED THINKING</p>
+          <div className="grid gap-5 sm:grid-cols-3">
+            <SourceRail
+              label="EARLIER"
+              items={data.rails.earlier.map((s) => ({ ...s, personName: "" }))}
+              onOpen={(item) => go("source", { slug: item.slug })}
+            />
+            <SourceRail
+              label="LATER"
+              items={data.rails.later.map((s) => ({ ...s, personName: "" }))}
+              onOpen={(item) => go("source", { slug: item.slug })}
+            />
+            <SourceRail
+              label="SAME IDEA ELSEWHERE"
+              items={data.rails.sameThemeElsewhere}
+              onOpen={(item) => go("source", { slug: item.slug })}
+            />
+          </div>
+        </section>
+      )}
+
       {/* Related sources — master prompt §14 */}
       {data.relatedSources.length > 0 && (
         <section className="mt-8 border-t-2 border-ink pt-4">
@@ -448,6 +477,30 @@ function Stat({ n, l }: { n: number; l: string }) {
     <div>
       <p className="font-display text-3xl font-bold tracking-tight text-signal-dark">{n}</p>
       <p className="kicker">{l}</p>
+    </div>
+  );
+}
+
+// One rail of the related-thinking loop on source pages
+function SourceRail({ label, items, onOpen }: {
+  label: string;
+  items: { slug: string; title: string; year: number | null; personName: string }[];
+  onOpen: (item: { slug: string; title: string; year: number | null; personName: string }) => void;
+}) {
+  if (items.length === 0) return null;
+  return (
+    <div>
+      <p className="kicker mb-1">{label}</p>
+      <div className="space-y-0.5">
+        {items.map((item) => (
+          <button key={item.slug} onClick={() => onOpen(item)} className="block w-full border-t border-rule py-2 text-left hover:text-signal-dark transition-colors">
+            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-graphite">
+              {item.year ?? "N.D."}{item.personName ? ` · ${item.personName}` : ""}
+            </p>
+            <p className="mt-0.5 font-display text-sm font-semibold leading-tight">{item.title}</p>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
