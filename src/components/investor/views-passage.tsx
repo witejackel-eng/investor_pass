@@ -63,7 +63,7 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
         <p className="font-display text-2xl font-bold">{error}</p>
         {error.includes("Pro") && (
           <button onClick={() => go("upgrade")} className="mt-4 bg-ink px-5 py-2 text-sm font-semibold text-paper hover:bg-signal-dark">
-            START PRO — $9/MONTH
+            START PRO — $19/MONTH
           </button>
         )}
       </div>

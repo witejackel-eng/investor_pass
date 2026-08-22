@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useStore } from "@/stores/app-store";
+import { useStore, type ViewParams } from "@/stores/app-store";
 import { apiPost } from "@/lib/client";
+import { PRICING, useCurrency } from "@/lib/pricing";
 import { toast } from "sonner";
 import { Loading } from "./views-core";
 import { Crown, Check, Shield } from "lucide-react";
@@ -74,7 +75,7 @@ export function SignupView() {
       <div className="border-t-2 border-ink pt-4">
         <p className="kicker">/ SIGN UP</p>
         <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight">Create your account</h1>
-        <p className="mt-2 font-reader text-graphite">Start free. Upgrade to Pro anytime for $9/month.</p>
+        <p className="mt-2 font-reader text-graphite">Start free. Upgrade to Pro anytime — $19/month or ₹999/month.</p>
       </div>
       <form onSubmit={submit} className="mt-6 space-y-4">
         <Field label="Name (optional)" type="text" value={name} onChange={setName} />
@@ -94,8 +95,11 @@ export function SignupView() {
 // ── Upgrade ────────────────────────────────────────────────────────────────
 export function UpgradeView() {
   const { upgrade, go, user } = useStore();
+  const params = useStore((s) => s.params);
   const [loading, setLoading] = useState(false);
   const [variant, setVariant] = useState<"monthly" | "annual">("annual");
+  const [currency, setCurrency] = useCurrency();
+  const p = PRICING[currency];
 
   const submit = async () => {
     if (!user) { go("signup"); return; }
@@ -103,7 +107,14 @@ export function UpgradeView() {
     try {
       await upgrade(variant);
       toast.success("You're now Pro — full library unlocked");
-      go("search");
+      // Return to the exact research state that led here (spec §28)
+      const ctx: ViewParams = {};
+      if (params.q) ctx.q = params.q;
+      for (const k of ["person", "theme", "company", "concept", "event", "yearFrom", "yearTo", "sourceType", "decade"]) {
+        const v = params[k];
+        if (v) ctx[k] = v;
+      }
+      go("search", ctx);
     } catch (e: any) {
       toast.error(e.message);
     } finally {
@@ -121,10 +132,20 @@ export function UpgradeView() {
         <p className="mt-4 font-reader text-lg text-graphite">Access the full investor library — every passage, every source, every link between theme, company, year, and decision.</p>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      {/* Currency selector — region-defaulted, always switchable (payments spec §1) */}
+      <div className="mt-8 flex items-center justify-center gap-2">
+        <span className="kicker mr-1">CURRENCY</span>
+        {(["INR", "USD"] as const).map((c) => (
+          <button key={c} onClick={() => setCurrency(c)} className={currency === c ? "chip chip-signal" : "chip"}>
+            {c === "INR" ? "₹ INR" : "$ USD"}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <button onClick={() => setVariant("monthly")} className={`border p-6 text-left transition-all ${variant === "monthly" ? "border-ink bg-paper shadow-[3px_3px_0_0_var(--ink)]" : "border-rule bg-paper-2"}`}>
           <p className="kicker">MONTHLY</p>
-          <p className="mt-2 font-display text-4xl font-bold">$9<span className="text-base font-normal text-graphite">/mo</span></p>
+          <p className="mt-2 font-display text-4xl font-bold">{p.monthly}<span className="text-base font-normal text-graphite">/mo</span></p>
           <ul className="mt-4 space-y-1.5 font-reader text-sm text-graphite">
             <li>· Full search</li>
             <li>· All passages</li>
@@ -134,10 +155,10 @@ export function UpgradeView() {
         <button onClick={() => setVariant("annual")} className={`border-2 p-6 text-left transition-all ${variant === "annual" ? "border-ink bg-paper shadow-[4px_4px_0_0_var(--ink)]" : "border-rule bg-paper-2"}`}>
           <div className="flex items-center justify-between">
             <p className="kicker text-signal-dark">ANNUAL</p>
-            <span className="chip chip-signal">SAVE 27%</span>
+            <span className="chip chip-signal">≈ 8 MONTHS</span>
           </div>
-          <p className="mt-2 font-display text-4xl font-bold">$79<span className="text-base font-normal text-graphite">/yr</span></p>
-          <p className="font-mono text-xs text-graphite">$6.58/mo equivalent</p>
+          <p className="mt-2 font-display text-4xl font-bold">{p.annual}<span className="text-base font-normal text-graphite">/yr</span></p>
+          <p className="font-mono text-xs text-graphite">{currency === "INR" ? "₹7,999 ≈ 8 × ₹999" : "$149 < 8 × $19"}</p>
           <ul className="mt-4 space-y-1.5 font-reader text-sm text-graphite">
             <li>· Everything in monthly</li>
             <li>· Saved searches</li>
@@ -147,10 +168,10 @@ export function UpgradeView() {
       </div>
 
       <button onClick={submit} disabled={loading} className="mt-6 w-full bg-ink py-3 text-sm font-semibold text-paper hover:bg-signal-dark disabled:opacity-50">
-        {loading ? "PROCESSING…" : user ? `START PRO — ${variant === "annual" ? "$79/YEAR" : "$9/MONTH"}` : "SIGN UP TO CONTINUE"}
+        {loading ? "PROCESSING…" : user ? `START PRO — ${variant === "annual" ? `${p.annual}/YEAR` : `${p.monthly}/MONTH`}` : "SIGN UP TO CONTINUE"}
       </button>
       <p className="mt-3 text-center font-reader text-xs text-graphite">
-        Simulated checkout for demonstration. In production this routes through a payment provider with webhook-verified entitlement.
+        Simulated checkout for demonstration. In production this routes through Razorpay or PayPal with webhook-verified entitlement.
       </p>
     </div>
   );

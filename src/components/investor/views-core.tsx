@@ -6,6 +6,7 @@ import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
+import { PRICING, useCurrency } from "@/lib/pricing";
 import { ArrowRight, Clock, Building2, Tag, FileText, ChevronRight } from "lucide-react";
 
 type Investor = {
@@ -22,6 +23,7 @@ type Investor = {
 
 export function HomeView() {
   const go = useStore((s) => s.go);
+  const [currency] = useCurrency();
   const [investors, setInvestors] = useState<Investor[]>([]);
   useEffect(() => {
     apiGet<{ investors: Investor[] }>("/api/investors").then((d) => setInvestors(d.investors));
@@ -54,7 +56,7 @@ export function HomeView() {
                 EXPLORE INVESTORS
               </button>
               <button onClick={() => go("upgrade")} className="nav-link text-sm font-semibold">
-                START PRO — $9/MO <ArrowRight className="inline h-3.5 w-3.5" />
+                START PRO — {PRICING[currency].monthly}/MO <ArrowRight className="inline h-3.5 w-3.5" />
               </button>
             </div>
           </div>
@@ -154,8 +156,8 @@ export function HomeView() {
               <p className="kicker text-signal-dark">PRO</p>
               <ProBadge />
             </div>
-            <p className="mt-2 font-display text-3xl font-bold">$9<span className="text-base font-normal text-graphite">/month</span></p>
-            <p className="mt-1 font-mono text-xs text-graphite">or $79/year — save 27%</p>
+            <p className="mt-2 font-display text-3xl font-bold">{PRICING[currency].monthly}<span className="text-base font-normal text-graphite">/month</span></p>
+            <p className="mt-1 font-mono text-xs text-graphite">or {PRICING[currency].annual}/year — ≈ 8 months{currency === "INR" ? " · ₹7,999 ≈ 8 × ₹999" : " · $149 < 8 × $19"}</p>
             <ul className="mt-4 space-y-2 font-reader text-graphite">
               <li>· Full search across every passage</li>
               <li>· All premium passages unlocked</li>

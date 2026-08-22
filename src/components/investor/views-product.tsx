@@ -439,7 +439,7 @@ export function SearchView(_props: { initialQuery?: string; person?: string; the
                         <button onClick={() => go("upgrade", upgradeCtx)} className="bg-ink px-4 py-2 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
                           START PRO — $19/MONTH
                         </button>
-                        <span className="kicker">$149/YEAR · SAVE 35%</span>
+                        <span className="kicker">$149/YEAR · ₹7,999/YEAR · ≈ 8 MONTHS</span>
                       </div>
                     </div>
                   </div>

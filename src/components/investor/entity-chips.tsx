@@ -65,9 +65,9 @@ export function PremiumGate({
               onClick={onUpgrade}
               className="bg-ink px-4 py-2 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors"
             >
-              START PRO — $9/MONTH
+              START PRO — $19/MONTH
             </button>
-            <span className="kicker">$79/YEAR · SAVE 27%</span>
+            <span className="kicker">$149/YEAR · ₹999/MONTH · ₹7,999/YEAR</span>
           </div>
         </div>
       </div>
