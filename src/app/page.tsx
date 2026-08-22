@@ -12,26 +12,24 @@ import { CommandPalette } from "@/components/investor/command-palette";
 
 // Route-level code splitting: core reading path stays eager,
 // everything else loads on demand with a layout-stable fallback.
-const opts = { loading: Loading };
-
-const TopicView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.TopicView })), opts);
-const CompanyView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.CompanyView })), opts);
-const YearView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.YearView })), opts);
-const SourceView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.SourceView })), opts);
-const ConceptView = dynamic(() => import("@/components/investor/views-concept").then((m) => ({ default: m.ConceptView })), opts);
-const EventView = dynamic(() => import("@/components/investor/views-event").then((m) => ({ default: m.EventView })), opts);
-const TimelineView = dynamic(() => import("@/components/investor/views-timeline").then((m) => ({ default: m.TimelineView })), opts);
-const CompareView = dynamic(() => import("@/components/investor/views-compare").then((m) => ({ default: m.CompareView })), opts);
-const TrailsLazy = dynamic(() => import("@/components/investor/views-trails-lazy").then((m) => ({ default: m.TrailsLazy })), opts);
-const BookmarksView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.BookmarksView })), opts);
-const SavedSearchesView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.SavedSearchesView })), opts);
-const CollectionsView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.CollectionsView })), opts);
-const WatchlistView = dynamic(() => import("@/components/investor/views-watchlist").then((m) => ({ default: m.WatchlistView })), opts);
-const AccountView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AccountView })), opts);
-const UpgradeView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.UpgradeView })), opts);
-const LoginView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.LoginView })), opts);
-const SignupView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.SignupView })), opts);
-const AdminView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AdminView })), opts);
+const TopicView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.TopicView })), { loading: () => <Loading /> });
+const CompanyView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.CompanyView })), { loading: () => <Loading /> });
+const YearView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.YearView })), { loading: () => <Loading /> });
+const SourceView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.SourceView })), { loading: () => <Loading /> });
+const ConceptView = dynamic(() => import("@/components/investor/views-concept").then((m) => ({ default: m.ConceptView })), { loading: () => <Loading /> });
+const EventView = dynamic(() => import("@/components/investor/views-event").then((m) => ({ default: m.EventView })), { loading: () => <Loading /> });
+const TimelineView = dynamic(() => import("@/components/investor/views-timeline").then((m) => ({ default: m.TimelineView })), { loading: () => <Loading /> });
+const CompareView = dynamic(() => import("@/components/investor/views-compare").then((m) => ({ default: m.CompareView })), { loading: () => <Loading /> });
+const TrailsLazy = dynamic(() => import("@/components/investor/views-trails-lazy").then((m) => ({ default: m.TrailsLazy })), { loading: () => <Loading /> });
+const BookmarksView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.BookmarksView })), { loading: () => <Loading /> });
+const SavedSearchesView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.SavedSearchesView })), { loading: () => <Loading /> });
+const CollectionsView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.CollectionsView })), { loading: () => <Loading /> });
+const WatchlistView = dynamic(() => import("@/components/investor/views-watchlist").then((m) => ({ default: m.WatchlistView })), { loading: () => <Loading /> });
+const AccountView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AccountView })), { loading: () => <Loading /> });
+const UpgradeView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.UpgradeView })), { loading: () => <Loading /> });
+const LoginView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.LoginView })), { loading: () => <Loading /> });
+const SignupView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.SignupView })), { loading: () => <Loading /> });
+const AdminView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AdminView })), { loading: () => <Loading /> });
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
@@ -81,3 +79,4 @@ export default function Home() {
     </div>
   );
 }
+
