@@ -189,5 +189,122 @@ export async function searchPassages(
 
   hits.sort((a, b) => b.score - a.score);
 
+<<<<<<< HEAD
   return { hits, total, page, pageSize };
+=======
+  // Exploration summary for broad queries (few tokens / entity-only match).
+  // Counts come from one batched roundtrip — no N+1 loops.
+  const structuredCount = [personId, parsed.theme, parsed.concept, parsed.company, parsed.event].filter(Boolean).length;
+  const hasRangeOrMeta = Boolean(parsed.yearFrom || parsed.yearTo || filters.decade || filters.sourceType);
+  const isBroad = tokens.length <= 1 && structuredCount <= 1 && !hasRangeOrMeta && (query.trim() !== "" || structuredCount === 1);
+  let exploration: Exploration | null = null;
+  if (isBroad) {
+    const lightRows = await db.passage.findMany({
+      where,
+      select: { source: { select: { slug: true, person: { select: { slug: true, name: true } } } } },
+    });
+    const perPerson = new Map<string, { slug: string; name: string; count: number }>();
+    const sourceSet = new Set<string>();
+    for (const r of lightRows) {
+      sourceSet.add(r.source.slug);
+      const entry = perPerson.get(r.source.person.slug);
+      if (entry) entry.count++;
+      else perPerson.set(r.source.person.slug, { slug: r.source.person.slug, name: r.source.person.name, count: 1 });
+    }
+    exploration = {
+      term: (query.trim() || "").toUpperCase(),
+      references: total,
+      investors: perPerson.size,
+      sources: sourceSet.size,
+      byInvestor: [...perPerson.values()].sort((a, b) => b.count - a.count).slice(0, 8),
+    };
+  }
+
+  // Free-tier value signal: how many references exist behind Pro (count only).
+  // Same filters, without the visibility restriction — never exposes content.
+  let proTotal: number | null = null;
+  if (!isPro) {
+    const unrestricted: any = { ...where };
+    delete unrestricted.visibility;
+    proTotal = await db.passage.count({ where: unrestricted });
+  }
+
+  // Never dead-end: suggestions drawn from nearest theme/concept names
+  const suggestions = total === 0 ? await suggestQueries(query, tokens) : [];
+
+  return {
+    hits,
+    total,
+    page,
+    pageSize,
+    parsed: {
+      person: parsed.person,
+      theme: parsed.theme,
+      concept: parsed.concept,
+      company: parsed.company,
+      event: parsed.event,
+      yearFrom: parsed.yearFrom,
+      yearTo: parsed.yearTo,
+      freeText: parsed.freeText,
+      chips: parsed.chips,
+    },
+    exploration,
+    proTotal,
+    suggestions,
+  };
+}
+
+async function resolvePersonId(slug?: string): Promise<string | undefined> {
+  if (!slug) return undefined;
+  const p = await db.person.findUnique({ where: { slug }, select: { id: true } });
+  return p?.id;
+}
+
+// Nearest theme/concept names by shared word prefixes; falls back to the most
+// referenced themes so the user always has a next step.
+async function suggestQueries(query: string, tokens: string[]): Promise<string[]> {
+  const [themes, concepts] = await Promise.all([
+    db.theme.findMany({ select: { slug: true, name: true } }),
+    db.concept.findMany({ select: { slug: true, name: true } }),
+  ]);
+  const scored: { label: string; score: number }[] = [];
+  const qTokens = [...new Set([...tokens, ...query.toLowerCase().split(/\s+/)])]
+    .map((t) => t.replace(/[^a-z0-9]/g, ""))
+    .filter((t) => t.length >= 3);
+  const candidates = [
+    ...themes.map((t) => ({ label: t.name, words: normWords(`${t.name} ${t.slug}`) })),
+    ...concepts.map((c) => ({ label: c.name, words: normWords(`${c.name} ${c.slug}`) })),
+  ];
+  for (const c of candidates) {
+    let score = 0;
+    for (const t of qTokens) {
+      for (const w of c.words) {
+        if (w === t) score += 2;
+        else if (w.startsWith(t) || t.startsWith(w)) score += 1;
+      }
+    }
+    if (score > 0) scored.push({ label: c.label, score });
+  }
+  if (scored.length > 0) {
+    return scored
+      .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label))
+      .slice(0, 5)
+      .map((s) => s.label);
+  }
+  // Fallback: most-referenced themes in the whole library
+  const top = await db.passageTheme.groupBy({
+    by: ["themeId"],
+    _count: { themeId: true },
+    orderBy: { _count: { themeId: "desc" } },
+    take: 5,
+  });
+  const ids = top.map((t) => t.themeId);
+  const recs = await db.theme.findMany({ where: { id: { in: ids } }, select: { id: true, name: true } });
+  const order = new Map(ids.map((id, i) => [id, i]));
+  return recs.sort((a, b) => order.get(a.id)! - order.get(b.id)!).map((t) => t.name);
+}
+
+function normWords(s: string): string[] {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, " ").split(/\s+/).filter((w) => w.length >= 3);
+>>>>>>> 4c40e29 (A1/A2: universal search across all investors with deterministic intent parsing)
 }
