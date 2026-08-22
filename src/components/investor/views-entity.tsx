@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
 import { apiGet } from "@/lib/client";
-import { EntityChips, PremiumGate, SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
+import { EntityChips, PremiumGate, SourceTypeBadge, ProBadge, FictionalAttributionBanner, isFictionalisedAttribution } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { Loading } from "./views-core";
 import { ArrowLeft, ExternalLink, Lock, ChevronRight, Link2 } from "lucide-react";
@@ -356,22 +356,27 @@ export function SourceView({ slug }: { slug: string }) {
           {data.source.publicationDate && <span className="font-mono text-xs text-graphite">· {data.source.publicationDate}</span>}
         </div>
         {data.source.description && <p className="mt-4 max-w-[760px] font-reader text-lg text-graphite">{data.source.description}</p>}
+        {isFictionalisedAttribution(data.source) && <FictionalAttributionBanner />}
       </div>
 
-      {/* Provenance */}
+      {/* Provenance — where information came from (spec §12.5/§29) */}
       <section className="mt-6 border border-rule bg-paper-2 p-4">
         <p className="kicker">PROVENANCE</p>
         <div className="mt-2 grid gap-2 font-mono text-xs text-graphite sm:grid-cols-2">
           <div>Publisher: <span className="text-ink">{data.source.publisher || "—"}</span></div>
           <div>Published: <span className="text-ink">{data.source.publicationDate || data.source.year || "—"}</span></div>
-          <div>Type: <span className="text-ink">{data.source.sourceType}</span></div>
-          <div>Status: <span className="text-ink">{data.source.provenanceStatus}</span></div>
+          <div>Type: <span className="text-ink">{data.source.sourceType.replace(/_/g, " ")}</span></div>
+          <div>Status: <span className={data.source.provenanceStatus === "verified" ? "font-semibold text-signal-dark" : "text-ink"}>
+            {data.source.provenanceStatus === "verified" ? "Verified source" : data.source.provenanceStatus}
+          </span></div>
           <div>Retrieved: <span className="text-ink">{new Date(data.source.retrievalAt).toISOString().slice(0, 10)}</span></div>
         </div>
-        {data.source.url && (
+        {data.source.url ? (
           <a href={data.source.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-signal-dark hover:underline">
-            View original source <ExternalLink className="h-3.5 w-3.5" />
+            Original source → <ExternalLink className="h-3.5 w-3.5" />
           </a>
+        ) : (
+          <p className="mt-3 font-mono text-xs text-graphite">No canonical external link available for this record.</p>
         )}
       </section>
 

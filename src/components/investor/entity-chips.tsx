@@ -97,3 +97,28 @@ export function ProBadge() {
     </span>
   );
 }
+
+// Sources whose passages are a novelist's rendering, not the investor's own words.
+// The corpus registry carries the FICTIONALISED_ATTRIBUTION flag in title/publisher;
+// until re-imported, the canonical novel is also recognised by slug.
+const FICTIONAL_SOURCE_SLUGS = new Set(["reminiscences-of-a-stock-operator"]);
+
+export function isFictionalisedAttribution(source: { slug?: string; title?: string | null; publisher?: string | null }): boolean {
+  if (source.slug && FICTIONAL_SOURCE_SLUGS.has(source.slug)) return true;
+  return /fictionali[sz](?:ed|ation)[_-]?attribution/i.test(`${source.title || ""} ${source.publisher || ""}`);
+}
+
+export function FictionalAttributionBanner() {
+  return (
+    <div
+      className="mt-4 border p-4"
+      role="note"
+      style={{ borderColor: "rgba(217, 119, 6, 0.55)", background: "rgba(217, 119, 6, 0.09)" }}
+    >
+      <p className="kicker" style={{ color: "#d97706" }}>FICTIONALISED ATTRIBUTION</p>
+      <p className="mt-1 font-reader text-base">
+        This is a novel by Edwin Lefèvre. The narrator &lsquo;Larry Livingston&rsquo; is a fictionalised character based on Livermore — passages are not Livermore&rsquo;s own words.
+      </p>
+    </div>
+  );
+}

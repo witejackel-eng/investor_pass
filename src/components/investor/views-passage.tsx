@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
 import { apiGet } from "@/lib/client";
-import { EntityChips, PremiumGate, SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
+import { EntityChips, PremiumGate, SourceTypeBadge, ProBadge, FictionalAttributionBanner, isFictionalisedAttribution } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { Loading } from "./views-core";
 import { ArrowLeft, ExternalLink, Sparkles, Link2, ChevronRight, ArrowRight } from "lucide-react";
@@ -336,6 +336,7 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
 
         {/* Sidebar */}
         <aside className="space-y-6">
+          {isFictionalisedAttribution(source) && <FictionalAttributionBanner />}
           <div className="border border-rule bg-paper-2 p-4">
             <p className="kicker mb-2">SOURCE</p>
             <button onClick={() => go("source", { slug: source.slug })} className="font-display text-base font-bold tracking-tight hover:text-signal-dark text-left">
