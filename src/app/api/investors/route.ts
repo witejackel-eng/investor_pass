@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { json } from "@/lib/api";
+import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
@@ -29,5 +29,9 @@ export async function GET() {
           }
         : null,
   }));
-  return json({ investors: data });
+  return NextResponse.json(
+    { investors: data },
+    // Session-independent public data — safe to cache at the edge + in browsers.
+    { headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600" } }
+  );
 }

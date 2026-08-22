@@ -1,21 +1,36 @@
 "use client";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import { useStore } from "@/stores/app-store";
 import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import { Masthead } from "@/components/investor/masthead";
 import { Footer } from "@/components/investor/footer";
-import { HomeView, InvestorsView, InvestorView } from "@/components/investor/views-core";
-import { TopicView, CompanyView, YearView, SourceView } from "@/components/investor/views-entity";
-import { SearchView, LibraryView, BookmarksView, SavedSearchesView, CollectionsView } from "@/components/investor/views-product";
-import { LoginView, SignupView, UpgradeView, AccountView, AdminView } from "@/components/investor/views-auth";
-import { TimelineView } from "@/components/investor/views-timeline";
+import { HomeView, InvestorsView, InvestorView, Loading } from "@/components/investor/views-core";
+import { SearchView, LibraryView } from "@/components/investor/views-product";
 import { PassageView } from "@/components/investor/views-passage";
-import { ConceptView } from "@/components/investor/views-concept";
-import { EventView } from "@/components/investor/views-event";
 import { CommandPalette } from "@/components/investor/command-palette";
-import { TrailsIndex, TrailDetail, type Trail } from "@/components/investor/views-trails";
-import trailsData from "@/data/trails/trails.json";
-import { CompareView } from "@/components/investor/views-compare";
+
+// Route-level code splitting: core reading path stays eager,
+// everything else loads on demand with a layout-stable fallback.
+const opts = { loading: Loading };
+
+const TopicView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.TopicView })), opts);
+const CompanyView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.CompanyView })), opts);
+const YearView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.YearView })), opts);
+const SourceView = dynamic(() => import("@/components/investor/views-entity").then((m) => ({ default: m.SourceView })), opts);
+const ConceptView = dynamic(() => import("@/components/investor/views-concept").then((m) => ({ default: m.ConceptView })), opts);
+const EventView = dynamic(() => import("@/components/investor/views-event").then((m) => ({ default: m.EventView })), opts);
+const TimelineView = dynamic(() => import("@/components/investor/views-timeline").then((m) => ({ default: m.TimelineView })), opts);
+const CompareView = dynamic(() => import("@/components/investor/views-compare").then((m) => ({ default: m.CompareView })), opts);
+const TrailsLazy = dynamic(() => import("@/components/investor/views-trails-lazy").then((m) => ({ default: m.TrailsLazy })), opts);
+const BookmarksView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.BookmarksView })), opts);
+const SavedSearchesView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.SavedSearchesView })), opts);
+const CollectionsView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.CollectionsView })), opts);
+const AccountView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AccountView })), opts);
+const UpgradeView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.UpgradeView })), opts);
+const LoginView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.LoginView })), opts);
+const SignupView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.SignupView })), opts);
+const AdminView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AdminView })), opts);
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
@@ -39,12 +54,9 @@ export default function Home() {
       case "concept": return params.slug ? <ConceptView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "event": return params.slug ? <EventView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "search": return <SearchView initialQuery={params.q || ""} person={params.person} theme={params.theme} company={params.company} concept={params.concept} event={params.event} />;
-case "trails": return <TrailsIndex trails={trailsData as Trail[]} onOpen={(slug) => go("trailDetail", { slug })} />;
-case "compare": return <CompareView />;
-case "trailDetail": {
-  const trail = (trailsData as Trail[]).find((t) => t.slug === params.slug);
-  return trail ? <TrailDetail trail={trail} onBack={() => go("trails")} /> : <TrailsIndex trails={trailsData as Trail[]} onOpen={(slug) => go("trailDetail", { slug })} />;
-}
+      case "trails": return <TrailsLazy go={go} />;
+      case "compare": return <CompareView />;
+      case "trailDetail": return <TrailsLazy slug={params.slug} go={go} />;
       case "library": return <LibraryView />;
       case "bookmarks": return <BookmarksView />;
       case "searches": return <SavedSearchesView />;

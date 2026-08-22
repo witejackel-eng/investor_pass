@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { Providers } from "@/app/providers";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -84,7 +85,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        {children}
+        <Providers>{children}</Providers>
         <Toaster position="bottom-right" />
       </body>
     </html>

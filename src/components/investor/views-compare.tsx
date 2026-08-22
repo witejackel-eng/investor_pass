@@ -1,5 +1,7 @@
+"use client";
 import { useEffect, useMemo, useState } from "react";
 import { apiGet, track } from "@/lib/client";
+import { useInvestors } from "@/hooks/use-investors";
 
 type InvestorLite = { slug: string; name: string; shortDescription?: string | null };
 type TagRef = { slug: string; name: string };
@@ -45,25 +47,17 @@ function Chip({ active, onClick, children }: { active?: boolean; onClick: () => 
 }
 
 export function CompareView() {
-  const [investors, setInvestors] = useState<InvestorLite[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
   const [q, setQ] = useState("");
   const [themeSlug, setThemeSlug] = useState<string | null>(null);
   const [data, setData] = useState<CompareData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [investorsLoading, setInvestorsLoading] = useState(true);
+  const { data: investors = [], isLoading: investorsLoading, isError: investorsError, refetch: refetchInvestors } = useInvestors();
 
-  const loadInvestors = () => {
-    setInvestorsLoading(true);
-    setError(null);
-    apiGet<{ investors: InvestorLite[] }>("/api/investors")
-      .then((d) => setInvestors(d.investors.filter((r) => r.slug !== undefined)))
-      .catch(() => setError("Could not load investors."))
-      .finally(() => setInvestorsLoading(false));
-  };
-
-  useEffect(loadInvestors, []);
+  useEffect(() => {
+    if (investorsError) setError("Could not load investors.");
+  }, [investorsError]);
 
   const toggleInvestor = (slug: string) =>
     setSelected((cur) =>
@@ -116,8 +110,8 @@ export function CompareView() {
             </Chip>
           ))}
           {investorsLoading && <span className="text-xs text-[var(--graphite)]">Loading…</span>}
-          {!investorsLoading && !error && !investors.length && (
-            <button onClick={loadInvestors} className="chip">RETRY</button>
+          {!investorsLoading && investorsError && (
+            <button onClick={() => refetchInvestors()} className="chip">RETRY</button>
           )}
         </div>
 

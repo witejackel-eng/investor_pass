@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
 import { apiGet } from "@/lib/client";
+import { useInvestors } from "@/hooks/use-investors";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
@@ -44,11 +45,8 @@ export function HomeView() {
   const go = useStore((s) => s.go);
   const isPro = useStore((s) => s.user?.entitlement === "pro");
   const [currency] = useCurrency();
-  const [investors, setInvestors] = useState<Investor[]>([]);
+  const { data: investors = [] } = useInvestors();
   const stats = useStats();
-  useEffect(() => {
-    apiGet<{ investors: Investor[] }>("/api/investors").then((d) => setInvestors(d.investors));
-  }, []);
   const buffett = investors.find((i) => i.slug === "buffett");
   const future = investors.filter((i) => i.status === "coming_later");
 
@@ -211,10 +209,7 @@ export function HomeView() {
 
 export function InvestorsView() {
   const go = useStore((s) => s.go);
-  const [investors, setInvestors] = useState<Investor[]>([]);
-  useEffect(() => {
-    apiGet<{ investors: Investor[] }>("/api/investors").then((d) => setInvestors(d.investors));
-  }, []);
+  const { data: investors = [] } = useInvestors();
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 lg:px-8">
       <div className="border-t-2 border-ink pt-4">

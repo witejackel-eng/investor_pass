@@ -10,9 +10,9 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname),
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
 };
 
 export default nextConfig;
