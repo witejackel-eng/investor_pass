@@ -1,0 +1,23 @@
+{
+  "personSlug": "soros",
+  "sources": [
+    {
+      "slug": "ceu-reflexivity-lecture-transcript",
+      "title": "General Theory of Reflexivity (CEU Lecture Transcript)",
+      "year": 2009,
+      "sourceType": "speech",
+      "publisher": "Open Society Foundations / Central European University",
+      "url": "https://www.opensocietyfoundations.org/uploads/9ae17912-2262-4646-8ffc-d01afc934c36/george-soros-general-theory-of-reflexivity-transcript.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "ceu-open-society-lecture-transcript",
+      "title": "Open Society (CEU Lecture Transcript)",
+      "year": 2009,
+      "sourceType": "speech",
+      "publisher": "Open Society Foundations / Central European University",
+      "url": "https://archive.org/download/george-soros-general-theory-of-reflexivity-transcript/george-soros-open-society-transcript.pdf",
+      "format": "pdf"
+    }
+  ]
+}

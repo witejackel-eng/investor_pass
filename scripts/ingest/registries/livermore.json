@@ -1,0 +1,14 @@
+{
+  "personSlug": "livermore",
+  "sources": [
+    {
+      "slug": "reminiscences-of-a-stock-operator",
+      "title": "Reminiscences of a Stock Operator (as told to Edwin Lef�vre)",
+      "year": 1923,
+      "sourceType": "book",
+      "publisher": "George H. Doran & Co. (public domain, Internet Archive)",
+      "url": "https://archive.org/details/jesse-livermore-reminiscences-of-a-stock-operator",
+      "format": "html"
+    }
+  ]
+}

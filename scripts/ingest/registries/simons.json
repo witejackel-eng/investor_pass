@@ -1,0 +1,14 @@
+{
+  "personSlug": "simons",
+  "sources": [
+    {
+      "slug": "ted-interview-2015",
+      "title": "A Rare Interview with the Mathematician Who Cracked Wall Street",
+      "year": 2015,
+      "sourceType": "interview",
+      "publisher": "TED Conferences",
+      "url": "https://www.ted.com/talks/jim_simons_a_rare_interview_with_the_mathematician_who_cracked_wall_street/transcript",
+      "format": "html"
+    }
+  ]
+}

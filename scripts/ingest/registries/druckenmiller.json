@@ -1,0 +1,23 @@
+{
+  "personSlug": "druckenmiller",
+  "sources": [
+    {
+      "slug": "econ-club-ny-2020",
+      "title": "Economic Club of New York Address",
+      "year": 2020,
+      "sourceType": "speech",
+      "publisher": "Economic Club of New York",
+      "url": "https://www.econclubny.org/documents/10184/109144/2020DruckenmillerTranscript.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "lost-tree-club-talk",
+      "title": "Lost Tree Club Talk with Ken Langone Q&A",
+      "year": 2015,
+      "sourceType": "speech",
+      "publisher": "Cove Street Capital (transcript)",
+      "url": "https://gist.githubusercontent.com/timhwang21/e6a2b24e064182dd9099ad00e4f4f9a6/raw",
+      "format": "html"
+    }
+  ]
+}
