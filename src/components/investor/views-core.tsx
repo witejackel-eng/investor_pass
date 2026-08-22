@@ -441,10 +441,13 @@ export function Loading() {
   );
 }
 
-// ── Recently viewed section (home page) ────────────────────────────────────
+// ── Continue exploring (home page) ─────────────────────────────────────────
+// Logged-in: server-backed next-unread feed (never repeats read passages).
+// Guests: localStorage recents, unchanged.
 function RecentlyViewed() {
   const go = useStore((s) => s.go);
-  const [items, setItems] = useState<{ view: string; slug: string; label: string; ts: number }[]>(() => {
+  const user = useStore((s) => s.user);
+  const [items, setItems] = useState<{ view: string; slug: string; label?: string; excerpt?: string; meta?: string; ts?: number }[]>(() => {
     try {
       const raw = typeof window !== "undefined" ? localStorage.getItem("ip_recently_viewed") : null;
       return raw ? JSON.parse(raw) : [];
@@ -452,13 +455,57 @@ function RecentlyViewed() {
       return [];
     }
   });
+  const [serverItems, setServerItems] = useState<typeof items | null>(null);
 
-  if (items.length === 0) return null;
+  useEffect(() => {
+    if (!user || serverItems) return;
+    let active = true;
+    apiGet<{ items: typeof items }>(`/api/continue?person=buffett`)
+      .then((d) => { if (active) setServerItems(d.items); })
+      .catch(() => { if (active) setServerItems([]); });
+    return () => { active = false; };
+  }, [user, serverItems]);
+
+  if (!user && items.length === 0) return null;
 
   const viewLabels: Record<string, string> = {
     investor: "Investor", topic: "Topic", company: "Company", year: "Year",
     source: "Source", passage: "Passage", concept: "Concept", event: "Event",
   };
+
+  // Server-backed mode
+  if (user) {
+    const serverLoading = serverItems === null;
+    return (
+      <section className="mt-8 border-t-2 border-ink py-6">
+        <div className="flex items-center gap-2">
+          <Clock className="h-4 w-4 text-signal-dark" />
+          <p className="kicker text-signal-dark">CONTINUE READING</p>
+        </div>
+        {serverLoading && <div className="mt-4 h-[72px] border border-rule bg-paper-2 animate-pulse" />}
+        {!serverLoading && serverItems && serverItems.length === 0 && (
+          <p className="mt-3 font-reader text-sm text-graphite">
+            Nothing queued yet — open any passage and this becomes your resume point.
+          </p>
+        )}
+        {!serverLoading && serverItems && serverItems.length > 0 && (
+          <div className="mt-4 grid gap-2 md:grid-cols-2">
+            {serverItems.map((item) => (
+              <button
+                key={item.slug}
+                onClick={() => go(item.view as any, item.view === "year" ? { year: item.slug, investor: "buffett" } : { slug: item.slug, investor: "buffett" })}
+                className="group border border-rule bg-paper-2 p-3 text-left transition-colors hover:border-ink"
+              >
+                <p className="font-mono text-[0.62rem] uppercase tracking-wider text-graphite">{item.meta}</p>
+                <p className="mt-1 font-display text-sm font-semibold leading-tight">{item.label}</p>
+                <p className="mt-1 line-clamp-2 font-reader text-xs text-graphite">{item.excerpt}…</p>
+              </button>
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  }
 
   return (
     <section className="mt-8 border-t-2 border-ink py-6">

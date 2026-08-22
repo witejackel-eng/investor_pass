@@ -33,6 +33,10 @@ model User {
   savedSearches SavedSearch[]
   collections   Collection[]
   sessions      Session[]
+  passageProgress PassageProgress[]
+  follows       Follow[]
+  visitCursor   VisitCursor?
+  notifications Notification[]
 }
 
 model Session {
@@ -230,6 +234,15 @@ model Decision {
   date        String?
   description String?
   sourceId    String?
+  // Decision Ledger extensions (Master Plan §19-20): statement → decision → outcome
+  statement        String?
+  action           String?
+  outcome          String?
+  outcomeSourceUrl String?
+  decisionDate     String?
+  // confidence: "high" | "medium" | "inferred"
+  confidence       String?
+  verified         Boolean @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -240,6 +253,63 @@ model Decision {
 
   @@index([personId])
   @@index([companyId])
+}
+
+// ── Retention layer: reading continuity ──────────────────────────────────────
+// One row per (user, passage) once the passage has been read ≥ dwell threshold.
+model PassageProgress {
+  userId    String
+  passageId String
+  sourceId  String?
+  sequence  Int      @default(0)
+  viewedAt  DateTime @default(now())
+
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, passageId])
+  @@index([userId, viewedAt(sort: Desc)])
+}
+
+// ── Retention layer: follow graph (free tier) ────────────────────────────────
+// entityType: "person" | "topic" | "concept" | "company" | "event" | "source"
+model Follow {
+  id         String   @id @default(cuid())
+  userId     String
+  entityType String
+  entityId   String
+  createdAt  DateTime @default(now())
+
+  user       User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, entityType, entityId])
+  @@index([entityType, entityId])
+}
+
+// ── Retention layer: new-since-last-visit cursor ─────────────────────────────
+model VisitCursor {
+  userId     String   @id
+  lastSeenAt DateTime @default(now())
+
+  user       User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ── Retention layer: write-time notification fan-out ─────────────────────────
+model Notification {
+  id         String    @id @default(cuid())
+  userId     String
+  type       String
+  title      String
+  body       String
+  url        String
+  entityType String
+  entityId   String
+  readAt     DateTime?
+  createdAt  DateTime  @default(now())
+
+  user       User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt])
+  @@index([userId, createdAt(sort: Desc)])
 }
 
 // ────────────────────────────────────────────────────────────────────────────

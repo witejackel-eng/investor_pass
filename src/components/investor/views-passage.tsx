@@ -141,6 +141,16 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
     return () => { active = false; };
   }, [id]);
 
+  // Reading progress: after 5s dwell, mark read (fire-and-forget; guests ignored server-side).
+  useEffect(() => {
+    const t = setTimeout(() => {
+      try {
+        navigator.sendBeacon("/api/progress", new Blob([JSON.stringify({ passageId: id })], { type: "application/json" }));
+      } catch {}
+    }, 5000);
+    return () => clearTimeout(t);
+  }, [id]);
+
   if (error) {
     return (
       <div className="mx-auto max-w-[720px] px-4 py-24 text-center">
