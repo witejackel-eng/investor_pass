@@ -29,6 +29,7 @@ export type View =
   | "bookmarks"
   | "searches"
   | "collections"
+  | "watchlist"
   | "account"
   | "upgrade"
   | "login"
