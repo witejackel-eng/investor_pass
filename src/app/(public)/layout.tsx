@@ -1,11 +1,13 @@
+﻿export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.PUBLIC_SITE_URL || "https://investor-pass.vercel.app"),
   title: {
-    default: "Investor/Pass — The public record, properly indexed",
-    template: "%s · Investor/Pass",
+    default: "Investor/Pass â€” The public record, properly indexed",
+    template: "%s Â· Investor/Pass",
   },
 };
 
@@ -17,7 +19,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
           <Link
             href="/"
             className="wordmark"
-            aria-label="Investor/Pass — open the research app"
+            aria-label="Investor/Pass â€” open the research app"
           >
             INVESTOR<span className="slash">/</span>PASS
           </Link>
@@ -32,7 +34,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
               href="/#/view=upgrade"
               className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
             >
-              PRO — $19/MONTH
+              PRO â€” $19/MONTH
             </a>
           </nav>
         </div>
@@ -42,7 +44,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-5">
-          <p className="kicker">INVESTOR/PASS — THE PUBLIC RECORD, PROPERLY INDEXED.</p>
+          <p className="kicker">INVESTOR/PASS â€” THE PUBLIC RECORD, PROPERLY INDEXED.</p>
           <nav aria-label="Footer" className="kicker flex flex-wrap items-center gap-x-4">
             <Link href="/investors" className="hover:text-foreground hover:underline">
               Investors
@@ -51,7 +53,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
               Search
             </a>
             <a href="/#/view=upgrade" className="hover:text-foreground hover:underline">
-              Pro — $19/month or $149/year
+              Pro â€” $19/month or $149/year
             </a>
           </nav>
         </div>
@@ -59,3 +61,4 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     </div>
   );
 }
+

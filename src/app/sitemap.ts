@@ -1,10 +1,12 @@
+﻿export const dynamic = "force-dynamic";
+
 import type { MetadataRoute } from "next";
 import { getSitemapData } from "@/lib/server/public-pages";
 
-// sitemap.xml — crawlable public research surface (Lane B, spec §43).
-// Index ONLY meaningful, stable pages: active investors, investor×theme topic
-// pairs with ≥3 references and ≥1 public passage, and theme/company/event/year
-// entities with ≥1 public passage.
+// sitemap.xml â€” crawlable public research surface (Lane B, spec Â§43).
+// Index ONLY meaningful, stable pages: active investors, investorÃ—theme topic
+// pairs with â‰¥3 references and â‰¥1 public passage, and theme/company/event/year
+// entities with â‰¥1 public passage.
 export const revalidate = 3600;
 
 const BASE = process.env.PUBLIC_SITE_URL || "https://investor-pass.vercel.app";
@@ -50,8 +52,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       entries.push({ url: `${BASE}/years/${y}`, lastModified: now, changeFrequency: "yearly", priority: 0.4 });
     }
   } catch {
-    // Database unavailable (e.g. build without the SQLite file) — hub only.
+    // Database unavailable (e.g. build without the SQLite file) â€” hub only.
   }
 
   return entries;
 }
+

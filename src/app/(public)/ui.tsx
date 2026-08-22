@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+export const dynamic = "force-dynamic";
 import { FREE_PASSAGE_LIMIT, type EntityCount, type PassageCard } from "@/lib/server/public-pages";
 
 // ── SPA deep-link shapes (verified against src/stores/app-store.ts toHash) ──

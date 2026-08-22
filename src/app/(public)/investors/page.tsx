@@ -1,3 +1,5 @@
+﻿export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getInvestorDirectory } from "@/lib/server/public-pages";
@@ -8,10 +10,10 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Investor Directory",
   description:
-    "Study the public record of exceptional investors — Buffett, Munger, Marks, Bogle and more. Source-linked references, themes, companies and events.",
+    "Study the public record of exceptional investors â€” Buffett, Munger, Marks, Bogle and more. Source-linked references, themes, companies and events.",
   alternates: { canonical: "/investors" },
   openGraph: {
-    title: "Investor Directory — the public record of exceptional investors",
+    title: "Investor Directory â€” the public record of exceptional investors",
     description:
       "Source-linked research pages for the launch universe of exceptional investors: references, themes, companies, events and timelines.",
     type: "website",
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Investor Directory — Investor/Pass",
+    title: "Investor Directory â€” Investor/Pass",
     description:
       "The public record of exceptional investors, properly indexed. References, themes, companies, events.",
   },
@@ -37,9 +39,9 @@ export default async function InvestorsPage() {
         meta={[
           `${people.length} INVESTORS`,
           `${fmt(totalRefs)} INDEXED REFERENCES`,
-          "PRIMARY SOURCES · PARAPHRASED SUMMARIES",
+          "PRIMARY SOURCES Â· PARAPHRASED SUMMARIES",
         ]}
-        lede="Every investor below has a public record — letters, memos, speeches and interviews — indexed into a connected research library. Start with a name; leave with an argument."
+        lede="Every investor below has a public record â€” letters, memos, speeches and interviews â€” indexed into a connected research library. Start with a name; leave with an argument."
       />
 
       <section className="mt-12">
@@ -53,7 +55,7 @@ export default async function InvestorsPage() {
                 </Link>
               </h2>
               <p className="kicker mt-1">
-                {fmt(p.counts.total)} REFERENCES · {p.counts.sources} SOURCES
+                {fmt(p.counts.total)} REFERENCES Â· {p.counts.sources} SOURCES
               </p>
               {p.shortDescription ? (
                 <EmptyNote>{p.shortDescription}</EmptyNote>
@@ -63,9 +65,9 @@ export default async function InvestorsPage() {
                   href={`/investors/${p.slug}`}
                   className="chip chip-ink"
                 >
-                  PROFILE →
+                  PROFILE â†’
                 </Link>
-                <Chip href={spaSearch(p.name)}>SEARCH IN APP →</Chip>
+                <Chip href={spaSearch(p.name)}>SEARCH IN APP â†’</Chip>
               </div>
             </article>
           ))}
@@ -85,7 +87,7 @@ export default async function InvestorsPage() {
             href="/#/view=upgrade"
             className="bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
           >
-            START PRO — $19/MONTH
+            START PRO â€” $19/MONTH
           </a>
           <span className="kicker">$149/YEAR</span>
         </div>
@@ -93,3 +95,4 @@ export default async function InvestorsPage() {
     </div>
   );
 }
+

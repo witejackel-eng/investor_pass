@@ -26,7 +26,7 @@ export async function apiDelete<T = any>(path: string): Promise<T> {
   return data as T;
 }
 
-/** Fire-and-forget product analytics (spec §46). Never throws. */
+/** Fire-and-forget product analytics (spec section 45-46). Never throws. */
 export function track(name: string, props?: Record<string, unknown>) {
   try {
     void fetch("/api/events", {
