@@ -1,0 +1,437 @@
+{
+  "personSlug": "buffett",
+  "sources": [
+    {
+      "slug": "berkshire-1977-letter",
+      "title": "1977 Letter to Shareholders",
+      "year": 1977,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1977.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1978-letter",
+      "title": "1978 Letter to Shareholders",
+      "year": 1978,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1978.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1979-letter",
+      "title": "1979 Letter to Shareholders",
+      "year": 1979,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1979.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1980-letter",
+      "title": "1980 Letter to Shareholders",
+      "year": 1980,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1980.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1981-letter",
+      "title": "1981 Letter to Shareholders",
+      "year": 1981,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1981.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1982-letter",
+      "title": "1982 Letter to Shareholders",
+      "year": 1982,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1982.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1983-letter",
+      "title": "1983 Letter to Shareholders",
+      "year": 1983,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1983.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1984-letter",
+      "title": "1984 Letter to Shareholders",
+      "year": 1984,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1984.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1985-letter",
+      "title": "1985 Letter to Shareholders",
+      "year": 1985,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1985.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1986-letter",
+      "title": "1986 Letter to Shareholders",
+      "year": 1986,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1986.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1987-letter",
+      "title": "1987 Letter to Shareholders",
+      "year": 1987,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1987.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1988-letter",
+      "title": "1988 Letter to Shareholders",
+      "year": 1988,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1988.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1989-letter",
+      "title": "1989 Letter to Shareholders",
+      "year": 1989,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1989.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1990-letter",
+      "title": "1990 Letter to Shareholders",
+      "year": 1990,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1990.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1991-letter",
+      "title": "1991 Letter to Shareholders",
+      "year": 1991,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1991.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1992-letter",
+      "title": "1992 Letter to Shareholders",
+      "year": 1992,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1992.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1993-letter",
+      "title": "1993 Letter to Shareholders",
+      "year": 1993,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1993.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1994-letter",
+      "title": "1994 Letter to Shareholders",
+      "year": 1994,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1994.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1995-letter",
+      "title": "1995 Letter to Shareholders",
+      "year": 1995,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1995.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1996-letter",
+      "title": "1996 Letter to Shareholders",
+      "year": 1996,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1996.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1997-letter",
+      "title": "1997 Letter to Shareholders",
+      "year": 1997,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1997.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1998-letter",
+      "title": "1998 Letter to Shareholders",
+      "year": 1998,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1998.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-1999-letter",
+      "title": "1999 Letter to Shareholders",
+      "year": 1999,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/1999.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-2000-letter",
+      "title": "2000 Letter to Shareholders",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2000.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-2001-letter",
+      "title": "2001 Letter to Shareholders",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2001.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-2002-letter",
+      "title": "2002 Letter to Shareholders",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2002.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-2003-letter",
+      "title": "2003 Letter to Shareholders",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2003.html",
+      "format": "html"
+    },
+    {
+      "slug": "berkshire-2004-letter",
+      "title": "2004 Letter to Shareholders",
+      "year": 2004,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2004ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2005-letter",
+      "title": "2005 Letter to Shareholders",
+      "year": 2005,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2005ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2006-letter",
+      "title": "2006 Letter to Shareholders",
+      "year": 2006,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2006ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2007-letter",
+      "title": "2007 Letter to Shareholders",
+      "year": 2007,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2007ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2008-letter",
+      "title": "2008 Letter to Shareholders",
+      "year": 2008,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2008ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2009-letter",
+      "title": "2009 Letter to Shareholders",
+      "year": 2009,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2009ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2010-letter",
+      "title": "2010 Letter to Shareholders",
+      "year": 2010,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2010ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2011-letter",
+      "title": "2011 Letter to Shareholders",
+      "year": 2011,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2011ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2012-letter",
+      "title": "2012 Letter to Shareholders",
+      "year": 2012,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2012ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2013-letter",
+      "title": "2013 Letter to Shareholders",
+      "year": 2013,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2013ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2014-letter",
+      "title": "2014 Letter to Shareholders",
+      "year": 2014,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2014ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2015-letter",
+      "title": "2015 Letter to Shareholders",
+      "year": 2015,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2015ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2016-letter",
+      "title": "2016 Letter to Shareholders",
+      "year": 2016,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2016ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2017-letter",
+      "title": "2017 Letter to Shareholders",
+      "year": 2017,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2017ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2018-letter",
+      "title": "2018 Letter to Shareholders",
+      "year": 2018,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2018ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2019-letter",
+      "title": "2019 Letter to Shareholders",
+      "year": 2019,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2019ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2020-letter",
+      "title": "2020 Letter to Shareholders",
+      "year": 2020,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2020ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2021-letter",
+      "title": "2021 Letter to Shareholders",
+      "year": 2021,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2021ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2022-letter",
+      "title": "2022 Letter to Shareholders",
+      "year": 2022,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2022ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2023-letter",
+      "title": "2023 Letter to Shareholders",
+      "year": 2023,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2023ltr.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "berkshire-2024-letter",
+      "title": "2024 Letter to Shareholders",
+      "year": 2024,
+      "sourceType": "shareholder_letter",
+      "publisher": "Berkshire Hathaway Inc.",
+      "url": "https://www.berkshirehathaway.com/letters/2024ltr.pdf",
+      "format": "pdf"
+    }
+  ]
+}

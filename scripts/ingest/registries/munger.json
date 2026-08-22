@@ -1,0 +1,149 @@
+{
+  "personSlug": "munger",
+  "sources": [
+    {
+      "slug": "wesco-1997-letter",
+      "title": "Wesco Financial 1997 Letter to Shareholders",
+      "year": 1997,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm1997.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-1998-letter",
+      "title": "Wesco Financial 1998 Letter to Shareholders",
+      "year": 1998,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm1998.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-1999-letter",
+      "title": "Wesco Financial 1999 Letter to Shareholders",
+      "year": 1999,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm1999.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2000-letter",
+      "title": "Wesco Financial 2000 Letter to Shareholders",
+      "year": 2000,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2000.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2001-letter",
+      "title": "Wesco Financial 2001 Letter to Shareholders",
+      "year": 2001,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2001.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2002-letter",
+      "title": "Wesco Financial 2002 Letter to Shareholders",
+      "year": 2002,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2002.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2003-letter",
+      "title": "Wesco Financial 2003 Letter to Shareholders",
+      "year": 2003,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2003.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2004-letter",
+      "title": "Wesco Financial 2004 Letter to Shareholders",
+      "year": 2004,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2004.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2005-letter",
+      "title": "Wesco Financial 2005 Letter to Shareholders",
+      "year": 2005,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2005.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2006-letter",
+      "title": "Wesco Financial 2006 Letter to Shareholders",
+      "year": 2006,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2006.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2007-letter",
+      "title": "Wesco Financial 2007 Letter to Shareholders",
+      "year": 2007,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2007.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2008-letter",
+      "title": "Wesco Financial 2008 Letter to Shareholders",
+      "year": 2008,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2008.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-2009-letter",
+      "title": "Wesco Financial 2009 Letter to Shareholders",
+      "year": 2009,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.berkshirehathaway.com/wesco/cm2009.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "wesco-letters-1983-1995-collection",
+      "title": "Wesco Letters to Shareholders 1983-1995 (Collection)",
+      "year": null,
+      "sourceType": "shareholder_letter",
+      "publisher": "Wesco Financial Corporation",
+      "url": "https://www.safalniveshak.com/wp-content/uploads/2013/12/Charlie-Munger-Wesco-Letters-1983-1995.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "djco-meeting-2016-transcript",
+      "title": "Daily Journal Annual Meeting 2016 Transcript",
+      "year": 2016,
+      "sourceType": "meeting_transcript",
+      "publisher": "Daily Journal Corporation (transcript by Whitney Tilson)",
+      "url": "https://tilsonfunds.com/MungerDJ-2-16.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "psychology-of-human-misjudgment",
+      "title": "The Psychology of Human Misjudgment",
+      "year": 1995,
+      "sourceType": "speech",
+      "publisher": "Harvard University / distributed by author",
+      "url": "https://www.rbcpa.com/mungerspeech_june_95.pdf",
+      "format": "pdf"
+    }
+  ]
+}

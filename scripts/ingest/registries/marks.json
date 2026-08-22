@@ -1,0 +1,1481 @@
+{
+  "personSlug": "marks",
+  "sources": [
+    {
+      "slug": "2020_in_review",
+      "title": "2020_in_review",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (2020_in_review)",
+      "format": "pdf"
+    },
+    {
+      "slug": "a-case-in-point",
+      "title": "A Case In Point",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (a-case-in-point)",
+      "format": "pdf"
+    },
+    {
+      "slug": "a-fresh-start-(hopefully)",
+      "title": "A Fresh Start (Hopefully)",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (a-fresh-start-(hopefully))",
+      "format": "pdf"
+    },
+    {
+      "slug": "a-look-under-the-hood",
+      "title": "A Look Under The Hood",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (a-look-under-the-hood)",
+      "format": "pdf"
+    },
+    {
+      "slug": "ai-hurtles-ahead",
+      "title": "Ai Hurtles Ahead",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (ai-hurtles-ahead)",
+      "format": "pdf"
+    },
+    {
+      "slug": "all-that-glitters",
+      "title": "All That Glitters",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (all-that-glitters)",
+      "format": "pdf"
+    },
+    {
+      "slug": "are-you-an-investor-or-a-speculator",
+      "title": "Are You An Investor Or A Speculator",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (are-you-an-investor-or-a-speculator)",
+      "format": "pdf"
+    },
+    {
+      "slug": "assessing-performance-records-a-case-study",
+      "title": "Assessing Performance Records A Case Study",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (assessing-performance-records-a-case-study)",
+      "format": "pdf"
+    },
+    {
+      "slug": "bubble.com",
+      "title": "Bubble.Com",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (bubble.com)",
+      "format": "pdf"
+    },
+    {
+      "slug": "bull-market-rhymes",
+      "title": "Bull Market Rhymes",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (bull-market-rhymes)",
+      "format": "pdf"
+    },
+    {
+      "slug": "calibrating",
+      "title": "Calibrating",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (calibrating)",
+      "format": "pdf"
+    },
+    {
+      "slug": "cockroaches-in-the-coal-mine",
+      "title": "Cockroaches In The Coal Mine",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (cockroaches-in-the-coal-mine)",
+      "format": "pdf"
+    },
+    {
+      "slug": "coming-into-focus",
+      "title": "Coming Into Focus",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (coming-into-focus)",
+      "format": "pdf"
+    },
+    {
+      "slug": "dare-to-be-great-ii",
+      "title": "Dare To Be Great Ii",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (dare-to-be-great-ii)",
+      "format": "pdf"
+    },
+    {
+      "slug": "dare-to-be-great",
+      "title": "Dare To Be Great",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (dare-to-be-great)",
+      "format": "pdf"
+    },
+    {
+      "slug": "ditto",
+      "title": "Ditto",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (ditto)",
+      "format": "pdf"
+    },
+    {
+      "slug": "doesn’t-make-sense",
+      "title": "Doesn’T Make Sense",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (doesn’t-make-sense)",
+      "format": "pdf"
+    },
+    {
+      "slug": "down-to-the-wire",
+      "title": "Down To The Wire",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (down-to-the-wire)",
+      "format": "pdf"
+    },
+    {
+      "slug": "déjà-vu-all-over-again",
+      "title": "DéJà Vu All Over Again",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (déjà-vu-all-over-again)",
+      "format": "pdf"
+    },
+    {
+      "slug": "easy-money",
+      "title": "Easy Money",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (easy-money)",
+      "format": "pdf"
+    },
+    {
+      "slug": "economic-reality",
+      "title": "Economic Reality",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (economic-reality)",
+      "format": "pdf"
+    },
+    {
+      "slug": "etorres-wisdom",
+      "title": "Etorres Wisdom",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (etorres-wisdom)",
+      "format": "pdf"
+    },
+    {
+      "slug": "everyone-knows",
+      "title": "Everyone Knows",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (everyone-knows)",
+      "format": "pdf"
+    },
+    {
+      "slug": "expert-opinion",
+      "title": "Expert Opinion",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (expert-opinion)",
+      "format": "pdf"
+    },
+    {
+      "slug": "fewer-losers-more-winner",
+      "title": "Fewer Losers More Winner",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (fewer-losers-more-winner)",
+      "format": "pdf"
+    },
+    {
+      "slug": "first-quarter-performance",
+      "title": "First Quarter Performance",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (first-quarter-performance)",
+      "format": "pdf"
+    },
+    {
+      "slug": "further-thoughts-on-sea-change",
+      "title": "Further Thoughts On Sea Change",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (further-thoughts-on-sea-change)",
+      "format": "pdf"
+    },
+    {
+      "slug": "genius-isnt-enough-(and-other-lessons-from-long-term-capital-management)",
+      "title": "Genius Isnt Enough (And Other Lessons From Long Term Capital Management)",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (genius-isnt-enough-(and-other-lessons-from-long-term-capital-management))",
+      "format": "pdf"
+    },
+    {
+      "slug": "getting-lucky",
+      "title": "Getting Lucky",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (getting-lucky)",
+      "format": "pdf"
+    },
+    {
+      "slug": "gimme-credit",
+      "title": "Gimme Credit",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (gimme-credit)",
+      "format": "pdf"
+    },
+    {
+      "slug": "go-figure!",
+      "title": "Go Figure!",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (go-figure!)",
+      "format": "pdf"
+    },
+    {
+      "slug": "growing-the-pie",
+      "title": "Growing The Pie",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (growing-the-pie)",
+      "format": "pdf"
+    },
+    {
+      "slug": "hedge-funds-a-case-for-caution",
+      "title": "Hedge Funds A Case For Caution",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (hedge-funds-a-case-for-caution)",
+      "format": "pdf"
+    },
+    {
+      "slug": "hemlines",
+      "title": "Hemlines",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (hemlines)",
+      "format": "pdf"
+    },
+    {
+      "slug": "hey,-steward",
+      "title": "Hey, Steward",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (hey,-steward)",
+      "format": "pdf"
+    },
+    {
+      "slug": "high-yield-bonds-today",
+      "title": "High Yield Bonds Today",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (high-yield-bonds-today)",
+      "format": "pdf"
+    },
+    {
+      "slug": "hindsight-first,-please-(or-what-were-they-thinking)",
+      "title": "Hindsight First, Please (Or What Were They Thinking)",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (hindsight-first,-please-(or-what-were-they-thinking))",
+      "format": "pdf"
+    },
+    {
+      "slug": "how-does-an-inefficient-market-get-that-way",
+      "title": "How Does An Inefficient Market Get That Way",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (how-does-an-inefficient-market-get-that-way)",
+      "format": "pdf"
+    },
+    {
+      "slug": "how-quickly-they-forget",
+      "title": "How Quickly They Forget",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (how-quickly-they-forget)",
+      "format": "pdf"
+    },
+    {
+      "slug": "how-the-game-should-be-played",
+      "title": "How The Game Should Be Played",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (how-the-game-should-be-played)",
+      "format": "pdf"
+    },
+    {
+      "slug": "hows-the-market",
+      "title": "Hows The Market",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (hows-the-market)",
+      "format": "pdf"
+    },
+    {
+      "slug": "i-beg-to-differ",
+      "title": "I Beg To Differ",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (i-beg-to-differ)",
+      "format": "pdf"
+    },
+    {
+      "slug": "illusion-of-knowledge",
+      "title": "Illusion Of Knowledge",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (illusion-of-knowledge)",
+      "format": "pdf"
+    },
+    {
+      "slug": "implications-of-the-election",
+      "title": "Implications Of The Election",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (implications-of-the-election)",
+      "format": "pdf"
+    },
+    {
+      "slug": "inspiration-from-the-world-of-sports",
+      "title": "Inspiration From The World Of Sports",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (inspiration-from-the-world-of-sports)",
+      "format": "pdf"
+    },
+    {
+      "slug": "investing-without-people",
+      "title": "Investing Without People",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (investing-without-people)",
+      "format": "pdf"
+    },
+    {
+      "slug": "investment-miscellany",
+      "title": "Investment Miscellany",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (investment-miscellany)",
+      "format": "pdf"
+    },
+    {
+      "slug": "irrational-exuberance",
+      "title": "Irrational Exuberance",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (irrational-exuberance)",
+      "format": "pdf"
+    },
+    {
+      "slug": "is-it-a-bubble",
+      "title": "Is It A Bubble",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (is-it-a-bubble)",
+      "format": "pdf"
+    },
+    {
+      "slug": "it-is-what-it-is",
+      "title": "It Is What It Is",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (it-is-what-it-is)",
+      "format": "pdf"
+    },
+    {
+      "slug": "its-all-a-big-mistake",
+      "title": "Its All A Big Mistake",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (its-all-a-big-mistake)",
+      "format": "pdf"
+    },
+    {
+      "slug": "its-all-very-taxing",
+      "title": "Its All Very Taxing",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (its-all-very-taxing)",
+      "format": "pdf"
+    },
+    {
+      "slug": "it’s-all-good-really",
+      "title": "It’S All Good Really",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (it’s-all-good-really)",
+      "format": "pdf"
+    },
+    {
+      "slug": "it’s-all-good",
+      "title": "It’S All Good",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (it’s-all-good)",
+      "format": "pdf"
+    },
+    {
+      "slug": "it’s-greek-to-me",
+      "title": "It’S Greek To Me",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (it’s-greek-to-me)",
+      "format": "pdf"
+    },
+    {
+      "slug": "it’s-not-easy",
+      "title": "It’S Not Easy",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (it’s-not-easy)",
+      "format": "pdf"
+    },
+    {
+      "slug": "i’d-rather-be-wrong",
+      "title": "I’D Rather Be Wrong",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (i’d-rather-be-wrong)",
+      "format": "pdf"
+    },
+    {
+      "slug": "knowledge-of-the-future",
+      "title": "Knowledge Of The Future",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (knowledge-of-the-future)",
+      "format": "pdf"
+    },
+    {
+      "slug": "latest-thinking",
+      "title": "Latest Thinking",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (latest-thinking)",
+      "format": "pdf"
+    },
+    {
+      "slug": "learning-from-enron",
+      "title": "Learning From Enron",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (learning-from-enron)",
+      "format": "pdf"
+    },
+    {
+      "slug": "lessons-from-svb",
+      "title": "Lessons From Svb",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (lessons-from-svb)",
+      "format": "pdf"
+    },
+    {
+      "slug": "lines-in-the-sand",
+      "title": "Lines In The Sand",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (lines-in-the-sand)",
+      "format": "pdf"
+    },
+    {
+      "slug": "liquidity",
+      "title": "Liquidity",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (liquidity)",
+      "format": "pdf"
+    },
+    {
+      "slug": "microeconomics-101-supply,-demand-and-convertibles",
+      "title": "Microeconomics 101 Supply, Demand And Convertibles",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (microeconomics-101-supply,-demand-and-convertibles)",
+      "format": "pdf"
+    },
+    {
+      "slug": "more-on-repealing-the-laws-of-economics",
+      "title": "More On Repealing The Laws Of Economics",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (more-on-repealing-the-laws-of-economics)",
+      "format": "pdf"
+    },
+    {
+      "slug": "mr-market-miscalculates",
+      "title": "Mr Market Miscalculates",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (mr-market-miscalculates)",
+      "format": "pdf"
+    },
+    {
+      "slug": "mysterious",
+      "title": "Mysterious",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (mysterious)",
+      "format": "pdf"
+    },
+    {
+      "slug": "no-different-this-time-the-lessons-of-‘07",
+      "title": "No Different This Time The Lessons Of ‘07",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (no-different-this-time-the-lessons-of-‘07)",
+      "format": "pdf"
+    },
+    {
+      "slug": "nobody-knows-ii",
+      "title": "Nobody Knows Ii",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (nobody-knows-ii)",
+      "format": "pdf"
+    },
+    {
+      "slug": "nobody-knows-yet-again",
+      "title": "Nobody Knows Yet Again",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (nobody-knows-yet-again)",
+      "format": "pdf"
+    },
+    {
+      "slug": "nobody-knows",
+      "title": "Nobody Knows",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (nobody-knows)",
+      "format": "pdf"
+    },
+    {
+      "slug": "not-enough",
+      "title": "Not Enough",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (not-enough)",
+      "format": "pdf"
+    },
+    {
+      "slug": "notes-from-new-york",
+      "title": "Notes From New York",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (notes-from-new-york)",
+      "format": "pdf"
+    },
+    {
+      "slug": "now-it’s-all-bad",
+      "title": "Now It’S All Bad",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (now-it’s-all-bad)",
+      "format": "pdf"
+    },
+    {
+      "slug": "now-what",
+      "title": "Now What",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (now-what)",
+      "format": "pdf"
+    },
+    {
+      "slug": "oaktree-at-ten",
+      "title": "Oaktree At Ten",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (oaktree-at-ten)",
+      "format": "pdf"
+    },
+    {
+      "slug": "on-bubble-watch",
+      "title": "On Bubble Watch",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (on-bubble-watch)",
+      "format": "pdf"
+    },
+    {
+      "slug": "on-regulation",
+      "title": "On Regulation",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (on-regulation)",
+      "format": "pdf"
+    },
+    {
+      "slug": "on-the-couch",
+      "title": "On The Couch",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (on-the-couch)",
+      "format": "pdf"
+    },
+    {
+      "slug": "on-the-other-hand",
+      "title": "On The Other Hand",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (on-the-other-hand)",
+      "format": "pdf"
+    },
+    {
+      "slug": "on-uncertain-ground",
+      "title": "On Uncertain Ground",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (on-uncertain-ground)",
+      "format": "pdf"
+    },
+    {
+      "slug": "open-and-shut",
+      "title": "Open And Shut",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (open-and-shut)",
+      "format": "pdf"
+    },
+    {
+      "slug": "panmure-house",
+      "title": "Panmure House",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (panmure-house)",
+      "format": "pdf"
+    },
+    {
+      "slug": "pigweed",
+      "title": "Pigweed",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (pigweed)",
+      "format": "pdf"
+    },
+    {
+      "slug": "plan-b",
+      "title": "Plan B",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (plan-b)",
+      "format": "pdf"
+    },
+    {
+      "slug": "political-reality-meets-economic-reality",
+      "title": "Political Reality Meets Economic Reality",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (political-reality-meets-economic-reality)",
+      "format": "pdf"
+    },
+    {
+      "slug": "political-reality",
+      "title": "Political Reality",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (political-reality)",
+      "format": "pdf"
+    },
+    {
+      "slug": "quo-vadis",
+      "title": "Quo Vadis",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (quo-vadis)",
+      "format": "pdf"
+    },
+    {
+      "slug": "random-thoughts-on-the-identification-of-investment-opportunities",
+      "title": "Random Thoughts On The Identification Of Investment Opportunities",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (random-thoughts-on-the-identification-of-investment-opportunities)",
+      "format": "pdf"
+    },
+    {
+      "slug": "returns,-absolute-returns-and-risk",
+      "title": "Returns, Absolute Returns And Risk",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (returns,-absolute-returns-and-risk)",
+      "format": "pdf"
+    },
+    {
+      "slug": "returns-and-how-they-get-that-way",
+      "title": "Returns And How They Get That Way",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (returns-and-how-they-get-that-way)",
+      "format": "pdf"
+    },
+    {
+      "slug": "risk-and-return-today",
+      "title": "Risk And Return Today",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (risk-and-return-today)",
+      "format": "pdf"
+    },
+    {
+      "slug": "risk-in-todays-markets-revisited",
+      "title": "Risk In Todays Markets Revisited",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (risk-in-todays-markets-revisited)",
+      "format": "pdf"
+    },
+    {
+      "slug": "risk-in-todays-markets",
+      "title": "Risk In Todays Markets",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (risk-in-todays-markets)",
+      "format": "pdf"
+    },
+    {
+      "slug": "risk-revisited-again",
+      "title": "Risk Revisited Again",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (risk-revisited-again)",
+      "format": "pdf"
+    },
+    {
+      "slug": "risk-revisited",
+      "title": "Risk Revisited",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (risk-revisited)",
+      "format": "pdf"
+    },
+    {
+      "slug": "risk",
+      "title": "Risk",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (risk)",
+      "format": "pdf"
+    },
+    {
+      "slug": "ruminating-on-asset-allocation",
+      "title": "Ruminating On Asset Allocation",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (ruminating-on-asset-allocation)",
+      "format": "pdf"
+    },
+    {
+      "slug": "safety-first-but-where",
+      "title": "Safety First But Where",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (safety-first-but-where)",
+      "format": "pdf"
+    },
+    {
+      "slug": "sea-change",
+      "title": "Sea Change",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (sea-change)",
+      "format": "pdf"
+    },
+    {
+      "slug": "selling-out",
+      "title": "Selling Out",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (selling-out)",
+      "format": "pdf"
+    },
+    {
+      "slug": "shall-we-repeal-the-laws-of-economics",
+      "title": "Shall We Repeal The Laws Of Economics",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (shall-we-repeal-the-laws-of-economics)",
+      "format": "pdf"
+    },
+    {
+      "slug": "so-much-that’s-false-and-nutty",
+      "title": "So Much That’S False And Nutty",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (so-much-that’s-false-and-nutty)",
+      "format": "pdf"
+    },
+    {
+      "slug": "something-of-value",
+      "title": "Something Of Value",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (something-of-value)",
+      "format": "pdf"
+    },
+    {
+      "slug": "taking-the-temperature",
+      "title": "Taking The Temperature",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (taking-the-temperature)",
+      "format": "pdf"
+    },
+    {
+      "slug": "tell-me-i’m-wrong",
+      "title": "Tell Me I’M Wrong",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (tell-me-i’m-wrong)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-anatomy-of-a-rally",
+      "title": "The Anatomy Of A Rally",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-anatomy-of-a-rally)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-aviary",
+      "title": "The Aviary",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-aviary)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-calculus-of-value",
+      "title": "The Calculus Of Value",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-calculus-of-value)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-feelings-mutual",
+      "title": "The Feelings Mutual",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-feelings-mutual)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-folly-of-certainty",
+      "title": "The Folly Of Certainty",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-folly-of-certainty)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-happy-medium",
+      "title": "The Happy Medium",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-happy-medium)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-impact-of-debt",
+      "title": "The Impact Of Debt",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-impact-of-debt)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-indispensability-of-risk",
+      "title": "The Indispensability Of Risk",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-indispensability-of-risk)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-lessons-of-oil",
+      "title": "The Lessons Of Oil",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-lessons-of-oil)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-limits-to-negativism",
+      "title": "The Limits To Negativism",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-limits-to-negativism)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-long-view",
+      "title": "The Long View",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-long-view)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-most-important-thing",
+      "title": "The Most Important Thing",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-most-important-thing)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-new-paradigm",
+      "title": "The New Paradigm",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-new-paradigm)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-outlook-for-equities",
+      "title": "The Outlook For Equities",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-outlook-for-equities)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-pendulum-in-intl-affairs",
+      "title": "The Pendulum In Intl Affairs",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-pendulum-in-intl-affairs)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-race-is-on",
+      "title": "The Race Is On",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-race-is-on)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-race-to-the-bottom",
+      "title": "The Race To The Bottom",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-race-to-the-bottom)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-realists-creed",
+      "title": "The Realists Creed",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-realists-creed)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-role-of-confidence",
+      "title": "The Role Of Confidence",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-role-of-confidence)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-route-to-performance",
+      "title": "The Route To Performance",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-route-to-performance)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-seven-worst-words-in-the-world",
+      "title": "The Seven Worst Words In The World",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-seven-worst-words-in-the-world)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-tide-goes-out",
+      "title": "The Tide Goes Out",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-tide-goes-out)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-value-of-predictions-ii-(or-give-that-man-a-cigar)",
+      "title": "The Value Of Predictions Ii (Or Give That Man A Cigar)",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-value-of-predictions-ii-(or-give-that-man-a-cigar))",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-value-of-predictions-or-where'd-all-this-rain-come-from",
+      "title": "The Value Of Predictions Or Where'D All This Rain Come From",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-value-of-predictions-or-where'd-all-this-rain-come-from)",
+      "format": "pdf"
+    },
+    {
+      "slug": "the-winds-of-change",
+      "title": "The Winds Of Change",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (the-winds-of-change)",
+      "format": "pdf"
+    },
+    {
+      "slug": "there-they-go-again...-again",
+      "title": "There They Go Again... Again",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (there-they-go-again...-again)",
+      "format": "pdf"
+    },
+    {
+      "slug": "there-they-go-again",
+      "title": "There They Go Again",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (there-they-go-again)",
+      "format": "pdf"
+    },
+    {
+      "slug": "thinking-about-macro",
+      "title": "Thinking About Macro",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (thinking-about-macro)",
+      "format": "pdf"
+    },
+    {
+      "slug": "this-time-its-different",
+      "title": "This Time Its Different",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (this-time-its-different)",
+      "format": "pdf"
+    },
+    {
+      "slug": "timeforthinking",
+      "title": "Timeforthinking",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (timeforthinking)",
+      "format": "pdf"
+    },
+    {
+      "slug": "touchstones",
+      "title": "Touchstones",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (touchstones)",
+      "format": "pdf"
+    },
+    {
+      "slug": "uncertainty-ii",
+      "title": "Uncertainty Ii",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (uncertainty-ii)",
+      "format": "pdf"
+    },
+    {
+      "slug": "uncertainty",
+      "title": "Uncertainty",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (uncertainty)",
+      "format": "pdf"
+    },
+    {
+      "slug": "us-and-them",
+      "title": "Us And Them",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (us-and-them)",
+      "format": "pdf"
+    },
+    {
+      "slug": "volatility-leverage-dynamite",
+      "title": "Volatility Leverage Dynamite",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (volatility-leverage-dynamite)",
+      "format": "pdf"
+    },
+    {
+      "slug": "warning-flags",
+      "title": "Warning Flags",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (warning-flags)",
+      "format": "pdf"
+    },
+    {
+      "slug": "weekly",
+      "title": "Weekly",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (weekly)",
+      "format": "pdf"
+    },
+    {
+      "slug": "were-not-in-1999-anymore-toto",
+      "title": "Were Not In 1999 Anymore Toto",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (were-not-in-1999-anymore-toto)",
+      "format": "pdf"
+    },
+    {
+      "slug": "whad’ya-know",
+      "title": "Whad’Ya Know",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (whad’ya-know)",
+      "format": "pdf"
+    },
+    {
+      "slug": "what-can-we-do-for-you",
+      "title": "What Can We Do For You",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (what-can-we-do-for-you)",
+      "format": "pdf"
+    },
+    {
+      "slug": "what-does-the-market-know",
+      "title": "What Does The Market Know",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (what-does-the-market-know)",
+      "format": "pdf"
+    },
+    {
+      "slug": "what-lies-ahead",
+      "title": "What Lies Ahead",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (what-lies-ahead)",
+      "format": "pdf"
+    },
+    {
+      "slug": "what-really-matters",
+      "title": "What Really Matters",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (what-really-matters)",
+      "format": "pdf"
+    },
+    {
+      "slug": "what-worries-me",
+      "title": "What Worries Me",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (what-worries-me)",
+      "format": "pdf"
+    },
+    {
+      "slug": "whats-behind-the-downturn",
+      "title": "Whats Behind The Downturn",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (whats-behind-the-downturn)",
+      "format": "pdf"
+    },
+    {
+      "slug": "whats-going-on-in-private-credit",
+      "title": "Whats Going On In Private Credit",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (whats-going-on-in-private-credit)",
+      "format": "pdf"
+    },
+    {
+      "slug": "whats-going-on",
+      "title": "Whats Going On",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (whats-going-on)",
+      "format": "pdf"
+    },
+    {
+      "slug": "whats-it-all-about,-alpha",
+      "title": "Whats It All About, Alpha",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (whats-it-all-about,-alpha)",
+      "format": "pdf"
+    },
+    {
+      "slug": "what’s-your-game-plan",
+      "title": "What’S Your Game Plan",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (what’s-your-game-plan)",
+      "format": "pdf"
+    },
+    {
+      "slug": "which-way-now",
+      "title": "Which Way Now",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (which-way-now)",
+      "format": "pdf"
+    },
+    {
+      "slug": "who-knew",
+      "title": "Who Knew",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (who-knew)",
+      "format": "pdf"
+    },
+    {
+      "slug": "whodunit",
+      "title": "Whodunit",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (whodunit)",
+      "format": "pdf"
+    },
+    {
+      "slug": "will-it-be-different-this-time",
+      "title": "Will It Be Different This Time",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (will-it-be-different-this-time)",
+      "format": "pdf"
+    },
+    {
+      "slug": "will-it-work",
+      "title": "Will It Work",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (will-it-work)",
+      "format": "pdf"
+    },
+    {
+      "slug": "yet-again",
+      "title": "Yet Again",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (yet-again)",
+      "format": "pdf"
+    },
+    {
+      "slug": "you-bet",
+      "title": "You Bet",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (you-bet)",
+      "format": "pdf"
+    },
+    {
+      "slug": "you-cant-predict.-you-can-prepare.",
+      "title": "You Cant Predict. You Can Prepare.",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (you-cant-predict.-you-can-prepare.)",
+      "format": "pdf"
+    },
+    {
+      "slug": "you-can’t-eat-irr",
+      "title": "You Can’T Eat Irr",
+      "year": null,
+      "sourceType": "memo",
+      "publisher": "Oaktree Capital Management, L.P.",
+      "url": "https://github.com/l33tquant/investing_memos (you-can’t-eat-irr)",
+      "format": "pdf"
+    }
+  ]
+}

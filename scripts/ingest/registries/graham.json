@@ -1,0 +1,32 @@
+{
+  "personSlug": "graham",
+  "sources": [
+    {
+      "slug": "senate-testimony-1955",
+      "title": "Stock Market Study — Senate Banking Committee Testimony",
+      "year": 1955,
+      "sourceType": "meeting_transcript",
+      "publisher": "U.S. Senate Committee on Banking and Currency (public domain)",
+      "url": "http://www.grahamanddoddsville.net/wordpress/Files/Gurus/Benjamin%20Graham/Ben%20Graham%20Testimony%20-%201955.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "an-hour-with-mr-graham",
+      "title": "An Hour with Mr. Graham (Interview by Hartman L. Butler Jr.)",
+      "year": 1976,
+      "sourceType": "interview",
+      "publisher": "Financial Analysts Research Foundation",
+      "url": "http://www.grahamanddoddsville.net/wordpress/Files/Gurus/Benjamin%20Graham/an-hour-ben-graham.pdf",
+      "format": "pdf"
+    },
+    {
+      "slug": "father-of-financial-analysis",
+      "title": "Benjamin Graham: The Father of Financial Analysis (Kahn & Milne)",
+      "year": 1977,
+      "sourceType": "book",
+      "publisher": "The Financial Analysts Research Foundation / CFA Institute",
+      "url": "https://rpc.cfainstitute.org/sites/default/files/-/media/documents/book/rf-publication/1977/rf-v1977-n1-4731-pdf.pdf",
+      "format": "pdf"
+    }
+  ]
+}
