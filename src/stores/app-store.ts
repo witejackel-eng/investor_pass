@@ -24,6 +24,7 @@ export type View =
   | "search"
   | "trails"
   | "trailDetail"
+  | "compare"
   | "library"
   | "bookmarks"
   | "searches"
@@ -57,7 +58,7 @@ type State = {
   signup: (email: string, password: string, name?: string) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  upgrade: (variant: "monthly" | "annual") => Promise<void>;
+  upgrade: (variant: "monthly" | "annual", provider?: string) => Promise<void>;
 };
 
 function toHash(view: View, params: ViewParams): string {
@@ -126,8 +127,12 @@ export const useStore = create<State>((set, get) => ({
     set({ user: null });
     get().go("home");
   },
-  upgrade: async (variant) => {
-    await apiPost("/api/checkout", { variant });
+  upgrade: async (variant, provider?: string) => {
+    const res: any = await apiPost("/api/checkout", { variant, ...(provider ? { provider } : {}) });
+    if (res?.mode === "redirect" && res.url) {
+      window.location.href = res.url;
+      return;
+    }
     await get().loadUser();
   },
 }));

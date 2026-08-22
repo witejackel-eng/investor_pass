@@ -15,6 +15,7 @@ import { EventView } from "@/components/investor/views-event";
 import { CommandPalette } from "@/components/investor/command-palette";
 import { TrailsIndex, TrailDetail, type Trail } from "@/components/investor/views-trails";
 import trailsData from "@/data/trails/trails.json";
+import { CompareView } from "@/components/investor/views-compare";
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
@@ -39,6 +40,7 @@ export default function Home() {
       case "event": return params.slug ? <EventView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "search": return <SearchView initialQuery={params.q || ""} person={params.person} theme={params.theme} company={params.company} concept={params.concept} event={params.event} />;
 case "trails": return <TrailsIndex trails={trailsData as Trail[]} onOpen={(slug) => go("trailDetail", { slug })} />;
+case "compare": return <CompareView />;
 case "trailDetail": {
   const trail = (trailsData as Trail[]).find((t) => t.slug === params.slug);
   return trail ? <TrailDetail trail={trail} onBack={() => go("trails")} /> : <TrailsIndex trails={trailsData as Trail[]} onOpen={(slug) => go("trailDetail", { slug })} />;

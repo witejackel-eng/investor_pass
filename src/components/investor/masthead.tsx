@@ -10,6 +10,7 @@ export function Masthead() {
     { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"] },
     { label: "SEARCH", view: "search", match: ["search"] },
 { label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },
+{ label: "COMPARE", view: "compare", match: ["compare"] },
     { label: "LIBRARY", view: "library", match: ["library", "bookmarks", "searches", "collections"] },
   ];
 

@@ -1,3 +1,0 @@
-$ next dev -p 3000 2>&1 | tee dev.log
-bun: command not found: tee
-error: script "dev" exited with code 1

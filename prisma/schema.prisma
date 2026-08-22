@@ -8,7 +8,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -54,6 +54,10 @@ model Subscription {
   state           String   @default("free")
   // "monthly" | "annual"
   variant         String?
+  // "razorpay" | "paypal"
+  provider        String?
+  // processor subscription/payment id for webhook reconciliation
+  providerRef     String?  @unique
   // effective entitlement resolved from state
   entitlement     String   @default("free")
   currentPeriodEnd DateTime?
@@ -62,6 +66,18 @@ model Subscription {
   updatedAt       DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Lightweight product analytics (spec §45–47). Append-only.
+model SearchEvent {
+  id        String   @id @default(cuid())
+  userId    String?
+  name      String
+  props     String?
+  createdAt DateTime @default(now())
+
+  @@index([name, createdAt])
+  @@index([userId])
 }
 
 // ────────────────────────────────────────────────────────────────────────────

@@ -25,3 +25,16 @@ export async function apiDelete<T = any>(path: string): Promise<T> {
   if (!res.ok) throw new Error((data as any).error || `${res.status} ${res.statusText}`);
   return data as T;
 }
+
+/** Fire-and-forget product analytics (spec §46). Never throws. */
+export function track(name: string, props?: Record<string, unknown>) {
+  try {
+    void fetch("/api/events", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, props }),
+      keepalive: true,
+    });
+  } catch {}
+}

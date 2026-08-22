@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
 import { useStore } from "@/stores/app-store";
-import { apiGet, apiPost, apiDelete } from "@/lib/client";
+import { apiGet, apiPost, apiDelete, track } from "@/lib/client";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate, ProBadge } from "@/components/investor/entity-chips";
 import { Loading } from "./views-core";
@@ -129,7 +129,8 @@ export function SearchView(_props: { initialQuery?: string; person?: string; the
       p.set("page", String(page));
       p.set("pageSize", String(PAGE_SIZE));
       try {
-        const d = await apiGet<SearchResponse>(`/api/search?${p.toString()}`);
+        if (q.trim()) track(`search_submitted`, { q: q.trim(), filters });
+    const d = await apiGet<SearchResponse>(`/api/search?${p.toString()}`);
         if (active) setData(d);
       } catch (e: any) {
         if (active) setError(e.message || "Search failed");
