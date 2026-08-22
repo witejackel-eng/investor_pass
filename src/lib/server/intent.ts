@@ -140,6 +140,8 @@ export async function parseQuery(
     concept: explicit.concept,
     company: explicit.company,
     event: explicit.event,
+    yearFrom: explicit.yearFrom,
+    yearTo: explicit.yearTo,
   };
   const working = ` ${query.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim()} `;
   const n = working.length;
