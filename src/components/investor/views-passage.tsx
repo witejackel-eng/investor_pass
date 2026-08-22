@@ -43,11 +43,61 @@ type PassageDetail = {
   };
 };
 
+type WhyInfo = { c: string[][]; t: string[] };
+
+// Linked chips for the matched tags — each routes to its entity view
+function WhyTagChips({ tags, investorSlug }: { tags: string[][]; investorSlug: string }) {
+  const go = useStore((s) => s.go);
+  const kindLabels: Record<string, string> = {
+    person: "Investor", theme: "Theme", company: "Company", concept: "Concept", event: "Event", years: "Years",
+  };
+  return (
+    <div className="mt-2 flex flex-wrap gap-1.5">
+      {tags.map(([kind, slug, label], i) => (
+        <button
+          key={`${kind}-${slug}-${i}`}
+          onClick={() => {
+            if (kind === "person") go("investor", { slug });
+            else if (kind === "theme") go("topic", { slug, investor: investorSlug });
+            else if (kind === "company") go("company", { slug, investor: investorSlug });
+            else if (kind === "concept") go("concept", { slug, investor: investorSlug });
+            else if (kind === "event") go("event", { slug, investor: investorSlug });
+            else if (kind === "years") {
+              const [yf, yt] = label.split("–");
+              go("year", { year: yf || label, investor: investorSlug });
+            }
+          }}
+          className="chip chip-signal"
+        >
+          {kindLabels[kind] || kind}: {label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// Match provenance passed through navigation state from search results
+function parseWhy(raw?: string): WhyInfo | null {
+  if (!raw) return null;
+  try {
+    const v = JSON.parse(raw);
+    if (!v || typeof v !== "object") return null;
+    const c = Array.isArray(v.c) ? v.c : [];
+    const t = Array.isArray(v.t) ? v.t : [];
+    if (c.length === 0 && t.length === 0) return null;
+    return { c, t };
+  } catch {
+    return null;
+  }
+}
+
 export function PassageView({ id, investor }: { id: string; investor?: string }) {
   const go = useStore((s) => s.go);
+  const params = useStore((s) => s.params);
   const [data, setData] = useState<PassageDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
   const inv = investor || "buffett";
+  const why = parseWhy(params.why);
 
   useEffect(() => {
     let active = true;
@@ -105,8 +155,46 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
             </div>
           )}
 
-          {/* "Why this result matched" — master prompt §15 */}
-          {(data.themes.length > 0 || data.companies.length > 0 || data.concepts.length > 0) && (
+          {/* "Why you're seeing this" — exact match provenance (spec §12.3) */}
+          {why && (
+            <div className="mt-8 border-t-2 border-ink pt-4">
+              <p className="kicker flex items-center gap-1.5">
+                <Sparkles className="h-3 w-3 text-signal-dark" /> WHY YOU&apos;RE SEEING THIS
+              </p>
+              <div className="mt-3 space-y-3">
+                {why.c.length > 0 && (
+                  <div>
+                    <p className="font-reader text-base">
+                      Matched because this passage is indexed under{" "}
+                      {why.c.map(([, , label], i) => (
+                        <span key={`${label}-${i}`}>
+                          {i > 0 && ", "}
+                          <strong className="font-display font-semibold">{label}</strong>
+                        </span>
+                      ))}
+                      .
+                    </p>
+                    <WhyTagChips tags={why.c} investorSlug={inv} />
+                  </div>
+                )}
+                {why.t.length > 0 && (
+                  <p className="font-reader text-base">
+                    Matched{" "}
+                    {why.t.map((tok, i) => (
+                      <span key={tok}>
+                        {i > 0 && ", "}
+                        <strong className="font-display font-semibold">&ldquo;{tok}&rdquo;</strong>
+                      </span>
+                    ))}{" "}
+                    in passage text.
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Full tag inventory when opened directly (not from search) */}
+          {!why && (data.themes.length > 0 || data.companies.length > 0 || data.concepts.length > 0) && (
             <div className="mt-8 border-t-2 border-ink pt-4">
               <p className="kicker flex items-center gap-1.5">
                 <Sparkles className="h-3 w-3 text-signal-dark" /> WHY THIS MATCHED
