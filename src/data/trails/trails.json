@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "how-buffett-learned-to-value-quality",
+    "title": "How Buffett Learned to Value Quality",
+    "centralQuestion": "How did a bargain-hunting investor learn to pay up for wonderful businesses?",
+    "intro": "Berkshire Hathaway began as a struggling textile operation whose economics the shareholder letters describe in unsparing terms. The 1972 purchase of See's Candies posed a different lesson: a business can be worth far more than its tangible assets when customers keep returning. This trail follows the indexed record as that lesson was absorbed, articulated, and eventually applied at scale.",
+    "nodes": [
+      {
+        "year": 1972,
+        "entityKind": "company",
+        "entitySlug": "sees-candies",
+        "title": "See's Candies",
+        "blurb": "On January 3, 1972, Blue Chip Stamps — then a Berkshire affiliate — bought control of See's Candy Shops, a date the letters' later retrospectives quote directly. The indexed record returns to See's repeatedly when explaining why a business may be worth far more than its tangible assets.",
+        "link": "#/view=company&slug=sees-candies&investor=buffett"
+      },
+      {
+        "year": 1978,
+        "entityKind": "source",
+        "entitySlug": "berkshire-1978-letter",
+        "title": "The textile problem, stated plainly",
+        "blurb": "The 1978 letter explains how producers of undifferentiated goods in capital-intensive industries earn inadequate returns except under tight supply. It is the clearest indexed statement of the economics that See's helped answer.",
+        "link": "#/view=source&slug=berkshire-1978-letter"
+      },
+      {
+        "year": 1983,
+        "entityKind": "source",
+        "entitySlug": "berkshire-1983-letter",
+        "title": "Economic goodwill",
+        "blurb": "The 1983 letter devotes extensive space to goodwill — the gap between what a business earns and what its tangible assets alone could earn. Indexed references here mark where the quality lesson acquired formal vocabulary.",
+        "link": "#/view=source&slug=berkshire-1983-letter"
+      },
+      {
+        "year": 1985,
+        "entityKind": "theme",
+        "entitySlug": "moats",
+        "title": "Moats enter the vocabulary",
+        "blurb": "By the mid-1980s letters, durable competitive advantage is discussed as a lasting characteristic of a business rather than a one-off insight. This theme collects those indexed references across investors.",
+        "link": "#/view=topic&slug=moats&investor=buffett"
+      },
+      {
+        "year": 1988,
+        "entityKind": "company",
+        "entitySlug": "coca-cola",
+        "title": "Coca-Cola: the lesson at scale",
+        "blurb": "In late 1988 Berkshire made major purchases of Coca-Cola stock, applying the quality framework to a company with worldwide brand strength. It became the largest indexed step from theory to practice in this arc.",
+        "link": "#/view=company&slug=coca-cola&investor=buffett"
+      },
+      {
+        "year": 1988,
+        "entityKind": "source",
+        "entitySlug": "berkshire-1988-letter",
+        "title": "The 1988 letter",
+        "blurb": "The primary-document anchor for the Coca-Cola step: the letter records the major purchases and states an expectation to hold the securities for the long term. The passage is indexed under long-term ownership.",
+        "link": "#/view=source&slug=berkshire-1988-letter"
+      },
+      {
+        "year": 1989,
+        "entityKind": "source",
+        "entitySlug": "berkshire-1989-letter",
+        "title": "Wonderful businesses, retrospectively",
+        "blurb": "The 1989 letter looks back across decades of mistakes and describes the move toward businesses whose economics compound with little added investment. Its pages index both See's and Coca-Cola among the most cross-referenced examples.",
+        "link": "#/view=source&slug=berkshire-1989-letter"
+      }
+    ],
+    "exploreNext": [
+      { "label": "Theme: Economic Moats", "link": "#/view=topic&slug=moats&investor=buffett" },
+      { "label": "Theme: Quality Businesses", "link": "#/view=topic&slug=quality-businesses&investor=buffett" },
+      { "label": "Company: Coca-Cola", "link": "#/view=company&slug=coca-cola&investor=buffett" },
+      { "label": "Search: Apple in the library", "link": "#/view=search&q=apple" }
+    ]
+  },
+  {
+    "slug": "2008-through-five-investors",
+    "title": "2008 Through Five Investors",
+    "centralQuestion": "How did five different minds react to the same crisis?",
+    "intro": "The same market shock reached Howard Marks, Warren Buffett, George Soros, Ray Dalio, and Stanley Druckenmiller — five investors working from very different frameworks. Their indexed statements span years before and after the panic itself, which is precisely the point: reactions drew on ideas formed much earlier. Each step below opens the primary record.",
+    "nodes": [
+      {
+        "year": 2001,
+        "entityKind": "source",
+        "entitySlug": "you-cant-predict.-you-can-prepare.",
+        "title": "\"You Can't Predict. You Can Prepare.\"",
+        "blurb": "Written seven years before the crisis, Marks's memo argues that investors cannot predict macro events but can position for surprises. It opens this trail because its preparedness stance runs through his crisis-era memos below.",
+        "link": "#/view=source&slug=you-cant-predict.-you-can-prepare."
+      },
+      {
+        "year": 2007,
+        "entityKind": "source",
+        "entitySlug": "the-race-to-the-bottom",
+        "title": "The race to the bottom",
+        "blurb": "An indexed memo describing how abundant capital and competitive pressure push investors to accept riskier terms during a credit boom. It stands as the pre-crisis warning in this sequence.",
+        "link": "#/view=source&slug=the-race-to-the-bottom"
+      },
+      {
+        "year": 2008,
+        "entityKind": "event",
+        "entitySlug": "great-financial-crisis",
+        "title": "The shared event",
+        "blurb": "The financial crisis itself, indexed as an event linked to sources across the library. Every step after this one reacts to it through a different framework.",
+        "link": "#/view=event&slug=great-financial-crisis"
+      },
+      {
+        "year": 2008,
+        "entityKind": "source",
+        "entitySlug": "nobody-knows",
+        "title": "Nobody knows",
+        "blurb": "Written into the unfolding downturn, this memo argues that no one — including professional investors — can know how events will resolve. It applies the earlier preparedness stance to live conditions.",
+        "link": "#/view=source&slug=nobody-knows"
+      },
+      {
+        "year": 2008,
+        "entityKind": "company",
+        "entitySlug": "goldman-sachs",
+        "title": "Buffett buys Goldman preferreds",
+        "blurb": "Amid the September 2008 panic, Berkshire announced a preferred-stock investment in Goldman Sachs. The position appears in the indexed record through the letters of 2008–2011.",
+        "link": "#/view=company&slug=goldman-sachs&investor=buffett"
+      },
+      {
+        "year": 2009,
+        "entityKind": "source",
+        "entitySlug": "ceu-reflexivity-lecture-transcript",
+        "title": "Reflexivity, applied to the crisis",
+        "blurb": "Soros's Central European University lecture sets out his reflexivity framework with direct reference to the 2008 crisis; several indexed passages carry the event tag explicitly. It is the theorist's account within this sequence.",
+        "link": "#/view=source&slug=ceu-reflexivity-lecture-transcript"
+      },
+      {
+        "year": 2013,
+        "entityKind": "source",
+        "entitySlug": "how-the-economic-machine-works",
+        "title": "Dalio's debt-cycle template",
+        "blurb": "Dalio's indexed transcript introduces his template for economies driven by credit cycles — expansion, contraction, and restructuring. Read alongside the 2008 sources above, it offers a cycle-based frame for the same events.",
+        "link": "#/view=source&slug=how-the-economic-machine-works"
+      },
+      {
+        "year": 2020,
+        "entityKind": "source",
+        "entitySlug": "econ-club-ny-2020",
+        "title": "Druckenmiller's retrospective",
+        "blurb": "At the Economic Club of New York in May 2020, Druckenmiller revisited the post-2008 policy era and its distortions. Indexed passages here are tagged to both the 2008 crisis and the COVID crash, making the source a bridge between two shocks.",
+        "link": "#/view=source&slug=econ-club-ny-2020"
+      }
+    ],
+    "exploreNext": [
+      { "label": "Theme: Market Psychology", "link": "#/view=topic&slug=market-psychology&investor=marks" },
+      { "label": "Event: Black Monday 1987", "link": "#/view=event&slug=black-monday-1987" },
+      { "label": "Investor: Ray Dalio", "link": "#/view=investor&slug=dalio" },
+      { "label": "Search: 2008 crisis", "link": "#/view=search&q=2008%20crisis" }
+    ]
+  },
+  {
+    "slug": "margin-of-safety-graham-to-klarman",
+    "title": "Margin of Safety: Graham to Klarman",
+    "centralQuestion": "How has the margin-of-safety principle been carried from Graham's generation to today's practitioners?",
+    "intro": "Margin of safety is usually traced to Benjamin Graham, but the principle's life is visible only across the people who kept using it. This trail follows the indexed record from Graham's own testimony and interviews to investors who cite the term today. Where passage-level excerpts are not yet available, each step still anchors to its original document through provenance links.",
+    "nodes": [
+      {
+        "year": 1955,
+        "entityKind": "source",
+        "entitySlug": "senate-testimony-1955",
+        "title": "Senate testimony, 1955",
+        "blurb": "Graham appeared before the U.S. Senate Banking Committee during its 1955 stock-market study; the original transcript is linked from the source's provenance panel. Passage-level excerpts have not yet been added, so this step anchors the trail to the primary document itself.",
+        "link": "#/view=source&slug=senate-testimony-1955"
+      },
+      {
+        "year": 1976,
+        "entityKind": "source",
+        "entitySlug": "an-hour-with-mr-graham",
+        "title": "An Hour with Mr. Graham",
+        "blurb": "A March 1976 conversation with Hartman L. Butler Jr., recorded near the end of Graham's career, reviewing the lessons of his investment life. Eighteen indexed excerpts preserve the interview.",
+        "link": "#/view=source&slug=an-hour-with-mr-graham"
+      },
+      {
+        "year": 1977,
+        "entityKind": "source",
+        "entitySlug": "father-of-financial-analysis",
+        "title": "The biographical record",
+        "blurb": "Kahn and Milne's study of Graham as the 'father of financial analysis' documents how his methods reached students and collaborators. With seventy-eight indexed excerpts it is the deepest Graham source in the library.",
+        "link": "#/view=source&slug=father-of-financial-analysis"
+      },
+      {
+        "year": 1979,
+        "entityKind": "theme",
+        "entitySlug": "margin-of-safety",
+        "title": "The term spreads into practice",
+        "blurb": "Outside Graham's own writing, the margin-of-safety theme page collects references across investors; Berkshire's letters index the term from 1979 onward. Open the theme to see the full spread.",
+        "link": "#/view=topic&slug=margin-of-safety&investor=buffett"
+      },
+      {
+        "year": 2003,
+        "entityKind": "source",
+        "entitySlug": "the-most-important-thing",
+        "title": "Marks codifies it",
+        "blurb": "Howard Marks's memos index margin-of-safety repeatedly; this 2003 entry later gave its name to his book of collected memos. It documents the principle traveling beyond Graham's direct lineage.",
+        "link": "#/view=source&slug=the-most-important-thing"
+      },
+      {
+        "year": 2026,
+        "entityKind": "source",
+        "entitySlug": "mib-interview-2026",
+        "title": "Klarman carries it forward",
+        "blurb": "In a Masters in Business interview, Seth Klarman discusses the confidence that comes from owning assets worth more than the price paid; indexed passages here sit under the margin-of-safety theme directly. The trail ends where the idea is still visibly in use.",
+        "link": "#/view=source&slug=mib-interview-2026"
+      }
+    ],
+    "exploreNext": [
+      { "label": "Theme: Margin of Safety", "link": "#/view=topic&slug=margin-of-safety&investor=buffett" },
+      { "label": "Investor: Seth Klarman", "link": "#/view=investor&slug=klarman" },
+      { "label": "Theme: Price versus Value", "link": "#/view=topic&slug=price-versus-value&investor=buffett" },
+      { "label": "Search: margin of safety", "link": "#/view=search&q=margin%20of%20safety" }
+    ]
+  }
+]
