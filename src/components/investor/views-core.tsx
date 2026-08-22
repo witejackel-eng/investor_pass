@@ -21,10 +21,31 @@ type Investor = {
   yearSpan: { from: number; to: number } | null;
 };
 
+type Stats = { passages: number; sources: number; investors: number; themes: number; concepts: number; companies: number };
+
+// Module-level cache so home/footer share one request per session.
+let statsCache: Stats | null = null;
+
+export function useStats(): Stats | null {
+  const [stats, setStats] = useState<Stats | null>(statsCache);
+  useEffect(() => {
+    if (statsCache) return;
+    apiGet<Stats>("/api/stats")
+      .then((s) => {
+        statsCache = s;
+        setStats(s);
+      })
+      .catch(() => setStats(null)); // hide numbers rather than show stale-wrong ones
+  }, []);
+  return stats;
+}
+
 export function HomeView() {
   const go = useStore((s) => s.go);
+  const isPro = useStore((s) => s.user?.entitlement === "pro");
   const [currency] = useCurrency();
   const [investors, setInvestors] = useState<Investor[]>([]);
+  const stats = useStats();
   useEffect(() => {
     apiGet<{ investors: Investor[] }>("/api/investors").then((d) => setInvestors(d.investors));
   }, []);
@@ -55,9 +76,11 @@ export function HomeView() {
               <button onClick={() => go("investors")} className="bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
                 EXPLORE INVESTORS
               </button>
-              <button onClick={() => go("upgrade")} className="nav-link text-sm font-semibold">
-                START PRO — {PRICING[currency].monthly}/MO <ArrowRight className="inline h-3.5 w-3.5" />
-              </button>
+              {!isPro && (
+                <button onClick={() => go("upgrade")} className="nav-link text-sm font-semibold">
+                  START PRO — {PRICING[currency].monthly}/MO <ArrowRight className="inline h-3.5 w-3.5" />
+                </button>
+              )}
             </div>
           </div>
           <div className="border-l border-rule lg:pl-6">
@@ -75,35 +98,41 @@ export function HomeView() {
                 </div>
               </button>
             )}
-            <p className="kicker mt-5">MORE INVESTORS — COMING LATER</p>
-            <div className="mt-2 space-y-1">
-              {future.map((inv) => (
-                <div key={inv.slug} className="flex items-center justify-between border-t border-rule py-2 text-graphite">
-                  <span className="font-display text-sm font-medium">{inv.name}</span>
-                  <span className="font-mono text-[0.6rem] uppercase tracking-wider">SOON</span>
+            {future.length > 0 && (
+              <>
+                <p className="kicker mt-5">MORE INVESTORS — COMING LATER</p>
+                <div className="mt-2 space-y-1">
+                  {future.map((inv) => (
+                    <div key={inv.slug} className="flex items-center justify-between border-t border-rule py-2 text-graphite">
+                      <span className="font-display text-sm font-medium">{inv.name}</span>
+                      <span className="font-mono text-[0.6rem] uppercase tracking-wider">SOON</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Stats band */}
-      <section className="mt-12 border-t-2 border-ink py-8">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {[
-            { n: "22", l: "Sources indexed" },
-            { n: "35", l: "Passages, paraphrased" },
-            { n: "15", l: "Themes tagged" },
-            { n: "14", l: "Companies mapped" },
-          ].map((s) => (
-            <div key={s.l} className="border-t border-ink pt-3">
-              <p className="font-display text-4xl font-bold tracking-tight text-signal-dark">{s.n}</p>
-              <p className="kicker mt-1">{s.l}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Stats band — live counts; hidden entirely on failure (never show stale numbers) */}
+      {stats && (
+        <section className="mt-12 border-t-2 border-ink py-8">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {[
+              { n: stats.sources.toLocaleString(), l: "Sources indexed" },
+              { n: stats.passages.toLocaleString(), l: "Passages, paraphrased" },
+              { n: stats.themes.toLocaleString(), l: "Themes tagged" },
+              { n: stats.companies.toLocaleString(), l: "Companies mapped" },
+            ].map((s) => (
+              <div key={s.l} className="border-t border-ink pt-3">
+                <p className="font-display text-4xl font-bold tracking-tight text-signal-dark">{s.n}</p>
+                <p className="kicker mt-1">{s.l}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Recently viewed */}
       <RecentlyViewed />
@@ -164,9 +193,15 @@ export function HomeView() {
               <li>· Bookmarks, saved searches, collections</li>
               <li>· Every connection, fully navigable</li>
             </ul>
-            <button onClick={() => go("upgrade")} className="mt-5 w-full bg-ink py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
-              START PRO
-            </button>
+            {isPro ? (
+              <div className="mt-5 w-full border border-ink bg-paper-2 py-2.5 text-center text-sm font-semibold text-signal-dark">
+                ✓ YOU'RE ON PRO — EVERYTHING UNLOCKED
+              </div>
+            ) : (
+              <button onClick={() => go("upgrade")} className="mt-5 w-full bg-ink py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
+                START PRO
+              </button>
+            )}
           </div>
         </div>
       </section>

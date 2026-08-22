@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#2D2D2D"/>
+  <g fill="#FFFFFF">
+    <path d="M34.5 15.5l-3.1 4.4c-.5.7-1.4 1.2-2.3 1.2h-18v-4.9c0-.4.3-.7.7-.7h22.7z"/>
+    <polygon points="56,15.5 29.6,48.5 11.8,48.5 38.2,15.5"/>
+    <path d="M31.9 48.5l3.1-4.4c.5-.7 1.4-1.2 2.3-1.2h18.4v4.9c0 .4-.3.7-.7.7H31.9z"/>
+  </g>
+</svg>

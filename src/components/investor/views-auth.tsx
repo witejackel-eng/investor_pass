@@ -142,6 +142,22 @@ export function UpgradeView() {
   const [currency, setCurrency] = useCurrency();
   const p = PRICING[currency];
 
+  // Pros don't see pricing — they see plan management (respect who paid).
+  if (user?.entitlement === "pro") {
+    return (
+      <div className="mx-auto max-w-[680px] px-4 py-16">
+        <div className="border-t-2 border-ink pt-4 text-center">
+          <p className="kicker text-signal-dark">/ INVESTOR/PASS PRO</p>
+          <h1 className="mt-3 flex items-center justify-center gap-2 font-display text-4xl font-semibold tracking-tight">
+            <Crown className="h-7 w-7 text-signal-dark" /> You're on Pro
+          </h1>
+          <p className="mt-2 font-reader text-graphite">Full access to every passage, source, and connection. Manage your plan anytime from Account.</p>
+          <button onClick={() => go("account")} className="mt-6 bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark">OPEN ACCOUNT</button>
+        </div>
+      </div>
+    );
+  }
+
   const submit = async () => {
     if (!user) { go("signup"); return; }
     setLoading(true);

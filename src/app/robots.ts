@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 
 // robots.txt — public research pages are crawlable in production.
 // SITE_PRELAUNCH=true fail-safe blocks everything (spec §43, master prompt §30).
-const BASE = process.env.PUBLIC_SITE_URL || "https://investor-pass.vercel.app";
+const BASE = process.env.PUBLIC_SITE_URL || "https://investorpass.vercel.app";
 
 export default function robots(): MetadataRoute.Robots {
   if (process.env.SITE_PRELAUNCH === "true") {
@@ -24,3 +24,4 @@ export default function robots(): MetadataRoute.Robots {
     host: BASE,
   };
 }
+

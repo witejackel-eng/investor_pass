@@ -1,0 +1,12 @@
+{
+  "name": "Investor/Pass",
+  "short_name": "Investor/Pass",
+  "description": "The public record, properly indexed.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F4EC",
+  "theme_color": "#2D2D2D",
+  "icons": [
+    { "src": "/apple-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

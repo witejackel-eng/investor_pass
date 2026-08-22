@@ -7,6 +7,7 @@ import { EntityChips, PremiumGate, ProBadge } from "@/components/investor/entity
 import { Loading } from "./views-core";
 import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal, Download, Share2, AlertTriangle } from "lucide-react";
 import { toast } from "sonner";
+import { SITE_URL } from "@/lib/site";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
 import { HighlightedText } from "@/components/investor/highlighted-text";
 
@@ -949,7 +950,7 @@ function exportBookmarksMd(bookmarks: any[]) {
   for (const [kind, items] of Object.entries(grouped)) {
     md += `## ${kindLabels[kind] || kind}\n\n`;
     for (const b of items) {
-      md += `- [${b.label}](https://investor-pass.vercel.app/#/view=${b.kind === "search" ? "search" : b.kind === "theme" ? "topic" : b.kind}&slug=${b.entityId})\n`;
+      md += `- [${b.label}](${SITE_URL}/#/view=${b.kind === "search" ? "search" : b.kind === "theme" ? "topic" : b.kind}&slug=${b.entityId})\n`;
     }
     md += "\n";
   }
@@ -992,3 +993,4 @@ function exportCollectionMd(c: any) {
   downloadFile(md, `${c.title.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}.md`, "text/markdown");
   toast.success("Collection exported as Markdown");
 }
+

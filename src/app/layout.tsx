@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Investor/Pass — The public record, properly indexed",
   description:
     "Investor/Pass is a premium information-access product built around the public record of exceptional investors. Launch collection: Warren Buffett. Searchable, structured, connected, and exceptionally easy to explore.",
@@ -17,17 +19,21 @@ export const metadata: Metadata = {
     "Investor Pass",
   ],
   authors: [{ name: "Investor/Pass" }],
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: "Investor/Pass — The public record, properly indexed",
     description:
       "Premium information-access product around the public record of exceptional investors. Launch collection: Warren Buffett.",
     type: "website",
     siteName: "Investor/Pass",
+    url: SITE_URL,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Investor/Pass — The public record, properly indexed" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Investor/Pass",
     description: "The public record, properly indexed.",
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
   alternates: {
@@ -42,7 +48,7 @@ const orgJsonLd = {
   name: "Investor/Pass",
   description:
     "Premium information-access product built around the public record of exceptional investors.",
-  url: "https://investor-pass.vercel.app",
+  url: SITE_URL,
   knowsAbout: [
     "Warren Buffett",
     "Berkshire Hathaway",
@@ -57,11 +63,11 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Investor/Pass",
-  url: "https://investor-pass.vercel.app",
+  url: SITE_URL,
   description: "The public record, properly indexed.",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://investor-pass.vercel.app/#/view=search&q={search_term_string}",
+    target: `${SITE_URL}/#/view=search&q={search_term_string}`,
     "query-input": "required name=search_term_string",
   },
 };

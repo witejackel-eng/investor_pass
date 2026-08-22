@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
+import { useStore } from "@/stores/app-store";
 
 export function Footer() {
+  const isPro = useStore((s) => s.user?.entitlement === "pro");
   return (
     <footer className="mt-auto border-t border-ink bg-paper">
       <div className="mx-auto max-w-[1320px] px-4 py-10 sm:px-6 lg:px-8">
@@ -26,7 +28,7 @@ export function Footer() {
             <ul className="space-y-2 text-graphite">
               <li><Link href="/investors" className="hover:text-ink">Investors</Link></li>
               <li><Link href="/#search" className="hover:text-ink">Search</Link></li>
-              <li><Link href="/#/view=upgrade" className="hover:text-ink">Upgrade</Link></li>
+              {!isPro && <li><Link href="/#/view=upgrade" className="hover:text-ink">Upgrade</Link></li>}
               <li><Link href="/legal" className="hover:text-ink">Legal</Link></li>
             </ul>
           </nav>
@@ -67,7 +69,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-rule pt-4 font-mono text-[0.62rem] uppercase tracking-wider text-graphite sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Investor/Pass</span>
-          <span>Launch collection: Warren Buffett · Munger, Marks, Lynch, Bogle coming later</span>
+          <span>Launch collection: Warren Buffett · Munger, Marks, Lynch, Bogle and more indexed</span>
         </div>
       </div>
     </footer>

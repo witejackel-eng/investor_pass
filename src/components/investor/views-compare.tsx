@@ -52,12 +52,18 @@ export function CompareView() {
   const [data, setData] = useState<CompareData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [investorsLoading, setInvestorsLoading] = useState(true);
 
-  useEffect(() => {
-    apiGet<InvestorLite[]>("/api/investors")
-      .then((rows) => setInvestors(rows.filter((r) => r.slug !== undefined)))
-      .catch(() => setError("Could not load investors."));
-  }, []);
+  const loadInvestors = () => {
+    setInvestorsLoading(true);
+    setError(null);
+    apiGet<{ investors: InvestorLite[] }>("/api/investors")
+      .then((d) => setInvestors(d.investors.filter((r) => r.slug !== undefined)))
+      .catch(() => setError("Could not load investors."))
+      .finally(() => setInvestorsLoading(false));
+  };
+
+  useEffect(loadInvestors, []);
 
   const toggleInvestor = (slug: string) =>
     setSelected((cur) =>
@@ -109,7 +115,10 @@ export function CompareView() {
               {inv.name}
             </Chip>
           ))}
-          {!investors.length && !error && <span className="text-xs text-[var(--graphite)]">Loading…</span>}
+          {investorsLoading && <span className="text-xs text-[var(--graphite)]">Loading…</span>}
+          {!investorsLoading && !error && !investors.length && (
+            <button onClick={loadInvestors} className="chip">RETRY</button>
+          )}
         </div>
 
         <p className="kicker mt-6">STEP 2 · TOPIC</p>
