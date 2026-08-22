@@ -53,11 +53,18 @@ export function CompareView() {
   const [data, setData] = useState<CompareData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hint, setHint] = useState<string | null>(null);
   const { data: investors = [], isLoading: investorsLoading, isError: investorsError, refetch: refetchInvestors } = useInvestors();
 
   useEffect(() => {
     if (investorsError) setError("Could not load investors.");
   }, [investorsError]);
+
+  // Any input change clears stale errors/hints.
+  useEffect(() => {
+    setError(null);
+    setHint(null);
+  }, [selected.length, q, themeSlug]);
 
   const toggleInvestor = (slug: string) =>
     setSelected((cur) =>
@@ -67,7 +74,15 @@ export function CompareView() {
   const canRun = selected.length >= 2 && (q.trim().length > 0 || themeSlug !== null);
 
   async function run() {
-    if (!canRun) return;
+    // Explain instead of silently disabling.
+    if (selected.length < 2) {
+      setHint(`Pick ${2 - selected.length} more investor${selected.length === 1 ? "" : "s"} to compare.`);
+      return;
+    }
+    if (!q.trim() && !themeSlug) {
+      setHint("Now add a topic — type a phrase above or tap a theme chip.");
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
@@ -77,6 +92,9 @@ export function CompareView() {
       track("comparison_started", { investors: selected, q: q.trim(), theme: themeSlug });
       const d = await apiGet<CompareData>(`/api/compare?${p.toString()}`);
       setData(d);
+      if (d.columns.every((c) => c.total === 0)) {
+        setHint("No indexed references matched that topic — try a broader word like “risk”, “value”, or “debt”.");
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Comparison failed.");
       setData(null);
@@ -134,13 +152,17 @@ export function CompareView() {
 
         <button
           onClick={run}
-          disabled={!canRun || loading}
+          disabled={loading}
           className="mt-5 border border-[var(--ink)] bg-[var(--ink)] px-5 py-2 text-sm font-medium text-[var(--paper)] disabled:opacity-40"
         >
           {loading ? "COMPARING…" : "RUN COMPARISON"}
         </button>
+        {hint && <p className="mt-2 text-xs text-signal-dark">{hint}</p>}
         {selected.length > 0 && selected.length < 2 && (
           <p className="mt-2 text-xs text-[var(--graphite)]">Pick at least one more investor.</p>
+        )}
+        {!loading && selected.length === 0 && !data && (
+          <p className="mt-2 text-xs text-[var(--graphite)]">Step 1: pick 2–4 investors · Step 2: add a topic · then run.</p>
         )}
       </div>
 
