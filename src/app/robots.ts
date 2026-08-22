@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 
-// robots.txt — public pages indexable in production.
-// Master prompt §30: preserve the SITE_PRELAUNCH fail-safe.
+// robots.txt — public research pages are crawlable in production.
+// SITE_PRELAUNCH=true fail-safe blocks everything (spec §43, master prompt §30).
+const BASE = process.env.PUBLIC_SITE_URL || "https://investor-pass.vercel.app";
+
 export default function robots(): MetadataRoute.Robots {
-  const prelaunch = process.env.SITE_PRELAUNCH === "true";
-  if (prelaunch) {
+  if (process.env.SITE_PRELAUNCH === "true") {
     return {
       rules: { userAgent: "*", disallow: "/" },
     };
@@ -14,10 +15,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/library", "/admin"],
+        disallow: ["/api/"],
       },
     ],
-    sitemap: "https://investor-pass.vercel.app/sitemap.xml",
-    host: "https://investor-pass.vercel.app",
+    sitemap: `${BASE}/sitemap.xml`,
+    host: BASE,
   };
 }
