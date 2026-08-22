@@ -1,0 +1,156 @@
+[
+  {
+    "title": "See's Candies — $25M purchase becomes the template for pricing power",
+    "decisionDate": "1972",
+    "action": "acquired",
+    "statement": "Paid $25M for a West-Coast box-chocolates business earning roughly $4M pre-tax, betting on brand-driven pricing power rather than asset value.",
+    "outcome": "Generated over $2 billion cumulative pre-tax earnings in the decades after purchase, and taught the intangibles lesson that shaped every later Berkshire acquisition.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2007ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["pricing-power", "intangibles", "brand"]
+  },
+  {
+    "title": "Washington Post — bought fear in a family-controlled franchise",
+    "decisionDate": "1973",
+    "action": "invested",
+    "statement": "Bought about 10% of the Post's business class when the market priced the whole company far below liquidation estimates, despite an entrenched controlling family.",
+    "outcome": "Position grew more than tenfold over two decades; Buffett later called the price 'a huge bargain' and held the stake until Graham Holdings converted in 2014.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1985.html",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["media", "margin-of-safety", "control-franchise"]
+  },
+  {
+    "title": "GEICO rescue — doubling down when insolvency headlines peaked",
+    "decisionDate": "1976",
+    "action": "invested",
+    "statement": "Backed a near-insolvent insurer because its core low-cost direct model remained intact, starting accumulation at depressed prices while others fled.",
+    "outcome": "Became Berkshire's float engine; the position was eventually bought out entirely and remains a core subsidiary half a century later.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1977.html",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["insurance", "float", "conviction"]
+  },
+  {
+    "title": "Salomon Brothers — $700M convertible preferred at the bottom of a cycle",
+    "decisionDate": "1987",
+    "action": "invested",
+    "statement": "Deployed $700M into a redeemable convertible preferred when the firm needed capital, accepting governance risk for yield-plus-upside terms.",
+    "outcome": "Preferred was redeemed after the 1990s; the episode produced both gains and a famous governance headache Buffett chronicled in subsequent letters.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1987.html",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["crisis-investing", "preferreds", "governance"]
+  },
+  {
+    "title": "Coca-Cola — the definitive permanent holding",
+    "decisionDate": "1988",
+    "action": "invested",
+    "statement": "Accumulated roughly 7% of Coca-Cola across 1988–1994 for about $1.3B total, paying up for an unambiguous global brand rather than waiting for deep-value prices.",
+    "outcome": "Never sold; dividends alone came to exceed the original cost basis annually within three decades, making it Berkshire's textbook example of compounding brand equity.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1998ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["brands", "permanent-capital", "dividends"]
+  },
+  {
+    "title": "GEICO — acquiring the remaining 50% outright",
+    "decisionDate": "1996",
+    "action": "acquired",
+    "statement": "Bought the half of GEICO Berkshire didn't already own for $2.3B, converting a famous partial position into wholly-owned float.",
+    "outcome": "GEICO grew policies and float multiples over; became one of Berkshire's largest and most strategic operating units.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1996.html",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["insurance", "float", "full-ownership"]
+  },
+  {
+    "title": "General Re — the $22B reinsurance bet and its hard lesson",
+    "decisionDate": "1998",
+    "action": "acquired",
+    "statement": "Acquired General Re for ~$22B in stock, instantly gaining one of the world's largest reinsurers along with its underwriting culture.",
+    "outcome": "Early years exposed unpriced derivative exposure and inadequate reserves that took years to fix — a candid multi-letter case study in integration risk before it became a strong underwriting business.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1998ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["reinsurance", "integration-risk", "derivatives"]
+  },
+  {
+    "title": "Goldman Sachs preferred — liquidity for trust at the panic lows",
+    "decisionDate": "2008",
+    "action": "invested",
+    "statement": "Invested $5B in 10% dividend-paying preferred shares plus warrants during the crisis, explicitly saying confidence in the institution mattered as much as terms.",
+    "outcome": "Redeemed in 2011 with a premium; overall profit ran to billions, cementing the crisis-preferred playbook.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2008ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["crisis-investing", "preferreds", "trust"]
+  },
+  {
+    "title": "BNSF — the largest acquisition in Berkshire history",
+    "decisionDate": "2009",
+    "action": "acquired",
+    "statement": "Acquired the remaining ~77% of Burlington Northern Santa Fe in a deal valuing the railroad at about $34B including assumed debt, calling it an all-in wager on the American economy.",
+    "outcome": "BNSF became Berkshire's largest non-insurance earner and the backbone of domestic freight logistics; earnings and reinvestment both scaled dramatically.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2009ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["railroads", "infrastructure", "us-economy"]
+  },
+  {
+    "title": "IBM — a rare public miss",
+    "decisionDate": "2011",
+    "action": "invested",
+    "statement": "Built a ~$10.7B stake convinced by long client relationships and capital discipline, publicly writing up the thesis in that year's shareholder letter.",
+    "outcome": "Business trajectory disappointed; by 2017 Buffett wrote plainly that results fell short of his original expectations and Berkshire had exited at roughly break-even.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2017ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["technology", "documented-mistake", "thesis-drift"]
+  },
+  {
+    "title": "Precision Castparts — paying too much for quality",
+    "decisionDate": "2016",
+    "action": "acquired",
+    "statement": "Closed the ~$32B acquisition of aerospace-parts maker Precision Castparts, Berkshire's largest cash acquisition at the time.",
+    "outcome": "Aerospace demand collapsed after COVID and normalized earnings proved well below what was paid for; Buffett said directly he paid too much.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2020ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["manufacturing", "aerospace", "documented-mistake"]
+  },
+  {
+    "title": "Apple — concentration into the best business he ever bought",
+    "decisionDate": "2016",
+    "action": "invested",
+    "statement": "Started buying Apple in 2016 and scaled aggressively through 2018, treating it as a consumer-products company with unmatched ecosystem retention rather than a tech bet.",
+    "outcome": "Grew into the most profitable single investment in Berkshire's history, worth multiples of its ~$36B cost basis and generating enormous annual dividends.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2018ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["consumer", "ecosystem", "concentration"]
+  },
+  {
+    "title": "Airlines — full exit within weeks of the crash",
+    "decisionDate": "2020",
+    "action": "exited",
+    "statement": "Sold the entire four-airline position in April 2020 after concluding the world had changed for aviation economics, reversing a thesis built over years.",
+    "outcome": "A candid, immediate reversal executed at scale — later cited by Buffett himself as an error in judgment made quickly rather than stubbornly defended.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2020ltr.pdf",
+    "confidence": "medium",
+    "verified": true,
+    "tags": ["airlines", "reversal", "risk-management"]
+  },
+  {
+    "title": "Japan sogo shosha — five 5% stakes at historically cheap yields",
+    "decisionDate": "2020",
+    "action": "invested",
+    "statement": "Accumulated just over 5% in each of Japan's five major trading houses, attracted by extraordinarily low valuations, dividend cultures, and aligned management.",
+    "outcome": "Positions were raised over time and became one of Berkshire's best-performing commitments of the decade, praised in the 2023 letter for their capital discipline.",
+    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2023ltr.pdf",
+    "confidence": "high",
+    "verified": true,
+    "tags": ["japan", "value", "international"]
+  }
+]

@@ -5,6 +5,7 @@ import { apiGet } from "@/lib/client";
 import { useInvestors } from "@/hooks/use-investors";
 import { PersonalHomeRails } from "@/components/investor/personal-home";
 import { FollowButton } from "@/components/investor/follow-button";
+import { DecisionLedger } from "@/components/investor/decision-ledger";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
@@ -316,6 +317,9 @@ export function InvestorView({ slug }: { slug: string }) {
           <p>{investor.bio}</p>
         </div>
       </section>
+
+      {/* Decision Ledger (§19-20) — verified statement → decision → outcome */}
+      <DecisionLedger slug={slug} />
 
       {/* Browse by Year — visual grid */}
       {years.length > 0 && (
