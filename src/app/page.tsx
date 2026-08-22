@@ -26,6 +26,7 @@ const TrailsLazy = dynamic(() => import("@/components/investor/views-trails-lazy
 const BookmarksView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.BookmarksView })), opts);
 const SavedSearchesView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.SavedSearchesView })), opts);
 const CollectionsView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.CollectionsView })), opts);
+const WatchlistView = dynamic(() => import("@/components/investor/views-watchlist").then((m) => ({ default: m.WatchlistView })), opts);
 const AccountView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AccountView })), opts);
 const UpgradeView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.UpgradeView })), opts);
 const LoginView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.LoginView })), opts);
@@ -61,6 +62,7 @@ export default function Home() {
       case "bookmarks": return <BookmarksView />;
       case "searches": return <SavedSearchesView />;
       case "collections": return <CollectionsView />;
+      case "watchlist": return <WatchlistView />;
       case "account": return <AccountView />;
       case "upgrade": return <UpgradeView />;
       case "login": return <LoginView />;

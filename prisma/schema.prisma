@@ -277,6 +277,8 @@ model Follow {
   userId     String
   entityType String
   entityId   String
+  // Alert depth (Pro layer, Master Plan §3-5): "off" | "weekly" | "instant"
+  alertFrequency String @default("weekly")
   createdAt  DateTime @default(now())
 
   user       User @relation(fields: [userId], references: [id], onDelete: Cascade)

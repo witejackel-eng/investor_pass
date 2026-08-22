@@ -80,6 +80,7 @@ export function PersonalHomeRails() {
                 {f.entityId.replace(/-/g, " ")}
               </button>
             ))}
+            <button onClick={() => go("watchlist")} className="chip chip-signal">MANAGE WATCHLIST →</button>
           </div>
         </section>
       )}

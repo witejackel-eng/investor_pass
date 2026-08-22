@@ -27,17 +27,23 @@ export async function POST(req: Request) {
   const user = await getSessionUser();
   if (!user) return error("Authentication required", 401);
 
-  let body: { entityType?: string; entityId?: string };
+  let body: { entityType?: string; entityId?: string; alertFrequency?: string };
   try { body = await req.json(); } catch { return error("Invalid JSON", 400); }
-  const { entityType, entityId } = body;
+  const { entityType, entityId, alertFrequency } = body;
   if (!entityType || !entityId || !ENTITY_TYPES.includes(entityType)) {
     return error("Valid entityType and entityId required", 400);
   }
+  const frequency = ["off", "weekly", "instant"].includes(alertFrequency || "") ? alertFrequency : undefined;
 
   const follow = await db.follow.upsert({
     where: { userId_entityType_entityId: { userId: user.id, entityType, entityId } },
-    update: {},
-    create: { userId: user.id, entityType, entityId },
+    update: frequency ? { alertFrequency: frequency } : {},
+    create: {
+      userId: user.id,
+      entityType,
+      entityId,
+      ...(frequency ? { alertFrequency: frequency } : {}),
+    },
   });
   return json({ ok: true, following: true, follow });
 }
