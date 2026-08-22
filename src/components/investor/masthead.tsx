@@ -9,6 +9,7 @@ export function Masthead() {
   const navItems: { label: string; view: View; match: View[] }[] = [
     { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"] },
     { label: "SEARCH", view: "search", match: ["search"] },
+{ label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },
     { label: "LIBRARY", view: "library", match: ["library", "bookmarks", "searches", "collections"] },
   ];
 

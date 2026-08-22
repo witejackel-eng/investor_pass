@@ -1,16 +1,16 @@
 /**
- * Server-side search — deterministic token-based matching with weighted ranking.
+ * Server-side search — deterministic token-based intent parsing + weighted ranking.
  *
- * SQLite has no native FTS in this build, so we implement app-layer ranking:
- *  - title/source metadata: highest weight
- *  - theme/concept/company tags: very high
- *  - passage text: lower
+ * Queries are parsed into structured filters (person/theme/company/concept/
+ * event/years) plus leftover free-text tokens (see ./intent). Search spans ALL
+ * investors unless a person filter is set.
  *
  * Premium (pro) passages are NEVER sent to anonymous clients. The server
  * resolves entitlement first and queries only permitted records.
  */
 import "server-only";
 import { db } from "../db";
+import { parseQuery, type ParsedQuery } from "./intent";
 
 export type SearchFilters = {
   person?: string;
@@ -39,6 +39,7 @@ export type SearchHit = {
     year: number | null;
     publisher: string | null;
     url: string | null;
+    person: { slug: string; name: string };
   };
   themes: { slug: string; name: string }[];
   concepts: { slug: string; name: string }[];
@@ -46,12 +47,29 @@ export type SearchHit = {
   events: { slug: string; name: string }[];
 };
 
-const tokenize = (q: string): string[] =>
-  q
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, " ")
-    .split(/\s+/)
-    .filter((t) => t.length > 1);
+export type Exploration = {
+  term: string;
+  references: number;
+  investors: number;
+  sources: number;
+  byInvestor: { slug: string; name: string; count: number }[];
+};
+
+export type SearchResult = {
+  hits: SearchHit[];
+  total: number;
+  page: number;
+  pageSize: number;
+  parsed: Pick<ParsedQuery, "person" | "theme" | "concept" | "company" | "event" | "yearFrom" | "yearTo" | "freeText" | "chips">;
+  exploration: Exploration | null;
+  /** Total references including pro-only ones — exposed to free users as a count only */
+  proTotal: number | null;
+  /** Suggested queries when nothing matched */
+  suggestions: string[];
+};
+
+const tokenizeFreeText = (q: string): string[] =>
+  q.toLowerCase().replace(/[^a-z0-9\s-]/g, " ").split(/\s+/).filter((t) => t.length > 1);
 
 export async function searchPassages(
   query: string,
@@ -59,20 +77,21 @@ export async function searchPassages(
   isPro: boolean,
   page = 1,
   pageSize = 20
-): Promise<{ hits: SearchHit[]; total: number; page: number; pageSize: number }> {
-  const tokens = tokenize(query);
-  // Determine person
-  let personId: string | undefined = filters.person;
-  if (!personId && filters.person !== "all") {
-    const p = await db.person.findUnique({ where: { slug: "buffett" } });
-    personId = p?.id;
-  }
-  if (filters.person && filters.person !== "all") {
-    const p = await db.person.findUnique({ where: { slug: filters.person } });
-    personId = p?.id;
-  }
+): Promise<SearchResult> {
+  // Deterministic intent parsing — explicit UI params win over parsed entities
+  const parsed = await parseQuery(query, {
+    person: filters.person,
+    theme: filters.theme,
+    concept: filters.concept,
+    company: filters.company,
+    event: filters.event,
+    yearFrom: filters.yearFrom,
+    yearTo: filters.yearTo,
+  });
 
-  // Build where clause
+  const personId = await resolvePersonId(parsed.person);
+  const tokens = [...new Set([...parsed.freeText, ...tokenizeFreeText(query)])].filter(Boolean);
+
   const where: any = { AND: [] };
   // visibility gate — anonymous users only see public passages
   where.visibility = isPro ? { in: ["public", "pro"] } : "public";
@@ -83,39 +102,35 @@ export async function searchPassages(
   if (filters.sourceType) {
     where.AND.push({ source: { sourceType: filters.sourceType } });
   }
-  if (filters.yearFrom || filters.yearTo) {
+  if (filters.decade) {
+    where.AND.push({
+      source: { year: { gte: filters.decade, lte: filters.decade + 9 } },
+    });
+  } else if (parsed.yearFrom || parsed.yearTo) {
     where.AND.push({
       source: {
         year: {
-          gte: filters.yearFrom ?? undefined,
-          lte: filters.yearTo ?? undefined,
+          gte: parsed.yearFrom ?? undefined,
+          lte: parsed.yearTo ?? undefined,
         },
       },
     });
   }
-  if (filters.decade) {
-    where.AND.push({
-      source: {
-        year: { gte: filters.decade, lte: filters.decade + 9 },
-      },
-    });
+  if (parsed.theme) {
+    where.AND.push({ passageThemes: { some: { theme: { slug: parsed.theme } } } });
   }
-  if (filters.theme) {
-    where.AND.push({ passageThemes: { some: { theme: { slug: filters.theme } } } });
+  if (parsed.concept) {
+    where.AND.push({ passageConcepts: { some: { concept: { slug: parsed.concept } } } });
   }
-  if (filters.concept) {
-    where.AND.push({ passageConcepts: { some: { concept: { slug: filters.concept } } } });
+  if (parsed.company) {
+    where.AND.push({ passageCompanies: { some: { company: { slug: parsed.company } } } });
   }
-  if (filters.company) {
-    where.AND.push({ passageCompanies: { some: { company: { slug: filters.company } } } });
-  }
-  if (filters.event) {
-    where.AND.push({ passageEvents: { some: { event: { slug: filters.event } } } });
+  if (parsed.event) {
+    where.AND.push({ passageEvents: { some: { event: { slug: parsed.event } } } });
   }
 
-  // Token-based text match (LIKE OR). If no tokens, return all filtered.
-  // Matches passage text, source title, AND tag names (themes, concepts,
-  // companies, events) so searching "moats" or "Coca-Cola" finds tagged passages.
+  // Token-based text match (LIKE OR). Matches passage text, source title/publisher,
+  // and tag names so searching "moats" or "Coca-Cola" finds tagged passages.
   if (tokens.length) {
     const orClauses: any[] = [];
     for (const t of tokens) {
@@ -127,6 +142,7 @@ export async function searchPassages(
       orClauses.push({ passageConcepts: { some: { concept: { name: { contains: t } } } } });
       orClauses.push({ passageCompanies: { some: { company: { name: { contains: t } } } } });
       orClauses.push({ passageCompanies: { some: { company: { canonicalName: { contains: t } } } } });
+      orClauses.push({ passageCompanies: { some: { company: { ticker: { contains: t } } } } });
       orClauses.push({ passageEvents: { some: { event: { name: { contains: t } } } } });
     }
     where.AND.push({ OR: orClauses });
@@ -139,7 +155,7 @@ export async function searchPassages(
     db.passage.findMany({
       where,
       include: {
-        source: true,
+        source: { include: { person: true } },
         passageThemes: { include: { theme: true } },
         passageConcepts: { include: { concept: true } },
         passageCompanies: { include: { company: true } },
@@ -158,12 +174,11 @@ export async function searchPassages(
     for (const t of tokens) {
       if (titleLower.includes(t)) score += 50;
       if (p.text.toLowerCase().includes(t)) score += 10;
-      // tag matches
       for (const pt of p.passageThemes) if (pt.theme.name.toLowerCase().includes(t)) score += 30;
       for (const pc of p.passageConcepts) if (pc.concept.name.toLowerCase().includes(t)) score += 30;
       for (const pco of p.passageCompanies) if (pco.company.name.toLowerCase().includes(t)) score += 30;
     }
-    if (!tokens.length) score = 100 - p.sequence; // deterministic default order
+    if (!tokens.length) score = 100 - p.sequence;
     return {
       passageId: p.id,
       text: p.text,
@@ -179,6 +194,7 @@ export async function searchPassages(
         year: p.source.year,
         publisher: p.source.publisher,
         url: p.source.url,
+        person: { slug: p.source.person.slug, name: p.source.person.name },
       },
       themes: p.passageThemes.map((pt) => ({ slug: pt.theme.slug, name: pt.theme.name })),
       concepts: p.passageConcepts.map((pc) => ({ slug: pc.concept.slug, name: pc.concept.name })),
@@ -189,9 +205,6 @@ export async function searchPassages(
 
   hits.sort((a, b) => b.score - a.score);
 
-<<<<<<< HEAD
-  return { hits, total, page, pageSize };
-=======
   // Exploration summary for broad queries (few tokens / entity-only match).
   // Counts come from one batched roundtrip — no N+1 loops.
   const structuredCount = [personId, parsed.theme, parsed.concept, parsed.company, parsed.event].filter(Boolean).length;
@@ -306,5 +319,4 @@ async function suggestQueries(query: string, tokens: string[]): Promise<string[]
 
 function normWords(s: string): string[] {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, " ").split(/\s+/).filter((w) => w.length >= 3);
->>>>>>> 4c40e29 (A1/A2: universal search across all investors with deterministic intent parsing)
 }

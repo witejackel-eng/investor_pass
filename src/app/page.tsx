@@ -13,6 +13,8 @@ import { PassageView } from "@/components/investor/views-passage";
 import { ConceptView } from "@/components/investor/views-concept";
 import { EventView } from "@/components/investor/views-event";
 import { CommandPalette } from "@/components/investor/command-palette";
+import { TrailsIndex, TrailDetail, type Trail } from "@/components/investor/views-trails";
+import trailsData from "@/data/trails/trails.json";
 
 export default function Home() {
   const { view, params, loadUser, go } = useStore();
@@ -36,6 +38,11 @@ export default function Home() {
       case "concept": return params.slug ? <ConceptView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "event": return params.slug ? <EventView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "search": return <SearchView initialQuery={params.q || ""} person={params.person} theme={params.theme} company={params.company} concept={params.concept} event={params.event} />;
+case "trails": return <TrailsIndex trails={trailsData as Trail[]} onOpen={(slug) => go("trailDetail", { slug })} />;
+case "trailDetail": {
+  const trail = (trailsData as Trail[]).find((t) => t.slug === params.slug);
+  return trail ? <TrailDetail trail={trail} onBack={() => go("trails")} /> : <TrailsIndex trails={trailsData as Trail[]} onOpen={(slug) => go("trailDetail", { slug })} />;
+}
       case "library": return <LibraryView />;
       case "bookmarks": return <BookmarksView />;
       case "searches": return <SavedSearchesView />;

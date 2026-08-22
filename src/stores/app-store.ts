@@ -22,6 +22,8 @@ export type View =
   | "concept"
   | "event"
   | "search"
+  | "trails"
+  | "trailDetail"
   | "library"
   | "bookmarks"
   | "searches"
