@@ -7,12 +7,49 @@ import { toast } from "sonner";
 import { Loading } from "./views-core";
 import { Crown, Check, Shield } from "lucide-react";
 
+// ── Google sign-in ─────────────────────────────────────────────────────────
+function GoogleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+      <path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.2H12v4.1h6.5c-.1 1.1-.8 2.7-2.4 3.8l3.7 2.9c2.3-2.1 3.7-5.1 3.7-8.6z" />
+      <path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.2 1.2-3.2 0-5.9-2.1-6.9-5.1L1.3 17.2C3.3 21.2 7.3 24 12 24z" />
+      <path fill="#FBBC05" d="M5.1 14.3c-.3-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.3 6.8C.5 8.4 0 10.1 0 12s.5 3.6 1.3 5.2l3.8-2.9z" />
+      <path fill="#EA4335" d="M12 4.7c1.8 0 3 .8 3.7 1.4l3.3-3.2C16.9 1.1 15.2 0 12 0 7.3 0 3.3 2.8 1.3 6.8l3.8 2.9c1-3 3.7-5 6.9-5z" />
+    </svg>
+  );
+}
+
+function GoogleButton({ label }: { label: string }) {
+  return (
+    <a href="/api/auth/google" className="flex w-full items-center justify-center gap-2 border border-ink bg-paper py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-paper-2">
+      <GoogleIcon />
+      {label}
+    </a>
+  );
+}
+
+function OrDivider() {
+  return (
+    <div className="my-4 flex items-center gap-3">
+      <span className="h-px flex-1 bg-rule" />
+      <span className="kicker text-graphite">OR</span>
+      <span className="h-px flex-1 bg-rule" />
+    </div>
+  );
+}
+
 // ── Login ──────────────────────────────────────────────────────────────────
 export function LoginView() {
   const { login, go } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash.includes("error=google")) {
+      toast.error("Google sign-in failed. Please try again.");
+    }
+  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +78,8 @@ export function LoginView() {
           {loading ? "LOGGING IN…" : "LOG IN"}
         </button>
       </form>
+      <OrDivider />
+      <GoogleButton label="CONTINUE WITH GOOGLE" />
       <p className="mt-4 text-center font-reader text-sm text-graphite">
         No account? <button onClick={() => go("signup")} className="font-semibold text-signal-dark hover:underline">Sign up</button>
       </p>
@@ -85,6 +124,8 @@ export function SignupView() {
           {loading ? "CREATING…" : "CREATE ACCOUNT"}
         </button>
       </form>
+      <OrDivider />
+      <GoogleButton label="SIGN UP WITH GOOGLE" />
       <p className="mt-4 text-center font-reader text-sm text-graphite">
         Already have an account? <button onClick={() => go("login")} className="font-semibold text-signal-dark hover:underline">Log in</button>
       </p>
