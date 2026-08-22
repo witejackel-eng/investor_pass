@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { json, error } from "@/lib/api";
 import { getSessionUser } from "@/lib/auth/session";
+import { fanOutNewSource } from "@/lib/server/fanout";
 
 export const dynamic = "force-dynamic";
 
@@ -54,6 +55,16 @@ export async function POST(req: Request) {
       await db.passageCompany.upsert({ where: { passageId_companyId: { passageId: passage.id, companyId: c.id } }, update: {}, create: { passageId: passage.id, companyId: c.id } });
     }
   }
+
+  // Write-time notification fan-out — after commit, never blocks/fails the import.
+  await fanOutNewSource({
+    personSlug: person.slug,
+    personName: person.name,
+    sourceSlug: slug,
+    sourceTitle: source.title,
+    year: source.year,
+    passageCount,
+  });
 
   return json({ ok: true, source: { slug, title: source.title, passageCount } });
 }

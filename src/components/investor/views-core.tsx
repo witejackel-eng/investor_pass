@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
 import { apiGet } from "@/lib/client";
 import { useInvestors } from "@/hooks/use-investors";
+import { PersonalHomeRails } from "@/components/investor/personal-home";
+import { FollowButton } from "@/components/investor/follow-button";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
@@ -49,9 +51,11 @@ export function HomeView() {
   const stats = useStats();
   const buffett = investors.find((i) => i.slug === "buffett");
   const future = investors.filter((i) => i.status === "coming_later");
+  const user = useStore((s) => s.user);
 
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 lg:px-8">
+      {user && <PersonalHomeRails />}
       {/* Hero */}
       <section className="relative overflow-hidden border-t-2 border-ink py-8">
         {/* Grid paper texture */}
@@ -281,7 +285,10 @@ export function InvestorView({ slug }: { slug: string }) {
     <div className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 lg:px-8">
       <div className="border-t-2 border-ink pt-4">
         <button onClick={() => go("investors")} className="kicker hover:text-ink">← INVESTORS</button>
-        <h1 className="mt-2 font-display text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.88] tracking-[-0.075em]">{investor.name}</h1>
+        <div className="mt-2 flex flex-wrap items-end justify-between gap-4">
+          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.88] tracking-[-0.075em]">{investor.name}</h1>
+          {investor.status === "active" && <div className="pb-3"><FollowButton entityType="person" entityId={slug} /></div>}
+        </div>
         <p className="mt-3 max-w-[760px] font-reader text-xl text-graphite">{investor.shortDescription}</p>
       </div>
 
