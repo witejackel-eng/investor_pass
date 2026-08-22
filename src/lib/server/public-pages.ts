@@ -520,77 +520,66 @@ export type SitemapData = {
  * Index only meaningful pages: topic pairs need ≥3 total references AND ≥1
  * public passage; entity pages need ≥1 public passage (spec §43).
  */
+
 export async function getSitemapData(): Promise<SitemapData> {
   const MIN_TOPIC_REFS = 3;
 
-  const [investors, ptRows, publicThemeRows, publicCompanyRows, publicEventRows, publicYears] =
-    await Promise.all([
-      db.person.findMany({ where: { status: "active" }, select: { slug: true } }),
-      db.passageTheme.findMany({
-        select: {
-          theme: { select: { slug: true } },
-          passage: {
-            select: {
-              visibility: true,
-              source: { select: { person: { select: { slug: true, status: true } } } },
-            },
-          },
-        },
-      }),
-      db.passageTheme.findMany({
-        where: { passage: { visibility: "public" } },
-        select: { theme: { select: { slug: true } } },
-      }),
-      db.passageCompany.findMany({
-        where: { passage: { visibility: "public" } },
-        select: { company: { select: { slug: true } } },
-      }),
-      db.passageEvent.findMany({
-        where: { passage: { visibility: "public" } },
-        select: { event: { select: { slug: true } } },
-      }),
-      db.source.findMany({
-        where: { year: { not: null }, passages: { some: { visibility: "public" } } },
-        distinct: ["year"],
-        select: { year: true },
-        orderBy: { year: "asc" },
-      }),
-    ]);
+  const investors = await db.person.findMany({
+    where: { status: "active" },
+    select: { slug: true },
+  });
 
-  const activeSlugs = new Set(investors.map((p) => p.slug));
-  const pairTally: Map<string, { total: number; publicCount: number }> = new Map();
-  for (const row of ptRows) {
-    const person = row.passage.source.person;
-    if (!activeSlugs.has(person.slug)) continue;
-    const key = `${person.slug}|${row.theme.slug}`;
-    const t = pairTally.get(key) ?? { total: 0, publicCount: 0 };
-    t.total += 1;
-    if (row.passage.visibility === "public") t.publicCount += 1;
-    pairTally.set(key, t);
-  }
-  const topicPairs = [...pairTally.entries()]
-    .filter(([, v]) => v.total >= MIN_TOPIC_REFS && v.publicCount >= 1)
-    .map(([key]) => {
-      const [personSlug, themeSlug] = key.split("|");
-      return { personSlug, themeSlug };
-    })
-    .sort((a, b) =>
-      a.personSlug === b.personSlug
-        ? a.themeSlug.localeCompare(b.themeSlug)
-        : a.personSlug.localeCompare(b.personSlug)
+  // SQL-side aggregation: ~500 result rows instead of pulling every junction row.
+  const pairs = await db.$queryRaw<{ person_slug: string; theme_slug: string }[]>`
+    SELECT p.slug AS person_slug, t.slug AS theme_slug
+    FROM "PassageTheme" pt
+    JOIN "Passage" pa ON pa.id = pt."passageId"
+    JOIN "Source" s ON s.id = pa."sourceId"
+    JOIN "Person" p ON p.id = s."personId"
+    JOIN "Theme" t ON t.id = pt."themeId"
+    WHERE p.status = 'active'
+    GROUP BY p.slug, t.slug
+    HAVING COUNT(*) >= ${MIN_TOPIC_REFS}
+       AND SUM(CASE WHEN pa.visibility = 'public' THEN 1 ELSE 0 END) >= 1`;
+  const topicPairs = pairs
+    .map((r) => ({ personSlug: r.person_slug, themeSlug: r.theme_slug }))
+    .sort(
+      (a, b) =>
+        a.personSlug === b.personSlug
+          ? a.themeSlug.localeCompare(b.themeSlug)
+          : a.personSlug.localeCompare(b.personSlug)
     );
 
-  const dedupe = <T extends { slug: string }>(rows: T[]): T[] => {
-    const seen = new Set<string>();
-    return rows.filter((r) => (seen.has(r.slug) ? false : (seen.add(r.slug), true)));
-  };
+  const [themeRows, companyRows, eventRows, yearRows] = await Promise.all([
+    db.passageTheme.findMany({
+      where: { passage: { visibility: "public" } },
+      select: { theme: { select: { slug: true } } },
+      distinct: ["themeId"],
+    }),
+    db.passageCompany.findMany({
+      where: { passage: { visibility: "public" } },
+      select: { company: { select: { slug: true } } },
+      distinct: ["companyId"],
+    }),
+    db.passageEvent.findMany({
+      where: { passage: { visibility: "public" } },
+      select: { event: { select: { slug: true } } },
+      distinct: ["eventId"],
+    }),
+    db.source.findMany({
+      where: { year: { not: null }, passages: { some: { visibility: "public" } } },
+      distinct: ["year"],
+      select: { year: true },
+      orderBy: { year: "asc" },
+    }),
+  ]);
 
   return {
     investors,
     topicPairs,
-    themes: dedupe(publicThemeRows.map((r) => ({ slug: r.theme.slug }))),
-    companies: dedupe(publicCompanyRows.map((r) => ({ slug: r.company.slug }))),
-    events: dedupe(publicEventRows.map((r) => ({ slug: r.event.slug }))),
-    years: publicYears.map((r) => r.year!).filter((y) => y !== null),
+    themes: themeRows.map((r) => ({ slug: r.theme.slug })),
+    companies: companyRows.map((r) => ({ slug: r.company.slug })),
+    events: eventRows.map((r) => ({ slug: r.event.slug })),
+    years: yearRows.map((r) => r.year!).filter((y) => y !== null),
   };
 }
