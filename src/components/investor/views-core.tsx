@@ -98,18 +98,18 @@ export function HomeView() {
               <a href="/learn/how-hedge-funds-work" className="chip hover:chip-signal">
                 How do hedge funds work?
               </a>
-              <button onClick={() => { track("search", { source: "home_example" }); go("search", { q: "Buffett vs Marks on risk" }); }} className="chip hover:chip-signal">
+              <a href="/search?q=Buffett%20vs%20Marks%20on%20risk" onClick={() => track("search", { source: "home_example" })} className="chip hover:chip-signal">
                 Buffett vs Marks on risk
-              </button>
-              <button onClick={() => { track("search", { source: "home_example" }); go("search", { q: "inflation" }); }} className="chip hover:chip-signal">
+              </a>
+              <a href="/search?q=inflation" onClick={() => track("search", { source: "home_example" })} className="chip hover:chip-signal">
                 Who talks about inflation?
-              </button>
+              </a>
               <a href="/learn/what-is-quantitative-investing" className="chip hover:chip-signal">
                 What is quantitative investing?
               </a>
-              <button onClick={() => { track("search", { source: "home_example" }); go("search", { q: "Buffett Coca-Cola" }); }} className="chip hover:chip-signal">
+              <a href="/search?q=Buffett%20Coca-Cola" onClick={() => track("search", { source: "home_example" })} className="chip hover:chip-signal">
                 What did Buffett do with Coca-Cola?
-              </button>
+              </a>
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-4">
               <button onClick={() => go("investors")} className="bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
@@ -161,9 +161,9 @@ export function HomeView() {
             <p className="kicker text-signal-dark">RESEARCH</p>
             <p className="mt-2 font-display text-xl font-bold tracking-tight">Investigate the evidence.</p>
             <p className="mt-1 font-reader text-sm text-graphite">Search · compare · decisions · trails · my research.</p>
-            <button onClick={() => go("search")} className="mt-4 inline-block bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper hover:bg-signal-dark transition-colors">
+            <a href="/search" className="mt-4 inline-block bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper hover:bg-signal-dark transition-colors">
               START RESEARCHING <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
-            </button>
+            </a>
           </div>
         </div>
       </section>

@@ -38,3 +38,9 @@ evidence policy (Reported → Review → Correct → Verify → Changelog).
 - FIX: db.ts no longer rewrites pooler URLs, ever. Phase-aware limits (build: connection_limit=3 — the configuration every successful deployment used; runtime: connection_limit=1 + transient retry — the b315e7c runtime configuration verified under 15-way concurrency). Explicit :6543 URLs still get pgbouncer=true appended (operator's choice, honored).
 - middleware.ts → proxy.ts (Next 16 convention; removes the deprecation warning in every build log).
 - Indexing audit: junction tables are covered by composite PKs (passageId leftmost); trigram + composite indexes live via scripts/db/optimize.ts — re-run it after any future `prisma migrate` (README rule).
+
+### SEO: real paths for the app's crown jewels (this release)
+- NEW /search and /compare — real, shareable, server-rendered URLs replacing the #/view=… hash islands (hash fragments are never sent to servers and cannot be indexed). Bare pages are indexable SEO landings (server-rendered h1/lede/internal links + metadata); /search?q=… is noindex,follow per Google's internal-search guidance. In-app hash navigation keeps working inside the same AppRoot shell.
+- Homepage hero example chips + START RESEARCHING + masthead SEARCH/COMPARE now link to real URLs (crawlable internal links); public header SEARCH THE LIBRARY → /search.
+- JSON-LD: Article schema on learn explainers + newsletter issues (Person already on investors; breadcrumbs sitewide).
+- sitemap.xml: +/search +/compare (375 URLs).

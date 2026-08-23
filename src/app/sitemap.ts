@@ -34,6 +34,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const slug of ISSUE_SLUGS) {
     entries.push({ url: `${BASE}/newsletter/${slug}`, changeFrequency: "monthly", priority: 0.7 });
   }
+  // Real-path app surfaces (SEO landings; /search?q= variants are noindex via meta)
+  entries.push({ url: `${BASE}/search`, changeFrequency: "weekly", priority: 0.8 });
+  entries.push({ url: `${BASE}/compare`, changeFrequency: "weekly", priority: 0.8 });
 for (const slug of ["terms", "privacy", "cookies", "copyright", "disclaimer", "refunds"]) {
     entries.push({ url: `${BASE}/legal/${slug}`, changeFrequency: "yearly", priority: 0.3 });
   }

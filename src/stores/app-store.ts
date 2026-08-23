@@ -52,6 +52,7 @@ type User = {
 
 type State = {
   view: View;
+  hasHashView: boolean;
   params: ViewParams;
   user: User;
   userLoading: boolean;
@@ -88,6 +89,8 @@ function fromHash(): { view: View; params: ViewParams } {
 }
 
 export const useStore = create<State>((set, get) => ({
+  // True when the URL carried a #/view=... boot state (hash routing active).
+  hasHashView: typeof window !== "undefined" && /#[^?]*view=/.test(window.location.hash),
   view: "home",
   params: {},
   user: null,

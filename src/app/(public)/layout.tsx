@@ -32,9 +32,9 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
             <Link href="/newsletter" className="nav-link hover:text-foreground">
               NEWSLETTER
             </Link>
-            <a href="/#/view=search" className="nav-link hover:text-foreground">
+            <Link href="/search" className="nav-link hover:text-foreground">
               SEARCH THE LIBRARY
-            </a>
+            </Link>
             <a
               href="/#/view=upgrade"
               className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"

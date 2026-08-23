@@ -45,6 +45,16 @@ export default async function ExplainerPage({ params }: Params) {
               { label: "LEARN", href: "/learn" },
               { label: e.title },
             ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: e.title,
+              description: e.summary,
+              dateModified: e.updatedAt,
+              articleSection: e.category,
+              isAccessibleForFree: true,
+              mainEntityOfPage: { "@type": "WebPage", "@id": `/learn/${e.slug}` },
+            },
           ]),
         }}
       />

@@ -102,10 +102,10 @@ export function Masthead() {
     // view stays reachable from the directory itself.
     { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"], href: "/investors" },
     { label: "LEARN", view: "learn", match: ["learn"], href: "/learn" },
-    { label: "SEARCH", view: "search", match: ["search"] },
+    { label: "SEARCH", view: "search", match: ["search"], href: "/search" },
     { label: "GRAPH", view: "graph", match: ["graph"] },
     { label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },
-    { label: "COMPARE", view: "compare", match: ["compare"] },
+    { label: "COMPARE", view: "compare", match: ["compare"], href: "/compare" },
     { label: "LIBRARY", view: "library", match: ["library", "bookmarks", "searches", "collections", "watchlist"] },
   ];
 

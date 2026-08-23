@@ -45,6 +45,17 @@ export default async function IssuePage({ params }: Params) {
               { label: "NEWSLETTER", href: "/newsletter" },
               { label: issue.title },
             ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: issue.title,
+              description: issue.subtitle,
+              datePublished: issue.publishedAt,
+              dateModified: issue.publishedAt,
+              author: { "@type": "Person", name: "Aditya" },
+              isAccessibleForFree: true,
+              mainEntityOfPage: { "@type": "WebPage", "@id": `/newsletter/${issue.slug}` },
+            },
           ]),
         }}
       />
