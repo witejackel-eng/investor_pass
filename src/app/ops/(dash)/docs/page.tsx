@@ -7,7 +7,7 @@ const DOCS = [
   "PRODUCT_CONSTITUTION.md", "EVIDENCE_AND_RIGHTS_POLICY.md", "DATA_MODEL.md",
   "REPOSITORY_AUDIT.md", "IMPLEMENTATION.md", "CURRENT_STATE.md",
   "FEATURE_MATRIX.md", "CHANGELOG.md", "ROUTES.md", "ARCHITECTURE.md",
-  "DATA_QUALITY_REPORT.md", "OPS_DASHBOARD.md", "payments-spec.md",
+  "DATA_QUALITY_REPORT.md", "OPS_DASHBOARD.md", "payments-spec.md", "GRAPHIFY_REPORT.md", "PRODUCTION_ACCEPTANCE.md",
 ];
 
 // Render a chosen internal doc as pre-wrapped text (private browser).

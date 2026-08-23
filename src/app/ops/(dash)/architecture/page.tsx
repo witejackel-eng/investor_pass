@@ -1,5 +1,6 @@
 import { GraphExplorer } from "../graph-clients";
 import arch from "@/data/ops/arch-graph.json";
+import gmeta from "@/data/ops/graphify-meta.json";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,18 @@ export default function OpsArchitecture() {
           Static import scan of src/ + prisma models. Graphify (Graphify-Labs/graphify, Apache-2.0) remains an optional
           deeper analyzer — this snapshot is what renders here; the PUBLIC product never depends on either.
         </p>
+      </div>
+
+      <div className="ops-card">
+        <p className="ops-kicker mb-2">GRAPHIFY SNAPSHOT — full repo map</p>
+        <p className="text-xs">
+          {gmeta.nodes.toLocaleString()} nodes · {gmeta.edges.toLocaleString()} edges · {gmeta.communities} communities —
+          generated {String(gmeta.generatedAt).slice(0, 19)}Z via <code>graphify update .</code> (deterministic tree-sitter AST, no LLM).
+        </p>
+        <a className="ops-link text-xs font-bold" href="/api/ops/graphify" target="_blank" rel="noopener noreferrer">
+          OPEN GRAPHIFY MAP (interactive graph.html) ↗
+        </a>
+        <span className="ops-kicker ml-2">private — Control Room session required</span>
       </div>
 
       <div className="ops-card">
