@@ -18,3 +18,9 @@ evidence policy (Reported → Review → Correct → Verify → Changelog).
 - CHANGED: Pro launch pricing — **$9/month · $79/year (save 27%)**; ₹499/₹3,999 provisional in India.
 - CHANGED: brand-exact social card, app icon, and apple icon.
 - FIXED: raw passage identifiers no longer appear anywhere in the interface ("Continue exploring" now shows readable research labels).
+
+### Final acceptance + Control Room (db6d895)
+- NEW: **Control Room** — private ops dashboard at `/ops/*` (ops.investorpass.com): server-side scrypt auth, 13 sections (overview, software architecture graph, live evidence graph, data completeness, §53 integrity, features, routes, agents, changes, deployments, external services, issues, docs), read-only.
+- CHANGED: hero → "Understand the money. Study the minds. Follow the evidence." (blue on the middle line); one accent token `--signal #1647D8`.
+- CRITICAL FIX: the editorial palette utilities (bg-ink, bg-paper, text-signal-dark, …) were silently missing from production CSS since launch — now mapped and verified live.
+- Search CTA reads "SEARCH THE RECORD"; decision demo labeled DOCUMENTED → ACTION → WHAT HAPPENED NEXT?

@@ -23,3 +23,11 @@ Learn layer (3 explainers + pages) · Newsletter (issue #1, subscribe API, KV st
 1. Razorpay + PayPal dashboards: plan amounts → $9/mo, $79/yr (₹499/₹3,999 if INR live) — payments-spec.md §setup.
 2. Confirm INR launch prices, then `PAYMENTS_MODE=live`.
 3. Rotate any exposed credentials (GitHub token already flagged).
+
+## Release 3 — Final proof + visual refinement + Control Room (fd0b1b5 → db6d895)
+
+- Blue accent token §5/§22: --signal #1647D8 / --signal-dark #10359F (light+dark).
+- Hero §6/§58 replaced (three lines, middle blue); SearchBar → "SEARCH THE RECORD"; §14 outcome layer labels; §18 newsletter copy.
+- **CRITICAL**: @theme color mapping for the whole editorial palette — live bundle previously contained zero such utilities (verified by grep of production CSS; root cause: mapping never existed). Now verified live (hero span rgb(16,53,159); SIGN UP ink/paper).
+- Control Room: src/middleware.ts (edge HMAC gate, noindex/no-store), src/lib/ops/auth.ts (scrypt + signed session + 5/15min gate), 13 dash pages + 7 APIs, §53 integrity engine (single UNION-ALL batch), evidence-graph API, health engine (live probes + committed QA snapshot), issues ack KV, agent registry + scripts/ops-log-agent.ts, arch snapshot via scripts/gen-arch-graph.ts (162 nodes/308 edges).
+- Tests 41/41 (ops-auth suite caught the token-parts bug pre-deploy). Docs: OPS_DASHBOARD.md, PRODUCTION_ACCEPTANCE.md.
