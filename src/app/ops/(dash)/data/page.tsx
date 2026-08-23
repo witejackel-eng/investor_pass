@@ -60,7 +60,7 @@ export default async function OpsData() {
   try {
     const r = await db.$queryRawUnsafe<Record<string, unknown>[]>(`
       SELECT COUNT(*)::int AS total,
-             ROUND(AVG(LENGTH(text)))::int AS avg,
+             ROUND(AVG(LENGTH(text))::numeric)::int AS avg,
              PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY LENGTH(text))::int AS p50,
              COUNT(*) FILTER (WHERE LENGTH(text) < 240)::int AS thin
       FROM "Passage" WHERE "verificationState" NOT IN ('needs_review','rejected')
