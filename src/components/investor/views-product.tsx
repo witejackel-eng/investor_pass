@@ -130,8 +130,9 @@ export function SearchView(_props: { initialQuery?: string; person?: string; the
       p.set("page", String(page));
       p.set("pageSize", String(PAGE_SIZE));
       try {
-        if (q.trim()) track(`search_submitted`, { q: q.trim(), filters });
-    const d = await apiGet<SearchResponse>(`/api/search?${p.toString()}`);
+        const d = await apiGet<SearchResponse>(`/api/search?${p.toString()}`);
+        // Track AFTER response so zero-result rate is measurable in analytics.
+        if (q.trim()) track(`search_submitted`, { q: q.trim(), filters, results: d?.total ?? 0 });
         if (active) setData(d);
       } catch (e: any) {
         if (active) setError(e.message || "Search failed");
