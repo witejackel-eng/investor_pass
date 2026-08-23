@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { useStore, type View } from "@/stores/app-store";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiGet, apiPost } from "@/lib/client";
@@ -96,8 +97,10 @@ export function Masthead() {
   const { view, go, user, logout } = useStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
-  const navItems: { label: string; view: View; match: View[] }[] = [
-    { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"] },
+  const navItems: { label: string; view: View; match: View[]; href?: string }[] = [
+    // INVESTORS links to the crawlable, ISR-cached public directory — the SPA
+    // view stays reachable from the directory itself.
+    { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"], href: "/investors" },
     { label: "SEARCH", view: "search", match: ["search"] },
     { label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },
     { label: "COMPARE", view: "compare", match: ["compare"] },
@@ -132,16 +135,27 @@ export function Masthead() {
         </button>
 
         <nav className="hidden items-center gap-5 text-[0.78rem] font-semibold sm:flex md:gap-7">
-          {navItems.map((item) => (
-            <button
-              key={item.view}
-              onClick={() => go(item.view)}
-              data-active={item.match.includes(view)}
-              className="nav-link"
-            >
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) =>
+            item.href ? (
+              <Link
+                key={item.view}
+                href={item.href}
+                data-active={item.match.includes(view)}
+                className="nav-link"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.view}
+                onClick={() => go(item.view)}
+                data-active={item.match.includes(view)}
+                className="nav-link"
+              >
+                {item.label}
+              </button>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-3 text-[0.8rem] font-semibold">

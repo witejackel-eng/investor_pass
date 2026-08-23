@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { LEGAL_DOCS, getLegalDoc } from "@/lib/legal";
 import { breadcrumbLd, serializeJsonLd } from "@/lib/server/jsonld";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

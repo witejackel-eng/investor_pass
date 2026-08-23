@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -65,9 +64,9 @@ export default async function InvestorsPage() {
                   href={`/investors/${p.slug}`}
                   className="chip chip-ink"
                 >
-                  PROFILE ’
+                  OPEN PROFILE →
                 </Link>
-                <Chip href={spaSearch(p.name)}>SEARCH IN APP ’</Chip>
+                <Chip href={spaSearch(p.name)}>SEARCH IN APP →</Chip>
               </div>
             </article>
           ))}
@@ -79,8 +78,8 @@ export default async function InvestorsPage() {
           The full library goes deeper.
         </p>
         <p className="prose-reader mt-2">
-          Complete search across every reference, advanced filters, comparison tools and your own
-          saved research.
+          Every reference searchable, all premium passages unlocked, comparison
+          tools, and your own saved research — bookmarks, collections and alerts.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <a
@@ -89,7 +88,7 @@ export default async function InvestorsPage() {
           >
             START PRO — $19/MONTH
           </a>
-          <span className="kicker">$149/YEAR</span>
+          <span className="kicker">OR $149/YEAR — 12 MONTHS FOR THE PRICE OF 8</span>
         </div>
       </aside>
     </div>

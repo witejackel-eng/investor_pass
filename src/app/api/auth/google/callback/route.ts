@@ -11,7 +11,15 @@ import { createSession, setSessionCookie } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Trust only the configured site origin for OAuth redirects. Deriving the
+ * origin from x-forwarded-* headers allowed host-header injection on hosts
+ * without a locked-down proxy; in production we pin to PUBLIC_SITE_URL.
+ */
 function siteUrl(req: Request): string {
+  if (process.env.NODE_ENV === "production") {
+    return (process.env.PUBLIC_SITE_URL || "https://investorpass.vercel.app").replace(/\/$/, "");
+  }
   const url = new URL(req.url);
   const proto = req.headers.get("x-forwarded-proto") || url.protocol.replace(":", "");
   const host = req.headers.get("host") || url.host;

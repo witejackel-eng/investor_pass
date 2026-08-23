@@ -64,25 +64,28 @@ export function HomeView() {
         <div className="grid-paper pointer-events-none absolute inset-0 opacity-40" />
         <div className="relative grid gap-6 lg:grid-cols-[8fr_4fr]">
           <div>
-            <p className="kicker">INVESTOR / PASS — V1</p>
+            <p className="kicker">INVESTOR / PASS</p>
             <h1 className="mt-3 font-display text-[clamp(2.8rem,7vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.07em]">
               The public record,
               <br />
               <span className="text-signal-dark">properly indexed.</span>
             </h1>
             <p className="mt-4 max-w-[680px] font-reader text-lg leading-snug text-graphite">
-              Public information that is technically available but practically difficult to navigate — shareholder letters, speeches, decisions, themes, companies — becomes searchable, structured, connected, and exceptionally easy to explore.
+              Shareholder letters, speeches, and decisions from the world&apos;s most studied
+              investors — paraphrased with provenance, cross-linked by theme, company, and year,
+              and searchable in seconds. Not advice. Not predictions. Just the record, finally
+              navigable.
             </p>
             <div className="mt-6">
               <SearchBar />
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <button onClick={() => go("investors")} className="bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
-                EXPLORE INVESTORS
+                EXPLORE THE COLLECTIONS
               </button>
               {!isPro && (
                 <button onClick={() => go("upgrade")} className="nav-link text-sm font-semibold">
-                  START PRO — {PRICING[currency].monthly}/MO <ArrowRight className="inline h-3.5 w-3.5" />
+                  GO PRO — {PRICING[currency].monthly}/MO <ArrowRight className="inline h-3.5 w-3.5" />
                 </button>
               )}
             </div>
@@ -104,12 +107,12 @@ export function HomeView() {
             )}
             {future.length > 0 && (
               <>
-                <p className="kicker mt-5">MORE INVESTORS — COMING LATER</p>
+                <p className="kicker mt-5">NEXT COLLECTIONS</p>
                 <div className="mt-2 space-y-1">
                   {future.map((inv) => (
                     <div key={inv.slug} className="flex items-center justify-between border-t border-rule py-2 text-graphite">
                       <span className="font-display text-sm font-medium">{inv.name}</span>
-                      <span className="font-mono text-[0.6rem] uppercase tracking-wider">SOON</span>
+                      <span className="font-mono text-[0.6rem] uppercase tracking-wider">IN PREPARATION</span>
                     </div>
                   ))}
                 </div>
@@ -190,7 +193,7 @@ export function HomeView() {
               <ProBadge />
             </div>
             <p className="mt-2 font-display text-3xl font-bold">{PRICING[currency].monthly}<span className="text-base font-normal text-graphite">/month</span></p>
-            <p className="mt-1 font-mono text-xs text-graphite">or {PRICING[currency].annual}/year — ≈ 8 months{currency === "INR" ? " · ₹7,999 ≈ 8 × ₹999" : " · $149 < 8 × $19"}</p>
+            <p className="mt-1 font-mono text-xs text-graphite">or {PRICING[currency].annual}/year — 12 months for the price of 8</p>
             <ul className="mt-4 space-y-2 font-reader text-graphite">
               <li>· Full search across every passage</li>
               <li>· All premium passages unlocked</li>

@@ -8,17 +8,28 @@ import { randomBytes } from "crypto";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Trust only the configured site origin for the OAuth redirect_uri. In
+ * production the origin is pinned to PUBLIC_SITE_URL; request-header
+ * derivation remains only for local development.
+ */
+function origin(req: Request): string {
+  if (process.env.NODE_ENV === "production") {
+    return (process.env.PUBLIC_SITE_URL || "https://investorpass.vercel.app").replace(/\/$/, "");
+  }
+  const url = new URL(req.url);
+  const proto = req.headers.get("x-forwarded-proto") || url.protocol.replace(":", "");
+  const host = req.headers.get("host") || url.host;
+  return `${proto}://${host}`;
+}
+
 export async function GET(req: Request) {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   if (!clientId) {
     return new Response("Google login is not configured", { status: 500 });
   }
 
-  const url = new URL(req.url);
-  const proto = req.headers.get("x-forwarded-proto") || url.protocol.replace(":", "");
-  const host = req.headers.get("host") || url.host;
-  const siteUrl = `${proto}://${host}`;
-  const redirectUri = `${siteUrl}/api/auth/google/callback`;
+  const redirectUri = `${origin(req)}/api/auth/google/callback`;
 
   const state = randomBytes(16).toString("hex");
   const store = await cookies();

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCompanyPage } from "@/lib/server/public-pages";
@@ -35,7 +34,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: `/companies/${slug}` },
-    robots: { index: true, follow: true },
+    robots: { index: data.counts.publicCount > 0, follow: true },
     openGraph: { title, description, type: "website", url: `/companies/${slug}` },
     twitter: { card: "summary", title, description },
   };

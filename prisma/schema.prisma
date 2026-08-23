@@ -149,6 +149,7 @@ model Source {
   relatedSourcesB  RelatedSource[] @relation("sourceB")
 
   @@index([personId])
+  @@index([personId, year])
   @@index([year])
   @@index([sourceType])
 }
@@ -174,6 +175,7 @@ model Passage {
   passageEvents     PassageEvent[]
 
   @@index([sourceId])
+  @@index([sourceId, visibility])
   @@index([visibility])
 }
 

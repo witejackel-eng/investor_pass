@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getInvestorPage } from "@/lib/server/public-pages";
@@ -26,7 +25,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const data = await getInvestorPage(slug);
   if (!data) return { title: "Investor not found" };
 
-  const title = `${data.name} — ${fmt(data.counts.total)} indexed references`;
+  const hasPublicContent = data.counts.publicCount > 0;
+  const title = hasPublicContent
+    ? `${data.name} — ${fmt(data.counts.total)} indexed references`
+    : `${data.name} — collection in preparation`;
   const description =
     data.shortDescription ||
     `The public record of ${data.name}: ${fmt(data.counts.sources)} sources and ${fmt(
@@ -37,7 +39,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: `/investors/${slug}` },
-    robots: { index: true, follow: true },
+    // Thin pages (no public passages yet) stay out of the index until the
+    // collection is real — they would otherwise rank as empty duplicates.
+    robots: { index: hasPublicContent, follow: true },
     openGraph: { title, description, type: "profile", url: `/investors/${slug}` },
     twitter: { card: "summary", title, description },
   };
@@ -48,8 +52,13 @@ export default async function InvestorPage({ params }: Params) {
   const data = await getInvestorPage(slug);
   if (!data) notFound();
 
+  const hasPublicContent = data.counts.publicCount > 0;
   const span =
-    data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : "date range pending";
+    data.years.from && data.years.to
+      ? `${data.years.from}–${data.years.to}`
+      : hasPublicContent
+        ? "date range pending"
+        : "COLLECTION IN PREPARATION";
 
   const crumbs = [
     { label: "INVESTOR/PASS", href: "/" },
@@ -71,11 +80,15 @@ export default async function InvestorPage({ params }: Params) {
       <PageHead
         crumb={crumbs}
         title={data.name}
-        meta={[
-          `${fmt(data.counts.sources)} SOURCES`,
-          `${fmt(data.counts.total)} INDEXED REFERENCES`,
-          span,
-        ]}
+        meta={
+          hasPublicContent
+            ? [
+                `${fmt(data.counts.sources)} SOURCES`,
+                `${fmt(data.counts.total)} INDEXED REFERENCES`,
+                span,
+              ]
+            : ["COLLECTION IN PREPARATION"]
+        }
         lede={data.shortDescription}
       />
 
@@ -102,8 +115,9 @@ export default async function InvestorPage({ params }: Params) {
             </>
           ) : (
             <EmptyNote>
-              No free preview passages yet — the complete record for {data.name} is available in the
-              app.
+              The {data.name} collection is being indexed — letters, speeches and
+              decisions, paraphrased with full source attribution. Explore the
+              active collections in the meantime.
             </EmptyNote>
           )}
         </div>
@@ -117,7 +131,7 @@ export default async function InvestorPage({ params }: Params) {
               data.themes.length > 0 ? (
                 <ChipRow items={data.themes.slice(0, 8)} kind="theme" />
               ) : (
-                <EmptyNote>Themes are being indexed.</EmptyNote>
+                <EmptyNote>Themes appear once the collection lands.</EmptyNote>
               ),
           },
           {
@@ -126,7 +140,7 @@ export default async function InvestorPage({ params }: Params) {
               data.companies.length > 0 ? (
                 <ChipRow items={data.companies.slice(0, 8)} kind="company" />
               ) : (
-                <EmptyNote>No companies indexed yet.</EmptyNote>
+                <EmptyNote>Companies appear once the collection lands.</EmptyNote>
               ),
           },
           {

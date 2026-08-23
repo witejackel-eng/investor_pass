@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { LEGAL_DOCS, LEGAL_UPDATED } from "@/lib/legal";
 
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Legal — Investor/Pass",

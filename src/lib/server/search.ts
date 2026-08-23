@@ -129,21 +129,23 @@ export async function searchPassages(
     where.AND.push({ passageEvents: { some: { event: { slug: parsed.event } } } });
   }
 
-  // Token-based text match (LIKE OR). Matches passage text, source title/publisher,
-  // and tag names so searching "moats" or "Coca-Cola" finds tagged passages.
+  // Token-based text match (ILIKE OR). Matches passage text, source title/
+  // publisher, and tag names so searching "moats" or "Coca-Cola" finds tagged
+  // passages. mode: "insensitive" is REQUIRED on Postgres — tokens are
+  // lowercased, and a case-sensitive LIKE would silently miss "Coca-Cola".
   if (tokens.length) {
     const orClauses: any[] = [];
     for (const t of tokens) {
-      orClauses.push({ text: { contains: t } });
-      orClauses.push({ source: { title: { contains: t } } });
-      orClauses.push({ source: { publisher: { contains: t } } });
-      orClauses.push({ passageThemes: { some: { theme: { name: { contains: t } } } } });
-      orClauses.push({ passageThemes: { some: { theme: { slug: { contains: t } } } } });
-      orClauses.push({ passageConcepts: { some: { concept: { name: { contains: t } } } } });
-      orClauses.push({ passageCompanies: { some: { company: { name: { contains: t } } } } });
-      orClauses.push({ passageCompanies: { some: { company: { canonicalName: { contains: t } } } } });
-      orClauses.push({ passageCompanies: { some: { company: { ticker: { contains: t } } } } });
-      orClauses.push({ passageEvents: { some: { event: { name: { contains: t } } } } });
+      orClauses.push({ text: { contains: t, mode: "insensitive" } });
+      orClauses.push({ source: { title: { contains: t, mode: "insensitive" } } });
+      orClauses.push({ source: { publisher: { contains: t, mode: "insensitive" } } });
+      orClauses.push({ passageThemes: { some: { theme: { name: { contains: t, mode: "insensitive" } } } } });
+      orClauses.push({ passageThemes: { some: { theme: { slug: { contains: t, mode: "insensitive" } } } } });
+      orClauses.push({ passageConcepts: { some: { concept: { name: { contains: t, mode: "insensitive" } } } } });
+      orClauses.push({ passageCompanies: { some: { company: { name: { contains: t, mode: "insensitive" } } } } });
+      orClauses.push({ passageCompanies: { some: { company: { canonicalName: { contains: t, mode: "insensitive" } } } } });
+      orClauses.push({ passageCompanies: { some: { company: { ticker: { contains: t, mode: "insensitive" } } } } });
+      orClauses.push({ passageEvents: { some: { event: { name: { contains: t, mode: "insensitive" } } } } });
     }
     where.AND.push({ OR: orClauses });
   }
@@ -212,23 +214,29 @@ export async function searchPassages(
   const isBroad = tokens.length <= 1 && structuredCount <= 1 && !hasRangeOrMeta && (query.trim() !== "" || structuredCount === 1);
   let exploration: Exploration | null = null;
   if (isBroad) {
-    const lightRows = await db.passage.findMany({
-      where,
-      select: { source: { select: { slug: true, person: { select: { slug: true, name: true } } } } },
+    // SQL-side aggregation: one query over sources with passage counts —
+    // no full result sets pulled into memory.
+    const sources = await db.source.findMany({
+      where: { passages: { some: where } },
+      select: {
+        slug: true,
+        person: { select: { slug: true, name: true } },
+        _count: { select: { passages: { where } } },
+      },
+      take: 2000,
     });
     const perPerson = new Map<string, { slug: string; name: string; count: number }>();
-    const sourceSet = new Set<string>();
-    for (const r of lightRows) {
-      sourceSet.add(r.source.slug);
-      const entry = perPerson.get(r.source.person.slug);
-      if (entry) entry.count++;
-      else perPerson.set(r.source.person.slug, { slug: r.source.person.slug, name: r.source.person.name, count: 1 });
+    for (const s of sources) {
+      const count = s._count.passages;
+      const entry = perPerson.get(s.person.slug);
+      if (entry) entry.count += count;
+      else perPerson.set(s.person.slug, { slug: s.person.slug, name: s.person.name, count });
     }
     exploration = {
       term: (query.trim() || "").toUpperCase(),
       references: total,
       investors: perPerson.size,
-      sources: sourceSet.size,
+      sources: sources.length,
       byInvestor: [...perPerson.values()].sort((a, b) => b.count - a.count).slice(0, 8),
     };
   }

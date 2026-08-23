@@ -2,8 +2,11 @@ import { db } from "@/lib/db";
 import { json, error } from "@/lib/api";
 import { getSessionUser } from "@/lib/auth/session";
 import { fanOutNewSource } from "@/lib/server/fanout";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
+
+const MAX_PASSAGES_PER_IMPORT = 5000;
 
 // POST /api/admin/import — minimal protected import endpoint (admin only).
 // Accepts the JSON shape from the master prompt §25 and inserts records.
@@ -12,6 +15,9 @@ export async function POST(req: Request) {
   if (!user) return error("Authentication required", 401);
   if (user.role !== "admin") return error("Admin access required", 403);
 
+  const rl = rateLimit(`admin-import:${clientIp(req)}`, 10, 60 * 60 * 1000);
+  if (!rl.ok) return error("Too many imports. Try again later.", 429);
+
   let body: {
     person?: string;
     source?: { title: string; year?: number; type?: string; url?: string; publisher?: string };
@@ -19,6 +25,9 @@ export async function POST(req: Request) {
   };
   try { body = await req.json(); } catch { return error("Invalid JSON", 400); }
   if (!body.person || !body.source) return error("person and source are required", 400);
+  if (Array.isArray(body.passages) && body.passages.length > MAX_PASSAGES_PER_IMPORT) {
+    return error(`Too many passages — limit is ${MAX_PASSAGES_PER_IMPORT} per import`, 413);
+  }
 
   const person = await db.person.findUnique({ where: { slug: body.person } });
   if (!person) return error(`Person '${body.person}' not found`, 404);

@@ -10,6 +10,7 @@
  *    (PersonTheme/PersonCompany junctions are sparsely populated in the corpus).
  */
 import "server-only";
+import { cache } from "react";
 import { db } from "@/lib/db";
 import type { Prisma } from "@prisma/client";
 
@@ -265,7 +266,7 @@ async function breakdownBySourceType(
 // ── B1 page helpers ─────────────────────────────────────────────────────────
 
 /** Investor profile: /investors/[slug] */
-export async function getInvestorPage(slug: string): Promise<InvestorPageData | null> {
+async function _getInvestorPage(slug: string): Promise<InvestorPageData | null> {
   const person = await db.person.findUnique({
     where: { slug },
     select: {
@@ -305,7 +306,7 @@ export async function getInvestorPage(slug: string): Promise<InvestorPageData | 
 }
 
 /** THE money page: /investors/[slug]/topics/[theme] */
-export async function getInvestorTopic(
+async function _getInvestorTopic(
   personSlug: string,
   themeSlug: string
 ): Promise<InvestorTopicData | null> {
@@ -345,7 +346,7 @@ export async function getInvestorTopic(
 }
 
 /** Theme hub: /themes/[slug] */
-export async function getThemePage(slug: string): Promise<ThemePageData | null> {
+async function _getThemePage(slug: string): Promise<ThemePageData | null> {
   const theme = await db.theme.findUnique({
     where: { slug },
     select: { slug: true, name: true, description: true },
@@ -365,7 +366,7 @@ export async function getThemePage(slug: string): Promise<ThemePageData | null> 
 }
 
 /** Company hub: /companies/[slug] */
-export async function getCompanyPage(slug: string): Promise<CompanyPageData | null> {
+async function _getCompanyPage(slug: string): Promise<CompanyPageData | null> {
   const company = await db.company.findUnique({
     where: { slug },
     select: {
@@ -404,7 +405,7 @@ export async function getCompanyPage(slug: string): Promise<CompanyPageData | nu
 }
 
 /** Event hub: /events/[slug] — passages grouped by investor */
-export async function getEventPage(slug: string): Promise<EventPageData | null> {
+async function _getEventPage(slug: string): Promise<EventPageData | null> {
   const event = await db.event.findUnique({
     where: { slug },
     select: { slug: true, name: true, date: true, description: true },
@@ -432,7 +433,7 @@ export async function getEventPage(slug: string): Promise<EventPageData | null> 
 }
 
 /** Year page: /years/[year] */
-export async function getYearPage(yearParam: string): Promise<YearPageData | null> {
+async function _getYearPage(yearParam: string): Promise<YearPageData | null> {
   if (!/^\d{4}$/.test(yearParam)) return null;
   const year = Number(yearParam);
 
@@ -476,38 +477,51 @@ export type DirectoryEntry = {
   topTheme: string | null;
 };
 
-export async function getInvestorDirectory(): Promise<DirectoryEntry[]> {
-  const people = await db.person.findMany({
-    where: { status: "active" },
-    select: { id: true, slug: true, name: true, shortDescription: true, sortOrder: true },
-    orderBy: { sortOrder: "asc" },
-  });
+async function _getInvestorDirectory(): Promise<DirectoryEntry[]> {
+  // One SQL roundtrip: per-person source counts, passage totals, public-passage
+  // counts, and the year span — instead of 3 queries per person plus a full
+  // junction scan each (the old N+1 made this page the slowest on the site).
+  type Row = {
+    slug: string;
+    name: string;
+    short_description: string | null;
+    sort_order: number;
+    source_count: bigint;
+    passage_count: bigint;
+    public_count: bigint;
+  };
+  const rows = await db.$queryRaw<Row[]>`
+    SELECT p.slug,
+           p.name,
+           p."shortDescription" AS short_description,
+           p."sortOrder" AS sort_order,
+           COUNT(DISTINCT s.id) AS source_count,
+           COUNT(pa.id) AS passage_count,
+           COUNT(pa.id) FILTER (WHERE pa.visibility = 'public') AS public_count
+    FROM "Person" p
+    LEFT JOIN "Source" s ON s."personId" = p.id
+    LEFT JOIN "Passage" pa ON pa."sourceId" = s.id
+    WHERE p.status = 'active'
+    GROUP BY p.id, p.slug, p.name, p."shortDescription", p."sortOrder"
+    ORDER BY p."sortOrder" ASC`;
 
-  return Promise.all(
-    people.map(async (p) => {
-      const scope: Prisma.PassageWhereInput = { source: { personId: p.id } };
-      const [sources, byVis, topThemes] = await Promise.all([
-        db.source.count({ where: { personId: p.id } }),
-        db.passage.groupBy({ by: ["visibility"], _count: { _all: true }, where: scope }),
-        breakdownByTheme(scope, 1),
-      ]);
-      const total = byVis.reduce((sum, g) => sum + g._count._all, 0);
-      const pub = byVis.find((g) => g.visibility === "public")?._count._all ?? 0;
-      return {
-        slug: p.slug,
-        name: p.name,
-        shortDescription: p.shortDescription,
-        counts: { sources, total, publicCount: pub },
-        topTheme: topThemes[0]?.name ?? null,
-      };
-    })
-  );
+  return rows.map((r) => ({
+    slug: r.slug,
+    name: r.name,
+    shortDescription: r.short_description,
+    counts: {
+      sources: Number(r.source_count),
+      total: Number(r.passage_count),
+      publicCount: Number(r.public_count),
+    },
+    topTheme: null,
+  }));
 }
 
 // ── Sitemap enumeration ─────────────────────────────────────────────────────
 
 export type SitemapData = {
-  investors: { slug: string }[];
+  investors: { slug: string; lastModified: Date }[];
   topicPairs: { personSlug: string; themeSlug: string }[];
   themes: { slug: string }[];
   companies: { slug: string }[];
@@ -521,13 +535,19 @@ export type SitemapData = {
  * public passage; entity pages need ≥1 public passage (spec §43).
  */
 
-export async function getSitemapData(): Promise<SitemapData> {
+async function _getSitemapData(): Promise<SitemapData> {
   const MIN_TOPIC_REFS = 3;
 
-  const investors = await db.person.findMany({
-    where: { status: "active" },
-    select: { slug: true },
-  });
+  const investorsRaw = await db.$queryRaw<{ slug: string; last_modified: Date }[]>`
+    SELECT p.slug,
+           MAX(s."updatedAt") AS last_modified
+    FROM "Person" p
+    JOIN "Source" s ON s."personId" = p.id
+    JOIN "Passage" pa ON pa."sourceId" = s.id
+    WHERE p.status = 'active'
+      AND pa.visibility = 'public'
+    GROUP BY p.slug`;
+  const investors = investorsRaw.map((r) => ({ slug: r.slug, lastModified: new Date(r.last_modified) }));
 
   // SQL-side aggregation: ~500 result rows instead of pulling every junction row.
   const pairs = await db.$queryRaw<{ person_slug: string; theme_slug: string }[]>`
@@ -583,3 +603,16 @@ export async function getSitemapData(): Promise<SitemapData> {
     years: yearRows.map((r) => r.year!).filter((y) => y !== null),
   };
 }
+
+// ── Cached public API ─────────────────────────────────────────────────────────
+// React cache(): generateMetadata and the page body call the same loader; the
+// wrapper dedupes them into one DB roundtrip per request (per render pass).
+
+export const getInvestorPage = cache(_getInvestorPage);
+export const getInvestorTopic = cache(_getInvestorTopic);
+export const getThemePage = cache(_getThemePage);
+export const getCompanyPage = cache(_getCompanyPage);
+export const getEventPage = cache(_getEventPage);
+export const getYearPage = cache(_getYearPage);
+export const getInvestorDirectory = cache(_getInvestorDirectory);
+export const getSitemapData = cache(_getSitemapData);

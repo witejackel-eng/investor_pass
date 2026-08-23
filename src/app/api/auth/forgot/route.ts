@@ -5,23 +5,27 @@
  * exists, a single-use token (60 min) is stored sha256-hashed; any previous
  * live token for that user is invalidated first.
  *
- * Email delivery ships with Wave K. Until then, while SITE_PRELAUNCH !==
- * "false", the response carries resetPath so the flow is testable E2E.
- * Flip SITE_PRELAUNCH=false in production and this leaks nothing.
+ * Email delivery ships with Wave K. Until then, when SITE_PRELAUNCH === "true"
+ * (explicitly, default OFF), the response carries resetPath so the flow is
+ * testable E2E. The default is fail-closed: no env var set → no token leak.
  */
 import { NextResponse } from "next/server";
 import { createHash, randomBytes } from "crypto";
 import { db } from "@/lib/db";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 
 const TOKEN_TTL_MS = 60 * 60 * 1000;
 
 export async function POST(req: Request) {
+  const rl = rateLimit(`forgot:${clientIp(req)}`, 5, 60 * 60 * 1000);
+  if (!rl.ok) return NextResponse.json({ ok: true });
+
   let body: { email?: string };
   try { body = await req.json(); } catch { return NextResponse.json({ ok: true }); }
   const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
-  const prelaunch = process.env.SITE_PRELAUNCH !== "false";
+  const prelaunch = process.env.SITE_PRELAUNCH === "true";
 
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 254) {
     // Same generic answer as every other failure — no enumeration signal.
