@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { installClientErrorReporting } from "@/lib/client-error-reporter";
 
 /**
  * App-wide React Query provider.
@@ -21,5 +22,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
         },
       })
   );
+
+  // In-house error monitoring — installs once per page load (never throws).
+  useEffect(() => {
+    installClientErrorReporting();
+  }, []);
+
   return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
 }
