@@ -51,6 +51,8 @@ type State = {
   params: ViewParams;
   user: User;
   userLoading: boolean;
+  // Server-authoritative visitor country (Vercel geo) for currency defaults
+  country: string | null;
   // navigation
   go: (view: View, params?: ViewParams) => void;
   back: () => void;
@@ -86,6 +88,7 @@ export const useStore = create<State>((set, get) => ({
   params: {},
   user: null,
   userLoading: true,
+  country: null,
 
   go: (view, params = {}) => {
     set({ view, params });
@@ -109,8 +112,8 @@ export const useStore = create<State>((set, get) => ({
   loadUser: async () => {
     set({ userLoading: true });
     try {
-      const data = await apiGet<{ user: User }>("/api/me");
-      set({ user: data.user, userLoading: false });
+      const data = await apiGet<{ user: User; country?: string | null }>("/api/me");
+      set({ user: data.user, country: data.country ?? null, userLoading: false });
     } catch {
       set({ user: null, userLoading: false });
     }
