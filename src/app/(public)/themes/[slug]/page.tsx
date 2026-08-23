@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { db } from "@/lib/db";
 import { getThemePage } from "@/lib/server/public-pages";
 import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import { Chip, EmptyNote, ExploreNext, PageHead, SectionLabel, fmt } from "../../ui";
@@ -9,6 +10,16 @@ import { Chip, EmptyNote, ExploreNext, PageHead, SectionLabel, fmt } from "../..
 export const revalidate = 3600;
 
 type Params = { params: Promise<{ slug: string }> };
+
+// Prerender every [slug] page in the corpus.
+export async function generateStaticParams() {
+  try {
+    const rows = await db.theme.findMany({ select: { slug: true } });
+    return rows.map((r) => ({ slug: r.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;

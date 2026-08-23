@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { db } from "@/lib/db";
 import { getInvestorPage } from "@/lib/server/public-pages";
 import { getInvestorConnections } from "@/lib/server/graph";
 import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
@@ -20,6 +21,17 @@ import {
 export const revalidate = 3600;
 
 type Params = { params: Promise<{ slug: string }> };
+
+// Prerender every investor page at build time — the directory is small and
+// stable, and static pages never touch the database on request.
+export async function generateStaticParams() {
+  try {
+    const people = await db.person.findMany({ where: { status: "active" }, select: { slug: true } });
+    return people.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;

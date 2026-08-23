@@ -5,19 +5,22 @@ const globalForPrisma = globalThis as unknown as {
 }
 
 /**
- * Serverless/build safety: the Supabase session pooler caps clients
- * (pool_size 15). `next build` runs 3 parallel workers, each with its own
- * PrismaClient — uncapped pools blew past the limit during prerendering
- * (EMAXCONNSESSION). Cap every client's pool and make connection attempts
- * queue instead of fail. Idempotent: a URL that already carries a
- * connection_limit is passed through untouched.
+ * Serverless pool discipline: the Supabase session pooler caps this database
+ * at 15 clients total. Every Vercel function instance (and each of the 3
+ * build workers) creates its own PrismaClient — with the default pool size
+ * (num_cpus × 2 + 1) that exhausts the pooler instantly (EMAXCONNSESSION).
+ *
+ * connection_limit=1 gives each instance exactly one pooled connection and
+ * lets Prisma queue queries internally; pool_timeout=20 makes bursts wait
+ * instead of failing; connect_timeout=10 fails fast on cold pooler issues.
+ * Idempotent: a URL that already carries a connection_limit passes through.
  */
 function datasourceUrl(): string | undefined {
   const url = process.env.DATABASE_URL
   if (!url || url.startsWith('file:')) return url
   if (url.includes('connection_limit=')) return url
   const sep = url.includes('?') ? '&' : '?'
-  return `${url}${sep}connection_limit=3&pool_timeout=20`
+  return `${url}${sep}connection_limit=1&pool_timeout=20&connect_timeout=10`
 }
 
 export const db =

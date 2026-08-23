@@ -43,7 +43,7 @@ export default async function InvestorsPage() {
           `${fmt(totalRefs)} INDEXED REFERENCES`,
           "PRIMARY SOURCES · PARAPHRASED SUMMARIES",
         ]}
-        lede="Every investor below has a public record — letters, memos, speeches and interviews — indexed into a connected research library. Start with a name; leave with an argument."
+        lede="Letters, memos, speeches, interviews and decisions — every investor below has a documented public record, indexed and cross-linked. Follow any name into the graph: shared themes, shared companies, shared arguments."
       />
 
       <section className="mt-12">

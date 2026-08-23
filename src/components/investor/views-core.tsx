@@ -174,17 +174,18 @@ export function HomeView() {
       <section className="mt-12 border-t-2 border-ink py-8">
         <div className="section-head">
           <h2>Two ways in</h2>
-          <p className="kicker">FREE + PRO</p>
+          <p className="kicker">FREE = EXPERIENCE THE GRAPH · PRO = MAKE IT YOURS</p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="border border-ink p-6">
             <p className="kicker">FREE</p>
             <p className="mt-2 font-display text-3xl font-bold">$0</p>
+            <p className="mt-1 font-reader text-sm text-graphite">Experience the graph — read, browse, explore.</p>
             <ul className="mt-4 space-y-2 font-reader text-graphite">
-              <li>· Public investor pages</li>
-              <li>· Topic, company, year, source pages</li>
-              <li>· Public preview passages</li>
-              <li>· Timeline navigation</li>
+              <li>· All 31 investor research pages</li>
+              <li>· Theme, company, year and event pages</li>
+              <li>· Selected preview passages, every source cited</li>
+              <li>· Timeline navigation and public trails</li>
             </ul>
           </div>
           <div className="border-2 border-ink p-6 shadow-[4px_4px_0_0_var(--ink)]">
@@ -194,11 +195,12 @@ export function HomeView() {
             </div>
             <p className="mt-2 font-display text-3xl font-bold">{PRICING[currency].monthly}<span className="text-base font-normal text-graphite">/month</span></p>
             <p className="mt-1 font-mono text-xs text-graphite">or {PRICING[currency].annual}/year — 12 months for the price of 8</p>
+            <p className="mt-1 font-reader text-sm text-graphite">Make the graph yours — a complete research system.</p>
             <ul className="mt-4 space-y-2 font-reader text-graphite">
-              <li>· Full search across every passage</li>
-              <li>· All premium passages unlocked</li>
-              <li>· Bookmarks, saved searches, collections</li>
-              <li>· Every connection, fully navigable</li>
+              <li>· Full search across every one of 12,000+ passages</li>
+              <li>· Unlimited Compare — any investors, any topic</li>
+              <li>· Follow investors, get alerts, pick up where you left off</li>
+              <li>· Bookmarks, saved searches, collections and trails</li>
             </ul>
             {isPro ? (
               <div className="mt-5 w-full border border-ink bg-paper-2 py-2.5 text-center text-sm font-semibold text-signal-dark">
@@ -225,7 +227,9 @@ export function InvestorsView() {
         <p className="kicker">/ INVESTORS</p>
         <h1 className="mt-2 font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[0.92] tracking-[-0.07em]">The collection</h1>
         <p className="mt-3 max-w-[680px] font-reader text-lg text-graphite">
-          Exceptional investors, each with their own indexed public record. Buffett is the launch wedge, not the limit.
+          {investors.length} investors with documented public records — letters, memos, speeches,
+          interviews and decisions — indexed into one connected research library. Start with a name;
+          leave with an argument.
         </p>
       </div>
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

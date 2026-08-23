@@ -11,7 +11,8 @@ export async function GET() {
     return json(summary, {
       headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600" },
     });
-  } catch {
+  } catch (e) {
+    console.error("[graph-api]", e instanceof Error ? e.message : e);
     return error("Graph summary is temporarily unavailable.", 503);
   }
 }

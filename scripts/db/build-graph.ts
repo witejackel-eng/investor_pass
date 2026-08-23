@@ -314,6 +314,56 @@ async function main() {
     );
   }
 
+  // Dense graphs collapse label propagation into one community. When that
+  // happens, fall back to ego clusters: each investor anchors a community and
+  // every theme/company takes the community of its strongest investor link.
+  // A useful partition needs SEVERAL multi-member communities. If label
+  // propagation collapses to one giant blob (dense graphs do this), fall back.
+  const realCommunities = [...byCommunity.values()].filter((m) => m.length >= 2).length;
+  if (realCommunities <= 2) {
+    console.log("→ label propagation collapsed — using per-investor ego clusters…");
+    await db.$executeRawUnsafe(`UPDATE "GraphNode" SET "communityId" = NULL`);
+    const investorRows = await db.graphNode.findMany({
+      where: { kind: "investor" },
+      select: { id: true, slug: true },
+      orderBy: { weight: "desc" },
+    });
+    const ego = new Map<string, number>();
+    investorRows.forEach((inv, i) => ego.set(inv.id, i + 1));
+    // Each theme/company takes the community of its strongest investor edge.
+    const entityRows = await db.graphNode.findMany({
+      where: { kind: { in: ["theme", "company"] } },
+      select: { id: true },
+    });
+    for (const e of entityRows) {
+      const best = await db.$queryRaw<{ community: number | null }[]>`
+        SELECT CASE WHEN ge."sourceId" = ${e.id}
+               THEN SUBSTRING(ge."targetId" FROM LENGTH('person:') + 1)
+               ELSE SUBSTRING(ge."sourceId" FROM LENGTH('person:') + 1) END AS inv_slug
+        FROM "GraphEdge" ge
+        WHERE (ge."sourceId" = ${e.id} AND ge."targetId" LIKE 'person:%')
+           OR (ge."targetId" = ${e.id} AND ge."sourceId" LIKE 'person:%')
+        ORDER BY ge.weight DESC LIMIT 1`.then((rows) => {
+        const slug = (rows[0] as any)?.inv_slug;
+        return slug ? ego.get(`person:${slug}`) ?? null : null;
+      }).catch(() => null);
+      if (best != null) ego.set(e.id, best);
+    }
+    const byCommunity2 = new Map<number, string[]>();
+    for (const [id, c] of ego) {
+      if (!safe(id)) continue;
+      if (!byCommunity2.has(c)) byCommunity2.set(c, []);
+      byCommunity2.get(c)!.push(id);
+    }
+    for (const [c, members] of byCommunity2) {
+      if (members.length < 2) continue;
+      await db.$executeRawUnsafe(
+        `UPDATE "GraphNode" SET "communityId" = ${c} WHERE id IN (${members.map((m) => `'${m}'`).join(",")})`
+      );
+    }
+    console.log(`  ego clusters: ${byCommunity2.size} communities.`);
+  }
+
   const [nodeCount, edgeCount] = await Promise.all([
     db.graphNode.count(),
     db.graphEdge.count(),

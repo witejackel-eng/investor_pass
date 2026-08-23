@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { db } from "@/lib/db";
 import { getYearPage } from "@/lib/server/public-pages";
 import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
@@ -18,6 +19,16 @@ import {
 export const revalidate = 3600;
 
 type Params = { params: Promise<{ year: string }> };
+
+// Prerender every year page in the corpus.
+export async function generateStaticParams() {
+  try {
+    const years = await db.source.findMany({ where: { year: { not: null } }, distinct: ["year"], select: { year: true } });
+    return years.filter((y) => y.year !== null).map((y) => ({ year: String(y.year) }));
+  } catch {
+    return [];
+  }
+}
 
 function sourceTypeLabel(t: string) {
   return t.replaceAll("_", " ").toUpperCase();

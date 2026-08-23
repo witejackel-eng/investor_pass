@@ -16,7 +16,8 @@ export async function GET(req: Request) {
     return json(detail, {
       headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600" },
     });
-  } catch {
+  } catch (e) {
+    console.error("[graph-api] node", id, e instanceof Error ? e.message : e);
     return error("The graph is temporarily unavailable.", 503);
   }
 }

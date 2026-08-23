@@ -51,6 +51,23 @@ import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 
 async function main() {
+  // Keep person rows in sync with the PEOPLE roster (status, descriptions).
+  for (const p of PEOPLE) {
+    await db.person.upsert({
+      where: { slug: p.slug },
+      update: { status: "active" },
+      create: {
+        slug: p.slug,
+        name: p.name,
+        birthYear: p.birthYear,
+        sortOrder: p.sortOrder,
+        shortDescription: p.shortDescription,
+        bio: p.bio,
+        status: p.status || "active",
+      },
+    });
+  }
+
   const industryMap: Record<string, string> = {};
   await db.$transaction(async (tx) => {
     for (const ind of INDUSTRIES) {
