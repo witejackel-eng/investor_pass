@@ -14,9 +14,9 @@ async function getInvestor(slug: string) {
     const [sources, units, themes, companies, events, decisions] = await Promise.all([
       db.source.count({ where: { personId: p.id } }),
       db.passage.count({ where: { source: { personId: p.id } } }),
-      db.$queryRawUnsafe<{ n: number }[]>(`SELECT COUNT(DISTINCT pt."themeId")::int AS n FROM "PassageTheme" pt JOIN "Passage" p2 ON pt."passageId"=p2."id" JOIN "Source" s ON p2."sourceId"=s."id" WHERE s."personId"=$1`, p.id),
-      db.$queryRawUnsafe<{ n: number }[]>(`SELECT COUNT(DISTINCT pc."companyId")::int AS n FROM "PassageCompany" pc JOIN "Passage" p2 ON pc."passageId"=p2."id" JOIN "Source" s ON p2."sourceId"=s."id" WHERE s."personId"=$1`, p.id),
-      db.$queryRawUnsafe<{ n: number }[]>(`SELECT COUNT(DISTINCT pe."eventId")::int AS n FROM "PassageEvent" pe JOIN "Passage" p2 ON pe."passageId"=p2."id" JOIN "Source" s ON p2."sourceId"=s."id" WHERE s."personId"=$1`, p.id),
+      db.$queryRaw<{ n: number }[]>`SELECT COUNT(DISTINCT pt."themeId")::int AS n FROM "PassageTheme" pt JOIN "Passage" p2 ON pt."passageId"=p2."id" JOIN "Source" s ON p2."sourceId"=s."id" WHERE s."personId"=${p.id}`,
+      db.$queryRaw<{ n: number }[]>`SELECT COUNT(DISTINCT pc."companyId")::int AS n FROM "PassageCompany" pc JOIN "Passage" p2 ON pc."passageId"=p2."id" JOIN "Source" s ON p2."sourceId"=s."id" WHERE s."personId"=${p.id}`,
+      db.$queryRaw<{ n: number }[]>`SELECT COUNT(DISTINCT pe."eventId")::int AS n FROM "PassageEvent" pe JOIN "Passage" p2 ON pe."passageId"=p2."id" JOIN "Source" s ON p2."sourceId"=s."id" WHERE s."personId"=${p.id}`,
       db.decision.count({ where: { personId: p.id, verified: true } }),
     ]);
     return {

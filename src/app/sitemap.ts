@@ -38,7 +38,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Real-path app surfaces (SEO landings; /search?q= variants are noindex via meta)
   entries.push({ url: `${BASE}/search`, changeFrequency: "weekly", priority: 0.8 });
   entries.push({ url: `${BASE}/letters/buffett`, changeFrequency: "monthly", priority: 0.9 });
-  const kbPeople = await db.person.findMany({ where: { status: "active" }, select: { slug: true } });
+  const kbPeople = await db.person
+    .findMany({ where: { status: "active" }, select: { slug: true } })
+    .catch(() => [] as { slug: string }[]);
   for (const p of kbPeople) entries.push({ url: `${BASE}/kb/${p.slug}`, changeFrequency: "weekly", priority: 0.8 });
   entries.push({ url: `${BASE}/compare`, changeFrequency: "weekly", priority: 0.8 });
 for (const slug of ["terms", "privacy", "cookies", "copyright", "disclaimer", "refunds"]) {
