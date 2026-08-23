@@ -24,3 +24,6 @@ evidence policy (Reported → Review → Correct → Verify → Changelog).
 - CHANGED: hero → "Understand the money. Study the minds. Follow the evidence." (blue on the middle line); one accent token `--signal #1647D8`.
 - CRITICAL FIX: the editorial palette utilities (bg-ink, bg-paper, text-signal-dark, …) were silently missing from production CSS since launch — now mapped and verified live.
 - Search CTA reads "SEARCH THE RECORD"; decision demo labeled DOCUMENTED → ACTION → WHAT HAPPENED NEXT?
+
+### Database-outage fix (23c7d96)
+- FIXED (P0): intermittent site-wide "database unavailable" — Supabase session-pooler (15-client cap) exhausted by frozen serverless instances pinning session slots (EMAXCONNSESSION). Prisma now routes through the transaction pooler (`:6543` + `pgbouncer=true`, auto-rewritten in `src/lib/db.ts`; opt-out `IP_DB_SESSION_POOLER=1`), with `connection_limit=1` + transient retry retained. Verified: 8/8 and 15/15 concurrent search bursts pass (previously 5/8 failed); ops DATABASE check PASS.
