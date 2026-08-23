@@ -67,7 +67,7 @@ export default async function OpsData() {
     `);
     const row = r[0] as Record<string, number>;
     lengthStats = { total: Number(row.total), avg: Number(row.avg), p50: Number(row.p50), thin: Number(row.thin) };
-  } catch { lengthStats = null; }
+  } catch (e) { lengthStats = null; console.error("[ops] length stats failed:", e instanceof Error ? e.message : e); }
 
   const grade = (insights: number) =>
     insights >= 250 ? { g: "CORE", c: "ops-pass" } : insights >= 40 ? { g: "ACTIVE", c: "ops-blue" } : insights >= 10 ? { g: "DEVELOPING", c: "ops-warn" } : { g: "DISCOVERY", c: "ops-warn" };
