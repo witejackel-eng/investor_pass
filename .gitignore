@@ -59,3 +59,5 @@ server.log
 data/corpora/raw/
 prisma/db/
 .env*
+
+build-out.txt
