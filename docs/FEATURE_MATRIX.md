@@ -46,3 +46,17 @@ State legend:
   compare decision overlap.
 - PLANNED: email digests (in-app digest already live), RAG/AI
   (post-100-subscribers).
+
+## 2026-02 launch additions
+
+| Feature | State | Data | API | UI | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Learn layer (explainers) | LIVE | `src/data/learn/explainers.ts` (3) | — (static) | `/learn`, `/learn/[slug]` | Learn→Study bridge mandatory; sitemap + JSON-LD |
+| Cross-investor coverage | LIVE | PassageTheme joins | `/api/themes/[slug]/coverage` (edge-cached) | homepage demo | Real counts only; 503 → hide |
+| Newsletter | LIVE | `issues.ts` + AppConfig KV | `/api/newsletter/subscribe` (rate-limited) | `/newsletter`, `/newsletter/[slug]`, home section | Founder voice; subscriber edition flag |
+| Homepage v2 | LIVE | stats/coverage/ledger/trails endpoints | reused | §49 order | Search-first; Pro after value |
+| Launch pricing $9/$79 | LIVE | `src/lib/pricing.ts` + `ANNUAL_SAVING` | checkout unchanged (plan dashboards must match) | all surfaces | save-27% copy is exact math |
+| View analytics | LIVE | SearchEvent via `track()` | `/api/events` | TrackView on learn/newsletter | Existing stack, no new system |
+| Guest ID-leak fix | LIVE | recents labels | — | chips/Continue | Release blocker closed |
+| Share/export/print | PARTIAL | existing page-actions | — | trails/investors/themes | Extend to new surfaces later |
+| Public /discoveries | PLANNED | graph is ready | — | — | §62 — build only from deterministic queries |

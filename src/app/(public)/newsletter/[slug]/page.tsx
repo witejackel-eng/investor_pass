@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ISSUES, issueBySlug, FOUNDER } from "@/data/newsletter/issues";
+import { TrackView } from "@/components/public/track-view";
 import { PageHead } from "../../ui";
 import { breadcrumbLd, serializeJsonLd } from "@/lib/server/jsonld";
 
@@ -34,6 +35,7 @@ export default async function IssuePage({ params }: Params) {
 
   return (
     <div>
+      <TrackView name="newsletter_issue_open" props={{ slug }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

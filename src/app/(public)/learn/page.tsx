@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EXPLAINERS } from "@/data/learn/explainers";
+import { TrackView } from "@/components/public/track-view";
 import { PageHead } from "../ui";
 
 export const revalidate = 3600;
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
 export default function LearnIndexPage() {
   return (
     <div>
+      <TrackView name="learn_page_view" props={{ page: "learn_index" }} />
       <PageHead
         crumb={[{ label: "INVESTOR/PASS", href: "/" }, { label: "LEARN" }]}
         title="How finance works"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EXPLAINERS, explainerBySlug } from "@/data/learn/explainers";
+import { TrackView } from "@/components/public/track-view";
 import { PageHead } from "../../ui";
 import { breadcrumbLd, serializeJsonLd } from "@/lib/server/jsonld";
 
@@ -34,6 +35,7 @@ export default async function ExplainerPage({ params }: Params) {
 
   return (
     <div>
+      <TrackView name="learn_page_view" props={{ page: "explainer", slug }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

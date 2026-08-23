@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FOUNDER, ISSUES, latestIssue } from "@/data/newsletter/issues";
+import { TrackView } from "@/components/public/track-view";
 import { PageHead } from "../ui";
 
 export const revalidate = 3600;
@@ -22,6 +23,7 @@ export default function NewsletterPage() {
   const latest = latestIssue();
   return (
     <div>
+      <TrackView name="newsletter_view" props={{ page: "newsletter_index" }} />
       <PageHead
         crumb={[{ label: "INVESTOR/PASS", href: "/" }, { label: "NEWSLETTER" }]}
         title="Aditya's research, explanations & discoveries"

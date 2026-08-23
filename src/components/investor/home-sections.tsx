@@ -746,7 +746,7 @@ export function FromAditya() {
               READ THE NOTE
               <ArrowRight className="ml-1.5 inline h-3.5 w-3.5" aria-hidden />
             </a>
-            <a href="/newsletter" className="nav-link text-[0.78rem] font-semibold">
+            <a href="#newsletter" className="nav-link text-[0.78rem] font-semibold">
               SUBSCRIBE FREE
             </a>
           </div>
@@ -761,6 +761,251 @@ export function FromAditya() {
           </ul>
           <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
             Free · roughly every few days · quality over cadence
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+// ── §53 HOW FINANCE WORKS — featured explainer + Learn→Study bridge ───────
+
+import { EXPLAINERS } from "@/data/learn/explainers";
+
+export function LearnFeature() {
+  const go = useStore((s) => s.go);
+  const e = EXPLAINERS.find((x) => x.slug === "how-hedge-funds-work") ?? EXPLAINERS[0];
+  if (!e) return null;
+  return (
+    <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="learn-feature-title">
+      <div className="section-head">
+        <h2 id="learn-feature-title">{e.title}</h2>
+        <p className="kicker">HOW FINANCE WORKS</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-[8fr_4fr]">
+        <div>
+          <p className="prose-reader max-w-[680px] text-base">{e.summary}</p>
+          <div className="mt-4 grid gap-px border border-ink bg-rule sm:grid-cols-3">
+            {[
+              { t: "WHAT THEY DO", d: "Long/short, leverage, and the partnership structure." },
+              { t: "HOW THEY MAKE MONEY", d: "Management fees plus performance fees — “2 and 20” and its variants." },
+              { t: "THE STRATEGY WORLD", d: "Short selling · activism · macro · quant." },
+            ].map((c) => (
+              <div key={c.t} className="bg-paper p-4">
+                <p className="kicker text-signal-dark">{c.t}</p>
+                <p className="mt-1 font-reader text-sm text-graphite">{c.d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6">
+            <p className="kicker text-signal-dark">STUDY THE INVESTORS WHO OPERATE IN THIS WORLD</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {e.related.investors.map((inv) => (
+                <button
+                  key={inv.slug}
+                  onClick={() => go("investor", { slug: inv.slug })}
+                  className="chip hover:chip-signal"
+                >
+                  {inv.name}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <a href={`/learn/${e.slug}`} className="bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper transition-colors hover:bg-signal-dark">
+              READ THE EXPLAINER
+              <ArrowRight className="ml-1.5 inline h-3.5 w-3.5" aria-hidden />
+            </a>
+            {e.related.trail && (
+              <button onClick={() => go("trailDetail", { slug: e.related.trail!.slug })} className="nav-link text-[0.78rem] font-semibold">
+                FOLLOW THE RESEARCH TRAIL
+                <ArrowRight className="ml-1 inline h-3.5 w-3.5" aria-hidden />
+              </button>
+            )}
+          </div>
+        </div>
+        <aside className="border-l border-rule lg:pl-6" aria-label="More explainers">
+          <p className="kicker">MORE FROM HOW FINANCE WORKS</p>
+          <ul className="mt-3 space-y-3">
+            {EXPLAINERS.filter((x) => x.slug !== e.slug).map((x) => (
+              <li key={x.slug} className="border-t border-rule pt-3">
+                <a href={`/learn/${x.slug}`} className="font-display text-sm font-semibold hover:text-signal-dark">
+                  {x.title}
+                </a>
+                <p className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
+                  {x.category} · {x.difficulty}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <a href="/learn" className="mt-4 inline-block font-mono text-[0.62rem] uppercase tracking-wider text-graphite hover:text-ink">
+            All explainers →
+          </a>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+// ── §54 INVESTOR RESEARCH FEATURE — Buffett × Marks on Risk ───────────────
+
+export function InvestorResearchFeature() {
+  const go = useStore((s) => s.go);
+  const cov = useCoverage("risk-management");
+  const marks = cov?.investors.find((i) => i.slug === "marks");
+  const buffett = cov?.investors.find((i) => i.slug === "buffett");
+  if (!cov || !marks || !buffett) return null;
+
+  return (
+    <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="research-feature-title">
+      <div className="section-head">
+        <h2 id="research-feature-title">Buffett × Marks on risk.</h2>
+        <p className="kicker">INVESTOR RESEARCH</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-[8fr_4fr]">
+        <div>
+          <p className="max-w-[680px] font-reader text-base text-graphite">
+            One theme, two indexed records. Where they overlap, and where the indexed emphasis
+            differs — with every claim traceable to a source.
+          </p>
+          <div className="mt-4 grid gap-px border border-ink bg-rule sm:grid-cols-3">
+            <div className="bg-paper p-4">
+              <p className="kicker text-signal-dark">SHARED INDEXED COVERAGE</p>
+              <p className="mt-1 font-display text-xl font-bold">Risk Management</p>
+              <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-wider text-graphite">
+                {cov.total.toLocaleString()} units across the roster
+              </p>
+            </div>
+            <div className="bg-paper p-4">
+              <p className="kicker text-signal-dark">HOWARD MARKS</p>
+              <p className="mt-1 font-display text-xl font-bold">{marks.count} indexed units</p>
+              <p className="mt-1 font-reader text-xs text-graphite">
+                1990–2026 memos — the deepest single record on risk in the library.
+              </p>
+            </div>
+            <div className="bg-paper p-4">
+              <p className="kicker text-signal-dark">WARREN BUFFETT</p>
+              <p className="mt-1 font-display text-xl font-bold">{buffett.count} indexed units</p>
+              <p className="mt-1 font-reader text-xs text-graphite">
+                1977–2024 letters — risk through the lens of capital allocation.
+              </p>
+            </div>
+          </div>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <button
+              onClick={() => go("compare")}
+              className="bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper transition-colors hover:bg-signal-dark"
+            >
+              EXPLORE THE RESEARCH
+              <ArrowRight className="ml-1.5 inline h-3.5 w-3.5" aria-hidden />
+            </button>
+            <button onClick={() => go("topic", { slug: "risk-management", investor: "marks" })} className="nav-link text-[0.78rem] font-semibold">
+              MARKS ON RISK
+            </button>
+            <button onClick={() => go("topic", { slug: "risk-management", investor: "buffett" })} className="nav-link text-[0.78rem] font-semibold">
+              BUFFETT ON RISK
+            </button>
+          </div>
+        </div>
+        <aside className="border-l border-rule lg:pl-6" aria-label="From statement to action">
+          <p className="kicker">FROM WORDS TO ACTS</p>
+          <ul className="mt-3 space-y-2 font-reader text-sm text-graphite">
+            <li>· What they documented — sources &amp; research units</li>
+            <li>· What they did — the Decision Ledger</li>
+            <li>· What happened — documented outcomes</li>
+          </ul>
+          <button onClick={() => go("investor", { slug: "buffett" })} className="mt-4 nav-link text-[0.78rem] font-semibold">
+            SEE THE DECISION LEDGER
+            <ArrowRight className="ml-1 inline h-3.5 w-3.5" aria-hidden />
+          </button>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+// ── §46 PERSONAL RESEARCH — conceptual preview for guests ─────────────────
+
+export function PersonalResearchPreview({ isLoggedIn }: { isLoggedIn: boolean }) {
+  const go = useStore((s) => s.go);
+  if (isLoggedIn) return null; // signed-in users get the real rails at the top
+  return (
+    <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="personal-title">
+      <div className="section-head">
+        <h2 id="personal-title">Keep your research alive.</h2>
+        <p className="kicker">YOUR SYSTEM</p>
+      </div>
+      <div className="grid gap-px border border-ink bg-rule sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { label: "CONTINUE", d: "Return to the exact path you were on — source, unit, position." },
+          { label: "FOLLOW", d: "Investors, ideas, companies, events. Hear about new material first." },
+          { label: "SAVE", d: "Bookmarks, collections, saved searches, trails." },
+          { label: "NEW SINCE LAST VISIT", d: "Only what changed in what you follow — never global noise." },
+        ].map((c) => (
+          <div key={c.label} className="bg-paper p-5">
+            <p className="kicker text-signal-dark">{c.label}</p>
+            <p className="mt-2 font-reader text-sm text-graphite">{c.d}</p>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
+        Conceptual preview — your rails activate when you sign in
+      </p>
+      <div className="mt-3 flex flex-wrap items-center gap-4">
+        <button onClick={() => go("signup")} className="bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper transition-colors hover:bg-signal-dark">
+          CREATE A FREE ACCOUNT
+        </button>
+        <button onClick={() => go("search")} className="nav-link text-[0.78rem] font-semibold">
+          OR JUST START RESEARCHING
+        </button>
+      </div>
+    </section>
+  );
+}
+
+// ── §59 NEWSLETTER — positioning + subscribe ──────────────────────────────
+
+export function NewsletterSection() {
+  return (
+    <section id="newsletter" className="mt-12 border-t-2 border-ink py-8" aria-labelledby="newsletter-title">
+      <div className="section-head">
+        <h2 id="newsletter-title">Aditya&apos;s research, explanations &amp; discoveries.</h2>
+        <p className="kicker">NEWSLETTER</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-[8fr_4fr]">
+        <div>
+          <p className="max-w-[680px] font-reader text-base text-graphite">
+            How finance works, in plain language. Discoveries from the indexed record. Investor
+            comparisons with sources. What I&apos;m researching next. Free — and every claim in
+            every note links into the library so you can check it yourself.
+          </p>
+          <form
+            action="/api/newsletter/subscribe"
+            method="post"
+            className="mt-4 flex max-w-[560px] items-stretch border border-ink bg-paper shadow-[4px_4px_0_0_var(--ink)]"
+          >
+            <label htmlFor="home-newsletter-email" className="sr-only">
+              Email address
+            </label>
+            <input
+              id="home-newsletter-email"
+              name="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+              className="w-full bg-transparent px-3 py-2.5 font-reader text-base focus:outline-none"
+            />
+            <button type="submit" className="btn-ink shrink-0 px-4 text-[0.78rem] font-semibold">
+              SUBSCRIBE FREE
+            </button>
+          </form>
+          <p className="kicker mt-2">FREE · NO SPAM · UNSUBSCRIBE ANYTIME</p>
+        </div>
+        <aside className="border-l border-rule lg:pl-6" aria-label="Newsletter cadence">
+          <p className="kicker">CADENCE</p>
+          <p className="mt-2 font-reader text-sm text-graphite">
+            A note roughly every few days, and a deeper subscriber edition — quality over
+            cadence, always. Nothing gets published to hit a schedule.
           </p>
         </aside>
       </div>

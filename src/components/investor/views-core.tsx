@@ -12,7 +12,20 @@ import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { FollowSuggestionsStrip } from "@/components/investor/views-entity";
 import { SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
 import { PRICING, ANNUAL_SAVING, useCurrency } from "@/lib/pricing";
-import { RiskCoverageCard, CrossInvestorDemo, ResearchLoop, StartAnywhere, DecisionDemo, FeaturedTrail, ThesisPrinciples, FinalSearchCta, FromAditya } from "@/components/investor/home-sections";
+import {
+  RiskCoverageCard,
+  CrossInvestorDemo,
+  LearnFeature,
+  InvestorResearchFeature,
+  StartAnywhere,
+  DecisionDemo,
+  FeaturedTrail,
+  ThesisPrinciples,
+  PersonalResearchPreview,
+  NewsletterSection,
+  FinalSearchCta,
+  FromAditya,
+} from "@/components/investor/home-sections";
 import { ArrowRight, Clock, Building2, Tag, FileText, ChevronRight } from "lucide-react";
 
 type Investor = {
@@ -75,6 +88,27 @@ export function HomeView() {
             <div className="mt-6">
               <SearchBar />
             </div>
+            {/* §50 example prompts — each executes a real search or opens a real explainer */}
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="kicker" style={{ fontSize: "0.6rem" }}>
+                TRY
+              </span>
+              <a href="/learn/how-hedge-funds-work" className="chip hover:chip-signal">
+                How do hedge funds work?
+              </a>
+              <button onClick={() => { track("search", { source: "home_example" }); go("search", { q: "Buffett vs Marks on risk" }); }} className="chip hover:chip-signal">
+                Buffett vs Marks on risk
+              </button>
+              <button onClick={() => { track("search", { source: "home_example" }); go("search", { q: "inflation" }); }} className="chip hover:chip-signal">
+                Who talks about inflation?
+              </button>
+              <a href="/learn/what-is-quantitative-investing" className="chip hover:chip-signal">
+                What is quantitative investing?
+              </a>
+              <button onClick={() => { track("search", { source: "home_example" }); go("search", { q: "Buffett Coca-Cola" }); }} className="chip hover:chip-signal">
+                What did Buffett do with Coca-Cola?
+              </button>
+            </div>
             <div className="mt-4 flex flex-wrap items-center gap-4">
               <button onClick={() => go("investors")} className="bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
                 EXPLORE INVESTORS
@@ -84,11 +118,6 @@ export function HomeView() {
                 HOW FINANCE WORKS
                 <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
               </a>
-              {!isPro && (
-                <button onClick={() => go("upgrade")} className="nav-link text-sm font-semibold">
-                  GO PRO — {PRICING[currency].monthly}/MO <ArrowRight className="inline h-3.5 w-3.5" />
-                </button>
-              )}
             </div>
           </div>
           <div className="border-l border-rule lg:pl-6">
@@ -137,12 +166,14 @@ export function HomeView() {
         </div>
       </section>
 
-      {/* ── Live cross-investor demo / loop / anywhere / decision / trail ── */}
+      {/* ── §49 order: WHO TALKS → LEARN FEATURE → RESEARCH FEATURE →
+            DECISION → (TRAIL) → START ANYWHERE ── */}
       <CrossInvestorDemo />
-      <ResearchLoop />
-      <StartAnywhere />
+      <LearnFeature />
+      <InvestorResearchFeature />
       <DecisionDemo />
       <FeaturedTrail />
+      <StartAnywhere />
 
       {/* ── KNOWLEDGE SCALE — live counts ── */}
       {stats && (
@@ -170,8 +201,10 @@ export function HomeView() {
         </section>
       )}
 
-      {/* ── FROM ADITYA — founder + newsletter ── */}
+      {/* ── FROM ADITYA → NEWSLETTER → PERSONAL RESEARCH ── */}
       <FromAditya />
+      <NewsletterSection />
+      <PersonalResearchPreview isLoggedIn={!!user} />
 
       {/* ── WHAT INVESTOR/PASS IS ── */}
       <ThesisPrinciples />

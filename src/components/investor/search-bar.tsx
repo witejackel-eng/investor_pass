@@ -5,12 +5,12 @@ import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const PLACEHOLDERS = [
-  "Buffett on inflation",
-  "Coca-Cola",
-  "capital allocation",
-  "mistakes",
-  "moats",
-  "2008 crisis",
+  "What are you curious about?",
+  "How do hedge funds work?",
+  "Buffett vs Marks on risk",
+  "Who talks about inflation?",
+  "What is quantitative investing?",
+  "What did Buffett do with Coca-Cola?",
 ];
 
 export function SearchBar({

@@ -154,3 +154,24 @@ with `bun scripts/db/build-graph.ts` after any corpus import. `InvestorRelation`
 rows (seeded by `scripts/ingest/import-corpus-map.ts`) are consumed by the
 builder as lineage/apprenticeship/cohort edges. Never edit graph tables by
 hand; change the source data and rebuild.
+
+---
+
+## Canonical vocabulary mapping (2026-02 launch)
+
+The master spec describes the domain in conceptual terms; the production
+schema already implements them. Mapping (extend-don't-replace rule):
+
+| Spec concept | Production model | Notes |
+| --- | --- | --- |
+| Insight (§18) | `Passage` | The paraphrased, source-backed research unit. Public copy says "research unit" / "insight". One Passage = one Source — never merged. |
+| PositionAction (§23) | `Decision.action` | BUY/SELL/ACQUIRE/… encoded in the `action` field, always with `sourceId`. |
+| Outcome (§24) | `Decision.outcome` + `outcomeSourceUrl` + `confidence` | outcomeState equivalent: `confidence=high|medium|inferred` + `verified`. No performance attribution without methodology. |
+| FinanceExplainer (§25) | `src/data/learn/explainers.ts` | Typed static content, graph-linked. Port to a DB model when volume justifies it. |
+| NewsletterIssue (§28) | `src/data/newsletter/issues.ts` + AppConfig KV subscribers | Static issues; `newsletter:<email>` keys in AppConfig. |
+| Trail (§26) | `src/data/trails/trails.json` | Public trails v1; PUBLIC/PRIVATE flag arrives with user-authored trails. |
+| ResearchSession (§27) | `VisitCursor` + `/api/continue` | Continue-state per user. |
+
+Aggregate access goes through live endpoints (`/api/stats`,
+`/api/themes/[slug]/coverage`, `/api/investors` counts) — cached at the edge,
+never N+1 page queries, never hardcoded (§31).
