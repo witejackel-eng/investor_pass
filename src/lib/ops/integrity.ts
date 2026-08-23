@@ -20,17 +20,13 @@ export type IntegrityResult = {
 
 type Row = Record<string, unknown>;
 
-async function count(where: object, model: "passage" | "decision" | "source" | "person" | "company" | "theme" | "concept"): Promise<number> {
-  const m = db[model] as { count(args: object): Promise<number> };
-  return m.count({ where });
-}
-
 export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   const out: IntegrityResult[] = [];
   const push = (r: IntegrityResult) => out.push(r);
 
-  // 1. Insights (passages) without Source — FAIL
-  const orphanPassages = await count({ sourceId: null }, "passage");
+  // 1. Insights (passages) without Source — FAIL (sourceId is NOT NULL by schema; raw SQL proves it)
+  const orphanRows = await db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Passage" WHERE "sourceId" IS NULL`);
+  const orphanPassages = Number(orphanRows[0]?.n ?? 0);
   push({
     id: "insight-no-source",
     title: "Insights without a Source",
@@ -42,11 +38,14 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 2/3/4. PositionActions (decisions) integrity
-  const [decNoPerson, decNoSource, decNoCompany] = await Promise.all([
-    count({ personId: null }, "decision"),
-    count({ AND: [{ sourceId: null }, { statement: { not: null } }] }, "decision"),
-    count({ AND: [{ companyId: null }, { eventId: null }] }, "decision"),
+  const [decNoPersonR, decNoSourceR, decNoCompanyR] = await Promise.all([
+    db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Decision" WHERE "personId" IS NULL`),
+    db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Decision" WHERE "sourceId" IS NULL AND statement IS NOT NULL`),
+    db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Decision" WHERE "companyId" IS NULL AND "eventId" IS NULL`),
   ]);
+  const decNoPerson = Number(decNoPersonR[0]?.n ?? 0);
+  const decNoSource = Number(decNoSourceR[0]?.n ?? 0);
+  const decNoCompany = Number(decNoCompanyR[0]?.n ?? 0);
   push({
     id: "position-no-investor",
     title: "PositionActions without an Investor",
@@ -76,9 +75,10 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 5. Outcomes without establishing source URL (published outcomes)
-  const outcomesNoSource = await count({
-    AND: [{ outcome: { not: null } }, { outcomeSourceUrl: null }, { verified: true }],
-  }, "decision");
+  const outcomesNoSourceR = await db.$queryRawUnsafe<Row[]>(
+    `SELECT COUNT(*)::int AS n FROM "Decision" WHERE outcome IS NOT NULL AND "outcomeSourceUrl" IS NULL AND verified = true`
+  );
+  const outcomesNoSource = Number(outcomesNoSourceR[0]?.n ?? 0);
   push({
     id: "outcome-no-source",
     title: "Published Outcomes without a source URL",
@@ -147,12 +147,10 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 10. Public rejected/needs-review passages
-  const publicBad = await count({
-    AND: [
-      { OR: [{ visibility: "public" }, { visibility: { equals: null } }] },
-      { OR: [{ verificationState: "needs_review" }, { verificationState: "rejected" }] },
-    ],
-  }, "passage");
+  const publicBadR = await db.$queryRawUnsafe<Row[]>(
+    `SELECT COUNT(*)::int AS n FROM "Passage" WHERE visibility = 'public' AND verificationState IN ('needs_review','rejected')`
+  );
+  const publicBad = Number(publicBadR[0]?.n ?? 0);
   push({
     id: "public-unreviewed",
     title: "Public passages in needs_review/rejected state",
@@ -164,9 +162,10 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 11. Public unverified high-value decisions (statement present, verified=false)
-  const unverifiedPublic = await count({
-    AND: [{ statement: { not: null } }, { verified: false }],
-  }, "decision");
+  const unverifiedPublicR = await db.$queryRawUnsafe<Row[]>(
+    `SELECT COUNT(*)::int AS n FROM "Decision" WHERE statement IS NOT NULL AND verified = false`
+  );
+  const unverifiedPublic = Number(unverifiedPublicR[0]?.n ?? 0);
   push({
     id: "public-unverified-position",
     title: "Detailed decisions not marked verified",
@@ -178,7 +177,8 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 12. Sources missing originalUrl (provenance gap)
-  const noUrl = await count({ url: null }, "source");
+  const noUrlR = await db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Source" WHERE url IS NULL`);
+  const noUrl = Number(noUrlR[0]?.n ?? 0);
   push({
     id: "source-no-url",
     title: "Sources without an original URL",
@@ -190,7 +190,8 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 13. Sources missing year
-  const noYear = await count({ year: null }, "source");
+  const noYearR = await db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Source" WHERE year IS NULL`);
+  const noYear = Number(noYearR[0]?.n ?? 0);
   push({
     id: "source-no-year",
     title: "Sources without a year",
