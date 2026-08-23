@@ -4,7 +4,7 @@ import { useStore, type View } from "@/stores/app-store";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiGet, apiPost } from "@/lib/client";
 import { cn } from "@/lib/utils";
-import { Search, Bookmark, FolderOpen, User as UserIcon, LogOut, Crown, Bell } from "lucide-react";
+import { Search, Bookmark, FolderOpen, User as UserIcon, LogOut, Crown, Bell, Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/investor/theme-toggle";
 
 type NotificationItem = { id: string; title: string; body: string; url: string; read: boolean; createdAt: string };
@@ -94,13 +94,33 @@ function NotificationsBell() {
 
 export function Masthead() {
   const { view, go, user, logout } = useStore();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
   const navItems: { label: string; view: View; match: View[] }[] = [
     { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"] },
     { label: "SEARCH", view: "search", match: ["search"] },
-{ label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },
-{ label: "COMPARE", view: "compare", match: ["compare"] },
-    { label: "LIBRARY", view: "library", match: ["library", "bookmarks", "searches", "collections"] },
+    { label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },
+    { label: "COMPARE", view: "compare", match: ["compare"] },
+    { label: "LIBRARY", view: "library", match: ["library", "bookmarks", "searches", "collections", "watchlist"] },
   ];
+
+  // Esc closes the mobile sheet; focus returns to the trigger.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        menuBtnRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  const navigateFromMenu = (v: View, params?: Record<string, string>) => {
+    setMenuOpen(false);
+    go(v, params as never);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink bg-paper/95 backdrop-blur-md">
@@ -171,9 +191,70 @@ export function Masthead() {
         </div>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile nav — full-screen sheet */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-[60] flex flex-col bg-paper sm:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+          <div className="flex min-h-[60px] items-center justify-between border-b border-ink px-4">
+            <span className="wordmark"><span>INVESTOR</span><span className="slash">/</span><span>PASS</span></span>
+            <button onClick={() => setMenuOpen(false)} className="nav-link p-2" autoFocus aria-label="Close menu">
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <nav className="flex-1 overflow-auto px-4 py-4">
+            {navItems.map((item) => (
+              <button
+                key={item.view}
+                onClick={() => navigateFromMenu(item.view)}
+                data-active={item.match.includes(view)}
+                className="block w-full border-b border-rule py-3 text-left font-display text-xl font-semibold tracking-tight hover:text-signal-dark"
+              >
+                {item.label}
+              </button>
+            ))}
+            {user && (
+              <>
+                <button onClick={() => navigateFromMenu("watchlist")} className="block w-full border-b border-rule py-3 text-left font-display text-xl font-semibold tracking-tight hover:text-signal-dark">
+                  WATCHLIST
+                </button>
+                <button onClick={() => navigateFromMenu("account")} className="block w-full border-b border-rule py-3 text-left font-display text-xl font-semibold tracking-tight hover:text-signal-dark">
+                  ACCOUNT
+                </button>
+                <button
+                  onClick={() => { setMenuOpen(false); logout(); }}
+                  className="block w-full border-b border-rule py-3 text-left font-display text-xl font-semibold tracking-tight hover:text-signal-dark"
+                >
+                  LOG OUT
+                </button>
+              </>
+            )}
+          </nav>
+          <div className="border-t border-ink px-4 py-4">
+            {user ? (
+              <p className="font-mono text-xs uppercase tracking-wider text-graphite">
+                {user.entitlement === "pro" ? "PRO MEMBER" : "FREE PLAN"}
+              </p>
+            ) : (
+              <div className="flex gap-3">
+                <button onClick={() => navigateFromMenu("login")} className="chip flex-1 justify-center">LOG IN</button>
+                <button onClick={() => navigateFromMenu("signup")} className="flex-1 bg-ink px-4 py-2 text-sm font-semibold text-paper hover:bg-signal-dark">SIGN UP</button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Mobile nav row (compact chips) */}
       <nav className="flex items-center gap-4 border-t border-rule px-4 py-2 text-[0.72rem] font-semibold sm:hidden">
-        {navItems.map((item) => (
+        <button
+          ref={menuBtnRef}
+          onClick={() => setMenuOpen(true)}
+          className="nav-link inline-flex items-center gap-1.5"
+          aria-label="Open menu"
+          aria-expanded={menuOpen}
+        >
+          <Menu className="h-4 w-4" /> MENU
+        </button>
+        {navItems.slice(0, 2).map((item) => (
           <button
             key={item.view}
             onClick={() => go(item.view)}
