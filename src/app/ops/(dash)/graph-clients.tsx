@@ -35,7 +35,6 @@ export function GraphExplorer({
       cols.get(col)!.push(n);
     }
     return cols;
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- layers identity varies per render; joined key is the semantic dep
   }, [nodes, layerKey]);
 
   const matched = useMemo(() => {

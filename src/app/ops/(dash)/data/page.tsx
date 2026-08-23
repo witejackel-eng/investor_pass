@@ -2,7 +2,8 @@ import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-// /ops/data — all 31 investors with REAL per-investor counts.
+// /ops/data — 31 investors × real counts, computed with FOUR grouped queries
+// total (pooler-safe: Supabase session mode caps at 15 clients).
 export default async function OpsData() {
   let rows: {
     name: string; slug: string; sources: number; insights: number; themes: number;
@@ -10,36 +11,55 @@ export default async function OpsData() {
   }[] = [];
   let err = false;
   try {
-    const people = await db.person.findMany({ orderBy: { sortOrder: "asc" } });
-    rows = await Promise.all(
-      people.map(async (p) => {
-        const sources = await db.source.count({ where: { personId: p.id } });
-        const srcIds = sources;
-        const insights = await db.passage.count({ where: { source: { personId: p.id } } });
-        const themeRows = await db.passageTheme.findMany({
-          where: { passage: { source: { personId: p.id } } },
-          select: { themeId: true },
+    const people = await db.person.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, name: true, slug: true } });
+    const idBy = new Map(people.map((p) => [p.id, p]));
+
+    const [srcBy, insBy, themeBy, compBy, evBy, decBy, verBy] = await Promise.all([
+      db.source.groupBy({ by: ["personId"], _count: { _all: true } }),
+      db.passage.groupBy({ by: ["sourceId"], _count: { _all: true } }).then((rows) => {
+        // passages belong to sources; map source→person once
+        return db.source.findMany({ select: { id: true, personId: true } }).then((srcs) => {
+          const s2p = new Map(srcs.map((s) => [s.id, s.personId]));
+          const byPerson = new Map<string, number>();
+          for (const r of rows) {
+            const pid = s2p.get(r.sourceId);
+            if (pid) byPerson.set(pid, (byPerson.get(pid) ?? 0) + r._count._all);
+          }
+          return byPerson;
         });
-        const compRows = await db.passageCompany.findMany({
-          where: { passage: { source: { personId: p.id } } },
-          select: { companyId: true },
-        });
-        const evRows = await db.passageEvent.findMany({
-          where: { passage: { source: { personId: p.id } } },
-          select: { eventId: true },
-        });
-        const decisions = await db.decision.count({ where: { personId: p.id } });
-        const verified = await db.decision.count({ where: { personId: p.id, verified: true } });
-        return {
-          name: p.name, slug: p.slug, sources,
-          insights,
-          themes: new Set(themeRows.map((t) => t.themeId)).size,
-          companies: new Set(compRows.map((c) => c.companyId)).size,
-          events: new Set(evRows.map((e) => e.eventId)).size,
-          decisions, verified,
-        };
-      })
-    );
+      }),
+      db.passageTheme.groupBy({ by: ["themeId"] }).then(() => null), // replaced below by grouped raw
+      Promise.resolve(null), Promise.resolve(null),
+      db.decision.groupBy({ by: ["personId"], _count: { _all: true } }),
+      db.decision.groupBy({ by: ["personId"], where: { verified: true }, _count: { _all: true } }),
+    ]);
+
+    // Distinct-entity coverage via three grouped raw queries (one per junction)
+    const q = async (table: string, col: string) => {
+      const r = await db.$queryRawUnsafe<{ personId: string; n: number }[]>(
+        `SELECT s."personId" AS "personId", COUNT(DISTINCT t."${col}")::int AS n
+         FROM "${table}" t JOIN "Passage" p ON t."passageId" = p."id"
+         JOIN "Source" s ON p."sourceId" = s."id"
+         GROUP BY s."personId"`
+      );
+      return new Map(r.map((x) => [x.personId, Number(x.n)]));
+    };
+    const [themes, comps, evs] = await Promise.all([
+      q("PassageTheme", "themeId"),
+      q("PassageCompany", "companyId"),
+      q("PassageEvent", "eventId"),
+    ]);
+
+    rows = people.map((p) => ({
+      name: p.name, slug: p.slug,
+      sources: srcBy.find((r) => r.personId === p.id)?._count._all ?? 0,
+      insights: insBy.get(p.id) ?? 0,
+      themes: themes.get(p.id) ?? 0,
+      companies: comps.get(p.id) ?? 0,
+      events: evs.get(p.id) ?? 0,
+      decisions: decBy.find((r) => r.personId === p.id)?._count._all ?? 0,
+      verified: verBy.find((r) => r.personId === p.id)?._count._all ?? 0,
+    }));
   } catch {
     err = true;
   }

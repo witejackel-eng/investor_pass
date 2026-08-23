@@ -38,6 +38,19 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  /* ── Editorial industrial palette → Tailwind utilities (bg-paper, text-ink,
+     text-signal-dark, border-rule, …). Without this mapping these utilities
+     generate NO CSS — the live bundle shipped without them (found in final
+     acceptance audit; this is the repair). ── */
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-rule: var(--rule);
+  --color-signal: var(--signal);
+  --color-signal-dark: var(--signal-dark);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

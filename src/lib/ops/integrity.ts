@@ -24,9 +24,20 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   const out: IntegrityResult[] = [];
   const push = (r: IntegrityResult) => out.push(r);
 
-  // 1. Insights (passages) without Source — FAIL (sourceId is NOT NULL by schema; raw SQL proves it)
-  const orphanRows = await db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Passage" WHERE "sourceId" IS NULL`);
-  const orphanPassages = Number(orphanRows[0]?.n ?? 0);
+  // Combined pooler-safe count batch (one round-trip for checks 1–5, 10–13)
+  const counts = await db.$queryRawUnsafe<Row[]>(`
+    SELECT 'orphan_passages' AS k, COUNT(*)::int AS n FROM "Passage" WHERE "sourceId" IS NULL
+    UNION ALL SELECT 'dec_no_person', COUNT(*) FROM "Decision" WHERE "personId" IS NULL
+    UNION ALL SELECT 'dec_no_source', COUNT(*) FROM "Decision" WHERE "sourceId" IS NULL AND statement IS NOT NULL
+    UNION ALL SELECT 'dec_no_target', COUNT(*) FROM "Decision" WHERE "companyId" IS NULL AND "eventId" IS NULL
+    UNION ALL SELECT 'outcome_no_source', COUNT(*) FROM "Decision" WHERE outcome IS NOT NULL AND "outcomeSourceUrl" IS NULL AND verified = true
+    UNION ALL SELECT 'public_unreviewed', COUNT(*) FROM "Passage" WHERE visibility = 'public' AND "verificationState" IN ('needs_review','rejected')
+    UNION ALL SELECT 'unverified_public', COUNT(*) FROM "Decision" WHERE statement IS NOT NULL AND verified = false
+    UNION ALL SELECT 'source_no_url', COUNT(*) FROM "Source" WHERE url IS NULL
+    UNION ALL SELECT 'source_no_year', COUNT(*) FROM "Source" WHERE year IS NULL
+  `);
+  const C = (k: string) => Number(counts.find((r) => r.k === k)?.n ?? 0);
+  const orphanPassages = C("orphan_passages");
   push({
     id: "insight-no-source",
     title: "Insights without a Source",
@@ -38,14 +49,9 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 2/3/4. PositionActions (decisions) integrity
-  const [decNoPersonR, decNoSourceR, decNoCompanyR] = await Promise.all([
-    db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Decision" WHERE "personId" IS NULL`),
-    db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Decision" WHERE "sourceId" IS NULL AND statement IS NOT NULL`),
-    db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Decision" WHERE "companyId" IS NULL AND "eventId" IS NULL`),
-  ]);
-  const decNoPerson = Number(decNoPersonR[0]?.n ?? 0);
-  const decNoSource = Number(decNoSourceR[0]?.n ?? 0);
-  const decNoCompany = Number(decNoCompanyR[0]?.n ?? 0);
+  const decNoPerson = C("dec_no_person");
+  const decNoSource = C("dec_no_source");
+  const decNoCompany = C("dec_no_target");
   push({
     id: "position-no-investor",
     title: "PositionActions without an Investor",
@@ -75,10 +81,7 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 5. Outcomes without establishing source URL (published outcomes)
-  const outcomesNoSourceR = await db.$queryRawUnsafe<Row[]>(
-    `SELECT COUNT(*)::int AS n FROM "Decision" WHERE outcome IS NOT NULL AND "outcomeSourceUrl" IS NULL AND verified = true`
-  );
-  const outcomesNoSource = Number(outcomesNoSourceR[0]?.n ?? 0);
+  const outcomesNoSource = C("outcome_no_source");
   push({
     id: "outcome-no-source",
     title: "Published Outcomes without a source URL",
@@ -104,9 +107,11 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 7. Duplicate canonical companies by name
-  const dupCompanies = await db.$queryRawUnsafe<Row[]>(
-    `SELECT LOWER(COALESCE("canonicalName", name)) AS k, COUNT(*)::int AS n FROM "Company" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`
-  );
+  const [dupCompanies, dupThemes, dupConcepts] = await Promise.all([
+    db.$queryRawUnsafe<Row[]>(`SELECT LOWER(COALESCE("canonicalName", name)) AS k, COUNT(*)::int AS n FROM "Company" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`),
+    db.$queryRawUnsafe<Row[]>(`SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Theme" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`),
+    db.$queryRawUnsafe<Row[]>(`SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Concept" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`),
+  ]);
   const dupCoCount = dupCompanies.reduce((a, r) => a + Number(r.n), 0);
   push({
     id: "dup-companies",
@@ -119,9 +124,7 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 8. Duplicate themes by slug/name
-  const dupThemes = await db.$queryRawUnsafe<Row[]>(
-    `SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Theme" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`
-  );
+
   push({
     id: "dup-themes",
     title: "Duplicate Themes",
@@ -133,9 +136,7 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 9. Duplicate concepts
-  const dupConcepts = await db.$queryRawUnsafe<Row[]>(
-    `SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Concept" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`
-  );
+
   push({
     id: "dup-concepts",
     title: "Duplicate Concepts",
@@ -162,10 +163,7 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 11. Public unverified high-value decisions (statement present, verified=false)
-  const unverifiedPublicR = await db.$queryRawUnsafe<Row[]>(
-    `SELECT COUNT(*)::int AS n FROM "Decision" WHERE statement IS NOT NULL AND verified = false`
-  );
-  const unverifiedPublic = Number(unverifiedPublicR[0]?.n ?? 0);
+  const unverifiedPublic = C("unverified_public");
   push({
     id: "public-unverified-position",
     title: "Detailed decisions not marked verified",
@@ -177,8 +175,7 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 12. Sources missing originalUrl (provenance gap)
-  const noUrlR = await db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Source" WHERE url IS NULL`);
-  const noUrl = Number(noUrlR[0]?.n ?? 0);
+  const noUrl = C("source_no_url");
   push({
     id: "source-no-url",
     title: "Sources without an original URL",
@@ -190,8 +187,7 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 13. Sources missing year
-  const noYearR = await db.$queryRawUnsafe<Row[]>(`SELECT COUNT(*)::int AS n FROM "Source" WHERE year IS NULL`);
-  const noYear = Number(noYearR[0]?.n ?? 0);
+  const noYear = C("source_no_year");
   push({
     id: "source-no-year",
     title: "Sources without a year",
