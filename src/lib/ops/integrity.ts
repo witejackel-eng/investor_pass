@@ -147,10 +147,7 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 10. Public rejected/needs-review passages
-  const publicBadR = await db.$queryRawUnsafe<Row[]>(
-    `SELECT COUNT(*)::int AS n FROM "Passage" WHERE visibility = 'public' AND verificationState IN ('needs_review','rejected')`
-  );
-  const publicBad = Number(publicBadR[0]?.n ?? 0);
+  const publicBad = C("public_unreviewed");
   push({
     id: "public-unreviewed",
     title: "Public passages in needs_review/rejected state",
