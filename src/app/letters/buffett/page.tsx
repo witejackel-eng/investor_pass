@@ -21,7 +21,7 @@ async function loadIndexedCounts(): Promise<Counts> {
       SELECT s.year, COUNT(p.id)::int AS n
       FROM "Source" s JOIN "Passage" p ON p."sourceId" = s."id"
       WHERE s."personId" = (SELECT id FROM "Person" WHERE slug='buffett')
-        AND s."sourceType" = 'shareholder_letter' AND s.year IS NOT NULL
+        AND s.year IS NOT NULL
       GROUP BY s.year ORDER BY s.year
     `);
     return new Map(rows.map((r) => [Number(r.year), Number(r.n)]));
@@ -47,7 +47,7 @@ export default async function BuffettLettersPage() {
         </h1>
         <p className="kicker mt-4 flex flex-wrap gap-x-3">
           <span>1977–2024 · {BUFFETT_LETTER_YEARS.length} LETTERS</span>
-          <span>{covered} INDEXED FOR RESEARCH</span>
+          <span>{covered} YEARS WITH INDEXED RESEARCH</span>
           <span>{totalUnits.toLocaleString()} RESEARCH UNITS</span>
           <span>OFFICIAL PDFS</span>
         </p>
@@ -90,7 +90,7 @@ export default async function BuffettLettersPage() {
               </div>
               {n !== undefined ? (
                 <Link href={`/years/${year}`} className="chip chip-signal" aria-label={`${n} indexed research units`}>
-                  {n.toLocaleString()} INDEXED UNITS
+                  {n.toLocaleString()} RESEARCH UNITS
                 </Link>
               ) : (
                 <span className="chip">NOT YET INDEXED</span>
