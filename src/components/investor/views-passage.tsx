@@ -153,13 +153,30 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
     return () => clearTimeout(t);
   }, [id]);
 
+  // Backfill a human label for this passage in the recents list (the store
+  // records ids at navigation time; labels can only be known after load).
+  // Release blocker: never let a raw passage id render as visible text.
+  const loaded = data?.passage;
+  useEffect(() => {
+    if (!loaded || !data) return;
+    try {
+      const raw = localStorage.getItem("ip_recently_viewed");
+      const prev: { view: string; slug?: string; label?: string; ts: number }[] = raw ? JSON.parse(raw) : [];
+      const label = `${data.source.title}${data.source.year ? ` (${data.source.year})` : ""} — research unit ${data.passage.sequence}`;
+      const next = prev.map((i) => (i.view === "passage" && i.slug === id ? { ...i, label } : i));
+      if (JSON.stringify(next) !== JSON.stringify(prev)) {
+        localStorage.setItem("ip_recently_viewed", JSON.stringify(next));
+      }
+    } catch {}
+  }, [id, loaded, data]);
+
   if (error) {
     return (
       <div className="mx-auto max-w-[720px] px-4 py-24 text-center">
         <p className="font-display text-2xl font-bold">{error}</p>
         {error.includes("Pro") && (
           <button onClick={() => go("upgrade")} className="mt-4 bg-ink px-5 py-2 text-sm font-semibold text-paper hover:bg-signal-dark">
-            START PRO — $19/MONTH
+            START PRO — $9/MONTH
           </button>
         )}
       </div>
@@ -168,6 +185,7 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
   if (!data) return <Loading />;
 
   const { passage, source } = data;
+
 
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 lg:px-8">

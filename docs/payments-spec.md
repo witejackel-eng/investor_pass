@@ -10,13 +10,13 @@
 
 | Currency | Monthly | Annual | Processor | Default for |
 |---|---|---|---|---|
-| 🇮🇳 INR | **₹999** | **₹7,999** | Razorpay | India (auto-detected), selectable by anyone |
-| 🌍 USD | **$19** | **$149** | PayPal **or** Razorpay-international | Rest of world |
+| 🇮🇳 INR | **₹499** | **₹3,999** | Razorpay | India (auto-detected), selectable by anyone |
+| 🌍 USD | **$9** | **$79** | PayPal **or** Razorpay-international | Rest of world |
 
 Rules:
 
 - Region detection at checkout: IP geolocation → India defaults to INR/Razorpay; elsewhere defaults to USD with both processors offered. User can always switch currency AND processor manually.
-- Annual framing copy: USD `$149 < 8 × $19`; INR `₹7,999 ≈ 8 × ₹999`.
+- Annual framing copy: USD `$79/year — save 27%`; INR `₹3,999/year — save 33%`.
 - No other tiers, no lifetime deals, no coupons at launch (spec §27).
 - All prices are tax-exclusive display, subject to §5 compliance notes.
 
@@ -68,16 +68,16 @@ Entitlement flip logic stays exactly as proven in the mock E2E: webhook → veri
    ```
    RAZORPAY_KEY_ID= · RAZORPAY_KEY_SECRET=
    RAZORPAY_WEBHOOK_SECRET=
-   RAZORPAY_PLAN_MONTHLY= · RAZORPAY_PLAN_ANNUAL=     # plan_ids for ₹999 / ₹7,999
+   RAZORPAY_PLAN_MONTHLY= · RAZORPAY_PLAN_ANNUAL=     # plan_ids for ₹499 / ₹3,999
    PAYPAL_CLIENT_ID= · PAYPAL_CLIENT_SECRET= · PAYPAL_WEBHOOK_ID=
    PAYPAL_PLAN_MONTHLY= · PAYPAL_PLAN_ANNUAL=
    PUBLIC_SITE_URL= (exists)
    ```
-   One-time setup: create 2 Razorpay Plans (₹999/mo, ₹7,999/yr) + 2 PayPal Plans ($19/$149); paste IDs into env.
+   One-time setup: create 2 Razorpay Plans (₹499/mo, ₹3,999/yr) + 2 PayPal Plans ($9/$79); paste IDs into env. ⚠️ LAUNCH PRICING — update plan amounts in both dashboards to match.
 3. **`src/lib/payments/provider.ts`** — interface `{ createCheckout(userId, variant, currency): Promise<{redirectUrl}> , verifyWebhook(req): Event }` with `razorpay.ts` + `paypal.ts` adapters. Replaces the mock in `/api/checkout` behind the same route contract.
 4. **`/api/webhooks/razorpay`** — raw-body HMAC-SHA256 check against `RAZORPAY_WEBHOOK_SECRET` (header `x-razorpay-signature`) BEFORE parsing JSON.
 5. **`/api/webhooks/paypal`** — verify via PayPal `verify-webhook-signature` API using `PAYPAL_WEBHOOK_ID`.
-6. **UpgradeView** — currency toggle (INR⇄USD, region-defaulted) + two processor buttons per currency where applicable. Copy: `Pro — ₹999/month`, `Pro — $19/month`, annual equivalents.
+6. **UpgradeView** — currency toggle (INR⇄USD, region-defaulted) + two processor buttons per currency where applicable. Copy: `Pro — ₹499/month`, `Pro — $9/month`, annual equivalents.
 7. **Account page** — show plan, renewal date, provider, cancel action (cancel = processor API call + our state machine handles the rest).
 
 ---

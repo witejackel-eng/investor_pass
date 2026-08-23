@@ -432,7 +432,7 @@ Investor/Pass is where a serious investor goes to search, understand context, co
 
 ## 2. PRODUCT CONSTRAINTS — LOCKED
 
-- **FREE**: public discovery / SEO layer. **PRO**: $19/month, $149/year. No other tiers ever.
+- **FREE**: public discovery / SEO layer. **PRO**: launch pricing $9/month, $79/year (save 27%). No other tiers ever.
 - **AI intentionally NOT in V1.** No chatbot, RAG, embeddings, vector DB, generated opinions, recommendations, or summaries until 100 paying customers. Build data structures so AI can later sit on top of verified retrieval.
 - **~19 investors / ~12,000+ records** foundation. Preserve and improve.
 
@@ -570,7 +570,7 @@ Produced by a small number of *moments*, not feature count.
 
 ## Psychological sequence being sold
 
-1. Surprise at structure → 2. Trust from provenance → 3. Pull from the graph → 4. Ownership from Follow/Save → 5. Anticipation of return → 6. Willingness to pay ($19 obvious).
+1. Surprise at structure → 2. Trust from provenance → 3. Pull from the graph → 4. Ownership from Follow/Save → 5. Anticipation of return → 6. Willingness to pay (launch $9 obvious).
 
 Optimize 1–3 → admiration. Deliver 4–6 → dependence.
 

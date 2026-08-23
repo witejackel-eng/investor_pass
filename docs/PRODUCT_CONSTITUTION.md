@@ -58,7 +58,7 @@ Free = experience the graph. Pro = make it yours.
   decision ledgers, unlimited compare, follow with alerts, saved searches,
   collections, new-since-visit, research trails, and reading continuity.
 
-Pricing is USD $19/month or $149/year, and INR ₹999/month or ₹7,999/year, by
+Launch pricing is USD $9/month or $79/year (save 27%), and INR ₹499/month or ₹3,999/year (save 33%), by
 region.
 
 ## Non-goals
@@ -90,3 +90,33 @@ remembers a researcher's place across sessions.
 
 Until then, no AI surfaces in the product, and no AI-generated claims in the
 corpus. Agents may propose; humans verify.
+
+---
+
+## Layers update (2026-02: Learn + Newsletter launch)
+
+The product now has four public layers:
+
+| Layer | Contents | State |
+| --- | --- | --- |
+| **LEARN** | Finance explainers (`/learn`), connected to the graph — never a dead end | Live (3 explainers) |
+| **STUDY** | Investors, themes, companies, events, sources, timelines | Live |
+| **RESEARCH** | Search, compare, decision ledger, trails, personal research | Live |
+| **NEWSLETTER** | Aditya's research notes (`/newsletter`), subscriber-first | Live (issue #1) |
+
+Principle: **Learn brings people in. Study builds understanding. Research
+creates the moat. Newsletter creates the relationship and distribution loop.**
+Every explainer ends inside the indexed record (investors → sources →
+decisions → trails). Educational content that dead-ends is a bug.
+
+## Founder
+
+Aditya is the founder and public voice: *"I'm Aditya. I love investing,
+finance, and understanding how capital actually moves through the world. I'm
+building Investor/Pass to make that world easier to understand and easier to
+research."* No invented credentials; no guru language; the founder layer
+humanizes the product without personalizing the whole app.
+
+## AI
+
+No public AI/RAG before 100 subscribers (constitution rule; unchanged).

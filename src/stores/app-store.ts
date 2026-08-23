@@ -23,6 +23,7 @@ export type View =
   | "event"
   | "search"
   | "trails"
+  | "learn"
   | "graph"
   | "trailDetail"
   | "compare"
@@ -105,7 +106,10 @@ export const useStore = create<State>((set, get) => ({
         const prev: any[] = raw ? JSON.parse(raw) : [];
         const id = params.slug || params.id || params.year || "";
         const filtered = prev.filter((i) => !(i.view === view && i.slug === id));
-        const next = [{ view, slug: id, label: "", ts: Date.now() }, ...filtered].slice(0, 8);
+        // Label known at navigation time (entity slugs); passages get their
+        // label backfilled by PassageView once the source title loads.
+        const label = view === "passage" ? "" : String(id).replace(/-/g, " ");
+        const next = [{ view, slug: id, label, ts: Date.now() }, ...filtered].slice(0, 8);
         localStorage.setItem("ip_recently_viewed", JSON.stringify(next));
       } catch {}
     }

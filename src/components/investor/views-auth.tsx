@@ -254,7 +254,7 @@ export function SignupView() {
       <div className="border-t-2 border-ink pt-4">
         <p className="kicker">/ SIGN UP</p>
         <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight">Create your account</h1>
-        <p className="mt-2 font-reader text-graphite">Start free. Upgrade to Pro anytime — $19/month or ₹999/month.</p>
+        <p className="mt-2 font-reader text-graphite">Start free. Upgrade to Pro anytime — $9/month or ₹499/month.</p>
       </div>
       <form onSubmit={submit} className="mt-6 space-y-4">
         <Field label="Name (optional)" type="text" value={name} onChange={setName} />
@@ -355,7 +355,7 @@ export function UpgradeView() {
             <span className="chip chip-signal">≈ 8 MONTHS</span>
           </div>
           <p className="mt-2 font-display text-4xl font-bold">{p.annual}<span className="text-base font-normal text-graphite">/yr</span></p>
-          <p className="font-mono text-xs text-graphite">{currency === "INR" ? "₹7,999 ≈ 8 × ₹999" : "$149 < 8 × $19"}</p>
+          <p className="font-mono text-xs text-graphite">{currency === "INR" ? "₹3,999/year — save 33%" : "$79/year — save 27%"}</p>
           <ul className="mt-4 space-y-1.5 font-reader text-sm text-graphite">
             <li>· Everything in monthly</li>
             <li>· Saved searches</li>

@@ -26,6 +26,12 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
             <Link href="/investors" className="nav-link hover:text-foreground">
               INVESTORS
             </Link>
+            <Link href="/learn" className="nav-link hover:text-foreground">
+              LEARN
+            </Link>
+            <Link href="/newsletter" className="nav-link hover:text-foreground">
+              NEWSLETTER
+            </Link>
             <a href="/#/view=search" className="nav-link hover:text-foreground">
               SEARCH THE LIBRARY
             </a>
@@ -33,7 +39,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
               href="/#/view=upgrade"
               className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
             >
-              PRO — $19/MONTH
+              PRO — $9/MONTH
             </a>
           </nav>
         </div>
@@ -52,7 +58,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
               Search
             </a>
             <a href="/#/view=upgrade" className="hover:text-foreground hover:underline">
-              Pro — $19/month or $149/year
+              Pro — $9/month or $79/year
             </a>
           </nav>
         </div>

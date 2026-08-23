@@ -11,7 +11,8 @@ import { EntityChips, PremiumGate } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { FollowSuggestionsStrip } from "@/components/investor/views-entity";
 import { SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
-import { PRICING, useCurrency } from "@/lib/pricing";
+import { PRICING, ANNUAL_SAVING, useCurrency } from "@/lib/pricing";
+import { RiskCoverageCard, CrossInvestorDemo, ResearchLoop, StartAnywhere, DecisionDemo, FeaturedTrail, ThesisPrinciples, FinalSearchCta, FromAditya } from "@/components/investor/home-sections";
 import { ArrowRight, Clock, Building2, Tag, FileText, ChevronRight } from "lucide-react";
 
 type Investor = {
@@ -49,18 +50,15 @@ export function HomeView() {
   const go = useStore((s) => s.go);
   const isPro = useStore((s) => s.user?.entitlement === "pro");
   const [currency] = useCurrency();
-  const { data: investors = [] } = useInvestors();
   const stats = useStats();
-  const buffett = investors.find((i) => i.slug === "buffett");
-  const future = investors.filter((i) => i.status === "coming_later");
   const user = useStore((s) => s.user);
 
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 sm:px-6 lg:px-8">
       {user && <PersonalHomeRails />}
-      {/* Hero */}
+
+      {/* ── HERO — search-first, learn-inclusive ── */}
       <section className="relative overflow-hidden border-t-2 border-ink py-8">
-        {/* Grid paper texture */}
         <div className="grid-paper pointer-events-none absolute inset-0 opacity-40" />
         <div className="relative grid gap-6 lg:grid-cols-[8fr_4fr]">
           <div>
@@ -71,18 +69,21 @@ export function HomeView() {
               <span className="text-signal-dark">properly indexed.</span>
             </h1>
             <p className="mt-4 max-w-[680px] font-reader text-lg leading-snug text-graphite">
-              Shareholder letters, speeches, and decisions from the world&apos;s most studied
-              investors — paraphrased with provenance, cross-linked by theme, company, and year,
-              and searchable in seconds. Not advice. Not predictions. Just the record, finally
-              navigable.
+              Learn how finance works, study exceptional investors, and research the evidence behind
+              markets, ideas, companies, and decisions. Every unit paraphrased, every record sourced.
             </p>
             <div className="mt-6">
               <SearchBar />
             </div>
-            <div className="mt-4 flex flex-wrap items-center gap-3">
+            <div className="mt-4 flex flex-wrap items-center gap-4">
               <button onClick={() => go("investors")} className="bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
-                EXPLORE THE COLLECTIONS
+                EXPLORE INVESTORS
+                <ArrowRight className="ml-1.5 inline h-3.5 w-3.5" />
               </button>
+              <a href="/learn" className="nav-link text-sm font-semibold">
+                HOW FINANCE WORKS
+                <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
+              </a>
               {!isPro && (
                 <button onClick={() => go("upgrade")} className="nav-link text-sm font-semibold">
                   GO PRO — {PRICING[currency].monthly}/MO <ArrowRight className="inline h-3.5 w-3.5" />
@@ -91,120 +92,136 @@ export function HomeView() {
             </div>
           </div>
           <div className="border-l border-rule lg:pl-6">
-            <p className="kicker text-signal-dark">LAUNCH COLLECTION</p>
-            {buffett && (
-              <button onClick={() => go("investor", { slug: "buffett" })} className="mt-2 block w-full text-left">
-                <div className="border border-ink bg-paper p-4 transition-all hover:shadow-[3px_3px_0_0_var(--ink)] hover:-translate-y-0.5">
-                  <p className="font-display text-2xl font-bold tracking-tight">{buffett.name}</p>
-                  <p className="mt-1 font-reader text-sm text-graphite">{buffett.shortDescription}</p>
-                  {buffett.yearSpan && (
-                    <p className="mt-3 font-mono text-xs uppercase tracking-wider text-graphite">
-                      {buffett.yearSpan.from}–{buffett.yearSpan.to} · {buffett.sourceCount} sources
-                    </p>
-                  )}
-                </div>
-              </button>
-            )}
-            {future.length > 0 && (
-              <>
-                <p className="kicker mt-5">NEXT COLLECTIONS</p>
-                <div className="mt-2 space-y-1">
-                  {future.map((inv) => (
-                    <div key={inv.slug} className="flex items-center justify-between border-t border-rule py-2 text-graphite">
-                      <span className="font-display text-sm font-medium">{inv.name}</span>
-                      <span className="font-mono text-[0.6rem] uppercase tracking-wider">IN PREPARATION</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
+            <p className="kicker text-signal-dark">ONE QUESTION · {stats?.investors ?? 31} INVESTORS</p>
+            <RiskCoverageCard />
+            <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
+              {stats?.sources ?? 619} sources · {(stats?.passages ?? 12078).toLocaleString()} research units · provenance on every record
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Stats band — live counts; hidden entirely on failure (never show stale numbers) */}
+      {/* ── LEARN / STUDY / RESEARCH — the three product layers ── */}
+      <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="layers-title">
+        <div className="section-head">
+          <h2 id="layers-title">Three ways into the record.</h2>
+          <p className="kicker">LEARN · STUDY · RESEARCH</p>
+        </div>
+        <div className="grid gap-px border border-ink bg-rule md:grid-cols-3">
+          <div className="bg-paper p-6">
+            <p className="kicker text-signal-dark">LEARN</p>
+            <p className="mt-2 font-display text-xl font-bold tracking-tight">Understand finance.</p>
+            <p className="mt-1 font-reader text-sm text-graphite">Hedge funds · short selling · quants · markets.</p>
+            <a href="/learn" className="mt-4 inline-block bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper hover:bg-signal-dark transition-colors">
+              HOW FINANCE WORKS <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
+            </a>
+          </div>
+          <div className="bg-paper p-6">
+            <p className="kicker text-signal-dark">STUDY</p>
+            <p className="mt-2 font-display text-xl font-bold tracking-tight">Study exceptional investors.</p>
+            <p className="mt-1 font-reader text-sm text-graphite">
+              {stats?.investors ?? 31} investors · {stats?.themes ?? 42} themes · sources · companies · events.
+            </p>
+            <button onClick={() => go("investors")} className="mt-4 inline-block bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper hover:bg-signal-dark transition-colors">
+              EXPLORE INVESTORS <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
+            </button>
+          </div>
+          <div className="bg-paper p-6">
+            <p className="kicker text-signal-dark">RESEARCH</p>
+            <p className="mt-2 font-display text-xl font-bold tracking-tight">Investigate the evidence.</p>
+            <p className="mt-1 font-reader text-sm text-graphite">Search · compare · decisions · trails · my research.</p>
+            <button onClick={() => go("search")} className="mt-4 inline-block bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper hover:bg-signal-dark transition-colors">
+              START RESEARCHING <ArrowRight className="ml-1 inline h-3.5 w-3.5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Live cross-investor demo / loop / anywhere / decision / trail ── */}
+      <CrossInvestorDemo />
+      <ResearchLoop />
+      <StartAnywhere />
+      <DecisionDemo />
+      <FeaturedTrail />
+
+      {/* ── KNOWLEDGE SCALE — live counts ── */}
       {stats && (
-        <section className="mt-12 border-t-2 border-ink py-8">
+        <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="scale-title">
+          <div className="section-head">
+            <h2 id="scale-title" className="text-2xl">The knowledge base</h2>
+            <p className="kicker">LIVE COUNTS</p>
+          </div>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
+              { n: stats.investors.toLocaleString(), l: "Investors" },
               { n: stats.sources.toLocaleString(), l: "Sources indexed" },
-              { n: stats.passages.toLocaleString(), l: "Passages, paraphrased" },
-              { n: stats.themes.toLocaleString(), l: "Themes tagged" },
-              { n: stats.companies.toLocaleString(), l: "Companies mapped" },
-            ].map((s) => (
-              <div key={s.l} className="border-t border-ink pt-3">
-                <p className="font-display text-4xl font-bold tracking-tight text-signal-dark">{s.n}</p>
-                <p className="kicker mt-1">{s.l}</p>
+              { n: stats.passages.toLocaleString(), l: "Research units, paraphrased" },
+              { n: stats.themes.toLocaleString(), l: "Canonical themes" },
+            ].map((x) => (
+              <div key={x.l} className="border-t border-ink pt-3">
+                <p className="font-display text-4xl font-bold tracking-tight text-signal-dark md:text-5xl">{x.n}</p>
+                <p className="kicker mt-1">{x.l}</p>
               </div>
             ))}
           </div>
+          <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-wider text-graphite">
+            Plus {stats.companies} companies · concepts · events · decisions — one connected evidence graph
+          </p>
         </section>
       )}
 
-      {/* Recently viewed */}
-      <RecentlyViewed />
+      {/* ── FROM ADITYA — founder + newsletter ── */}
+      <FromAditya />
 
-      {/* What is it */}
-      <section className="mt-12 border-t-2 border-ink py-8">
-        <div className="section-head">
-          <h2>What Investor/Pass is</h2>
-          <p className="kicker">PRODUCT THESIS</p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="prose-reader">
-            <p>
-              Investor/Pass is <strong>not</strong> a research newsletter, an investment-advice product, or simply an archive. It is a premium information-access product built around the public record of exceptional investors.
-            </p>
-            <p>
-              The core promise: public information that is technically available but practically difficult to navigate becomes <em>searchable, structured, connected, and exceptionally easy to explore</em>.
-            </p>
-          </div>
-          <div className="prose-reader">
-            <p>
-              Every record carries provenance — original publisher, publication date, source type, and a link to the original where one is legitimately available. Passages are paraphrased contextual summaries, never verbatim copyrighted quotes and never bulk reproduction.
-            </p>
-            <p>
-              The first collection is <strong>Warren Buffett</strong>: 50+ years of letters, decisions, ideas, and companies, indexed and cross-linked.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* ── WHAT INVESTOR/PASS IS ── */}
+      <ThesisPrinciples />
 
-      {/* Pricing */}
-      <section className="mt-12 border-t-2 border-ink py-8">
+      {/* ── PRO — launch pricing ── */}
+      <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="pro-title">
         <div className="section-head">
-          <h2>Two ways in</h2>
-          <p className="kicker">FREE = EXPERIENCE THE GRAPH · PRO = MAKE IT YOURS</p>
+          <h2 id="pro-title">Make your research system yours.</h2>
+          <p className="kicker">PRO</p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="border border-ink p-6">
             <p className="kicker">FREE</p>
             <p className="mt-2 font-display text-3xl font-bold">$0</p>
-            <p className="mt-1 font-reader text-sm text-graphite">Experience the graph — read, browse, explore.</p>
-            <ul className="mt-4 space-y-2 font-reader text-graphite">
-              <li>· All 31 investor research pages</li>
+            <p className="mt-1 font-reader text-sm text-graphite">Experience the graph — read, browse, explore, learn.</p>
+            <ul className="mt-4 space-y-2 font-reader text-sm text-graphite">
+              <li>· All {stats?.investors ?? 31} investor research pages</li>
               <li>· Theme, company, year and event pages</li>
               <li>· Selected preview passages, every source cited</li>
-              <li>· Timeline navigation and public trails</li>
+              <li>· Timeline navigation, public trails and explainers</li>
             </ul>
+            {!user && (
+              <button onClick={() => go("signup")} className="mt-5 border border-ink px-4 py-2 text-[0.78rem] font-semibold hover:bg-paper-2">
+                CREATE A FREE ACCOUNT
+              </button>
+            )}
           </div>
           <div className="border-2 border-ink p-6 shadow-[4px_4px_0_0_var(--ink)]">
             <div className="flex items-center justify-between">
               <p className="kicker text-signal-dark">PRO</p>
               <ProBadge />
             </div>
-            <p className="mt-2 font-display text-3xl font-bold">{PRICING[currency].monthly}<span className="text-base font-normal text-graphite">/month</span></p>
-            <p className="mt-1 font-mono text-xs text-graphite">or {PRICING[currency].annual}/year — 12 months for the price of 8</p>
-            <p className="mt-1 font-reader text-sm text-graphite">Make the graph yours — a complete research system.</p>
-            <ul className="mt-4 space-y-2 font-reader text-graphite">
-              <li>· Full search across every one of 12,000+ passages</li>
-              <li>· Unlimited Compare — any investors, any topic</li>
-              <li>· Follow investors, get alerts, pick up where you left off</li>
-              <li>· Bookmarks, saved searches, collections and trails</li>
+            <p className="mt-2 font-display text-3xl font-bold">
+              {PRICING[currency].monthly}<span className="text-base font-normal text-graphite">/month</span>
+            </p>
+            <p className="mt-1 font-mono text-xs text-graphite">
+              or {PRICING[currency].annual}/year — {ANNUAL_SAVING[currency]}
+            </p>
+            <p className="mt-1 font-reader text-sm text-graphite">A complete research system — launch pricing.</p>
+            <ul className="mt-4 space-y-2 font-reader text-sm text-graphite">
+              <li>· <strong className="text-ink">Full search</strong> across every one of {(stats?.passages ?? 12000).toLocaleString()}+ research units</li>
+              <li>· <strong className="text-ink">Unlimited Compare</strong> — any investors, any topic</li>
+              <li>· <strong className="text-ink">Follow investors &amp; ideas</strong> — never lose track</li>
+              <li>· <strong className="text-ink">Continue where you left off</strong></li>
+              <li>· <strong className="text-ink">See what&apos;s new</strong> since your last visit</li>
+              <li>· <strong className="text-ink">Save your research</strong> — bookmarks, collections, saved searches, trails</li>
             </ul>
             {isPro ? (
               <div className="mt-5 w-full border border-ink bg-paper-2 py-2.5 text-center text-sm font-semibold text-signal-dark">
-                ✓ YOU'RE ON PRO — EVERYTHING UNLOCKED
+                ✓ YOU&apos;RE ON PRO — EVERYTHING UNLOCKED
               </div>
             ) : (
               <button onClick={() => go("upgrade")} className="mt-5 w-full bg-ink py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
@@ -214,6 +231,9 @@ export function HomeView() {
           </div>
         </div>
       </section>
+
+      {/* ── FINAL SEARCH CTA ── */}
+      <FinalSearchCta />
     </div>
   );
 }
@@ -466,6 +486,13 @@ export function Loading() {
   );
 }
 
+// Human-readable fallback for legacy recents stored before labels existed.
+// NEVER render a raw record id (e.g. passage cuids) as user-visible text.
+function humanLabel(view: string, slug: string): string {
+  if (view === "passage") return "A passage — open to continue reading";
+  return slug.replace(/-/g, " ");
+}
+
 // ── Continue exploring (home page) ─────────────────────────────────────────
 // Logged-in: server-backed next-unread feed (never repeats read passages).
 // Guests: localStorage recents, unchanged.
@@ -554,7 +581,9 @@ function RecentlyViewed() {
             className="group flex items-center gap-2 border border-rule bg-paper-2 px-3 py-2 hover:border-ink transition-colors"
           >
             <span className="chip chip-ink">{viewLabels[item.view] || item.view}</span>
-            <span className="font-display text-sm font-medium capitalize">{item.slug.replace(/-/g, " ")}</span>
+            <span className="font-display text-sm font-medium capitalize">
+              {(item.label && item.label.trim()) || humanLabel(item.view, item.slug)}
+            </span>
           </button>
         ))}
       </div>

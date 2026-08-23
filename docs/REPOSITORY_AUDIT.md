@@ -54,7 +54,7 @@ anonymous readers, and a client SPA at `/` for signed-in research.
   signature-verified and fail closed.
 - Subscription state machine: `free → checkout_started → active → past_due →
   canceled → expired`, reconciled by provider reference ID.
-- Pricing: USD $19/$149, INR ₹999/₹7,999 (monthly/annual), geo-selected.
+- Pricing: LAUNCH $9/$79 USD, ₹499/₹3,999 INR (monthly/annual), geo-selected (supersedes earlier $19/$149).
 
 ## Search architecture
 

@@ -67,7 +67,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
       {
         heading: "4. Subscriptions and Billing",
         paragraphs: [
-          "Access beyond the free tier requires a paid subscription billed monthly (US$19) or annually (US$149), or the equivalent regional price displayed at checkout (including INR pricing where offered). Prices are exclusive of applicable taxes unless stated otherwise.",
+          "Access beyond the free tier requires a paid subscription billed monthly (US$9) or annually (US$79), or the equivalent regional price displayed at checkout (including INR pricing where offered). Prices are exclusive of applicable taxes unless stated otherwise.",
           "Payments are processed by third-party processors (Razorpay, PayPal). We do not receive or store your full payment-card details. Subscriptions auto-renew at the end of each billing period until cancelled. You may cancel at any time as described in our Refund & Cancellation Policy at /legal/refunds; cancellation stops future charges and your access continues to the end of the paid period.",
           "We may change prices with prospective effect and reasonable prior notice; changes will not apply retroactively to periods already paid.",
         ],
@@ -362,13 +362,13 @@ export const LEGAL_DOCS: LegalDoc[] = [
       {
         heading: "2. Monthly Plans",
         paragraphs: [
-          "Monthly subscriptions (US$19 or regional equivalent) are generally non-refundable once a billing cycle has started, since full access is delivered during the cycle. Exceptions: duplicate charges, technical faults that denied access, or charges after effective cancellation — refunded in full.",
+          "Monthly subscriptions (US$9 or regional equivalent) are generally non-refundable once a billing cycle has started, since full access is delivered during the cycle. Exceptions: duplicate charges, technical faults that denied access, or charges after effective cancellation — refunded in full.",
         ],
       },
       {
         heading: "3. Annual Plans",
         paragraphs: [
-          "Annual subscriptions (US$149 or regional equivalent) may be refunded pro-rata within 14 days of the initial charge if you have made limited use of Pro features. After 14 days, refunds are considered case-by-case for genuine issues (renewal after intended cancellation, loss of access we could not fix). Renewal charges can be refunded in full within 7 days if no significant Pro usage occurred post-renewal.",
+          "Annual subscriptions (US$79 or regional equivalent) may be refunded pro-rata within 14 days of the initial charge if you have made limited use of Pro features. After 14 days, refunds are considered case-by-case for genuine issues (renewal after intended cancellation, loss of access we could not fix). Renewal charges can be refunded in full within 7 days if no significant Pro usage occurred post-renewal.",
         ],
       },
       {

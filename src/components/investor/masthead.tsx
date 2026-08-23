@@ -101,6 +101,7 @@ export function Masthead() {
     // INVESTORS links to the crawlable, ISR-cached public directory — the SPA
     // view stays reachable from the directory itself.
     { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"], href: "/investors" },
+    { label: "LEARN", view: "learn", match: ["learn"], href: "/learn" },
     { label: "SEARCH", view: "search", match: ["search"] },
     { label: "GRAPH", view: "graph", match: ["graph"] },
     { label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },

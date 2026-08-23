@@ -440,9 +440,9 @@ export function SearchView(_props: { initialQuery?: string; person?: string; the
                       </p>
                       <div className="mt-4 flex flex-wrap items-center gap-3">
                         <button onClick={() => go("upgrade", upgradeCtx)} className="bg-ink px-4 py-2 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
-                          START PRO — $19/MONTH
+                          START PRO — $9/MONTH
                         </button>
-                        <span className="kicker">$149/YEAR · ₹7,999/YEAR · ≈ 8 MONTHS</span>
+                        <span className="kicker">$79/YEAR · SAVE 27% · ₹3,999/YEAR IN INDIA</span>
                       </div>
                     </div>
                   </div>
@@ -932,7 +932,7 @@ function ProRequired({ onUpgrade }: { onUpgrade: () => void }) {
       <Lock className="mx-auto h-8 w-8 text-signal-dark" />
       <p className="mt-4 font-display text-2xl font-bold">Investor/Pass Pro required</p>
       <p className="mt-2 font-reader text-graphite">Bookmarks, saved searches, and collections are Pro features.</p>
-      <button onClick={onUpgrade} className="mt-4 bg-ink px-5 py-2 text-sm font-semibold text-paper hover:bg-signal-dark">START PRO — $19/MONTH</button>
+      <button onClick={onUpgrade} className="mt-4 bg-ink px-5 py-2 text-sm font-semibold text-paper hover:bg-signal-dark">START PRO — $9/MONTH</button>
     </div>
   );
 }

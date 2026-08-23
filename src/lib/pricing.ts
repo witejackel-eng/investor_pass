@@ -1,7 +1,15 @@
 "use client";
 /**
- * Canonical pricing copy (docs/payments-spec.md §1).
- * USD $19/$149 · INR ₹999/₹7,999 · annual framed as "≈ 8 months".
+ * Canonical LAUNCH pricing (docs/PRODUCT_CONSTITUTION.md).
+ * USD $9/month · $79/year — annual framed as "save 27%" ($9×12=$108;
+ * $79/$108 → 26.9% ≈ 27%). INR ₹499/₹3,999 is the provisional India launch
+ * equivalent (₹499×12=₹5,988; ₹3,999 → save 33%) — owner to confirm.
+ *
+ * IMPORTANT (owner runbook): live charge amounts are defined by the
+ * RAZORPAY_PLAN_MONTHLY / RAZORPAY_PLAN_ANNUAL and PAYPAL_PLAN_* dashboards,
+ * not by this file. After adopting launch pricing, update the plan amounts
+ * in both payment dashboards to match, or checkout will charge the old price.
+ *
  * Currency rule (owner-locked): INR ONLY for visitors in India
  * (server-authoritative Vercel geo header); USD for every other country.
  * Explicit user override always wins and persists locally.
@@ -12,8 +20,14 @@ import { useStore } from "@/stores/app-store";
 export type Currency = "INR" | "USD";
 
 export const PRICING: Record<Currency, { monthly: string; annual: string; symbol: string }> = {
-  USD: { monthly: "$19", annual: "$149", symbol: "$" },
-  INR: { monthly: "₹999", annual: "₹7,999", symbol: "₹" },
+  USD: { monthly: "$9", annual: "$79", symbol: "$" },
+  INR: { monthly: "₹499", annual: "₹3,999", symbol: "₹" },
+};
+
+/** Honest annual-discount copy derived from the actual numbers. */
+export const ANNUAL_SAVING: Record<Currency, string> = {
+  USD: "save 27%", // 1 - 79/108
+  INR: "save 33%", // 1 - 3999/5988
 };
 
 const OVERRIDE_KEY = "ip_currency";

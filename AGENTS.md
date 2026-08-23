@@ -79,3 +79,22 @@ No RAG or AI-powered public features until Investor/Pass reaches 100 paying
 subscribers. AI is an interface over the evidence graph, not the evidence graph
 itself. Do not add LLM calls, embeddings, or chat surfaces without explicit
 authorization.
+
+## Learn layer (2026-02)
+
+- Explainers teach how finance works with standard, checkable domain knowledge.
+- They connect to the investor graph with REAL canonical slugs — never dead-end educational content.
+- No thin programmatic articles; small and high-quality by design.
+- Never present interpretive claims about investors ("X believed...") in explainers; link the record instead.
+
+## Newsletter (2026-02)
+
+- Founder voice only (Aditya); modest, curious, research-oriented. No invented credentials.
+- Every library reference in an issue must be a real entity with real counts.
+- Subscribers stored via AppConfig KV (`newsletter:<email>`) pending a dedicated model.
+
+## Pricing (launch, 2026-02)
+
+- Canonical: USD $9/month · $79/year (save 27%). INR ₹499/₹3,999 provisional — confirm before enabling India live checkout.
+- Live charge amounts live in the Razorpay/PayPal plan dashboards — update them to match `src/lib/pricing.ts` (owner runbook step).
+

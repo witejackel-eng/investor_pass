@@ -1,6 +1,11 @@
 
 import type { MetadataRoute } from "next";
 import { getSitemapData } from "@/lib/server/public-pages";
+import { EXPLAINERS } from "@/data/learn/explainers";
+import { ISSUES } from "@/data/newsletter/issues";
+
+const EXPLAINER_SLUGS = EXPLAINERS.map((e) => e.slug);
+const ISSUE_SLUGS = ISSUES.map((i) => i.slug);
 
 // sitemap.xml — crawlable public research surface (Lane B, spec §43).
 // Index ONLY meaningful, stable pages: active investors with ≥1 public
@@ -15,13 +20,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (process.env.SITE_PRELAUNCH === "true") return [];
 
   const entries: MetadataRoute.Sitemap = [
+    { url: `${BASE}/learn`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/newsletter`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/investors`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/trails`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/changelog`, changeFrequency: "weekly", priority: 0.5 },
     { url: `${BASE}/legal`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  for (const slug of ["terms", "privacy", "cookies", "copyright", "disclaimer", "refunds"]) {
+    for (const slug of EXPLAINER_SLUGS) {
+    entries.push({ url: `${BASE}/learn/${slug}`, changeFrequency: "monthly", priority: 0.8 });
+  }
+  for (const slug of ISSUE_SLUGS) {
+    entries.push({ url: `${BASE}/newsletter/${slug}`, changeFrequency: "monthly", priority: 0.7 });
+  }
+for (const slug of ["terms", "privacy", "cookies", "copyright", "disclaimer", "refunds"]) {
     entries.push({ url: `${BASE}/legal/${slug}`, changeFrequency: "yearly", priority: 0.3 });
   }
 

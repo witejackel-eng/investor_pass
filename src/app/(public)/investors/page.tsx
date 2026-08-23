@@ -89,9 +89,9 @@ export default async function InvestorsPage() {
             href="/#/view=upgrade"
             className="bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
           >
-            START PRO — $19/MONTH
+            START PRO — $9/MONTH
           </a>
-          <span className="kicker">OR $149/YEAR — 12 MONTHS FOR THE PRICE OF 8</span>
+          <span className="kicker">OR $79/YEAR — SAVE 27%</span>
         </div>
       </aside>
     </div>
