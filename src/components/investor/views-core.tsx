@@ -76,14 +76,16 @@ export function HomeView() {
         <div className="relative grid gap-6 lg:grid-cols-[8fr_4fr]">
           <div>
             <p className="kicker">INVESTOR / PASS</p>
-            <h1 className="mt-3 font-display text-[clamp(2.8rem,7vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.07em]">
-              The public record,
+            <h1 className="mt-3 font-display text-[clamp(2.4rem,5.6vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.055em]">
+              Understand the money.
               <br />
-              <span className="text-signal-dark">properly indexed.</span>
+              <span className="text-signal-dark">Study the minds.</span>
+              <br />
+              Follow the evidence.
             </h1>
             <p className="mt-4 max-w-[680px] font-reader text-lg leading-snug text-graphite">
-              Learn how finance works, study exceptional investors, and research the evidence behind
-              markets, ideas, companies, and decisions. Every unit paraphrased, every record sourced.
+              Learn how finance works, study exceptional investors, and research what they
+              documented, did, and what happened next. Every unit paraphrased, every record sourced.
             </p>
             <div className="mt-6">
               <SearchBar />

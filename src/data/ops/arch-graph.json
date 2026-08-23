@@ -1,0 +1,2214 @@
+{
+ "generatedAt": "2026-08-23T12:49:54.556Z",
+ "generator": "gen-arch-graph.ts (deterministic static import scan)",
+ "nodeCount": 162,
+ "edgeCount": 308,
+ "nodes": [
+  {
+   "id": "stores/app-store",
+   "kind": "store",
+   "label": "app-store",
+   "group": "stores"
+  },
+  {
+   "id": "app/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/api/search/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/themes/[slug]/coverage/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/themes/[slug]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/ops/login/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/ops/logout/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/me/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/admin/analytics/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/admin/density/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/admin/import/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/continue/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/stats/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/checkout/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/follows/suggestions/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/follows/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/collections/[id]/items/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/collections/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/new-since/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/corrections/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/events/[slug]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/events/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/digest/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/progress/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/investors/[slug]/decisions/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/investors/[slug]/themes/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/investors/[slug]/timeline/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/investors/[slug]/companies/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/investors/[slug]/years/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/investors/[slug]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/investors/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/trails/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/bookmarks/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/passages/[id]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/saved-searches/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/newsletter/subscribe/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/webhooks/paypal/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/webhooks/razorpay/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/graph/node/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/graph/network/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/graph/summary/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/sources/[slug]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/notifications/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/companies/[slug]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/concepts/[slug]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/concepts/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/compare/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/years/[year]/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/auth/forgot/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/auth/reset/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/auth/login/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/auth/logout/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/auth/signup/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/auth/google/callback/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/auth/google/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/changelog/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/api/errors/route",
+   "kind": "api",
+   "label": "route",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/themes/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/learn/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/learn/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/events/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/investors/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/investors/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/investors/[slug]/topics/[theme]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/trails/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/trails/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/legal/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/legal/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/newsletter/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/newsletter/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/companies/[slug]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/years/[year]/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "app/(public)/changelog/page",
+   "kind": "page",
+   "label": "page",
+   "group": "app"
+  },
+  {
+   "id": "lib/rate-limit",
+   "kind": "lib",
+   "label": "rate-limit",
+   "group": "lib"
+  },
+  {
+   "id": "lib/client-error-reporter",
+   "kind": "lib",
+   "label": "client-error-reporter",
+   "group": "lib"
+  },
+  {
+   "id": "lib/server/follow-suggestions",
+   "kind": "lib",
+   "label": "follow-suggestions",
+   "group": "lib"
+  },
+  {
+   "id": "lib/server/jsonld",
+   "kind": "lib",
+   "label": "jsonld",
+   "group": "lib"
+  },
+  {
+   "id": "lib/server/search",
+   "kind": "lib",
+   "label": "search",
+   "group": "lib"
+  },
+  {
+   "id": "lib/server/public-pages",
+   "kind": "lib",
+   "label": "public-pages",
+   "group": "lib"
+  },
+  {
+   "id": "lib/server/graph",
+   "kind": "lib",
+   "label": "graph",
+   "group": "lib"
+  },
+  {
+   "id": "lib/server/intent",
+   "kind": "lib",
+   "label": "intent",
+   "group": "lib"
+  },
+  {
+   "id": "lib/server/fanout",
+   "kind": "lib",
+   "label": "fanout",
+   "group": "lib"
+  },
+  {
+   "id": "lib/utils",
+   "kind": "lib",
+   "label": "utils",
+   "group": "lib"
+  },
+  {
+   "id": "lib/ops/auth",
+   "kind": "lib",
+   "label": "auth",
+   "group": "lib"
+  },
+  {
+   "id": "lib/ops/integrity",
+   "kind": "lib",
+   "label": "integrity",
+   "group": "lib"
+  },
+  {
+   "id": "lib/client",
+   "kind": "lib",
+   "label": "client",
+   "group": "lib"
+  },
+  {
+   "id": "lib/api",
+   "kind": "lib",
+   "label": "api",
+   "group": "lib"
+  },
+  {
+   "id": "lib/pricing",
+   "kind": "lib",
+   "label": "pricing",
+   "group": "lib"
+  },
+  {
+   "id": "lib/site",
+   "kind": "lib",
+   "label": "site",
+   "group": "lib"
+  },
+  {
+   "id": "lib/legal",
+   "kind": "lib",
+   "label": "legal",
+   "group": "lib"
+  },
+  {
+   "id": "lib/db",
+   "kind": "lib",
+   "label": "db",
+   "group": "lib"
+  },
+  {
+   "id": "lib/auth/session",
+   "kind": "lib",
+   "label": "session",
+   "group": "lib"
+  },
+  {
+   "id": "lib/payments/provider",
+   "kind": "lib",
+   "label": "provider",
+   "group": "lib"
+  },
+  {
+   "id": "lib/payments/paypal",
+   "kind": "lib",
+   "label": "paypal",
+   "group": "lib"
+  },
+  {
+   "id": "lib/payments/apply",
+   "kind": "lib",
+   "label": "apply",
+   "group": "lib"
+  },
+  {
+   "id": "lib/payments/razorpay",
+   "kind": "lib",
+   "label": "razorpay",
+   "group": "lib"
+  },
+  {
+   "id": "data/learn/explainers",
+   "kind": "data",
+   "label": "explainers",
+   "group": "data"
+  },
+  {
+   "id": "data/newsletter/issues",
+   "kind": "data",
+   "label": "issues",
+   "group": "data"
+  },
+  {
+   "id": "components/investor/report-correction",
+   "kind": "component",
+   "label": "report-correction",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/decision-ledger",
+   "kind": "component",
+   "label": "decision-ledger",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-trails",
+   "kind": "component",
+   "label": "views-trails",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-compare",
+   "kind": "component",
+   "label": "views-compare",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-timeline",
+   "kind": "component",
+   "label": "views-timeline",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-concept",
+   "kind": "component",
+   "label": "views-concept",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-passage",
+   "kind": "component",
+   "label": "views-passage",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/personal-home",
+   "kind": "component",
+   "label": "personal-home",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-core",
+   "kind": "component",
+   "label": "views-core",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/highlighted-text",
+   "kind": "component",
+   "label": "highlighted-text",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/bookmark-button",
+   "kind": "component",
+   "label": "bookmark-button",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/footer",
+   "kind": "component",
+   "label": "footer",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/command-palette",
+   "kind": "component",
+   "label": "command-palette",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-trails-lazy",
+   "kind": "component",
+   "label": "views-trails-lazy",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/theme-toggle",
+   "kind": "component",
+   "label": "theme-toggle",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-product",
+   "kind": "component",
+   "label": "views-product",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-auth",
+   "kind": "component",
+   "label": "views-auth",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/entity-chips",
+   "kind": "component",
+   "label": "entity-chips",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/masthead",
+   "kind": "component",
+   "label": "masthead",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-graph",
+   "kind": "component",
+   "label": "views-graph",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-watchlist",
+   "kind": "component",
+   "label": "views-watchlist",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/home-sections",
+   "kind": "component",
+   "label": "home-sections",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/follow-button",
+   "kind": "component",
+   "label": "follow-button",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/search-bar",
+   "kind": "component",
+   "label": "search-bar",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-event",
+   "kind": "component",
+   "label": "views-event",
+   "group": "components"
+  },
+  {
+   "id": "components/investor/views-entity",
+   "kind": "component",
+   "label": "views-entity",
+   "group": "components"
+  },
+  {
+   "id": "components/public/page-actions",
+   "kind": "component",
+   "label": "page-actions",
+   "group": "components"
+  },
+  {
+   "id": "components/public/track-view",
+   "kind": "component",
+   "label": "track-view",
+   "group": "components"
+  },
+  {
+   "id": "prisma/User",
+   "kind": "model",
+   "label": "User",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Session",
+   "kind": "model",
+   "label": "Session",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Subscription",
+   "kind": "model",
+   "label": "Subscription",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PasswordResetToken",
+   "kind": "model",
+   "label": "PasswordResetToken",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/SearchEvent",
+   "kind": "model",
+   "label": "SearchEvent",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Person",
+   "kind": "model",
+   "label": "Person",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Source",
+   "kind": "model",
+   "label": "Source",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Passage",
+   "kind": "model",
+   "label": "Passage",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Theme",
+   "kind": "model",
+   "label": "Theme",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Concept",
+   "kind": "model",
+   "label": "Concept",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Company",
+   "kind": "model",
+   "label": "Company",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Industry",
+   "kind": "model",
+   "label": "Industry",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Event",
+   "kind": "model",
+   "label": "Event",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Decision",
+   "kind": "model",
+   "label": "Decision",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PassageProgress",
+   "kind": "model",
+   "label": "PassageProgress",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Follow",
+   "kind": "model",
+   "label": "Follow",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/VisitCursor",
+   "kind": "model",
+   "label": "VisitCursor",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Notification",
+   "kind": "model",
+   "label": "Notification",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PassageTheme",
+   "kind": "model",
+   "label": "PassageTheme",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PassageConcept",
+   "kind": "model",
+   "label": "PassageConcept",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PassageCompany",
+   "kind": "model",
+   "label": "PassageCompany",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PassageEvent",
+   "kind": "model",
+   "label": "PassageEvent",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PersonCompany",
+   "kind": "model",
+   "label": "PersonCompany",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/PersonTheme",
+   "kind": "model",
+   "label": "PersonTheme",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/RelatedSource",
+   "kind": "model",
+   "label": "RelatedSource",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Bookmark",
+   "kind": "model",
+   "label": "Bookmark",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/SavedSearch",
+   "kind": "model",
+   "label": "SavedSearch",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Collection",
+   "kind": "model",
+   "label": "Collection",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/CollectionItem",
+   "kind": "model",
+   "label": "CollectionItem",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/GraphNode",
+   "kind": "model",
+   "label": "GraphNode",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/GraphEdge",
+   "kind": "model",
+   "label": "GraphEdge",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/InvestorRelation",
+   "kind": "model",
+   "label": "InvestorRelation",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Correction",
+   "kind": "model",
+   "label": "Correction",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/Changelog",
+   "kind": "model",
+   "label": "Changelog",
+   "group": "prisma"
+  },
+  {
+   "id": "prisma/AppConfig",
+   "kind": "model",
+   "label": "AppConfig",
+   "group": "prisma"
+  }
+ ],
+ "edges": [
+  {
+   "from": "stores/app-store",
+   "to": "lib/client"
+  },
+  {
+   "from": "app/page",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "app/page",
+   "to": "components/investor/masthead"
+  },
+  {
+   "from": "app/page",
+   "to": "components/investor/footer"
+  },
+  {
+   "from": "app/page",
+   "to": "components/investor/views-core"
+  },
+  {
+   "from": "app/page",
+   "to": "components/investor/views-product"
+  },
+  {
+   "from": "app/page",
+   "to": "components/investor/views-passage"
+  },
+  {
+   "from": "app/page",
+   "to": "components/investor/command-palette"
+  },
+  {
+   "from": "app/api/search/route",
+   "to": "lib/server/search"
+  },
+  {
+   "from": "app/api/search/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/search/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/themes/[slug]/coverage/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/themes/[slug]/coverage/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/themes/[slug]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/themes/[slug]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/themes/[slug]/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/ops/login/route",
+   "to": "lib/ops/auth"
+  },
+  {
+   "from": "app/api/ops/login/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/ops/logout/route",
+   "to": "lib/ops/auth"
+  },
+  {
+   "from": "app/api/me/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/me/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/admin/analytics/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/admin/analytics/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/admin/analytics/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/admin/density/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/admin/density/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/admin/density/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/admin/import/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/admin/import/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/admin/import/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/admin/import/route",
+   "to": "lib/server/fanout"
+  },
+  {
+   "from": "app/api/admin/import/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/continue/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/continue/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/stats/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/checkout/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/checkout/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/checkout/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/checkout/route",
+   "to": "lib/payments/provider"
+  },
+  {
+   "from": "app/api/checkout/route",
+   "to": "lib/payments/razorpay"
+  },
+  {
+   "from": "app/api/checkout/route",
+   "to": "lib/payments/paypal"
+  },
+  {
+   "from": "app/api/checkout/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/follows/suggestions/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/follows/suggestions/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/follows/suggestions/route",
+   "to": "lib/server/follow-suggestions"
+  },
+  {
+   "from": "app/api/follows/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/follows/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/follows/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/collections/[id]/items/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/collections/[id]/items/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/collections/[id]/items/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/collections/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/collections/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/collections/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/new-since/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/new-since/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/corrections/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/corrections/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/corrections/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/events/[slug]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/events/[slug]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/events/[slug]/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/events/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/events/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/digest/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/digest/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/progress/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/progress/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/investors/[slug]/decisions/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/investors/[slug]/decisions/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/investors/[slug]/decisions/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/investors/[slug]/themes/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/investors/[slug]/themes/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/investors/[slug]/themes/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/investors/[slug]/timeline/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/investors/[slug]/timeline/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/investors/[slug]/timeline/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/investors/[slug]/companies/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/investors/[slug]/companies/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/investors/[slug]/companies/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/investors/[slug]/years/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/investors/[slug]/years/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/investors/[slug]/years/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/investors/[slug]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/investors/[slug]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/investors/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/trails/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/trails/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/trails/route",
+   "to": "components/investor/views-trails"
+  },
+  {
+   "from": "app/api/bookmarks/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/bookmarks/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/bookmarks/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/passages/[id]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/passages/[id]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/passages/[id]/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/saved-searches/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/saved-searches/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/saved-searches/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/newsletter/subscribe/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/newsletter/subscribe/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/webhooks/paypal/route",
+   "to": "lib/payments/paypal"
+  },
+  {
+   "from": "app/api/webhooks/paypal/route",
+   "to": "lib/payments/apply"
+  },
+  {
+   "from": "app/api/webhooks/razorpay/route",
+   "to": "lib/payments/razorpay"
+  },
+  {
+   "from": "app/api/webhooks/razorpay/route",
+   "to": "lib/payments/apply"
+  },
+  {
+   "from": "app/api/graph/node/route",
+   "to": "lib/server/graph"
+  },
+  {
+   "from": "app/api/graph/node/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/graph/network/route",
+   "to": "lib/server/graph"
+  },
+  {
+   "from": "app/api/graph/network/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/graph/summary/route",
+   "to": "lib/server/graph"
+  },
+  {
+   "from": "app/api/graph/summary/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/sources/[slug]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/sources/[slug]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/sources/[slug]/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/notifications/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/notifications/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/notifications/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/companies/[slug]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/companies/[slug]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/companies/[slug]/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/concepts/[slug]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/concepts/[slug]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/concepts/[slug]/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/concepts/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/concepts/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/compare/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/compare/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/years/[year]/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/years/[year]/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/years/[year]/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/auth/forgot/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/auth/forgot/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/auth/reset/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/auth/reset/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/auth/reset/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/auth/login/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/auth/login/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/auth/login/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/auth/login/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/auth/logout/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/auth/logout/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/auth/logout/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/auth/signup/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/auth/signup/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/auth/signup/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/auth/signup/route",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "app/api/auth/google/callback/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/auth/google/callback/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/api/changelog/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/changelog/route",
+   "to": "lib/api"
+  },
+  {
+   "from": "app/api/errors/route",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/api/errors/route",
+   "to": "lib/auth/session"
+  },
+  {
+   "from": "app/(public)/themes/[slug]/page",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/(public)/themes/[slug]/page",
+   "to": "lib/server/public-pages"
+  },
+  {
+   "from": "app/(public)/themes/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/learn/page",
+   "to": "data/learn/explainers"
+  },
+  {
+   "from": "app/(public)/learn/page",
+   "to": "components/public/track-view"
+  },
+  {
+   "from": "app/(public)/learn/[slug]/page",
+   "to": "data/learn/explainers"
+  },
+  {
+   "from": "app/(public)/learn/[slug]/page",
+   "to": "components/public/track-view"
+  },
+  {
+   "from": "app/(public)/learn/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/events/[slug]/page",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/(public)/events/[slug]/page",
+   "to": "lib/server/public-pages"
+  },
+  {
+   "from": "app/(public)/events/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/investors/page",
+   "to": "lib/server/public-pages"
+  },
+  {
+   "from": "app/(public)/investors/[slug]/page",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/(public)/investors/[slug]/page",
+   "to": "lib/server/public-pages"
+  },
+  {
+   "from": "app/(public)/investors/[slug]/page",
+   "to": "lib/server/graph"
+  },
+  {
+   "from": "app/(public)/investors/[slug]/page",
+   "to": "components/public/page-actions"
+  },
+  {
+   "from": "app/(public)/investors/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/investors/[slug]/topics/[theme]/page",
+   "to": "lib/server/public-pages"
+  },
+  {
+   "from": "app/(public)/investors/[slug]/topics/[theme]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/trails/page",
+   "to": "components/investor/views-trails"
+  },
+  {
+   "from": "app/(public)/trails/[slug]/page",
+   "to": "components/investor/views-trails"
+  },
+  {
+   "from": "app/(public)/trails/[slug]/page",
+   "to": "components/public/page-actions"
+  },
+  {
+   "from": "app/(public)/trails/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/legal/page",
+   "to": "lib/legal"
+  },
+  {
+   "from": "app/(public)/legal/[slug]/page",
+   "to": "lib/legal"
+  },
+  {
+   "from": "app/(public)/legal/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/newsletter/page",
+   "to": "data/newsletter/issues"
+  },
+  {
+   "from": "app/(public)/newsletter/page",
+   "to": "components/public/track-view"
+  },
+  {
+   "from": "app/(public)/newsletter/[slug]/page",
+   "to": "data/newsletter/issues"
+  },
+  {
+   "from": "app/(public)/newsletter/[slug]/page",
+   "to": "components/public/track-view"
+  },
+  {
+   "from": "app/(public)/newsletter/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/companies/[slug]/page",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/(public)/companies/[slug]/page",
+   "to": "lib/server/public-pages"
+  },
+  {
+   "from": "app/(public)/companies/[slug]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/years/[year]/page",
+   "to": "lib/db"
+  },
+  {
+   "from": "app/(public)/years/[year]/page",
+   "to": "lib/server/public-pages"
+  },
+  {
+   "from": "app/(public)/years/[year]/page",
+   "to": "lib/server/jsonld"
+  },
+  {
+   "from": "app/(public)/changelog/page",
+   "to": "lib/db"
+  },
+  {
+   "from": "lib/server/follow-suggestions",
+   "to": "lib/db"
+  },
+  {
+   "from": "lib/server/public-pages",
+   "to": "lib/db"
+  },
+  {
+   "from": "lib/server/graph",
+   "to": "lib/db"
+  },
+  {
+   "from": "lib/server/fanout",
+   "to": "lib/db"
+  },
+  {
+   "from": "lib/ops/auth",
+   "to": "lib/rate-limit"
+  },
+  {
+   "from": "lib/ops/integrity",
+   "to": "lib/db"
+  },
+  {
+   "from": "lib/pricing",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "lib/payments/apply",
+   "to": "lib/db"
+  },
+  {
+   "from": "components/investor/report-correction",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/decision-ledger",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/decision-ledger",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/decision-ledger",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-compare",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-timeline",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-timeline",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-timeline",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-concept",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-concept",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-concept",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-concept",
+   "to": "components/investor/bookmark-button"
+  },
+  {
+   "from": "components/investor/views-passage",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-passage",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-passage",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-passage",
+   "to": "components/investor/bookmark-button"
+  },
+  {
+   "from": "components/investor/views-passage",
+   "to": "components/investor/report-correction"
+  },
+  {
+   "from": "components/investor/personal-home",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/personal-home",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/personal-home"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/follow-button"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/decision-ledger"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/search-bar"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/bookmark-button"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/views-entity"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "lib/pricing"
+  },
+  {
+   "from": "components/investor/views-core",
+   "to": "components/investor/home-sections"
+  },
+  {
+   "from": "components/investor/bookmark-button",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/bookmark-button",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/footer",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/command-palette",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/command-palette",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-trails-lazy",
+   "to": "components/investor/views-trails"
+  },
+  {
+   "from": "components/investor/views-trails-lazy",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-product",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-product",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-product",
+   "to": "components/investor/search-bar"
+  },
+  {
+   "from": "components/investor/views-product",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-product",
+   "to": "lib/site"
+  },
+  {
+   "from": "components/investor/views-product",
+   "to": "components/investor/highlighted-text"
+  },
+  {
+   "from": "components/investor/views-auth",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-auth",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-auth",
+   "to": "lib/pricing"
+  },
+  {
+   "from": "components/investor/entity-chips",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/entity-chips",
+   "to": "lib/utils"
+  },
+  {
+   "from": "components/investor/masthead",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/masthead",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/masthead",
+   "to": "lib/utils"
+  },
+  {
+   "from": "components/investor/masthead",
+   "to": "components/investor/theme-toggle"
+  },
+  {
+   "from": "components/investor/views-graph",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-graph",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-watchlist",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-watchlist",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-watchlist",
+   "to": "components/investor/views-core"
+  },
+  {
+   "from": "components/investor/views-watchlist",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/home-sections",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/home-sections",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/home-sections",
+   "to": "components/investor/search-bar"
+  },
+  {
+   "from": "components/investor/home-sections",
+   "to": "data/newsletter/issues"
+  },
+  {
+   "from": "components/investor/home-sections",
+   "to": "data/learn/explainers"
+  },
+  {
+   "from": "components/investor/follow-button",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/follow-button",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/search-bar",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/search-bar",
+   "to": "lib/utils"
+  },
+  {
+   "from": "components/investor/views-event",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-event",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-event",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-event",
+   "to": "components/investor/bookmark-button"
+  },
+  {
+   "from": "components/investor/views-entity",
+   "to": "stores/app-store"
+  },
+  {
+   "from": "components/investor/views-entity",
+   "to": "lib/client"
+  },
+  {
+   "from": "components/investor/views-entity",
+   "to": "components/investor/entity-chips"
+  },
+  {
+   "from": "components/investor/views-entity",
+   "to": "components/investor/bookmark-button"
+  },
+  {
+   "from": "components/public/track-view",
+   "to": "lib/client"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/User"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Session"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Subscription"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PasswordResetToken"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/SearchEvent"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Person"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Source"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Passage"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Theme"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Concept"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Company"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Industry"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Event"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Decision"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PassageProgress"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Follow"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/VisitCursor"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Notification"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PassageTheme"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PassageConcept"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PassageCompany"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PassageEvent"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PersonCompany"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/PersonTheme"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/RelatedSource"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Bookmark"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/SavedSearch"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Collection"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/CollectionItem"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/GraphNode"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/GraphEdge"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/InvestorRelation"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Correction"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/Changelog"
+  },
+  {
+   "from": "lib/db",
+   "to": "prisma/AppConfig"
+  }
+ ]
+}

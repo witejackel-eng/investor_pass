@@ -54,9 +54,9 @@ export function SearchBar({
         )}
         <button
           type="submit"
-          className="hidden border-l border-ink bg-ink px-4 py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors sm:block"
+          className="border-l border-ink bg-ink px-3 py-2.5 text-[0.72rem] font-semibold text-paper hover:bg-signal-dark transition-colors sm:px-4 sm:text-sm"
         >
-          SEARCH
+          SEARCH THE RECORD
         </button>
       </div>
     </form>

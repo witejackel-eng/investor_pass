@@ -34,12 +34,13 @@ const ogSvg = `
   <!-- wordmark -->
   <text x="72" y="118" font-family="${DISPLAY}" font-size="44" font-weight="800" letter-spacing="-3" fill="${INK}">INVESTOR<tspan font-weight="340" fill="${SIGNAL}">/</tspan>PASS</text>
 
-  <!-- headline -->
-  <text x="72" y="268" font-family="${DISPLAY}" font-size="96" font-weight="720" letter-spacing="-5" fill="${INK}">The public record,</text>
-  <text x="72" y="366" font-family="${DISPLAY}" font-size="96" font-weight="720" letter-spacing="-5" fill="${SIGNAL_DARK}">properly indexed.</text>
+  <!-- headline (3-line hero) -->
+  <text x="72" y="240" font-family="${DISPLAY}" font-size="74" font-weight="720" letter-spacing="-4" fill="${INK}">Understand the money.</text>
+  <text x="72" y="322" font-family="${DISPLAY}" font-size="74" font-weight="720" letter-spacing="-4" fill="${SIGNAL_DARK}">Study the minds.</text>
+  <text x="72" y="404" font-family="${DISPLAY}" font-size="74" font-weight="720" letter-spacing="-4" fill="${INK}">Follow the evidence.</text>
 
   <!-- support line -->
-  <text x="72" y="424" font-family="Georgia, serif" font-style="italic" font-size="27" fill="${GRAPHITE}">Learn how finance works. Study exceptional investors.</text>
+  <text x="72" y="452" font-family="Georgia, serif" font-style="italic" font-size="26" fill="${GRAPHITE}">Learn how finance works · study exceptional investors · research the evidence</text>
 
   <!-- stats row -->
   <g font-family="${MONO}" font-size="21" letter-spacing="1.5">

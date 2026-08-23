@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Control Room — utilitarian sibling of the editorial product palette.
+   Cream + black + blue signal; PASS green / WARNING amber / FAIL red. */
+.ops-root {
+  --ops-paper: #f5f3ec;
+  --ops-card: #fbf9f3;
+  --ops-ink: #11110f;
+  --ops-mute: #6b675e;
+  --ops-rule: #d4cec1;
+  --ops-blue: #1647d8;
+  --ops-blue-dark: #10359f;
+  --ops-pass: #047857;
+  --ops-warn: #b45309;
+  --ops-fail: #b91c1c;
+}
+.ops-body { background: var(--ops-paper); color: var(--ops-ink); font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+.ops-kicker { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ops-mute); }
+.ops-card { background: var(--ops-card); border: 1px solid var(--ops-rule); padding: 1rem; }
+.ops-pass { color: var(--ops-pass); }
+.ops-warn { color: var(--ops-warn); }
+.ops-fail { color: var(--ops-fail); }
+.ops-blue { color: var(--ops-blue); }
+.ops-btn { background: var(--ops-ink); color: var(--ops-card); padding: 0.4rem 0.9rem; font-size: 0.75rem; border: 1px solid var(--ops-ink); }
+.ops-btn:hover { background: var(--ops-blue-dark); }
+.ops-btn-ghost { background: transparent; color: var(--ops-ink); border: 1px solid var(--ops-rule); padding: 0.4rem 0.9rem; font-size: 0.75rem; }
+.ops-btn-ghost:hover { border-color: var(--ops-ink); }
+.ops-link { color: var(--ops-blue); text-decoration: none; }
+.ops-link:hover { text-decoration: underline; }
+.ops-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+.ops-table th { text-align: left; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ops-mute); border-bottom: 1px solid var(--ops-ink); padding: 0.4rem 0.5rem; }
+.ops-table td { border-bottom: 1px solid var(--ops-rule); padding: 0.45rem 0.5rem; vertical-align: top; }
+.ops-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.ops-dot.pass { background: var(--ops-pass); }
+.ops-dot.warn { background: var(--ops-warn); }
+.ops-dot.fail { background: var(--ops-fail); }
+.ops-dot.unknown { background: var(--ops-mute); }

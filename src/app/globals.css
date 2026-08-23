@@ -53,9 +53,9 @@
   --ink: #11110f;
   --graphite: #5b5952;
   --rule: #c9c3b7;
-  --signal: #2f5bff;
-  --signal-dark: #1736a5;
-  --signal-ghost: rgba(47, 91, 255, 0.08);
+  --signal: #1647d8;
+  --signal-dark: #10359f;
+  --signal-ghost: rgba(22, 71, 216, 0.08);
 
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-reader: var(--font-newsreader), Georgia, serif;
@@ -102,9 +102,9 @@
   --ink: #f2efe7;
   --graphite: #a8a59a;
   --rule: #3a3a30;
-  --signal: #5b7fff;
-  --signal-dark: #7993ff;
-  --signal-ghost: rgba(91, 127, 255, 0.12);
+  --signal: #5a7ff0;
+  --signal-dark: #8aa2f5;
+  --signal-ghost: rgba(90, 127, 240, 0.12);
 
   --background: var(--paper);
   --foreground: var(--ink);

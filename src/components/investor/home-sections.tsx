@@ -503,13 +503,13 @@ export function DecisionDemo() {
           )}
           {pick.statement && (
             <div className="mt-5">
-              <p className="kicker">CONTEXT — THE DOCUMENTED STATEMENT</p>
+              <p className="kicker">DOCUMENTED — THE STATEMENT (SOURCE-BACKED)</p>
               <p className="mt-1 font-reader text-[0.95rem] leading-relaxed text-ink">{pick.statement}</p>
             </div>
           )}
           {pick.outcome && (
             <div className="mt-4">
-              <p className="kicker">OUTCOME — LATER ESTABLISHED</p>
+              <p className="kicker">WHAT HAPPENED NEXT? — OUTCOME, LATER ESTABLISHED</p>
               <p className="mt-1 font-reader text-[0.95rem] leading-relaxed text-ink">{pick.outcome}</p>
             </div>
           )}
@@ -975,9 +975,9 @@ export function NewsletterSection() {
       <div className="grid gap-6 lg:grid-cols-[8fr_4fr]">
         <div>
           <p className="max-w-[680px] font-reader text-base text-graphite">
-            How finance works, in plain language. Discoveries from the indexed record. Investor
-            comparisons with sources. What I&apos;m researching next. Free — and every claim in
-            every note links into the library so you can check it yourself.
+            Finance, investing, markets, investor thinking, historical events — and research
+            questions worth following. Every claim in every note links into the library so you
+            can check it yourself.
           </p>
           <form
             action="/api/newsletter/subscribe"
