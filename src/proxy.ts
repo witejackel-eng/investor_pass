@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 /**
  * Control Room gate — runs at the edge BEFORE any /ops page or /api/ops
- * handler. Verifies the ops session cookie with the same HMAC the server
+ * handler. (proxy.ts: Next.js 16 renamed the middleware convention; the
+ * old name logged a deprecation warning on every build.) Verifies the ops session cookie with the same HMAC the server
  * issued (Web Crypto, edge-safe). Unauthenticated → redirect (pages) or
  * 401 JSON (APIs). All /ops responses get noindex + no-store.
  *
@@ -40,7 +41,7 @@ async function validSession(token: string | undefined, secret: string): Promise<
   return parts.length === 3 && parts[0] === "ops" && Number(parts[1]) > Date.now();
 }
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Login endpoints and the login page stay reachable (they set the session).

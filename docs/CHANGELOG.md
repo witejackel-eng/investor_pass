@@ -32,3 +32,9 @@ evidence policy (Reported → Review → Correct → Verify → Changelog).
 - NEW: owner test grant — witejackel@gmail.com receives Pro automatically on next login (server-side, idempotent, auditable via Subscription provider "founder_grant").
 - NEW: scripts/expand-paraphrases.ts — same-source adjacent-unit merge pipeline for fuller research units (dry-run default, --apply with backup, needs_review gating per evidence policy).
 - NEW: scripts/db/compress-text.ts — lossless zstd/lz4 TOAST compression for text columns (+ /ops/data paraphrase-depth profile panel).
+
+### BUILD-OUTAGE postmortem + fix (this release)
+- REGRESSION (23c7d96–0ffb912): every production build failed at static generation — the 5432→6543 transaction-pooler auto-rewrite made heavy SSG queries (investor pages; Marks = 4,071 passages) far slower without prepared statements, queueing the 3 build workers past pool_timeout=60. Five commits (23c7d96, 2a0512f, 5e2b1db, 2436642, 0ffb912) therefore never deployed; the live site kept serving b315e7c.
+- FIX: db.ts no longer rewrites pooler URLs, ever. Phase-aware limits (build: connection_limit=3 — the configuration every successful deployment used; runtime: connection_limit=1 + transient retry — the b315e7c runtime configuration verified under 15-way concurrency). Explicit :6543 URLs still get pgbouncer=true appended (operator's choice, honored).
+- middleware.ts → proxy.ts (Next 16 convention; removes the deprecation warning in every build log).
+- Indexing audit: junction tables are covered by composite PKs (passageId leftmost); trigram + composite indexes live via scripts/db/optimize.ts — re-run it after any future `prisma migrate` (README rule).
