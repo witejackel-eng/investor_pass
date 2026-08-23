@@ -211,7 +211,8 @@ export function HomeView() {
       {/* ── WHAT INVESTOR/PASS IS ── */}
       <ThesisPrinciples />
 
-      {/* ── PRO — launch pricing ── */}
+      {/* ── PRO — launch pricing (hidden for Pro members: nothing left to sell them) ── */}
+      {!isPro && (
       <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="pro-title">
         <div className="section-head">
           <h2 id="pro-title">Make your research system yours.</h2>
@@ -266,6 +267,8 @@ export function HomeView() {
           </div>
         </div>
       </section>
+
+      )}
 
       {/* ── FINAL SEARCH CTA ── */}
       <FinalSearchCta />

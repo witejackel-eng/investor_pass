@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PublicHeaderActions } from "@/components/public/header-actions";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.PUBLIC_SITE_URL || "https://investorpass.vercel.app"),
@@ -35,12 +36,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
             <Link href="/search" className="nav-link hover:text-foreground">
               SEARCH THE LIBRARY
             </Link>
-            <a
-              href="/#/view=upgrade"
-              className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
-            >
-              PRO — $9/MONTH
-            </a>
+            <PublicHeaderActions />
           </nav>
         </div>
       </header>
