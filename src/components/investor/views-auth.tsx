@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useStore, type ViewParams } from "@/stores/app-store";
-import { apiPost } from "@/lib/client";
+import { apiPost, apiGet } from "@/lib/client";
 import { PRICING, useCurrency } from "@/lib/pricing";
 import { toast } from "sonner";
 import { Loading } from "./views-core";
@@ -83,6 +83,146 @@ export function LoginView() {
       <p className="mt-4 text-center font-reader text-sm text-graphite">
         No account? <button onClick={() => go("signup")} className="font-semibold text-signal-dark hover:underline">Sign up</button>
       </p>
+      <p className="mt-2 text-center font-reader text-sm text-graphite">
+        <button onClick={() => go("forgot")} className="hover:underline">Forgot your password?</button>
+      </p>
+    </div>
+  );
+}
+
+// ── Forgot password ────────────────────────────────────────────────────────
+export function ForgotView() {
+  const { go } = useStore();
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+  const [resetPath, setResetPath] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/forgot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const json = await res.json();
+      // The server answers the same whether or not the account exists —
+      // no enumeration. In prelaunch it may hand back the link directly.
+      setSent(true);
+      if (json?.resetPath) setResetPath(json.resetPath as string);
+    } catch {
+      toast.error("Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="mx-auto max-w-[440px] px-4 py-16">
+      <div className="border-t-2 border-ink pt-4">
+        <p className="kicker">/ RESET PASSWORD</p>
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight">Reset your password</h1>
+        {!sent ? (
+          <p className="mt-2 font-reader text-graphite">
+            Enter the email on your account and we&apos;ll send a reset link.
+          </p>
+        ) : null}
+      </div>
+      {sent ? (
+        <div className="mt-6 space-y-4">
+          <p className="font-reader text-graphite">
+            If an account exists for that email, a reset link is on its way. It expires in 60 minutes.
+          </p>
+          {resetPath ? (
+            <div className="border border-rule bg-paper p-3">
+              <p className="kicker text-graphite">PRELAUNCH — EMAIL NOT WIRED YET</p>
+              <a href={`#${resetPath}`} className="font-reader text-sm text-signal-dark underline underline-offset-2">
+                Open reset link now →
+              </a>
+            </div>
+          ) : null}
+          <button onClick={() => go("login")} className="text-sm font-semibold text-signal-dark hover:underline">
+            ← BACK TO LOG IN
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={submit} className="mt-6 space-y-4">
+          <Field label="Email" type="email" value={email} onChange={setEmail} required />
+          <button disabled={loading} className="w-full bg-ink py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark disabled:opacity-50">
+            {loading ? "SENDING…" : "SEND RESET LINK"}
+          </button>
+          <p className="text-center font-reader text-sm text-graphite">
+            <button type="button" onClick={() => go("login")} className="hover:underline">Back to log in</button>
+          </p>
+        </form>
+      )}
+    </div>
+  );
+}
+
+// ── Reset password (token from email/prelaunch link) ───────────────────────
+export function ResetView({ token }: { token: string }) {
+  const { go } = useStore();
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password !== confirm) {
+      toast.error("Passwords don't match");
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/reset", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token, password }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json?.error || "Reset failed");
+      setDone(true);
+    } catch (e: any) {
+      toast.error(e.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="mx-auto max-w-[440px] px-4 py-16">
+      <div className="border-t-2 border-ink pt-4">
+        <p className="kicker">/ RESET PASSWORD</p>
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight">Choose a new password</h1>
+      </div>
+      {done ? (
+        <div className="mt-6 space-y-4">
+          <p className="font-reader text-graphite">
+            Password updated. All other sessions were signed out for safety.
+          </p>
+          <button
+            onClick={() => go("login")}
+            className="w-full bg-ink py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark"
+          >
+            LOG IN WITH NEW PASSWORD
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={submit} className="mt-6 space-y-4">
+          <Field label="New password (min 8 chars)" type="password" value={password} onChange={setPassword} required />
+          <Field label="Confirm new password" type="password" value={confirm} onChange={setConfirm} required />
+          <button disabled={loading} className="w-full bg-ink py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark disabled:opacity-50">
+            {loading ? "SAVING…" : "SET PASSWORD"}
+          </button>
+          <p className="text-center font-reader text-sm text-graphite">
+            <button type="button" onClick={() => go("forgot")} className="hover:underline">Request a new link</button>
+          </p>
+        </form>
+      )}
     </div>
   );
 }
@@ -280,6 +420,148 @@ export function AccountView() {
   );
 }
 
+// ── Admin analytics ─────────────────────────────────────────────────────────
+type Analytics = {
+  totals: { name: string; count: number }[];
+  topQueries: { query: string; count: number }[];
+  zeroResults: { total: number; measured: number; zero: number; rate: number | null };
+  dailySearches: { date: string; count: number }[];
+  clientErrors: { createdAt: string; message: string; stack?: string; url?: string }[];
+};
+
+export function AdminAnalytics() {
+  const [data, setData] = useState<Analytics | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    setErr(null);
+    try {
+      setData(await apiGet<Analytics>("/api/admin/analytics"));
+    } catch (e: any) {
+      setErr(e.message || "Failed to load analytics");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { void load(); }, [load]);
+
+  return (
+    <section className="mt-10">
+      <div className="border-t-2 border-ink pt-4">
+        <div className="flex items-center justify-between">
+          <p className="kicker">/ ADMIN — ANALYTICS</p>
+          <button onClick={() => void load()} disabled={loading} className="chip disabled:opacity-50">
+            {loading ? "REFRESHING…" : "REFRESH"}
+          </button>
+        </div>
+      </div>
+
+      {err && <p className="mt-3 font-reader text-sm text-signal-dark">{err}</p>}
+
+      {!data && !err && loading && <p className="mt-3 font-reader text-sm text-graphite">Loading analytics…</p>}
+
+      {data && (
+        <div className="mt-4 space-y-8">
+          {/* Event totals */}
+          <div>
+            <p className="kicker mb-2">EVENT TOTALS · LAST 30 DAYS</p>
+            {data.totals.length === 0 ? (
+              <p className="font-reader text-sm text-graphite">No events recorded yet.</p>
+            ) : (
+              <table className="w-full max-w-[560px] border border-rule font-mono text-xs">
+                <tbody>
+                  {data.totals.map((t) => (
+                    <tr key={t.name} className="border-b border-rule last:border-b-0">
+                      <td className="px-3 py-1.5">{t.name}</td>
+                      <td className="px-3 py-1.5 text-right font-semibold">{t.count}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+
+          {/* Top queries */}
+          <div>
+            <p className="kicker mb-2">TOP SEARCH QUERIES · LAST 30 DAYS</p>
+            {data.topQueries.length === 0 ? (
+              <p className="font-reader text-sm text-graphite">No search queries recorded yet.</p>
+            ) : (
+              <table className="w-full max-w-[560px] border border-rule font-mono text-xs">
+                <tbody>
+                  {data.topQueries.map((q) => (
+                    <tr key={q.query} className="border-b border-rule last:border-b-0">
+                      <td className="px-3 py-1.5">{q.query}</td>
+                      <td className="px-3 py-1.5 text-right font-semibold">{q.count}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+
+          {/* Zero-result rate + daily searches */}
+          <div className="flex flex-wrap gap-8">
+            <div>
+              <p className="kicker mb-2">ZERO-RESULT RATE</p>
+              {data.zeroResults.rate === null ? (
+                <p className="font-reader text-sm text-graphite">
+                  No result-count data yet — searches aren&apos;t recording a results field.
+                </p>
+              ) : (
+                <p className="font-mono text-sm">
+                  <span className="font-display text-3xl font-bold">{(data.zeroResults.rate * 100).toFixed(1)}%</span>
+                  <span className="ml-2 text-graphite">
+                    ({data.zeroResults.zero} of {data.zeroResults.measured} measured / {data.zeroResults.total} searches)
+                  </span>
+                </p>
+              )}
+            </div>
+            <div>
+              <p className="kicker mb-2">DAILY SEARCHES · LAST 14 DAYS</p>
+              {data.dailySearches.every((d) => d.count === 0) ? (
+                <p className="font-reader text-sm text-graphite">No searches in the last 14 days.</p>
+              ) : (
+                <ul className="max-w-[280px] space-y-0.5 font-mono text-xs">
+                  {data.dailySearches.map((d) => (
+                    <li key={d.date} className="flex justify-between gap-6">
+                      <span className="text-graphite">{d.date}</span>
+                      <span className="font-semibold">{d.count}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+
+          {/* Recent client errors */}
+          <div>
+            <p className="kicker mb-2">RECENT CLIENT ERRORS · LAST 25</p>
+            {data.clientErrors.length === 0 ? (
+              <p className="font-reader text-sm text-graphite">No client errors reported — all clear.</p>
+            ) : (
+              <ul className="max-w-[760px] divide-y divide-rule border border-rule font-mono text-xs">
+                {data.clientErrors.map((e, i) => (
+                  <li key={`${e.createdAt}-${i}`} className="px-3 py-2">
+                    <div className="flex flex-wrap items-baseline gap-x-3">
+                      <span className="text-graphite">{e.createdAt.replace("T", " ").slice(0, 19)}</span>
+                      <span className="font-semibold break-all">{e.message.slice(0, 200)}</span>
+                    </div>
+                    {e.url && <p className="mt-0.5 break-all text-graphite">{e.url}</p>}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 // ── Admin import ───────────────────────────────────────────────────────────
 export function AdminView() {
   const { user, go } = useStore();
@@ -336,6 +618,8 @@ export function AdminView() {
           <pre className="mt-2 overflow-auto scroll-thin">{JSON.stringify(result, null, 2)}</pre>
         </div>
       )}
+
+      <AdminAnalytics />
     </div>
   );
 }

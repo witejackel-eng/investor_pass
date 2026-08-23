@@ -29,6 +29,7 @@ model User {
   updatedAt     DateTime @updatedAt
 
   subscription  Subscription?
+  passwordResets PasswordResetToken[]
   bookmarks     Bookmark[]
   savedSearches SavedSearch[]
   collections   Collection[]
@@ -70,6 +71,22 @@ model Subscription {
   updatedAt       DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ── Auth recovery: single-use password reset tokens ─────────────────────────
+// Token is stored as sha256(token) — the raw token only ever exists in the
+// email/link. One live token per user at a time (new request invalidates old).
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 // Lightweight product analytics (spec §45–47). Append-only.

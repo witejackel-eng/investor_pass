@@ -34,6 +34,8 @@ export type View =
   | "upgrade"
   | "login"
   | "signup"
+  | "forgot"
+  | "reset"
   | "admin";
 
 export type ViewParams = Record<string, string | undefined>;

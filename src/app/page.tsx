@@ -29,6 +29,8 @@ const AccountView = dynamic(() => import("@/components/investor/views-auth").the
 const UpgradeView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.UpgradeView })), { loading: () => <Loading /> });
 const LoginView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.LoginView })), { loading: () => <Loading /> });
 const SignupView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.SignupView })), { loading: () => <Loading /> });
+const ForgotView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.ForgotView })), { loading: () => <Loading /> });
+const ResetView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.ResetView })), { loading: () => <Loading /> });
 const AdminView = dynamic(() => import("@/components/investor/views-auth").then((m) => ({ default: m.AdminView })), { loading: () => <Loading /> });
 
 export default function Home() {
@@ -65,6 +67,8 @@ export default function Home() {
       case "upgrade": return <UpgradeView />;
       case "login": return <LoginView />;
       case "signup": return <SignupView />;
+      case "forgot": return <ForgotView />;
+      case "reset": return params.token ? <ResetView token={params.token} /> : <ForgotView />;
       case "admin": return <AdminView />;
       default: return <HomeView />;
     }
