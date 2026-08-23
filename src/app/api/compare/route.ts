@@ -80,10 +80,33 @@ export async function GET(req: Request) {
         picks.push(rows[rows.length - 1]);
       }
     
+      // Decision Ledger overlap (Master Plan PHASE 12): each investor's
+      // documented decisions within this comparison's filter space.
+      const decisions = await db.decision.findMany({
+        where: { personId: p.id, source: { isNot: null } },
+        select: {
+          id: true, title: true, date: true, action: true, outcome: true,
+          confidence: true, verified: true,
+          company: { select: { slug: true, name: true } },
+        },
+        orderBy: { decisionDate: "asc" },
+        take: 12,
+      });
+
       return {
         investor: { slug: p.slug, name: p.name },
         total: rows.length,
         years,
+        decisions: decisions.map((d) => ({
+          id: d.id,
+          title: d.title,
+          date: d.date,
+          action: d.action,
+          outcome: d.outcome,
+          confidence: d.confidence,
+          verified: d.verified,
+          company: d.company ? { slug: d.company.slug, name: d.company.name } : null,
+        })),
         topTags: {
           themes: [...themes.entries()].slice(0, 8).map(([slug, name]) => ({ slug, name })),
           companies: [...companies.entries()].slice(0, 8).map(([slug, name]) => ({ slug, name })),

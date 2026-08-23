@@ -14,6 +14,7 @@ import {
   PassageItem,
   SectionLabel,
   fmt,
+  Refreshing,
 } from "../../ui";
 
 export const revalidate = 3600;
@@ -58,7 +59,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function YearPage({ params }: Params) {
   const { year } = await params;
   const data = await getYearPage(year);
-  if (!data) notFound();
+  if (!data) {
+    if (/^\d{4}$/.test(year)) return <Refreshing what="year page" />;
+    notFound();
+  }
 
   const crumbs = [
     { label: "INVESTOR/PASS", href: "/" },

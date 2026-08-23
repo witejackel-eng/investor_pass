@@ -12,7 +12,10 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:reset": "prisma migrate reset",
-    "test": "bun test"
+    "test": "bun test",
+    "qa:integrity": "bun scripts/qa/integrity-check.ts",
+    "db:graph": "bun scripts/db/build-graph.ts",
+    "db:optimize": "bun scripts/db/optimize.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

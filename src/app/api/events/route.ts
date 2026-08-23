@@ -25,6 +25,11 @@ const ALLOWED = new Set([
   "subscription_started",
   "share_clicked",
   "public_page_viewed",
+  "trail_started",
+  "graph_explored",
+  "passage_viewed",
+  "follow_toggled",
+  "signup_completed",
 ]);
 
 // POST /api/events  { name, props? } — best-effort, never blocks UX

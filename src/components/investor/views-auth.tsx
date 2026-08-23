@@ -562,6 +562,120 @@ export function AdminAnalytics() {
   );
 }
 
+// ── Admin density dashboard (Master Plan PHASE 27-28) ───────────────────────
+type DensityInvestor = {
+  slug: string; name: string; tier: string;
+  sources: number; passages: number; public_passages: number;
+  themes: number; companies: number; decisions: number;
+  cross_links: number; verified_pct: number;
+  years_from: number | null; years_to: number | null;
+};
+type DensityData = {
+  investors: DensityInvestor[];
+  tierSummary: { A: number; B: number; C: number };
+  strongThemes: { slug: string; name: string; investors: number; passages: number; decisions: number }[];
+  weakThemes: { slug: string; name: string; investors: number }[];
+};
+
+export function DensityDashboard() {
+  const [data, setData] = useState<DensityData | null>(null);
+  const [err, setErr] = useState("");
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open || data || err) return;
+    apiGet<DensityData>("/api/admin/density").then(setData).catch((e) => setErr(e.message));
+  }, [open, data, err]);
+
+  return (
+    <section className="mt-10 border-t-2 border-ink pt-4">
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="kicker">/ ADMIN — DENSITY</p>
+          <h2 className="mt-1 font-display text-2xl font-semibold tracking-tight">Corpus density</h2>
+        </div>
+        <button onClick={() => setOpen((o) => !o)} className="chip">
+          {open ? "COLLAPSE" : "OPEN DASHBOARD"}
+        </button>
+      </div>
+      {open && (
+        <>
+          {!data && !err && <p className="mt-3 font-reader text-sm text-graphite">Measuring the corpus…</p>}
+          {err && <p className="mt-3 font-mono text-xs text-red-700">{err}</p>}
+          {data && (
+            <>
+              <p className="mt-2 font-mono text-xs text-graphite">
+                TIER A: {data.tierSummary.A} · TIER B: {data.tierSummary.B} · TIER C: {data.tierSummary.C}
+                {" "}· strong themes: {data.strongThemes.length} · weak themes: {data.weakThemes.length}
+              </p>
+              <div className="mt-4 max-h-96 overflow-auto scroll-thin border border-rule">
+                <table className="w-full text-left font-mono text-[0.68rem]">
+                  <thead className="sticky top-0 bg-paper-2">
+                    <tr className="border-b border-ink">
+                      <th className="px-2 py-1.5">INVESTOR</th>
+                      <th className="px-2 py-1.5">TIER</th>
+                      <th className="px-2 py-1.5">SRC</th>
+                      <th className="px-2 py-1.5">PASSAGES</th>
+                      <th className="px-2 py-1.5">PUBLIC</th>
+                      <th className="px-2 py-1.5">THEMES</th>
+                      <th className="px-2 py-1.5">CORPS</th>
+                      <th className="px-2 py-1.5">DECISIONS</th>
+                      <th className="px-2 py-1.5">X-LINKS</th>
+                      <th className="px-2 py-1.5">VERIFIED</th>
+                      <th className="px-2 py-1.5">YEARS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.investors.map((inv) => (
+                      <tr key={inv.slug} className="border-b border-rule hover:bg-paper-2">
+                        <td className="px-2 py-1.5 font-semibold">{inv.name}</td>
+                        <td className="px-2 py-1.5">{inv.tier}</td>
+                        <td className="px-2 py-1.5">{inv.sources}</td>
+                        <td className="px-2 py-1.5">{inv.passages.toLocaleString()}</td>
+                        <td className="px-2 py-1.5">{inv.public_passages}</td>
+                        <td className="px-2 py-1.5">{inv.themes}</td>
+                        <td className="px-2 py-1.5">{inv.companies}</td>
+                        <td className="px-2 py-1.5">{inv.decisions}</td>
+                        <td className="px-2 py-1.5">{inv.cross_links}</td>
+                        <td className="px-2 py-1.5">{inv.verified_pct}%</td>
+                        <td className="px-2 py-1.5">{inv.years_from ?? "—"}–{inv.years_to ?? "—"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4 grid gap-6 md:grid-cols-2">
+                <div>
+                  <p className="kicker mb-2">STRONG THEMES (≥5 INVESTORS)</p>
+                  <div className="max-h-64 overflow-auto scroll-thin">
+                    {data.strongThemes.slice(0, 15).map((t) => (
+                      <div key={t.slug} className="flex justify-between border-b border-rule py-1 font-mono text-[0.68rem]">
+                        <span>{t.name}</span>
+                        <span className="text-graphite">{t.investors} inv · {t.passages.toLocaleString()} refs · {t.decisions} dec</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="kicker mb-2">WEAK THEMES (&lt;3 INVESTORS)</p>
+                  <div className="max-h-64 overflow-auto scroll-thin">
+                    {data.weakThemes.map((t) => (
+                      <div key={t.slug} className="flex justify-between border-b border-rule py-1 font-mono text-[0.68rem]">
+                        <span>{t.name}</span>
+                        <span className="text-graphite">{t.investors} investor{t.investors === 1 ? "" : "s"}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      )}
+    </section>
+  );
+}
+
 // ── Admin import ───────────────────────────────────────────────────────────
 export function AdminView() {
   const { user, go } = useStore();
@@ -603,7 +717,8 @@ export function AdminView() {
 
   return (
     <div className="mx-auto max-w-[860px] px-4 py-12">
-      <div className="border-t-2 border-ink pt-4">
+      <DensityDashboard />
+      <div className="mt-10 border-t-2 border-ink pt-4">
         <p className="kicker">/ ADMIN — IMPORT</p>
         <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight">Structured import</h1>
         <p className="mt-2 font-reader text-graphite">Paste a JSON document in the import format (see master prompt §25). Records enter as <span className="font-mono">provenance_status: imported</span>.</p>

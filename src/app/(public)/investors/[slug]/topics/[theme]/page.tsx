@@ -42,7 +42,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function InvestorTopicPage({ params }: Params) {
   const { slug, theme } = await params;
   const data = await getInvestorTopic(slug, theme);
-  if (!data) notFound();
+  if (!data) {
+    notFound();
+  }
 
   const span =
     data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : null;

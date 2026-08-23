@@ -6,6 +6,7 @@
  */
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
+import { track } from "@/lib/client";
 import { apiPost, apiDelete } from "@/lib/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -69,6 +70,7 @@ export function FollowButton({
     try {
       if (next) {
         await apiPost("/api/follows", { entityType, entityId, label: displayLabel });
+      track("follow_toggled", { following: true });
         setJustFollowed(true);
         setTimeout(() => setJustFollowed(false), 6000);
       } else {
@@ -80,6 +82,7 @@ export function FollowButton({
             onClick: async () => {
               try {
                 await apiPost("/api/follows", { entityType, entityId, label: displayLabel });
+      track("follow_toggled", { following: true });
                 setFollowing(true);
                 qc.invalidateQueries({ queryKey: ["follows"] });
               } catch {}

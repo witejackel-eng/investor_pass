@@ -148,7 +148,11 @@ async function samplePublicPassages(
   take: number = FREE_PASSAGE_LIMIT
 ): Promise<PassageCard[]> {
   const rows = await db.passage.findMany({
-    where: mergeWhere(where, { visibility: "public" }),
+    where: mergeWhere(where, {
+      visibility: "public",
+      // Evidence rule §9: public HTML only ever renders reviewed material.
+      verificationState: { notIn: ["needs_review", "rejected"] },
+    }),
     select: PASSAGE_CARD_SELECT,
     orderBy: [{ source: { year: "desc" } }, { sequence: "asc" }],
     take,
@@ -607,12 +611,73 @@ async function _getSitemapData(): Promise<SitemapData> {
 // ── Cached public API ─────────────────────────────────────────────────────────
 // React cache(): generateMetadata and the page body call the same loader; the
 // wrapper dedupes them into one DB roundtrip per request (per render pass).
+//
+// Every wrapper is also failure-proof: a transient database error returns
+// null instead of throwing, so prerendering degrades to a "refreshing" page
+// (noindex) that ISR replaces within the hour — a deploy never fails on a
+// database hiccup. Pages distinguish "never existed" (404) from "failed to
+// load" (fallback) with a lightweight existence check.
 
-export const getInvestorPage = cache(_getInvestorPage);
-export const getInvestorTopic = cache(_getInvestorTopic);
-export const getThemePage = cache(_getThemePage);
-export const getCompanyPage = cache(_getCompanyPage);
-export const getEventPage = cache(_getEventPage);
-export const getYearPage = cache(_getYearPage);
-export const getInvestorDirectory = cache(_getInvestorDirectory);
-export const getSitemapData = cache(_getSitemapData);
+async function safe<T>(label: string, fn: () => Promise<T | null>): Promise<T | null> {
+  try {
+    return await fn();
+  } catch (e) {
+    console.error(`[public-pages] ${label} failed:`, e instanceof Error ? e.message : e);
+    return null;
+  }
+}
+
+export const getInvestorPage = cache((slug: string) =>
+  safe("getInvestorPage", () => _getInvestorPage(slug))
+);
+export const getInvestorTopic = cache((slug: string, theme: string) =>
+  safe("getInvestorTopic", () => _getInvestorTopic(slug, theme))
+);
+export const getThemePage = cache((slug: string) =>
+  safe("getThemePage", () => _getThemePage(slug))
+);
+export const getCompanyPage = cache((slug: string) =>
+  safe("getCompanyPage", () => _getCompanyPage(slug))
+);
+export const getEventPage = cache((slug: string) =>
+  safe("getEventPage", () => _getEventPage(slug))
+);
+export const getYearPage = cache((year: string) =>
+  safe("getYearPage", () => _getYearPage(year))
+);
+export const getInvestorDirectory = cache(() =>
+  safe("getInvestorDirectory", () => _getInvestorDirectory())
+);
+export const getSitemapData = cache(() =>
+  safe("getSitemapData", () => _getSitemapData())
+);
+
+/** Existence checks — let pages distinguish 404 from a failed load. */
+export const personExists = cache(async (slug: string): Promise<boolean> => {
+  try {
+    return Boolean(await db.person.findUnique({ where: { slug }, select: { id: true } }));
+  } catch {
+    return true; // if the check itself fails, assume it exists (render fallback)
+  }
+});
+export const themeExists = cache(async (slug: string): Promise<boolean> => {
+  try {
+    return Boolean(await db.theme.findUnique({ where: { slug }, select: { id: true } }));
+  } catch {
+    return true;
+  }
+});
+export const companyExists = cache(async (slug: string): Promise<boolean> => {
+  try {
+    return Boolean(await db.company.findUnique({ where: { slug }, select: { id: true } }));
+  } catch {
+    return true;
+  }
+});
+export const eventExists = cache(async (slug: string): Promise<boolean> => {
+  try {
+    return Boolean(await db.event.findUnique({ where: { slug }, select: { id: true } }));
+  } catch {
+    return true;
+  }
+});

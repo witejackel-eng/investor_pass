@@ -95,6 +95,8 @@ export async function searchPassages(
   const where: any = { AND: [] };
   // visibility gate — anonymous users only see public passages
   where.visibility = isPro ? { in: ["public", "pro"] } : "public";
+  // Evidence rule §9: unreviewed/rejected material never enters retrieval.
+  where.verificationState = { notIn: ["needs_review", "rejected"] };
 
   if (personId) {
     where.AND.push({ source: { personId } });

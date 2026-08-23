@@ -342,3 +342,15 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Print mode (Master Plan §34): clean paper copy of research surfaces ── */
+@media print {
+  header, footer, nav, .gate, .no-print, [data-print-hidden] { display: none !important; }
+  body { background: #fff !important; color: #111 !important; }
+  main { padding: 0 !important; max-width: 100% !important; }
+  .grid-paper { display: none !important; }
+  a { color: #111 !important; text-decoration: underline !important; }
+  .chip { border: 1px solid #999 !important; background: none !important; color: #111 !important; }
+  h1, h2, h3 { break-after: avoid; }
+  article, section, li { break-inside: avoid; }
+}

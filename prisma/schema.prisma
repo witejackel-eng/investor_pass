@@ -165,6 +165,8 @@ model Passage {
   sequence    Int      @default(0)
   // "public" | "pro" — premium passages only returned to entitled users
   visibility  String   @default("pro")
+  // Master Plan §7/§9: "verified" | "provisional" | "needs_review" | "rejected"
+  verificationState String @default("verified")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -536,4 +538,38 @@ model InvestorRelation {
   reason   String
 
   @@id([fromSlug, toSlug, kind])
+}
+
+// Editorial trust layer (Master Plan §35-36, §10):
+// reader-submitted corrections with a review state machine, and a public
+// changelog of editorial changes.
+model Correction {
+  id          String    @id @default(cuid())
+  // "passage" | "source" | "decision" | "company" | "theme" | "event"
+  entityKind  String
+  entityId    String
+  // "factual" | "sourcing" | "attribution" | "tagging" | "duplicate" | "other"
+  issueType   String
+  message     String
+  submitterEmail String?
+  // "submitted" | "reviewed" | "corrected" | "rejected"
+  state       String    @default("submitted")
+  resolution  String?
+  createdAt   DateTime  @default(now())
+  resolvedAt  DateTime?
+
+  @@index([entityKind, entityId])
+  @@index([state, createdAt])
+}
+
+model Changelog {
+  id        String   @id @default(cuid())
+  date      String // "2026-08-23" display date
+  title     String
+  body      String // markdown-lite: paragraphs and +/- lines
+  // "corpus" | "feature" | "editorial" | "fix"
+  category  String
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
 }

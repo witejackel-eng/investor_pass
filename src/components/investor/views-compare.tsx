@@ -18,8 +18,18 @@ type CompareColumn = {
     source: { slug: string; title: string; year: number | null; sourceType: string; publisher: string | null; url: string | null };
   }[];
 };
+type CompareDecision = {
+  id: string;
+  title: string;
+  date: string | null;
+  action: string | null;
+  outcome: string | null;
+  confidence: string | null;
+  verified: boolean;
+  company: { slug: string; name: string } | null;
+};
 type CompareData = {
-  columns: CompareColumn[];
+  columns: (CompareColumn & { decisions: CompareDecision[] })[];
   shared: Record<"themes" | "companies" | "concepts" | "events", TagRef[]>;
 };
 
@@ -233,6 +243,25 @@ export function CompareView() {
                       <li className="text-sm text-[var(--graphite)]">No public references matched for this investor.</li>
                     )}
                   </ul>
+
+                  {/* Decision Ledger overlap (Master Plan PHASE 12) */}
+                  {col.decisions.length > 0 && (
+                    <div className="mt-5 border-t border-[var(--rule)] pt-3">
+                      <p className="kicker mb-2">DOCUMENTED DECISIONS</p>
+                      <ul className="space-y-2">
+                        {col.decisions.slice(0, 6).map((d) => (
+                          <li key={d.id} className="text-sm">
+                            <span className="font-mono text-[0.6rem] uppercase tracking-wider text-[var(--graphite)]">
+                              {d.date ?? "undated"}
+                              {d.company ? ` · ${d.company.name}` : ""}
+                              {d.verified ? " · verified" : ""}
+                            </span>
+                            <p className="font-medium leading-snug">{d.title}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

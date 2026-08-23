@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import { getThemePage } from "@/lib/server/public-pages";
+import { getThemePage, themeExists } from "@/lib/server/public-pages";
 import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
-import { Chip, EmptyNote, ExploreNext, PageHead, SectionLabel, fmt } from "../../ui";
+import { Refreshing, Chip, EmptyNote, ExploreNext, PageHead, SectionLabel, fmt } from "../../ui";
 
 export const revalidate = 3600;
 
@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const data = await getThemePage(slug);
-  if (!data) return { title: "Theme not found" };
+  if (!data) return { title: "Theme", robots: { index: false, follow: false } };
 
   const top = data.investors.slice(0, 4).map((i) => i.name.split(" ").pop()).join(", ");
   const title = `${data.name} — ${fmt(data.counts.total)} references across investors`;
@@ -45,7 +45,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function ThemePage({ params }: Params) {
   const { slug } = await params;
   const data = await getThemePage(slug);
-  if (!data) notFound();
+  if (!data) {
+    if (await themeExists(slug)) return <Refreshing what="theme page" />;
+    notFound();
+  }
 
   const span =
     data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : null;

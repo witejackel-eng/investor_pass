@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useStore } from "@/stores/app-store";
+import { track } from "@/lib/client";
 import { apiPost, apiDelete } from "@/lib/client";
 import { Bookmark, BookmarkCheck } from "lucide-react";
 import { toast } from "sonner";
@@ -42,6 +43,7 @@ export function BookmarkButton({
         toast.success("Bookmark removed");
       } else {
         await apiPost("/api/bookmarks", { kind, entityId, label });
+      track("bookmark_created");
         setSaved(true);
         toast.success("Bookmarked");
       }

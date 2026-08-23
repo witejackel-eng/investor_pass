@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import { getInvestorPage } from "@/lib/server/public-pages";
+import { getInvestorPage, personExists } from "@/lib/server/public-pages";
 import { getInvestorConnections } from "@/lib/server/graph";
+import { ShareButton, PrintButton } from "@/components/public/page-actions";
 import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
   EmptyNote,
+  Refreshing,
   ExploreNext,
   PageHead,
   PassageBoundary,
@@ -36,7 +38,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const data = await getInvestorPage(slug);
-  if (!data) return { title: "Investor not found" };
+  if (!data) return { title: "Investor", robots: { index: false, follow: false } };
 
   const hasPublicContent = data.counts.publicCount > 0;
   const title = hasPublicContent
@@ -63,7 +65,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function InvestorPage({ params }: Params) {
   const { slug } = await params;
   const data = await getInvestorPage(slug);
-  if (!data) notFound();
+  if (!data) {
+    if (await personExists(slug)) return <Refreshing what="investor profile" />;
+    notFound();
+  }
 
   const hasPublicContent = data.counts.publicCount > 0;
   // Cross-investor links (shared themes/companies) — internal linking across
@@ -107,6 +112,11 @@ export default async function InvestorPage({ params }: Params) {
         }
         lede={data.shortDescription}
       />
+
+      <div className="mt-4 flex flex-wrap gap-1.5 print:hidden">
+        <ShareButton title={data.name} />
+        <PrintButton />
+      </div>
 
       {data.bio ? (
         <section className="mt-10 max-w-3xl">

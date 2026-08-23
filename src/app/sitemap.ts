@@ -16,6 +16,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const entries: MetadataRoute.Sitemap = [
     { url: `${BASE}/investors`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/trails`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/changelog`, changeFrequency: "weekly", priority: 0.5 },
     { url: `${BASE}/legal`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
@@ -23,8 +25,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push({ url: `${BASE}/legal/${slug}`, changeFrequency: "yearly", priority: 0.3 });
   }
 
+  for (const t of ["how-buffett-learned-to-value-quality", "2008-through-five-investors", "margin-of-safety-graham-to-klarman"]) {
+    entries.push({ url: `${BASE}/trails/${t}`, changeFrequency: "monthly", priority: 0.8 });
+  }
+
   try {
     const data = await getSitemapData();
+    if (!data) return entries;
 
     for (const inv of data.investors) {
       entries.push({

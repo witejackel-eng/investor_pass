@@ -7,7 +7,7 @@
  * links and back/forward work.
  */
 import { create } from "zustand";
-import { apiGet, apiPost, apiDelete } from "@/lib/client";
+import { apiGet, apiPost, apiDelete, track } from "@/lib/client";
 
 export type View =
   | "home"
@@ -123,6 +123,7 @@ export const useStore = create<State>((set, get) => ({
   },
   signup: async (email, password, name) => {
     const data = await apiPost<{ user: User }>("/api/auth/signup", { email, password, name });
+    track("signup_completed");
     set({ user: data.user });
   },
   login: async (email, password) => {

@@ -4,6 +4,7 @@ import { useStore } from "@/stores/app-store";
 import { apiGet } from "@/lib/client";
 import { EntityChips, PremiumGate, SourceTypeBadge, ProBadge, FictionalAttributionBanner, isFictionalisedAttribution } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
+import { ReportCorrection } from "@/components/investor/report-correction";
 import { Loading } from "./views-core";
 import { ArrowLeft, ExternalLink, Sparkles, Link2, ChevronRight, ArrowRight } from "lucide-react";
 
@@ -24,6 +25,7 @@ type PassageDetail = {
     section: string | null;
     sequence: number;
     visibility: string;
+    verificationState?: string;
   };
   source: {
     id: string;
@@ -356,12 +358,21 @@ export function PassageView({ id, investor }: { id: string; investor?: string })
               <SourceTypeBadge type={source.sourceType} />
               {source.year && <span className="font-mono text-xs text-graphite">{source.year}</span>}
               {passage.visibility === "pro" && <ProBadge />}
+              {passage.verificationState === "verified" && (
+                <span className="inline-flex items-center gap-1 border border-signal-dark px-1.5 py-0.5 font-mono text-[0.6rem] font-bold uppercase tracking-wider text-signal-dark" title="Editorially verified against the original source">
+                  Verified
+                </span>
+              )}
             </div>
             {source.url && (
               <a href={source.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-signal-dark hover:underline">
                 View original <ExternalLink className="h-3 w-3" />
               </a>
             )}
+          </div>
+
+          <div className="border border-rule p-4">
+            <ReportCorrection entityKind="passage" entityId={passage.id} entityLabel="Passage" />
           </div>
 
           <div className="border border-rule p-4">

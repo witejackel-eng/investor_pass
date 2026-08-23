@@ -10,9 +10,9 @@ const globalForPrisma = globalThis as unknown as {
  * build workers) creates its own PrismaClient — with the default pool size
  * (num_cpus × 2 + 1) that exhausts the pooler instantly (EMAXCONNSESSION).
  *
- * connection_limit=1 gives each instance exactly one pooled connection and
- * lets Prisma queue queries internally; pool_timeout=20 makes bursts wait
- * instead of failing; connect_timeout=10 fails fast on cold pooler issues.
+ * connection_limit=3 keeps the 3 build workers at 9 clients (under the 15
+ * cap) while giving each instance enough throughput to prerender pages
+ * concurrently; pool_timeout=60 lets bursts queue instead of failing.
  * Idempotent: a URL that already carries a connection_limit passes through.
  */
 function datasourceUrl(): string | undefined {
@@ -20,7 +20,7 @@ function datasourceUrl(): string | undefined {
   if (!url || url.startsWith('file:')) return url
   if (url.includes('connection_limit=')) return url
   const sep = url.includes('?') ? '&' : '?'
-  return `${url}${sep}connection_limit=1&pool_timeout=20&connect_timeout=10`
+  return `${url}${sep}connection_limit=3&pool_timeout=60&connect_timeout=10`
 }
 
 export const db =

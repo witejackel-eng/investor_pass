@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
-import { apiGet } from "@/lib/client";
+import { apiGet, track } from "@/lib/client";
 import { useInvestors } from "@/hooks/use-investors";
 import { PersonalHomeRails } from "@/components/investor/personal-home";
 import { FollowButton } from "@/components/investor/follow-button";
@@ -281,6 +281,9 @@ type InvestorDetail = {
 };
 
 export function InvestorView({ slug }: { slug: string }) {
+  useEffect(() => {
+    if (slug) track("investor_explored", { slug });
+  }, [slug]);
   const go = useStore((s) => s.go);
   const [data, setData] = useState<InvestorDetail | null>(null);
   const [years, setYears] = useState<{ year: number; sources: number; passages: number }[]>([]);

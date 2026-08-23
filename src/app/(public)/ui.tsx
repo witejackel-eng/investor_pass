@@ -197,3 +197,31 @@ export function ExploreNext({ groups }: { groups: { label: string; links: React.
 export function EmptyNote({ children }: { children: React.ReactNode }) {
   return <p className="prose-reader text-muted-foreground">{children}</p>;
 }
+
+/**
+ * Rendered when a detail page's data failed to load (transient DB error at
+ * build or ISR time). ISR replaces it within the revalidation window; the
+ * page carries noindex so a degraded render is never indexed.
+ */
+export function Refreshing({ what }: { what: string }) {
+  return (
+    <div className="mx-auto max-w-2xl py-16">
+      <p className="kicker">UPDATING</p>
+      <h1 className="mt-4 font-display text-3xl font-bold tracking-tight">
+        This {what} is being refreshed.
+      </h1>
+      <p className="prose-reader mt-3">
+        The library revalidates automatically — this page restores itself within the hour. Nothing
+        is lost; the record is still in the index.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-1.5">
+        <Link href="/investors" className="chip chip-signal">
+          BROWSE INVESTORS →
+        </Link>
+        <a href="/#/view=search" className="chip">
+          SEARCH THE LIBRARY →
+        </a>
+      </div>
+    </div>
+  );
+}

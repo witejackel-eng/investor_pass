@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import { getCompanyPage } from "@/lib/server/public-pages";
+import { getCompanyPage, companyExists } from "@/lib/server/public-pages";
 import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
@@ -14,6 +14,7 @@ import {
   PassageItem,
   SectionLabel,
   fmt,
+  Refreshing,
 } from "../../ui";
 
 export const revalidate = 3600;
@@ -33,7 +34,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const data = await getCompanyPage(slug);
-  if (!data) return { title: "Company not found" };
+  if (!data) return { title: "Company", robots: { index: false, follow: false } };
 
   const topInvestor = data.investors[0]?.name;
   const title = `${data.name} — ${fmt(data.counts.total)} investor references`;
@@ -54,7 +55,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function CompanyPage({ params }: Params) {
   const { slug } = await params;
   const data = await getCompanyPage(slug);
-  if (!data) notFound();
+  if (!data) {
+    if (await companyExists(slug)) return <Refreshing what="company page" />;
+    notFound();
+  }
 
   const span =
     data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : null;

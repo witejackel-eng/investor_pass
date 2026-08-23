@@ -31,6 +31,8 @@ function matches(row: AnyRow, where: AnyRow | undefined): boolean {
         switch (op) {
           case "in":
             return (val as unknown[]).some((v) => row[k] === v);
+          case "notIn":
+            return !(val as unknown[]).includes(row[k]);
           case "not":
             return row[k] !== val;
           case "gt":

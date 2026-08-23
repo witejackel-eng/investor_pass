@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import { getEventPage } from "@/lib/server/public-pages";
+import { getEventPage, eventExists } from "@/lib/server/public-pages";
 import { asIsoDate, breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
@@ -14,6 +14,7 @@ import {
   PassageItem,
   SectionLabel,
   fmt,
+  Refreshing,
 } from "../../ui";
 
 export const revalidate = 3600;
@@ -33,7 +34,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const data = await getEventPage(slug);
-  if (!data) return { title: "Event not found" };
+  if (!data) return { title: "Event", robots: { index: false, follow: false } };
 
   const title = `${data.name} — how investors responded`;
   const description = `${fmt(data.counts.total)} source-linked references across ${
@@ -53,7 +54,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function EventPage({ params }: Params) {
   const { slug } = await params;
   const data = await getEventPage(slug);
-  if (!data) notFound();
+  if (!data) {
+    if (await eventExists(slug)) return <Refreshing what="event page" />;
+    notFound();
+  }
 
   const crumbs = [
     { label: "INVESTOR/PASS", href: "/" },
