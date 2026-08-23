@@ -23,6 +23,7 @@ export function GraphExplorer({
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const drag = useRef<{ x: number; y: number } | null>(null);
+  const [dragging, setDragging] = useState(false);
 
   const typeOf = (n: GNode) => String(n.type ?? n.kind ?? "other");
   const layerKey = layers.join(",");
@@ -67,13 +68,13 @@ export function GraphExplorer({
       <div className="grid gap-3 xl:grid-cols-[1fr_320px]">
         <div
           className="ops-card overflow-auto"
-          style={{ maxHeight: 560, cursor: drag.current ? "grabbing" : "grab" }}
+          style={{ maxHeight: 560, cursor: dragging ? "grabbing" : "grab" }}
           tabIndex={0}
           aria-label="Graph canvas — drag to pan"
-          onPointerDown={(e) => { drag.current = { x: e.clientX - pan.x, y: e.clientY - pan.y }; }}
+          onPointerDown={(e) => { drag.current = { x: e.clientX - pan.x, y: e.clientY - pan.y }; setDragging(true); }}
           onPointerMove={(e) => { if (drag.current) setPan({ x: e.clientX - drag.current.x, y: e.clientY - drag.current.y }); }}
-          onPointerUp={() => { drag.current = null; }}
-          onPointerLeave={() => { drag.current = null; }}
+          onPointerUp={() => { drag.current = null; setDragging(false); }}
+          onPointerLeave={() => { drag.current = null; setDragging(false); }}
         >
           <div style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: "0 0", transition: "transform 0.05s linear" }}>
             {[...byLayer.entries()].map(([layer, list]) => (
