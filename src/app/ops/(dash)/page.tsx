@@ -19,9 +19,11 @@ function Card({ label, status, detail }: { label: string; status: string; detail
 }
 
 export default async function OpsOverview() {
-  const [corpus, extras, integrity, feats] = await Promise.all([
-    getCorpus(), getExtras(), getIntegrity().catch(() => null), Promise.resolve(featureSummary()),
-  ]);
+  // Sequential (Supabase session pool cap = 15 concurrent clients).
+  const corpus = await getCorpus();
+  const extras = await getExtras();
+  const integrity = await getIntegrity().catch(() => null);
+  const feats = featureSummary();
   const fails = integrity?.filter((r) => r.status === "ISSUES" && r.severity === "FAIL") ?? [];
   const warns = integrity?.filter((r) => r.status === "ISSUES" && r.severity === "WARNING") ?? [];
   const build = qaStatus("build"); const tsc = qaStatus("typecheck"); const tests = qaStatus("tests"); const lint = qaStatus("lint");

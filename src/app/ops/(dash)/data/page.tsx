@@ -14,25 +14,18 @@ export default async function OpsData() {
     const people = await db.person.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, name: true, slug: true } });
     const idBy = new Map(people.map((p) => [p.id, p]));
 
-    const [srcBy, insBy, themeBy, compBy, evBy, decBy, verBy] = await Promise.all([
-      db.source.groupBy({ by: ["personId"], _count: { _all: true } }),
-      db.passage.groupBy({ by: ["sourceId"], _count: { _all: true } }).then((rows) => {
-        // passages belong to sources; map source→person once
-        return db.source.findMany({ select: { id: true, personId: true } }).then((srcs) => {
-          const s2p = new Map(srcs.map((s) => [s.id, s.personId]));
-          const byPerson = new Map<string, number>();
-          for (const r of rows) {
-            const pid = s2p.get(r.sourceId);
-            if (pid) byPerson.set(pid, (byPerson.get(pid) ?? 0) + r._count._all);
-          }
-          return byPerson;
-        });
-      }),
-      db.passageTheme.groupBy({ by: ["themeId"] }).then(() => null), // replaced below by grouped raw
-      Promise.resolve(null), Promise.resolve(null),
-      db.decision.groupBy({ by: ["personId"], _count: { _all: true } }),
-      db.decision.groupBy({ by: ["personId"], where: { verified: true }, _count: { _all: true } }),
-    ]);
+    // Sequential on purpose (Supabase session-mode pool cap = 15).
+    const srcBy = await db.source.groupBy({ by: ["personId"], _count: { _all: true } });
+    const passageRows = await db.passage.groupBy({ by: ["sourceId"], _count: { _all: true } });
+    const srcs = await db.source.findMany({ select: { id: true, personId: true } });
+    const s2p = new Map(srcs.map((x) => [x.id, x.personId]));
+    const insBy = new Map<string, number>();
+    for (const r of passageRows) {
+      const pid = s2p.get(r.sourceId);
+      if (pid) insBy.set(pid, (insBy.get(pid) ?? 0) + r._count._all);
+    }
+    const decBy = await db.decision.groupBy({ by: ["personId"], _count: { _all: true } });
+    const verBy = await db.decision.groupBy({ by: ["personId"], where: { verified: true }, _count: { _all: true } });
 
     // Distinct-entity coverage via three grouped raw queries (one per junction)
     const q = async (table: string, col: string) => {
@@ -44,11 +37,9 @@ export default async function OpsData() {
       );
       return new Map(r.map((x) => [x.personId, Number(x.n)]));
     };
-    const [themes, comps, evs] = await Promise.all([
-      q("PassageTheme", "themeId"),
-      q("PassageCompany", "companyId"),
-      q("PassageEvent", "eventId"),
-    ]);
+    const themes = await q("PassageTheme", "themeId");
+    const comps = await q("PassageCompany", "companyId");
+    const evs = await q("PassageEvent", "eventId");
 
     rows = people.map((p) => ({
       name: p.name, slug: p.slug,

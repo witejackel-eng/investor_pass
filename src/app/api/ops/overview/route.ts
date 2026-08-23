@@ -10,24 +10,26 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const [passages, sources, investors, themes, concepts, companies, events, decisions, newsletterSubs, activePro] =
-      await Promise.all([
-        db.passage.count(),
-        db.source.count(),
-        db.person.count({ where: { status: "active" } }),
-        db.theme.count(),
-        db.concept.count(),
-        db.company.count(),
-        db.event.count(),
-        db.decision.count(),
-        db.appConfig.count({ where: { key: { startsWith: "newsletter:" } } }),
-        db.subscription.count({ where: { state: "active" } }),
-      ]);
+    // Single pooled round-trip instead of 10 parallel connections.
+    const countsRow = await db.$queryRawUnsafe<Record<string, number>>(`
+      SELECT
+        (SELECT COUNT(*)::int FROM "Passage") AS passages,
+        (SELECT COUNT(*)::int FROM "Source") AS sources,
+        (SELECT COUNT(*)::int FROM "Person" WHERE status = 'active') AS investors,
+        (SELECT COUNT(*)::int FROM "Theme") AS themes,
+        (SELECT COUNT(*)::int FROM "Concept") AS concepts,
+        (SELECT COUNT(*)::int FROM "Company") AS companies,
+        (SELECT COUNT(*)::int FROM "Event") AS events,
+        (SELECT COUNT(*)::int FROM "Decision") AS decisions,
+        (SELECT COUNT(*)::int FROM "AppConfig" WHERE key LIKE 'newsletter:%') AS "newsletterSubs",
+        (SELECT COUNT(*)::int FROM "Subscription" WHERE state = 'active') AS "activePro"
+    `);
+    const c = countsRow[0] as unknown as { passages: number; sources: number; investors: number; themes: number; concepts: number; companies: number; events: number; decisions: number; newsletterSubs: number; activePro: number };
 
     return json({
-      corpus: { passages, sources, investors, themes, concepts, companies, events, decisions },
-      newsletterSubs,
-      activePro,
+      corpus: c,
+      newsletterSubs: c.newsletterSubs,
+      activePro: c.activePro,
       at: new Date().toISOString(),
     }, { headers: { "Cache-Control": "no-store" } });
   } catch {

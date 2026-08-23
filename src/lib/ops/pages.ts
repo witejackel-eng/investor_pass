@@ -2,6 +2,10 @@ import { db } from "@/lib/db";
 import { FEATURES } from "@/data/ops/registry";
 import qa from "@/data/ops/qa-snapshot.json";
 
+/**
+ * Control Room page data — ONE raw query per view (pooler-safe: Supabase
+ * session mode caps at 15 clients; parallel Prisma calls each hold one).
+ */
 export type Corpus = {
   passages: number; sources: number; investors: number; themes: number;
   concepts: number; companies: number; events: number; decisions: number;
@@ -9,16 +13,23 @@ export type Corpus = {
 
 export async function getCorpus(): Promise<Corpus | null> {
   try {
-    const [passages, sources, investors, themes, concepts, companies, events, decisions, subs, pro] =
-      await Promise.all([
-        db.passage.count(), db.source.count(),
-        db.person.count({ where: { status: "active" } }),
-        db.theme.count(), db.concept.count(), db.company.count(),
-        db.event.count(), db.decision.count(),
-        db.appConfig.count({ where: { key: { startsWith: "newsletter:" } } }),
-        db.subscription.count({ where: { state: "active" } }),
-      ]);
-    return { passages, sources, investors, themes, concepts, companies, events, decisions };
+    const rows = await db.$queryRawUnsafe<Record<string, unknown>[]>(`
+      SELECT
+        (SELECT COUNT(*)::int FROM "Passage") AS passages,
+        (SELECT COUNT(*)::int FROM "Source") AS sources,
+        (SELECT COUNT(*)::int FROM "Person" WHERE status = 'active') AS investors,
+        (SELECT COUNT(*)::int FROM "Theme") AS themes,
+        (SELECT COUNT(*)::int FROM "Concept") AS concepts,
+        (SELECT COUNT(*)::int FROM "Company") AS companies,
+        (SELECT COUNT(*)::int FROM "Event") AS events,
+        (SELECT COUNT(*)::int FROM "Decision") AS decisions
+    `);
+    const c = rows[0] as Record<string, number>;
+    return {
+      passages: Number(c.passages), sources: Number(c.sources), investors: Number(c.investors),
+      themes: Number(c.themes), concepts: Number(c.concepts), companies: Number(c.companies),
+      events: Number(c.events), decisions: Number(c.decisions),
+    };
   } catch {
     return null;
   }
@@ -26,11 +37,13 @@ export async function getCorpus(): Promise<Corpus | null> {
 
 export async function getExtras(): Promise<{ newsletterSubs: number; activePro: number; live: boolean }> {
   try {
-    const [newsletterSubs, activePro] = await Promise.all([
-      db.appConfig.count({ where: { key: { startsWith: "newsletter:" } } }),
-      db.subscription.count({ where: { state: "active" } }),
-    ]);
-    return { newsletterSubs, activePro, live: true };
+    const rows = await db.$queryRawUnsafe<Record<string, unknown>[]>(`
+      SELECT
+        (SELECT COUNT(*)::int FROM "AppConfig" WHERE key LIKE 'newsletter:%') AS subs,
+        (SELECT COUNT(*)::int FROM "Subscription" WHERE state = 'active') AS pro
+    `);
+    const r = rows[0] as Record<string, number>;
+    return { newsletterSubs: Number(r.subs), activePro: Number(r.pro), live: true };
   } catch {
     return { newsletterSubs: -1, activePro: -1, live: false };
   }

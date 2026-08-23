@@ -107,11 +107,10 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   });
 
   // 7. Duplicate canonical companies by name
-  const [dupCompanies, dupThemes, dupConcepts] = await Promise.all([
-    db.$queryRawUnsafe<Row[]>(`SELECT LOWER(COALESCE("canonicalName", name)) AS k, COUNT(*)::int AS n FROM "Company" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`),
-    db.$queryRawUnsafe<Row[]>(`SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Theme" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`),
-    db.$queryRawUnsafe<Row[]>(`SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Concept" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`),
-  ]);
+  // Sequential (pool cap): three dup scans
+  const dupCompanies = await db.$queryRawUnsafe<Row[]>(`SELECT LOWER(COALESCE("canonicalName", name)) AS k, COUNT(*)::int AS n FROM "Company" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`);
+  const dupThemes = await db.$queryRawUnsafe<Row[]>(`SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Theme" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`);
+  const dupConcepts = await db.$queryRawUnsafe<Row[]>(`SELECT LOWER(name) AS k, COUNT(*)::int AS n FROM "Concept" GROUP BY 1 HAVING COUNT(*) > 1 LIMIT 20`);
   const dupCoCount = dupCompanies.reduce((a, r) => a + Number(r.n), 0);
   push({
     id: "dup-companies",
@@ -201,12 +200,29 @@ export async function runIntegrityChecks(): Promise<IntegrityResult[]> {
   return out;
 }
 
+// ── Transient pool-exhaustion retry (EMAXCONNSESSION) ──────────────────────
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+async function withRetry<T>(fn: () => Promise<T>, attempts = 3): Promise<T> {
+  for (let i = 0; ; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "";
+      if (i < attempts - 1 && /EMAXCONNSESSION|max clients/i.test(msg)) {
+        await sleep(1200 * (i + 1));
+        continue;
+      }
+      throw e;
+    }
+  }
+}
+
 // ── 10-minute module cache ────────────────────────────────────────────────
 let cache: { at: number; data: IntegrityResult[] } | null = null;
 
 export async function getIntegrity(force = false): Promise<IntegrityResult[]> {
   if (!force && cache && Date.now() - cache.at < 10 * 60_000) return cache.data;
-  const data = await runIntegrityChecks();
+  const data = await withRetry(runIntegrityChecks);
   cache = { at: Date.now(), data };
   return data;
 }
