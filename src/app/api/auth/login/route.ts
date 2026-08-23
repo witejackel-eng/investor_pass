@@ -43,7 +43,13 @@ export async function POST(req: Request) {
       .catch(() => {});
   }
 
-  const token = await createSession(user.id);
+  let token: string;
+  try {
+    token = await createSession(user.id);
+  } catch (e) {
+    console.error("[auth/login] session creation failed:", e instanceof Error ? e.message : e);
+    return error("Sign-in is temporarily unavailable. Please try again in a moment.", 500);
+  }
   await setSessionCookie(token);
 
   // Resolve effective entitlement

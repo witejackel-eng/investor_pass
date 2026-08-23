@@ -573,3 +573,15 @@ model Changelog {
 
   @@index([createdAt])
 }
+
+// Server-side application config (key/value). Used to bootstrap the session
+// signing secret when SESSION_SECRET is absent from the environment —
+// generated once, stored server-side only, never exposed via any API.
+// (The Session table already persists raw tokens server-side, so keeping the
+// signing key in the same database adds no new attack surface.)
+model AppConfig {
+  key       String   @id
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

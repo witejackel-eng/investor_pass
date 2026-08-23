@@ -7,7 +7,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { db } from "@/lib/db";
-import { createSession, setSessionCookie } from "@/lib/auth/session";
+import { createSession, SESSION_COOKIE_NAME, SESSION_COOKIE_OPTIONS } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +27,7 @@ function siteUrl(req: Request): string {
 }
 
 function oauthRedirect(req: Request, errMsg?: string) {
-  const dest = errMsg ? `${siteUrl(req)}/#/view=login&error=google` : `${siteUrl(req)}/`;
+  const dest = errMsg ? `${siteUrl(req)}/#/view=login&error=google&reason=${errMsg}` : `${siteUrl(req)}/`;
   return NextResponse.redirect(dest);
 }
 
@@ -99,8 +99,18 @@ export async function GET(req: Request) {
     return oauthRedirect(req, "db");
   }
 
-  const signed = await createSession(user.id);
-  await setSessionCookie(signed);
+  let signed: string;
+  try {
+    signed = await createSession(user.id);
+  } catch (e) {
+    console.error("[auth/google] session creation failed:", e instanceof Error ? e.message : e);
+    return oauthRedirect(req, "session");
+  }
 
-  return oauthRedirect(req);
+  // Set the session cookie directly on the redirect response — the most
+  // reliable delivery through a 307 (mutations via the cookies() store can
+  // be dropped by some proxies in front of redirects).
+  const res = oauthRedirect(req);
+  res.cookies.set(SESSION_COOKIE_NAME, signed, SESSION_COOKIE_OPTIONS);
+  return res;
 }

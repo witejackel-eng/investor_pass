@@ -38,7 +38,13 @@ export async function POST(req: Request) {
     },
   });
 
-  const token = await createSession(user.id);
+  let token: string;
+  try {
+    token = await createSession(user.id);
+  } catch (e) {
+    console.error("[auth/signup] session creation failed:", e instanceof Error ? e.message : e);
+    return error("Sign-up is temporarily unavailable. Please try again in a moment.", 500);
+  }
   await setSessionCookie(token);
 
   return json({
