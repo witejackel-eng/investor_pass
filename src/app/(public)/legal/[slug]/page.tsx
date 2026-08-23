@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LEGAL_DOCS, getLegalDoc } from "@/lib/legal";
+import { breadcrumbLd, serializeJsonLd } from "@/lib/server/jsonld";
 
 export const dynamic = "force-dynamic";
 
@@ -13,11 +14,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const doc = getLegalDoc(slug);
   if (!doc) return {};
+
+  const title = `${doc.title} — Investor/Pass`;
   return {
-    title: `${doc.title} — Investor/Pass`,
+    title,
     description: doc.description,
     robots: { index: true, follow: true },
     alternates: { canonical: `/legal/${doc.slug}` },
+    openGraph: {
+      title,
+      description: doc.description,
+      type: "article",
+      url: `/legal/${doc.slug}`,
+    },
+    twitter: { card: "summary", title, description: doc.description },
   };
 }
 
@@ -30,8 +40,16 @@ export default async function LegalDocPage({
   const doc = getLegalDoc(slug);
   if (!doc) notFound();
 
+  const jsonldHtml = serializeJsonLd([
+    breadcrumbLd([
+      { label: "LEGAL", href: "/legal" },
+      { label: doc.slug },
+    ]),
+  ]);
+
   return (
     <div className="mx-auto max-w-3xl py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonldHtml }} />
       <nav className="font-mono text-[0.62rem] uppercase tracking-wider text-graphite" aria-label="Breadcrumb">
         <Link href="/legal" className="hover:text-ink">
           LEGAL

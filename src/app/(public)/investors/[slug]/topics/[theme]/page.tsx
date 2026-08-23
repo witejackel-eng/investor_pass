@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getInvestorTopic } from "@/lib/server/public-pages";
+import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
   EmptyNote,
@@ -47,16 +48,29 @@ export default async function InvestorTopicPage({ params }: Params) {
   const span =
     data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : null;
 
+  const crumbs = [
+    { label: "INVESTOR/PASS", href: "/" },
+    { label: "INVESTORS", href: "/investors" },
+    { label: data.person.name.toUpperCase(), href: `/investors/${data.person.slug}` },
+    { label: "TOPICS" },
+    { label: data.theme.name.toUpperCase() },
+  ];
+  const jsonldHtml = serializeJsonLd([
+    breadcrumbLd(crumbs),
+    entityJsonld("WebPage", {
+      name: `${data.person.name} on ${data.theme.name}`,
+      path: `/investors/${data.person.slug}/topics/${data.theme.slug}`,
+      description:
+        data.theme.description ??
+        `${fmt(data.counts.total)} source-linked references tagged ${data.theme.name.toLowerCase()} across ${data.person.name}'s public record.`,
+    }),
+  ]);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonldHtml }} />
       <PageHead
-        crumb={[
-          { label: "INVESTOR/PASS", href: "/" },
-          { label: "INVESTORS", href: "/investors" },
-          { label: data.person.name.toUpperCase(), href: `/investors/${data.person.slug}` },
-          { label: "TOPICS" },
-          { label: data.theme.name.toUpperCase() },
-        ]}
+        crumb={crumbs}
         title={`${data.person.name} on ${data.theme.name}`}
         meta={[
           fmt(data.counts.total) + " INDEXED REFERENCES",

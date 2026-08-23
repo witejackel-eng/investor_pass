@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getInvestorPage } from "@/lib/server/public-pages";
+import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
   EmptyNote,
@@ -50,14 +51,25 @@ export default async function InvestorPage({ params }: Params) {
   const span =
     data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : "date range pending";
 
+  const crumbs = [
+    { label: "INVESTOR/PASS", href: "/" },
+    { label: "INVESTORS", href: "/investors" },
+    { label: data.name.toUpperCase() },
+  ];
+  const jsonldHtml = serializeJsonLd([
+    breadcrumbLd(crumbs),
+    entityJsonld("Person", {
+      name: data.name,
+      description: data.shortDescription ?? data.bio,
+      path: `/investors/${data.slug}`,
+    }),
+  ]);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonldHtml }} />
       <PageHead
-        crumb={[
-          { label: "INVESTOR/PASS", href: "/" },
-          { label: "INVESTORS", href: "/investors" },
-          { label: data.name.toUpperCase() },
-        ]}
+        crumb={crumbs}
         title={data.name}
         meta={[
           `${fmt(data.counts.sources)} SOURCES`,

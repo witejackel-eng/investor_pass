@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getYearPage } from "@/lib/server/public-pages";
+import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
   EmptyNote,
@@ -49,14 +50,25 @@ export default async function YearPage({ params }: Params) {
   const data = await getYearPage(year);
   if (!data) notFound();
 
+  const crumbs = [
+    { label: "INVESTOR/PASS", href: "/" },
+    { label: "YEARS" },
+    { label: String(data.year) },
+  ];
+  const jsonldHtml = serializeJsonLd([
+    breadcrumbLd(crumbs),
+    entityJsonld("WebPage", {
+      name: String(data.year),
+      path: `/years/${data.year}`,
+      description: `${fmt(data.counts.total)} source-linked references published or spoken in ${data.year}, indexed across the library.`,
+    }),
+  ]);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonldHtml }} />
       <PageHead
-        crumb={[
-          { label: "INVESTOR/PASS", href: "/" },
-          { label: "YEARS" },
-          { label: String(data.year) },
-        ]}
+        crumb={crumbs}
         title={String(data.year)}
         meta={[
           `${fmt(data.sources)} SOURCES`,

@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getThemePage } from "@/lib/server/public-pages";
+import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import { Chip, EmptyNote, ExploreNext, PageHead, SectionLabel, fmt } from "../../ui";
 
 export const revalidate = 3600;
@@ -39,14 +40,28 @@ export default async function ThemePage({ params }: Params) {
   const span =
     data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : null;
 
+  const crumbs = [
+    { label: "INVESTOR/PASS", href: "/" },
+    { label: "THEMES" },
+    { label: data.name.toUpperCase() },
+  ];
+  const jsonldHtml = serializeJsonLd([
+    breadcrumbLd(crumbs),
+    entityJsonld("WebPage", {
+      name: data.name,
+      path: `/themes/${data.slug}`,
+      description:
+        data.description ??
+        `${fmt(data.counts.total)} source-linked references tagged ${data.name}.`,
+      about: data.name,
+    }),
+  ]);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonldHtml }} />
       <PageHead
-        crumb={[
-          { label: "INVESTOR/PASS", href: "/" },
-          { label: "THEMES" },
-          { label: data.name.toUpperCase() },
-        ]}
+        crumb={crumbs}
         title={data.name}
         meta={[
           `${fmt(data.counts.total)} INDEXED REFERENCES`,

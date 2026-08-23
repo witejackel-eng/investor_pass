@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getEventPage } from "@/lib/server/public-pages";
+import { asIsoDate, breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
   EmptyNote,
@@ -44,14 +45,38 @@ export default async function EventPage({ params }: Params) {
   const data = await getEventPage(slug);
   if (!data) notFound();
 
+  const crumbs = [
+    { label: "INVESTOR/PASS", href: "/" },
+    { label: "EVENTS" },
+    { label: data.name.toUpperCase() },
+  ];
+  const eventDescription =
+    data.description ??
+    `${fmt(data.counts.total)} source-linked references across ${data.investors.length} investor record${
+      data.investors.length === 1 ? "" : "s"
+    }.`;
+  const startDate = asIsoDate(data.date);
+  const jsonldHtml = serializeJsonLd([
+    breadcrumbLd(crumbs),
+    startDate
+      ? entityJsonld("Event", {
+          name: data.name,
+          path: `/events/${data.slug}`,
+          description: eventDescription,
+          startDate,
+        })
+      : entityJsonld("WebPage", {
+          name: data.name,
+          path: `/events/${data.slug}`,
+          description: eventDescription,
+        }),
+  ]);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonldHtml }} />
       <PageHead
-        crumb={[
-          { label: "INVESTOR/PASS", href: "/" },
-          { label: "EVENTS" },
-          { label: data.name.toUpperCase() },
-        ]}
+        crumb={crumbs}
         title={data.name}
         meta={[
           ...(data.date ? [data.date.toUpperCase()] : []),

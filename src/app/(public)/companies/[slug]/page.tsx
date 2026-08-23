@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCompanyPage } from "@/lib/server/public-pages";
+import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
   EmptyNote,
@@ -48,14 +49,27 @@ export default async function CompanyPage({ params }: Params) {
   const span =
     data.years.from && data.years.to ? `${data.years.from}–${data.years.to}` : null;
 
+  const crumbs = [
+    { label: "INVESTOR/PASS", href: "/" },
+    { label: "COMPANIES" },
+    { label: data.name.toUpperCase() },
+  ];
+  const jsonldHtml = serializeJsonLd([
+    breadcrumbLd(crumbs),
+    entityJsonld("WebPage", {
+      name: data.name,
+      path: `/companies/${data.slug}`,
+      description:
+        data.description ??
+        `${fmt(data.counts.total)} source-linked references to ${data.name} across investor letters, memos and speeches.`,
+    }),
+  ]);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonldHtml }} />
       <PageHead
-        crumb={[
-          { label: "INVESTOR/PASS", href: "/" },
-          { label: "COMPANIES" },
-          { label: data.name.toUpperCase() },
-        ]}
+        crumb={crumbs}
         title={data.name}
         meta={[
           `${fmt(data.counts.total)} INDEXED REFERENCES`,
