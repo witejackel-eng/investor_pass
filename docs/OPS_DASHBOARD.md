@@ -39,6 +39,15 @@
 | `DATABASE_URL` | existing | Live counts/integrity (already set) |
 | `PUBLIC_SITE_URL` | existing | Health probe base |
 
+## Data-ops tools (owner-run with DATABASE_URL)
+
+| Tool | What it does | Safety |
+| --- | --- | --- |
+| `bun scripts/expand-paraphrases.ts` | Merges sequence-adjacent thin research units (<240 chars) from the SAME source into fuller paraphrases. Dry-run → proposals JSON; `--apply` executes with full backup; survivors start `needs_review` for human approval. | No invented content (merge-only, same-source); review-gated; backup written first |
+| `bun scripts/db/compress-text.ts [--rewrite]` | Lossless LZ4/ZSTD column compression on the big text columns; `--rewrite` re-TOASTs existing rows and reports sizes before/after. | Byte-identical SELECT output; brief per-batch locks |
+
+Founder test grants: `src/lib/auth/founder.ts` (currently `witejackel@gmail.com`) — idempotent server-side Pro grant on login; Subscription carries `provider="founder_grant"` for auditability.
+
 ## Known limitations
 
 - Build/typecheck/tests statuses come from the committed QA snapshot (serverless can't compile per-request); regenerate with `scripts/ops-qa-snapshot.ts` after each gate.

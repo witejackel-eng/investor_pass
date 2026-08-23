@@ -14,6 +14,7 @@
  */
 import "server-only";
 import { db } from "../db";
+import { isFounderGrant } from "./founder";
 import { cookies } from "next/headers";
 
 const SESSION_COOKIE = "ip_session";
@@ -172,6 +173,23 @@ export async function getSessionUser(): Promise<{
       await db.session.delete({ where: { id: session.id } }).catch(() => {});
       return null;
     }
+    // Founder/operator test grant (owner-authorized; see src/lib/auth/founder.ts).
+    // Idempotent — one-time upgrade per account, then a pure comparison.
+    if (session.user.entitlement !== "pro" && isFounderGrant(session.user.email)) {
+      const periodEnd = new Date(Date.now() + 3650 * 24 * 60 * 60 * 1000); // ~10y
+      await db.subscription
+        .upsert({
+          where: { userId: session.user.id },
+          update: { state: "active", entitlement: "pro", provider: "founder_grant", variant: "founder", currentPeriodEnd: periodEnd, canceledAt: null },
+          create: { userId: session.user.id, state: "active", entitlement: "pro", provider: "founder_grant", variant: "founder", currentPeriodEnd: periodEnd },
+        })
+        .catch(() => {});
+      await db.user
+        .update({ where: { id: session.user.id }, data: { entitlement: "pro" } })
+        .catch(() => {});
+      session.user.entitlement = "pro";
+    }
+
     // Resolve effective entitlement: subscription state must be active/past_due to be pro.
     let entitlement: "free" | "pro" = session.user.entitlement as "free" | "pro";
     if (entitlement === "pro") {

@@ -55,6 +55,20 @@ export default async function OpsData() {
     err = true;
   }
 
+  // Paraphrase-length profile (single round-trip; pooler discipline)
+  let lengthStats: { total: number; avg: number; p50: number; thin: number } | null = null;
+  try {
+    const r = await db.$queryRawUnsafe<Record<string, unknown>[]>(`
+      SELECT COUNT(*)::int AS total,
+             ROUND(AVG(LENGTH(text)))::int AS avg,
+             PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY LENGTH(text))::int AS p50,
+             COUNT(*) FILTER (WHERE LENGTH(text) < 240)::int AS thin
+      FROM "Passage" WHERE "verificationState" NOT IN ('needs_review','rejected')
+    `);
+    const row = r[0] as Record<string, number>;
+    lengthStats = { total: Number(row.total), avg: Number(row.avg), p50: Number(row.p50), thin: Number(row.thin) };
+  } catch { lengthStats = null; }
+
   const grade = (insights: number) =>
     insights >= 250 ? { g: "CORE", c: "ops-pass" } : insights >= 40 ? { g: "ACTIVE", c: "ops-blue" } : insights >= 10 ? { g: "DEVELOPING", c: "ops-warn" } : { g: "DISCOVERY", c: "ops-warn" };
 
@@ -64,6 +78,19 @@ export default async function OpsData() {
         <h1 className="text-xl font-bold tracking-tight">Data — 31-investor completeness</h1>
         <p className="ops-kicker mt-1">REAL COUNTS · GRADES MEASURE DATA COMPLETENESS, NOT INVESTOR QUALITY (§76)</p>
       </div>
+
+      {lengthStats && (
+        <div className="ops-card">
+          <p className="ops-kicker mb-2">PARAPHRASE DEPTH — research-unit length profile</p>
+          <p className="text-xs">
+            {lengthStats.total.toLocaleString()} units · avg <b>{lengthStats.avg}</b> chars · median <b>{lengthStats.p50}</b> chars ·
+            thin (&lt;240) <b className="ops-warn">{lengthStats.thin.toLocaleString()}</b> ({Math.round((lengthStats.thin / Math.max(1, lengthStats.total)) * 100)}%)
+          </p>
+          <p className="mt-1 text-[0.68rem] text-[var(--ops-mute)]">
+            Expand via scripts/expand-paraphrases.ts (adjacent-unit merges, review-gated) · compress losslessly via scripts/db/compress-text.ts
+          </p>
+        </div>
+      )}
       {err && <p className="ops-fail text-sm">Database unreachable.</p>}
       {!err && (
         <div className="ops-card overflow-auto" style={{ maxHeight: 640 }}>

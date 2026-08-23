@@ -27,3 +27,8 @@ evidence policy (Reported → Review → Correct → Verify → Changelog).
 
 ### Database-outage fix (23c7d96)
 - FIXED (P0): intermittent site-wide "database unavailable" — Supabase session-pooler (15-client cap) exhausted by frozen serverless instances pinning session slots (EMAXCONNSESSION). Prisma now routes through the transaction pooler (`:6543` + `pgbouncer=true`, auto-rewritten in `src/lib/db.ts`; opt-out `IP_DB_SESSION_POOLER=1`), with `connection_limit=1` + transient retry retained. Verified: 8/8 and 15/15 concurrent search bursts pass (previously 5/8 failed); ops DATABASE check PASS.
+
+### Founder grant + paraphrase/expansion tooling (this release)
+- NEW: owner test grant — witejackel@gmail.com receives Pro automatically on next login (server-side, idempotent, auditable via Subscription provider "founder_grant").
+- NEW: scripts/expand-paraphrases.ts — same-source adjacent-unit merge pipeline for fuller research units (dry-run default, --apply with backup, needs_review gating per evidence policy).
+- NEW: scripts/db/compress-text.ts — lossless zstd/lz4 TOAST compression for text columns (+ /ops/data paraphrase-depth profile panel).
