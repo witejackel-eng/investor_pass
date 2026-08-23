@@ -1,6 +1,7 @@
 
 import type { MetadataRoute } from "next";
 import { getSitemapData } from "@/lib/server/public-pages";
+import { db } from "@/lib/db";
 import { EXPLAINERS } from "@/data/learn/explainers";
 import { ISSUES } from "@/data/newsletter/issues";
 
@@ -37,6 +38,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Real-path app surfaces (SEO landings; /search?q= variants are noindex via meta)
   entries.push({ url: `${BASE}/search`, changeFrequency: "weekly", priority: 0.8 });
   entries.push({ url: `${BASE}/letters/buffett`, changeFrequency: "monthly", priority: 0.9 });
+  const kbPeople = await db.person.findMany({ where: { status: "active" }, select: { slug: true } });
+  for (const p of kbPeople) entries.push({ url: `${BASE}/kb/${p.slug}`, changeFrequency: "weekly", priority: 0.8 });
   entries.push({ url: `${BASE}/compare`, changeFrequency: "weekly", priority: 0.8 });
 for (const slug of ["terms", "privacy", "cookies", "copyright", "disclaimer", "refunds"]) {
     entries.push({ url: `${BASE}/legal/${slug}`, changeFrequency: "yearly", priority: 0.3 });
