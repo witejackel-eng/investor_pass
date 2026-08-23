@@ -9,6 +9,7 @@ import { DecisionLedger } from "@/components/investor/decision-ledger";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
+import { FollowSuggestionsStrip } from "@/components/investor/views-entity";
 import { SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
 import { PRICING, useCurrency } from "@/lib/pricing";
 import { ArrowRight, Clock, Building2, Tag, FileText, ChevronRight } from "lucide-react";
@@ -292,6 +293,9 @@ export function InvestorView({ slug }: { slug: string }) {
         </div>
         <p className="mt-3 max-w-[760px] font-reader text-xl text-graphite">{investor.shortDescription}</p>
       </div>
+
+      {/* Readers-of-this-also-follow — self-hides when empty (views-entity) */}
+      {investor.status === "active" && <FollowSuggestionsStrip entityType="person" entityId={slug} investor={slug} />}
 
       {/* Stats */}
       <div className="mt-6 grid grid-cols-3 gap-4 border-t border-ink pt-4 md:grid-cols-6">

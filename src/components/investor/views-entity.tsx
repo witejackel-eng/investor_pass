@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useStore } from "@/stores/app-store";
+import { useStore, type View } from "@/stores/app-store";
 import { apiGet } from "@/lib/client";
 import { EntityChips, PremiumGate, SourceTypeBadge, ProBadge, FictionalAttributionBanner, isFictionalisedAttribution } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
@@ -473,6 +473,75 @@ export function SourceView({ slug }: { slug: string }) {
       <p className="mt-8 border-t border-rule pt-4 font-reader text-sm italic text-graphite">
         Passages are paraphrased contextual summaries with source attribution, not verbatim reproductions. No claim of fair use by word count is made. Follow the link above to read the original source in full.
       </p>
+    </div>
+  );
+}
+
+// ── Follow suggestions strip ("readers of this also follow") ────────────────
+type FollowSuggestion = { entityType: string; entityId: string; label: string; count: number };
+
+const SUGGESTION_VIEW: Record<string, View> = { person: "investor", topic: "topic" };
+
+/**
+ * Quiet co-occurrence strip from the follow graph. Renders nothing while
+ * loading, hides entirely on empty/error — zero layout commitment.
+ */
+export function FollowSuggestionsStrip({
+  entityType,
+  entityId,
+  investor,
+}: {
+  entityType: string;
+  entityId: string;
+  /** Investor context passed through to topic views. */
+  investor?: string;
+}) {
+  const go = useStore((s) => s.go);
+  const key = `${entityType}:${entityId}`;
+  // Keyed cache: items only render when they belong to the current entity,
+  // so switching entities shows nothing (no layout commitment) without a
+  // synchronous setState inside the effect.
+  const [loaded, setLoaded] = useState<{ key: string; items: FollowSuggestion[] }>({ key: "", items: [] });
+
+  useEffect(() => {
+    let active = true;
+    apiGet<{ suggestions: FollowSuggestion[] }>(
+      `/api/follows/suggestions?entityType=${encodeURIComponent(entityType)}&entityId=${encodeURIComponent(entityId)}`
+    )
+      .then((d) => {
+        if (active) setLoaded({ key, items: d.suggestions ?? [] });
+      })
+      .catch(() => {
+        if (active) setLoaded({ key, items: [] }); // errors are silent
+      });
+    return () => {
+      active = false;
+    };
+  }, [key, entityType, entityId]);
+
+  const items = loaded.key === key ? loaded.items : null;
+
+  if (!items || items.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      <p className="kicker mr-1">READERS OF THIS ALSO FOLLOW</p>
+      {items.map((s) => {
+        const view = SUGGESTION_VIEW[s.entityType];
+        if (!view) return null;
+        return (
+          <button
+            key={`${s.entityType}:${s.entityId}`}
+            onClick={() =>
+              go(view, { slug: s.entityId, ...(view === "topic" && investor ? { investor } : {}) })
+            }
+            className="chip chip-signal"
+            title={`Followed by ${s.count} ${s.count === 1 ? "reader" : "readers"} of this`}
+          >
+            {s.label} <span className="ml-1 opacity-60">{s.count}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
