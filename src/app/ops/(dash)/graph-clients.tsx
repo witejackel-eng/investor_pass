@@ -26,8 +26,8 @@ export function GraphExplorer({
   const [dragging, setDragging] = useState(false);
 
   const typeOf = (n: GNode) => String(n.type ?? n.kind ?? "other");
-  const layerKey = layers.join(",");
-  const byLayer = useMemo(() => {
+  // Cheap grouping (~160 nodes) — computed directly, no memoization needed.
+  const byLayer = (() => {
     const cols = new Map<string, GNode[]>();
     for (const n of nodes) {
       const t = typeOf(n);
@@ -36,7 +36,7 @@ export function GraphExplorer({
       cols.get(col)!.push(n);
     }
     return cols;
-  }, [nodes, layerKey]);
+  })();
 
   const matched = useMemo(() => {
     if (!q.trim()) return null;
