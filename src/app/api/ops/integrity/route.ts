@@ -15,7 +15,7 @@ export async function GET(req: Request) {
       { at: new Date().toISOString(), results },
       { headers: { "Cache-Control": "no-store" } }
     );
-  } catch {
-    return NextResponse.json({ error: "Integrity run failed" }, { status: 503, headers: { "Cache-Control": "no-store" } });
+  } catch (e) {
+    return NextResponse.json({ error: "Integrity run failed", detail: e instanceof Error ? e.message.slice(0, 300) : String(e) }, { status: 503, headers: { "Cache-Control": "no-store" } });
   }
 }
