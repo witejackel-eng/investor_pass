@@ -352,7 +352,7 @@ export function UpgradeView() {
         <button onClick={() => setVariant("annual")} className={`border-2 p-6 text-left transition-all ${variant === "annual" ? "border-ink bg-paper shadow-[4px_4px_0_0_var(--ink)]" : "border-rule bg-paper-2"}`}>
           <div className="flex items-center justify-between">
             <p className="kicker text-signal-dark">ANNUAL</p>
-            <span className="chip chip-signal">≈ 8 MONTHS</span>
+            <span className="chip chip-signal">LAUNCH PRICE</span>
           </div>
           <p className="mt-2 font-display text-4xl font-bold">{p.annual}<span className="text-base font-normal text-graphite">/yr</span></p>
           <p className="font-mono text-xs text-graphite">{currency === "INR" ? "₹3,999/year — save 33%" : "$79/year — save 27%"}</p>
