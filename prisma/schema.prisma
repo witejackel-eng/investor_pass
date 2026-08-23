@@ -275,8 +275,12 @@ model PassageProgress {
 model Follow {
   id         String   @id @default(cuid())
   userId     String
+  // "person" | "topic" | "concept" | "company" | "event" | "source" | "search"
   entityType String
+  // slug/id for entities; savedSearch.id for kind "search"
   entityId   String
+  // Denormalized display name for fast UI (owner spec §1)
+  label      String?
   // Alert depth (Pro layer, Master Plan §3-5): "off" | "weekly" | "instant"
   alertFrequency String @default("weekly")
   createdAt  DateTime @default(now())

@@ -53,6 +53,10 @@ export async function GET() {
     slug: s.slug,
     label: s.title,
     meta: `${s.person.name}${s.year ? ` · ${s.year}` : ""} · ${s._count.passages} passages`,
+    personName: s.person.name,
+    personSlug: s.person.slug,
+    year: s.year,
+    passageCount: s._count.passages,
     followed: personIds.includes(s.personId),
   }));
 

@@ -58,3 +58,4 @@ server.log
 /skills/
 data/corpora/raw/
 prisma/db/
+.env*
