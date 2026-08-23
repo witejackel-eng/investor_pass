@@ -1,0 +1,58 @@
+# Research Findings — Michael Burry
+Research date: 2026 (Task 1-a)
+
+## A. Verification Results
+| Sheet Source (short name) | Verdict | Best URL Found | Notes |
+|---|---|---|---|
+| Scion letter mirror set (hedgefundalpha et al.) | PARTIAL | https://www.scribd.com/document/436898728/Scion-Capital-Letters-pdf | Multiple unofficial mirrors confirmed: Scribd compiled PDF, diyinvestor.de/wp-content/uploads/2018/01/Scion-Capital-Letters.pdf, r/Burryology threads (Q3 2006, Q1 2008), mastersinvest.com/new-page-16, GuruFocus 2006 letter. All unofficial; copyright caveat stands. No authorized archive exists. |
+| FCIC staff interview audio (May 18, 2010) | CONFIRMED | https://fcic-static.law.stanford.edu/cdn_media/fcic-audio | Catalog entry exists: "2010-05-18 FCIC staff audiotape of interview with Michael Burry, Cornwall Capital.mp3, 97M" — hosted on Stanford's FCIC static mirror; FRASER finding aid also live. Still no transcript located. Audio file is bundled with Cornwall Capital session. |
+| "Against the Rules" podcast interview (2025) | CONFIRMED | https://www.pushkin.fm/podcasts/against-the-rules | Episode "Michael Burry Speaks," ~40 min. Apple/Omny/YouTube show Dec 2, 2025; Pushkin listing shows 12/16/2025 (re-list). YouTube: youtube.com/watch?v=nsE13fvjz18. Burry published companion Substack post same day (Dec 2, 2025). |
+| NYT op-ed Apr 4, 2010 | CONFIRMED | https://www.nytimes.com/2010/04/04/opinion/04burry.html | URL live. "I Saw the Crisis Coming. Why Didn't the Fed?" — published online Apr 3, 2010; print Sunday Apr 4. |
+| Vanity Fair Michael Lewis excerpt | CONFIRMED | https://archive.vanityfair.com/article/2010/4/betting-on-the-blind-side | Title correction: "Betting on the Blind Side" (not "Betting on the Blind"), VF April 2010 issue, posted online Mar 1, 2010. Also live at vanityfair.com/news/2010/04/wall-street-excerpt-201004. |
+| Cassandra Unchained Substack | CONFIRMED | https://michaeljburry.substack.com | ACTIVE and now "Dr. Michael Burry's sole focus." Launched ~Nov 24–25, 2025; $400/yr paid tier (Yahoo Nov 24, 2025). Posting through Aug 2026 ("Trading Post" series). Official X: @michaeljburry. |
+| Vanderbilt speech (2010?) | CHANGED | https://news.vanderbilt.edu/2011/04/13/michael-burry-transcript | Actually April 5, 2011 (not 2010): Chancellor's Lecture Series, "Missteps to Mayhem: Inside the Doomsday Machine with the Big Short." BOTH video (news.vanderbilt.edu/2011/04/13/video-burry-cls) and full transcript live. |
+| UCLA speech | CHANGED | https://economics.ucla.edu/wp-content/uploads/2016/09/2012-Commencement-Speech.doc | Actually UCLA Economics Commencement keynote 2012 (not 2010). Full transcript .doc hosted by UCLA econ dept; Business Insider coverage Jun 26, 2012. |
+| Scion 13F / EDGAR registrant | CONFIRMED | https://www.sec.gov/edgar/browse/?CIK=1649339 | CIK 0001649339, Scion Asset Management, LLC, Saratoga CA; 42 EDGAR filings since Feb 16, 2016; final 13F-HR = Q3 2025 (filed Nov 3, 2025). SPINE NOW TERMINAL — firm deregistered Nov 2025. |
+| Wayback scioncapital.com captures | PARTIAL | http://web.archive.org/web/*/scioncapital.com | archive.org unreachable from this sandbox (curl timeouts both CDX and availability APIs); sheet's prior verification retained as PROVISIONAL; manual/browser re-check still required. |
+| 60 Minutes segment (Big Short era) | CONFIRMED | https://www.imdb.com/title/tt1615928 | Episode "Inside the Collapse" (2010), Lesley Stahl; Burry appears as Self (IMDb credits); CBS News companion page for Lewis interview Mar 12, 2010. |
+| Twitter/X record (GME "I was early", deleted tweets) | CONFIRMED | https://markets.businessinsider.com/news/stocks/big-short-investor-michael-burry-scion-gamestop-stock-price-frenzy-2021-2-1030050393 | Jan 27, 2021 tweet quoted by BI. Additional Bloomberg record: SEC subpoena over GME (Sep 24, 2021); account deleted after Musk spat (Nov 16, 2021). |
+
+## B. New Sources Found (not in sheet)
+| Year | Title | Type | Publisher | URL | Access | Provenance | Value (1-5) | Category | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| 2025 | Final Scion investor letter (liquidation notice, Oct 27, 2025) | letters | Scion (quoted in press) | https://www.reuters.com/sustainability/sustainable-finance-reporting/michael-burry-big-short-fame-deregisters-scion-asset-management-2025-11-13 | Free (quotes) | verified primary (quoted by Reuters/Yahoo/X posts) | 5 | letters | "With a heavy heart, I will liquidate…" — full text circulated on X; press quotes verified |
+| 2025 | "Michael Burry Speaks" — full YouTube episode (official ATR channel) | interviews | Pushkin (YouTube) | https://www.youtube.com/watch?v=nsE13fvjz18 | Free | verified primary | 5 | interviews | Full 40-min video version of the ATR interview |
+| 2025–2026 | Cassandra Unchained post corpus (e.g., "Trading Post June 18, 2026" — MELI buy; "The AI Buildout, Small Language Models, Intelligence per Watt…" Aug 2026; "Michael Lewis: Against the Rules Podcast" Dec 2, 2025) | letters | Substack | https://michaeljburry.substack.com/t/trading-posts | Paid ($400/yr), some free | verified primary | 5 | letters | Ongoing first-person analytical corpus; debut AI-bubble warning claims circular financing could inflate tech earnings >$170B through 2028 |
+| 2012 | UCLA Economics Commencement keynote — full transcript (.doc) | speeches | UCLA Dept. of Economics | https://economics.ucla.edu/wp-content/uploads/2016/09/2012-Commencement-Speech.doc | Free | verified primary | 4 | speeches | Hosted on official department site; intro by Prof. Roger Farmer |
+| 2011 | Vanderbilt Chancellor's Lecture "Missteps to Mayhem" — video + transcript | speeches | Vanderbilt News | https://news.vanderbilt.edu/2011/04/13/video-burry-cls | Free | verified primary | 4 | speeches | Talk given Apr 5, 2011; transcript at /2011/04/13/michael-burry-transcript |
+| 2026 | Bloomberg: "Michael Burry, an early GameStop buyer, is back hyping the stock" (Jan 26, 2026) | other | Bloomberg | https://www.bloomberg.com/news/articles/2026-01-26/michael-burry-an-early-gamestop-buyer-is-back-hyping-the-stock | Metered | verified secondary | 3 | other | Post-shutdown GME re-engagement — he says he has been buying GME again |
+| 2025 | "I Paid for Michael Burry's New $400 Substack So You Don't Have To" (Nov 24, 2025) | other | Yahoo Finance | https://finance.yahoo.com/news/paid-michael-burry-400-substack-204606067.html | Free | secondary | 3 | other | Reveals he references ~30-year-old letters in posts; useful paid-tier window |
+| 2021 | Bloomberg: SEC subpoena to Burry over GameStop (Sep 24, 2021) | regulatory | Bloomberg | https://www.bloomberg.com/news/articles/2021-09-24/michael-burry-says-he-received-subpoena-from-sec-over-gamestop | Metered | verified secondary | 3 | regulatory | Regulatory footprint beyond 13Fs |
+| c.1996–2000 | MSN Money article compilation (via csinvesting.org) + Silicon Investor post archive mirrors | archival | csinvesting.org / Scribd / HFA | https://www.scribd.com/document/243827775/Michael-Burry-Some-Old-Posts-From-Silicon-Investor | Free | likely primary (mirrors) | 4 | archival | Partially closes sheet gap "MSN Money column corpus unlocated": reddit r/ValueInvesting points to compiled MSN articles; SI threads partially alive at siliconinvestor.com; HFA strategies page (Apr 30, 2014) |
+| 2010 | 60 Minutes "Inside the Collapse" (Lesley Stahl; Burry on camera) | interviews | CBS | https://www.imdb.com/title/tt1615928 | Free (partial) | verified existence | 3 | interviews | Refines sheet's vague "60 Minutes segment" entry |
+| 2025 | Funds Society: Scion shutdown coverage (Nov 17, 2025) | other | Funds Society | https://www.fundssociety.com/en/news/markets/michael-burry-famous-for-the-film-the-big-short-shuts-down-the-hedge-fund-scion-asset-management | Free | secondary | 2 | other | Confirms liquidation letter + capital return by year-end |
+
+## C. Corrections / Status Changes
+- **MAJOR STATUS CHANGE: Scion Asset Management shut down.** Liquidation letter to investors dated Oct 27, 2025; SEC deregistration ~Nov 10, 2025 (Burry post); Reuters coverage Nov 13, 2025. The sheet's "13F holdings spine 2013→present" is now a TERMINAL spine ending Q3 2025 (filed Nov 3, 2025).
+- Vanderbilt speech re-dated: April 5, 2011 (not 2010); title "Missteps to Mayhem: Inside the Doomsday Machine with the Big Short"; both video and transcript survive on news.vanderbilt.edu.
+- UCLA speech re-dated: 2012 Economics Commencement (not 2010); full transcript on economics.ucla.edu.
+- VF excerpt title correction: "Betting on the Blind Side" (April 2010 issue).
+- ATR episode confirmed with exact title/dates: "Michael Burry Speaks," Dec 2, 2025 (Pushkin re-list Dec 16) — sheet's "Nov–Dec 2025" window holds but should be pinned to Dec 2.
+- NYT op-ed posted online Apr 3, 2010 (print Apr 4) — cite both dates.
+- Cassandra Unchained is NOT free-only: $400/yr paid tier (launched ~Nov 24–25, 2025, immediately post-shutdown); active through Aug 2026. Sheet should note paid access + X account @michaeljburry as companion channel.
+- Burry's stated depreciation thesis quantified by Reuters: accounting choices could understate depreciation ~$176B across 2026–2028, inflating reported profits (vs. the "$170B" figure in some secondary posts).
+- Final 13F (Q3 2025) posture per HFA: shorting AI stocks, adding healthcare and energy stakes.
+- MSN Money gap partially closed: compiled corpus survives via csinvesting.org compilation + mirrors (Scribd/HFA), though original MSN URLs remain dead.
+
+## D. Coverage & Tier Assessment
+- Passage yield: VERY HIGH (was HIGH — upgraded: shutdown letter, ATR interview, FCIC audio, and an ongoing Substack corpus give an unusually dense primary record; paid tier is the main access constraint)
+- Strongest themes: contrarian crisis bets, deep-value discipline, AI/macro-bubble skepticism, accounting-critique of reported earnings, retail-mania warnings, self-documented outsider psychology
+- Key gaps remaining: FCIC audio has no transcript; letter authentication vs Wayback scioncapital.com still pending (bot-blocked/network-blocked); GameStop exit filing-by-filing map; pre-fame columns only partially recovered; Substack paywall limits full-text
+- Tier recommendation: ACTIVE — living primary corpus (Substack + X), fresh terminal event (shutdown letter), and newly accessible long-form interview (ATR) + FCIC audio make Burry one of the highest-yield subjects in the corpus.
+
+## E. Notable Facts (with source URLs)
+- Burry's Oct 27, 2025 liquidation letter: "With a heavy heart, I will liquidate the funds and return capital, but for a small audit/tax holdback"; deregistration covered by Reuters Nov 13, 2025 — https://www.reuters.com/sustainability/sustainable-finance-reporting/michael-burry-big-short-fame-deregisters-scion-asset-management-2025-11-13
+- Scion EDGAR record: CIK 0001649339, 42 filings since Feb 16, 2016, final 13F-HR Q3 2025 — https://www.sec.gov/edgar/browse/?CIK=1649339 and https://13f.info/manager/0001649339-scion-asset-management-llc
+- FCIC audio file: "2010-05-18 FCIC staff audiotape of interview with Michael Burry, Cornwall Capital.mp3, 97M" — https://fcic-static.law.stanford.edu/cdn_media/fcic-audio
+- "Michael Burry Speaks" (ATR, ~40 min, Dec 2, 2025) — https://www.pushkin.fm/podcasts/against-the-rules ; Apple episode id 1000739222160; YouTube https://www.youtube.com/watch?v=nsE13fvjz18
+- Post-shutdown GME re-buy: Bloomberg Jan 26, 2026, "Michael Burry, an early GameStop buyer, is back hyping the stock" — https://www.bloomberg.com/news/articles/2026-01-26/michael-burry-an-early-gamestop-buyer-is-back-hyping-the-stock

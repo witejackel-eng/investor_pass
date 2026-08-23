@@ -23,6 +23,7 @@ export type View =
   | "event"
   | "search"
   | "trails"
+  | "graph"
   | "trailDetail"
   | "compare"
   | "library"

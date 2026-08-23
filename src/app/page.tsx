@@ -21,6 +21,7 @@ const EventView = dynamic(() => import("@/components/investor/views-event").then
 const TimelineView = dynamic(() => import("@/components/investor/views-timeline").then((m) => ({ default: m.TimelineView })), { loading: () => <Loading /> });
 const CompareView = dynamic(() => import("@/components/investor/views-compare").then((m) => ({ default: m.CompareView })), { loading: () => <Loading /> });
 const TrailsLazy = dynamic(() => import("@/components/investor/views-trails-lazy").then((m) => ({ default: m.TrailsLazy })), { loading: () => <Loading /> });
+const GraphView = dynamic(() => import("@/components/investor/views-graph").then((m) => ({ default: m.GraphView })), { loading: () => <Loading /> });
 const BookmarksView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.BookmarksView })), { loading: () => <Loading /> });
 const SavedSearchesView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.SavedSearchesView })), { loading: () => <Loading /> });
 const CollectionsView = dynamic(() => import("@/components/investor/views-product").then((m) => ({ default: m.CollectionsView })), { loading: () => <Loading /> });
@@ -56,6 +57,7 @@ export default function Home() {
       case "event": return params.slug ? <EventView slug={params.slug} investor={params.investor} /> : <HomeView />;
       case "search": return <SearchView initialQuery={params.q || ""} person={params.person} theme={params.theme} company={params.company} concept={params.concept} event={params.event} />;
       case "trails": return <TrailsLazy go={go} />;
+      case "graph": return <GraphView />;
       case "compare": return <CompareView />;
       case "trailDetail": return <TrailsLazy slug={params.slug} go={go} />;
       case "library": return <LibraryView />;

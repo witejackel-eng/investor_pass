@@ -60,6 +60,14 @@ export const COMPANIES: CompanyDef[] = [
   { slug: "graham-newman", name: "Graham-Newman Corporation", industry: "asset-management", description: "Graham's investment partnership where Buffett trained before starting his own partnership." },
   { slug: "oaktree", name: "Oaktree Capital", industry: "asset-management", description: "Alternative investment firm Howard Marks co-founded; publisher of his client memos." },
   { slug: "toyota", name: "Toyota", ticker: "TM", industry: "automotive", description: "Automaker cited in quality-and-efficiency discussions across investor writings." },
+  { slug: "motorola", name: "Motorola", ticker: "MOT", industry: "technology", description: "Electronics and communications company; Philip Fisher's flagship long-term growth holding." },
+  { slug: "texas-instruments", name: "Texas Instruments", ticker: "TXN", industry: "technology", description: "Semiconductor company Fisher backed in its early decades; a canonical growth-investing case." },
+  { slug: "icahn-enterprises", name: "Icahn Enterprises", ticker: "IEP", industry: "finance", description: "Carl Icahn's public holding company and the vehicle for his activist campaigns." },
+  { slug: "trans-world-airlines", name: "Trans World Airlines", canonicalName: "Trans World Airlines, Inc. (TWA)", industry: "industrials", description: "Airline Icahn took private in a leveraged buyout; a defining and costly episode of his early raid years." },
+  { slug: "rjr-nabisco", name: "RJR Nabisco", industry: "consumer-goods", description: "Tobacco-food combine targeted by Icahn and later KKR; emblematic of 1980s corporate-control battles." },
+  { slug: "texaco", name: "Texaco", industry: "energy", description: "Oil major Icahn pressed for restructuring after the Pennzoil judgment turmoil." },
+  { slug: "ebay", name: "eBay", ticker: "EBAY", industry: "technology", description: "Marketplace company Icahn publicly pressed to spin off PayPal in 2014." },
+  { slug: "moto-solutions", name: "Motorola Solutions", ticker: "MSI", industry: "technology", description: "Communications-equipment company that emerged from Icahn's push to break up Motorola." },
   { slug: "gen-re", name: "General Re", industry: "insurance", description: "Reinsurer Berkshire acquired in 1998; underwriting discipline lessons followed." },
   { slug: "netjets", name: "NetJets", industry: "industrials", description: "Fractional jet ownership business acquired by Berkshire in 1998." },
   { slug: "helzberg", name: "Helzberg Diamonds", industry: "retail", description: "Jewelry retailer sold to Berkshire by its owner with a handshake deal." },
@@ -119,6 +127,11 @@ export const CONCEPTS = [
   { slug: "survivorship", name: "Survivorship", description: "Avoiding ruin is the precondition of compounding." },
   { slug: "cyclical-recovery", name: "Cyclical Recovery", description: "Positioning for the turn of supply-demand cycles." },
   { slug: "time-horizon", name: "Time Horizon", description: "Longer views convert noise into signal." },
+  { slug: "scuttlebutt", name: "Scuttlebutt", description: "Fisher's method: gathering insight from customers, suppliers, and employees rather than filings alone." },
+  { slug: "growth-runway", name: "Growth Runway", description: "The capacity of a business to compound sales for years before maturity." },
+  { slug: "greenmail", name: "Greenmail", description: "1980s practice of buying back a raider's stake at a premium to end a takeover threat." },
+  { slug: "proxy-fight", name: "Proxy Fight", description: "Campaign to win shareholder votes and replace a board without owning the company." },
+  { slug: "leveraged-buyout", name: "Leveraged Buyout", description: "Acquiring a company using its own balance sheet as collateral." },
 ];
 
 export const EVENTS = [

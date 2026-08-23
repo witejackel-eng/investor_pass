@@ -1,0 +1,67 @@
+# Research Findings — Tweedy, Browne (firm; Knapp / Anderson lineage)
+Research date: 2026 (Task 1-d)
+
+## A. Identity
+- Name / Aliases: Tweedy, Browne Company LLC; historical names: Tweedy & Co. (1920), Tweedy, Browne & Reilly, Tweedy, Browne & Knapp (1959), Tweedy, Browne Partners (1968). Fund family: Tweedy, Browne Fund, Inc. "Oldest value investing firm on Wall Street."
+- Firms / Vehicles: Broker-dealer→investment adviser (registered 1975); mutual funds: Global Value Fund (created 1993; renamed International Value Fund on Jul 28, 2021), Global Value Fund II—Currency Unhedged (→ International Value Fund II), American Value Fund (→ Value Fund, Nov 29, 2006), Worldwide High Dividend Yield Value Fund (→ "Buybacks . Dividends + Value Fund", May 27, 2026); UCITS, managed accounts, ETFs and a new Partnerships site (tweedypartnerships.com). HQ: Stamford, Connecticut.
+- Active period: 1920–present (100-year anniversary celebrated March 2020). ~$14.8B AUM as of Dec 31, 2019 (firm About page).
+- Key premise notes (corrections, cautions):
+  - **Lineage verified from the firm's own About page**: Graham-Newman Corp. was a primary brokerage client in the 1930s–50s; through Graham the partners met Walter Schloss and Warren Buffett, and **Tom Knapp joined the firm in 1957 from Graham-Newman**, leading its conversion "from broker to investor"; in 1959 the partners of then "Tweedy, Browne & Knapp" pooled capital in a partnership vehicle; in 1968 the firm took its first outside money-management clients as limited partners. **Ed Anderson** co-formed Tweedy, Browne Partners with Knapp (1968, per Buffett's Superinvestors essay and the firm's history).
+  - **Chris Browne correction re-confirmed**: Christopher H. Browne (1946–December 13, 2009), author of The Little Book of Value Investing (2007) — died Dec 13, 2009, NOT 2019 (Wikipedia; NYT DealBook obit Dec 16, 2009). He was known for the twice-yearly fund newsletter.
+  - **AMG correction confirmed**: Affiliated Managers Group bought 70% of Tweedy, Browne in **1997** for $300M (Wikipedia) — the deal is 1997, and funds are distributed by AMG Distributors.
+  - **William Browne status**: joined 1978; now listed as "Senior Advisor to the firm's Investment Committee" (tweedyfunds.com/our-team; tweedy.com) — no longer among the Managing Directors; exact transition year not pinned this session. Current MDs/Investment Committee: Roger R. de Bree (2013), Andrew Ewert (2022), Frank H. Hawrylak (2014), Jay Hill (2013), Thomas H. Shrager (2003), John D. Spears (1974), Robert Q. Wyckoff, Jr. (2007).
+  - "No Investment Committee member has ever left Tweedy, Browne to join another investment firm." (team page, verified live)
+
+## B. Source Inventory (verified this session)
+| Year | Title | Type | Publisher | URL | Access | Provenance | Value (1-5) | Category | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| 1920→ (live) | "About — A Brief History" (official firm history) | archival | Tweedy, Browne | https://www.tweedyfunds.com/about | Free | verified primary (fetched in full this session) | 5 | archival | The canonical lineage paragraph: Graham-Newman client, Knapp 1957, 1959 partnership pooling, 1968 outside LPs, 1975 RIA registration |
+| 1994–2019 | Legacy Annual & Semi-Annual Reports (TBGVX etc.) — live PDFs verified from 9-30-1994 / 3-31-1994 onward | letters (fund reports) | Tweedy, Browne | https://www.tweedy.com/usfunds/wp-content/uploads/sites/10/2019/10/3-31-1995-Annual-Report-TBGVX.pdf (also 3-31-1994, 9-30-1994, 3-31-1996 — HTTP 200 probed) | Free | verified primary | 5 | letters | ~30+ year free report run; the **March 31, 1995 Annual Report (from p.7)** contains the firm's own "more complete account of its colorful history" |
+| 2003–2026 | Quarterly Fund Commentary archive (187 items, Q3-2003 → Q2-2026, incl. annual letters 2014/2024/2026, TSRs, statements) | letters | Tweedy, Browne | https://www.tweedyfunds.com/commentary/ (sitemap enumerated this session) | Free | verified primary | 4 | letters | e.g. /commentary/annual-letter-2026/, /commentary/q3-2003-commentary/ |
+| c. 1992→ | "What Has Worked in Investing" (research booklet, ~60 pp, 50+ academic studies) | other (research) | Tweedy, Browne | referenced at https://www.tweedyfunds.com/investment-philosophy; full mirror: https://www.scheuermannco.ch/wp-content/uploads/2023/02/worked_01.pdf | Free | likely primary (Tweedy-commissioned; official PDF URL not located this session — fetch via the philosophy page or Wayback) | 4 | other | The firm's evidence-base statement of low P/B, low P/E, small-cap, buyback effects |
+| 1984-05-17 | "The Superinvestors of Graham-and-Doddsville" (names Knapp & Anderson's Tweedy, Browne Partners; results in Table 2) | speeches (essay) | Warren Buffett / Columbia Business School | https://business.columbia.edu/insights/chazen-global-insights/superinvestors-graham-and-doddsville | Free | verified (essay text) | 5 | speeches | The external validation of the lineage; firm site also has a "graham-doddsville" commentary pointer |
+| 2007 | The Little Book of Value Investing | book | Christopher H. Browne, Wiley | retail (e.g. goodreads.com/en/book/show/75893) | Purchase | verified | 4 | books | The Browne-authored entry point to the firm's philosophy |
+| 2020-03-05 | "Celebrating the 100-Year Anniversary" — Tobias Carlisle video podcast with de Bree, Hawrylak, Hill, Shrager, Wyckoff | interviews | Tweedy, Browne (hosted) | https://www.tweedyfunds.com/commentary/celebrating-the-100-year-anniversary-of-tweedy-browne/ | Free | verified primary | 4 | interviews | Five current partners on philosophy and history; anniversary anchor |
+| 2015 | SEC 485BPOS filing (ownership by four MDs: W. Browne, Shrager, Spears, Wyckoff; fee/structure data) | regulatory | SEC EDGAR | https://www.sec.gov/Archives/edgar/data/896975/000119312515267402/d948002d485bpos.htm | Free | verified primary (filing) | 3 | regulatory | Structural facts + MD bios |
+| 2025-12-31 (filed 2026-03) | Form ADV Part 2A/2B | regulatory | SEC via firm site | https://www.tweedy.com/wp-content/uploads/2026/03/ADV_PART-2A_2B_Dec_31_2025_03302026.pdf | Free | verified primary | 3 | regulatory | Current ownership/committee structure |
+| Live 2026 | "Our Team" — Investment Committee bios + alignment data | archival | Tweedy, Browne | https://www.tweedyfunds.com/our-team | Free | verified primary (fetched) | 4 | archival | Seven committee members w/ start years; >$348.8M of MD/employee family money in own funds (6/30/2026) |
+| 2009-12-16 | "Christopher H. Browne, Value Investor, Dies" | other (obituary) | NYT DealBook | https://dealbook.nytimes.com/2009/12/16/christopher-h-browne-value-investor-dies | Free | secondary | 3 | other | Fixes the Dec 2009 death date; notes his twice-yearly newsletter |
+| Ongoing | Wikipedia: "Tweedy, Browne" + "Christopher H. Browne" | other | Wikipedia | https://en.wikipedia.org/wiki/Tweedy,_Browne | Free | secondary | 2 | other | AMG 1997 $300M/70%; first public mutual fund 1993; Schloss desk anecdote |
+| Ongoing | Tom Knapp & Ed Anderson Resource Page | other | Hedge Fund Alpha | https://hedgefundalpha.com/tom-knapp-tweedy-browne/ | Free | secondary | 3 | other | Consolidates Knapp/Anderson facts + Superinvestors tie |
+| Live 2026 | tweedypartnerships.com About/Team ("Will Browne and John Spears … principals for over 38 years"; "No Managing Director or former general partner has ever left…") | archival | Tweedy, Browne | https://www.tweedypartnerships.com/about and /our-team | Free | verified primary | 3 | archival | New partnerships arm; useful for the continuity claim |
+| 2023-01 | John Spears on the RWH Podcast (recap: "Boring Companies & Outsized Returns") | interviews | RWH / TIP (recap by Acquirer's Multiple) | https://acquirersmultiple.com/2023/01/tweedy-brownes-john-spears-boring-companies-outsized-returns | Free | secondary | 3 | interviews | William Green interview with the firm's longest-tenured MD (since 1974) |
+
+## C. Major Documented Decisions
+| Date | Decision | Company / Situation | Source | Notes |
+|---|---|---|---|---|
+| 1920 | Forrest Birchard (Bill) Tweedy founds the firm as a dealer in closely held/inactively traded securities — "buyers of last resort" at bargain prices | Firm formation | About page; Wikipedia | The niche that attracted Graham's brokerage business |
+| 1930s–50s | Graham-Newman becomes a primary brokerage client; relationships with Walter Schloss and Warren Buffett form | Lineage | About page (primary) | Schloss kept a desk at Tweedy (Wikipedia) |
+| 1957 | Tom Knapp joins from Graham-Newman; leads the firm's conversion from broker to investor | Knapp hire | About page (primary) | Bill Tweedy retired 1957; Howard Browne became president |
+| 1959 | Partners of "Tweedy, Browne & Knapp" pool their own capital in a partnership investment vehicle | Partnership formation | About page (primary) | Buffett Partnership-era structure |
+| 1968 | Knapp & Ed Anderson form Tweedy, Browne Partners; first outside clients admitted as LPs | Outside capital | About page + Superinvestors essay | The pair's results appear in Table 2 of Buffett's 1984 essay |
+| 1975 | Registers as investment adviser; separate accounts for individuals/institutions | RIA registration | About page (primary) | — |
+| 1993 | Creates first mutual fund open to the general public (Tweedy, Browne Global Value Fund) | Fund launch | Wikipedia; fund naming notes | Letter/report archive effectively begins with this launch (fiscal-year-end Mar 31; 1994-95 reports verified live) |
+| 1997 | AMG acquires 70% of Tweedy, Browne for $300M | Ownership | Wikipedia | Confirms the 1997 (not later) AMG deal |
+| 2007–09 | Chris Browne publishes The Little Book of Value Investing; dies Dec 13, 2009 | Leadership transition | Wiley; NYT DealBook; Wikipedia | Obituary-era correction logged in master notes |
+| 2020–26 | Succession completed: Browne to Senior Advisor; committee of de Bree/Ewert/Hawrylak/Hill/Shrager/Spears/Wyckoff; fund renames (2021 international funds; May 27, 2026 buybacks fund); partnerships arm launched | Firm evolution | our-team page; tweedy.com; disclaimer text (all fetched) | Continuity claim: no committee member has ever left for another firm |
+
+## D. Coverage & Tier Assessment
+- Temporal coverage: fund reports/letters ~1993/94→2026 (live, free); quarterly commentary 2003→2026; firm history documented back to 1920 via About page + the March 31, 1995 Annual Report (p.7); Superinvestors essay covers 1968–1983 partnership performance externally.
+- Strongest themes: Graham-lineage institutionalization, evidence-based value (What Has Worked), global value + currency hedging discipline, partnership stability/alignment, patience and "buyers of last resort" heritage
+- Biggest gaps: pre-1993 partnership-era (TBK Limited Partners) letters not on the live site (archival recovery needed); decision attribution is committee-level, so individual-decision passages are scarcer than for letter-named investors; Chris Browne's newsletter-era letters (1990s) sit inside old fund reports needing extraction
+- Passage yield: MEDIUM-HIGH (very deep free archival run, but authorship is collective; the 1995 annual-report history, Superinvestors appendix, What Has Worked booklet, and century-podcast are the highest-yield single passages)
+- Tier recommendation: DEVELOPING (leaning ACTIVE) — the free primary archive is arguably the deepest in the batch, but the corpus is firm-level rather than person-level; prioritize the 1995 history letter, What Has Worked, and the Superinvestors tie-in, then upgrade tier after ingestion shows decision-passage density.
+
+## E. Cross-references
+- Benjamin Graham / Graham-Newman → Buffett and Walter Schloss (both were brokerage clients/associates); Buffett's Superinvestors essay (1984) is the external validation node
+- AMG affiliation (1997) — same parent ecosystem as Akre Capital Management (see Akre sheet)
+- Columbia Business School / Graham & Doddsville newsletter lineage; Troyensen? no — keep to: Columbia essay host
+- Value-investing press ecosystem: Acquirer's Multiple / Tobias Carlisle (hosted the 100-year podcast; also covered John Spears's RWH episode) — same network as the Rochon/Spier/Sleep TIP-RWH podcast web
+- Walter Schloss (desk at Tweedy; never formally an employee) — potential cross-sheet node for the Graham cluster
+
+## F. Notable Facts (with source URLs)
+- Founded 1920 by Forrest B. Tweedy; Graham-Newman was a primary brokerage client; Tom Knapp joined 1957 from Graham-Newman and led the broker→investor conversion: https://www.tweedyfunds.com/about
+- Buffett's "Superinvestors of Graham-and-Doddsville" (1984): "Tom Knapp and Ed Anderson, also a Graham disciple, formed Tweedy, Browne Partners, and their investment results appear in Table 2": https://business.columbia.edu/insights/chazen-global-insights/superinvestors-graham-and-doddsville
+- Chris Browne died December 13, 2009 (not 2019): https://en.wikipedia.org/wiki/Christopher_H._Browne and https://dealbook.nytimes.com/2009/12/16/christopher-h-browne-value-investor-dies
+- AMG bought 70% of the firm in 1997 for $300M; the first public mutual fund was created in 1993: https://en.wikipedia.org/wiki/Tweedy,_Browne
+- "What Has Worked in Investing" booklet (50+ studies) is referenced on the firm's philosophy page with a full 60-page mirror available: https://www.tweedyfunds.com/investment-philosophy and https://www.scheuermannco.ch/wp-content/uploads/2023/02/worked_01.pdf

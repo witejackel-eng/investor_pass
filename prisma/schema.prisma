@@ -478,3 +478,62 @@ model CollectionItem {
 
   @@index([collectionId])
 }
+
+// ────────────────────────────────────────────────────────────────────────────
+// Knowledge-graph layer (Graphify model, applied to the investor corpus)
+//
+// Every entity in the database — investors, sources, passages, themes,
+// concepts, companies, events, years, decisions — is materialized as a node,
+// and every relationship as a typed edge with a confidence tag, mirroring
+// graphify's graph.json format (id/label/kind + relation/confidence/weight).
+// Communities (label propagation over the entity graph) and node weights
+// (degree) power the "god node" ranking. The layer is fully derived data:
+// rebuild it any time with `bun scripts/db/build-graph.ts`.
+// ────────────────────────────────────────────────────────────────────────────
+
+model GraphNode {
+  id      String   @id // "person:buffett", "theme:compounding", "year:1988"
+  kind    String // investor | source | passage | theme | concept | company | event | year | decision
+  label   String
+  slug    String?
+  href    String? // deep link into the app
+  weight  Int      @default(0) // degree — god-node ranking
+  communityId Int?
+  updatedAt DateTime @updatedAt
+
+  edgesFrom GraphEdge[] @relation("graphEdgeFrom")
+  edgesTo   GraphEdge[] @relation("graphEdgeTo")
+
+  @@index([kind])
+  @@index([communityId])
+  @@index([weight])
+}
+
+model GraphEdge {
+  id         String @id // md5(sourceId|targetId|relation) — deterministic, MERGE-safe
+  sourceId   String
+  targetId   String
+  relation   String // WROTE | CONTAINS | TAGGED | COVERS | MENTIONS | REFERENCES | PUBLISHED_IN | DECIDED_ON | MADE | REGARDING | ASSOCIATED_WITH | FOCUSES_ON | SHARED_THEME | SHARED_COMPANY | RELATED_TO
+  confidence String @default("EXTRACTED") // EXTRACTED | INFERRED
+  weight     Int    @default(1)
+
+  source GraphNode @relation("graphEdgeFrom", fields: [sourceId], references: [id], onDelete: Cascade)
+  target GraphNode @relation("graphEdgeTo", fields: [targetId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, targetId, relation])
+  @@index([sourceId])
+  @@index([targetId])
+  @@index([relation])
+}
+
+// Investor↔investor relationships from the Corpus Research Map (lineage,
+// apprenticeship, cohort, cluster, network) — consumed by the graph builder
+// as STUDIES/LINEAGE edges. Seeded by scripts/ingest/import-corpus-map.ts.
+model InvestorRelation {
+  fromSlug String
+  toSlug   String
+  kind     String // apprenticeship | lineage | cohort | cluster | network
+  reason   String
+
+  @@id([fromSlug, toSlug, kind])
+}

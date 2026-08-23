@@ -39,10 +39,10 @@ const PEOPLE = [
   { slug: "dalio", name: "Ray Dalio", birthYear: 1949, sortOrder: 12, shortDescription: "Bridgewater founder; principles and economic machine frameworks.", bio: "Ray Dalio (b. 1949) founded Bridgewater Associates and codified his decision-making into Principles and his template of debt cycles." },
   { slug: "templeton", name: "John Templeton", birthYear: 1912, sortOrder: 13, shortDescription: "Global contrarian pioneer of bargain hunting worldwide.", bio: "Sir John Templeton (1912\u20132008) pioneered global contrarian investing, buying at maximum pessimism across markets few Americans watched." },
   { slug: "greenblatt", name: "Joel Greenblatt", birthYear: 1957, sortOrder: 14, shortDescription: "Gotham Capital founder; special situations and the Magic Formula.", status: "coming_later" },
-  { slug: "fisher", name: "Philip Fisher", birthYear: 1907, sortOrder: 15, shortDescription: "Growth-investing pioneer and author of Common Stocks and Uncommon Profits.", status: "coming_later" },
+  { slug: "fisher", name: "Philip Fisher", birthYear: 1907, sortOrder: 15, shortDescription: "Growth-investing pioneer and author of Common Stocks and Uncommon Profits." },
   { slug: "pabrai", name: "Mohnish Pabrai", birthYear: 1964, sortOrder: 16, shortDescription: "Dhandho value investor and devoted student of Buffett and Munger.", status: "coming_later" },
   { slug: "ackman", name: "Bill Ackman", birthYear: 1966, sortOrder: 17, shortDescription: "Pershing Square founder; activist, concentrated public positions.", status: "coming_later" },
-  { slug: "icahn", name: "Carl Icahn", birthYear: 1936, sortOrder: 18, shortDescription: "The original corporate raider turned activist shareholder.", status: "coming_later" },
+  { slug: "icahn", name: "Carl Icahn", birthYear: 1936, sortOrder: 18, shortDescription: "The original corporate raider turned activist shareholder." },
   { slug: "swensen", name: "David Swensen", birthYear: 1954, sortOrder: 19, shortDescription: "Yale endowment architect of institutional portfolio management.", status: "coming_later" },
   { slug: "smith", name: "Terry Smith", birthYear: 1954, sortOrder: 20, shortDescription: "Fundsmith founder; buy good companies and do nothing.", status: "coming_later" },
 ];
@@ -88,7 +88,12 @@ async function main() {
 
   let totalPassages = 0;
 
-  const corpusFiles = readdirSync("data/corpora").filter((f) => f.endsWith(".jsonl"));
+  // Optional CLI filter: `bun scripts/ingest/import-db.ts fisher icahn` imports only
+// those corpora files. Without args, imports everything (full re-seed).
+const onlyFiles = process.argv.slice(2).map((a) => (a.endsWith(".jsonl") ? a : `${a}.jsonl`));
+const corpusFiles = readdirSync("data/corpora")
+  .filter((f) => f.endsWith(".jsonl"))
+  .filter((f) => onlyFiles.length === 0 || onlyFiles.includes(f));
   for (const file of corpusFiles) {
     const lines = (await Bun.file(`data/corpora/${file}`).text())
       .split("\n")

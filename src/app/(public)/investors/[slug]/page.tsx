@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getInvestorPage } from "@/lib/server/public-pages";
+import { getInvestorConnections } from "@/lib/server/graph";
 import { breadcrumbLd, entityJsonld, serializeJsonLd } from "@/lib/server/jsonld";
 import {
   ChipRow,
@@ -53,6 +54,9 @@ export default async function InvestorPage({ params }: Params) {
   if (!data) notFound();
 
   const hasPublicContent = data.counts.publicCount > 0;
+  // Cross-investor links (shared themes/companies) — internal linking across
+  // the directory. Never fails the page: graph is derived data.
+  const connections = await getInvestorConnections(slug).catch(() => []);
   const span =
     data.years.from && data.years.to
       ? `${data.years.from}–${data.years.to}`
@@ -122,6 +126,38 @@ export default async function InvestorPage({ params }: Params) {
           )}
         </div>
       </section>
+
+      {connections.length > 0 && (
+        <section className="mt-10">
+          <SectionLabel>CONNECTED INVESTORS</SectionLabel>
+          <p className="prose-reader mt-2 max-w-3xl">
+            {data.name.split(" ")[0]} shares documented ground with the investors below — themes
+            both return to, companies both discuss. The strength comes from the indexed passages
+            themselves.
+          </p>
+          <div className="mt-4 grid gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            {connections.map((c) => (
+              <article key={c.slug} className="border-t border-border pt-3">
+                <h3 className="font-display text-base font-semibold tracking-tight">
+                  <Link href={`/investors/${c.slug}`} className="nav-link hover:text-[var(--signal-dark)]">
+                    {c.name}
+                  </Link>
+                </h3>
+                <p className="kicker mt-1">
+                  {c.sharedThemes > 0 && <>{c.sharedThemes} SHARED THEMES</>}
+                  {c.sharedThemes > 0 && c.sharedCompanies > 0 && <span className="mx-1.5">·</span>}
+                  {c.sharedCompanies > 0 && <>{c.sharedCompanies} SHARED COMPANIES</>}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-4">
+            <a href="/#/view=graph" className="chip chip-signal">
+              SEE THE FULL NETWORK →
+            </a>
+          </div>
+        </section>
+      )}
 
       <ExploreNext
         groups={[

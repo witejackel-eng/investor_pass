@@ -27,7 +27,10 @@ export const metadata: Metadata = {
 };
 
 export default async function InvestorsPage() {
-  const people = await getInvestorDirectory();
+  // Build-time resilience: if the database is unreachable during prerender,
+  // render an empty directory rather than failing the deploy. ISR
+  // (revalidate = 3600) replaces it with the real page on first revalidation.
+  const people = await getInvestorDirectory().catch(() => []);
   const totalRefs = people.reduce((s, p) => s + p.counts.total, 0);
 
   return (
