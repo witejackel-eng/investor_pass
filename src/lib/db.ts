@@ -26,8 +26,24 @@ function datasourceUrl(): string | undefined {
   const url = process.env.DATABASE_URL
   if (!url || url.startsWith('file:')) return url
   if (url.includes('connection_limit=')) return url
-  const sep = url.includes('?') ? '&' : '?'
-  return `${url}${sep}connection_limit=1&pool_timeout=60&connect_timeout=10`
+
+  // OUTAGE FIX (2026-08-23): the Supabase SESSION pooler (port 5432) caps
+  // this database at 15 clients, and frozen serverless instances pin those
+  // slots indefinitely → persistent EMAXCONNSESSION, site-wide 500s.
+  // Serverless-correct path is the TRANSACTION pooler (port 6543) which is
+  // not client-capped; Prisma needs pgbouncer=true there (disables prepared
+  // statements). Set IP_DB_SESSION_POOLER=1 to keep session mode explicitly.
+  let out = url
+  if (process.env.IP_DB_SESSION_POOLER !== '1' && /pooler\.supabase\.com:5432/.test(out)) {
+    out = out.replace('pooler.supabase.com:5432', 'pooler.supabase.com:6543')
+  }
+
+  const params = ['connection_limit=1', 'pool_timeout=60', 'connect_timeout=10']
+  if (/pooler\.supabase\.com:6543/.test(out) && !out.includes('pgbouncer=')) {
+    params.push('pgbouncer=true')
+  }
+  const sep = out.includes('?') ? '&' : '?'
+  return `${out}${sep}${params.join('&')}`
 }
 
 const TRANSIENT = /EMAXCONNSESSION|max clients|Timed out fetching|Connection terminated|Connection reset/i
