@@ -1,0 +1,842 @@
+{
+  "collection": "chinese-founders",
+  "collectionTitle": "Chinese Founders",
+  "collectionDescription": "The public record of exceptional Chinese business founders — paraphrased, sourced, and cross-referenced. 52 founders across 8 groups spanning pre-1949 industrial pioneers to the 2020s AI and EV breakouts.",
+  "researchDate": "2026-08-24",
+  "editorialStandard": "All passages are paraphrased contextual summaries with attribution. No verbatim copyrighted quotes are reproduced. Every record carries full provenance (publisher, year, sourceType, URL). Pro passages are filtered server-side and never appear in public HTML. Verification states default to verified.",
+  "personCount": 52,
+  "persons": [
+    {
+      "slug": "cao-dewang",
+      "name": "Cao Dewang",
+      "shortDescription": "Fujianese entrepreneur, born to a family that lost its wealth fleeing the Chinese civil war, who left school at 14 amid poverty and went on to build Fuyao Group into one of the world's largest automot",
+      "bio": "Fujianese entrepreneur, born to a family that lost its wealth fleeing the Chinese civil war, who left school at 14 amid poverty and went on to build Fuyao Group into one of the world's largest automotive glass manufacturers.",
+      "status": "active",
+      "birthYear": 1946,
+      "sortOrder": 0,
+      "ingestMeta": {
+        "nameChinese": "曹德旺",
+        "company": "Fuyao Glass (Fuyao Group)",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 7,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "chen-tianqiao",
+      "name": "Chen Tianqiao",
+      "shortDescription": "Fudan University economics graduate who founded online gaming company Shanda in 1999 with family members, grew it into China's largest internet company by market capitalization by 2004, took it privat",
+      "bio": "Fudan University economics graduate who founded online gaming company Shanda in 1999 with family members, grew it into China's largest internet company by market capitalization by 2004, took it private in 2012, and now runs Shanda Group as a family investment firm while funding brain-science research through the Tianqiao and Chrissy Chen Institute.",
+      "status": "active",
+      "birthYear": 1973,
+      "sortOrder": 1,
+      "ingestMeta": {
+        "nameChinese": "陈天桥",
+        "company": "Shanda Group (formerly Shanda Interactive Entertainment)",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 4,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "chen-yidan",
+      "name": "Chen Yidan",
+      "shortDescription": "Co-founded Tencent in 1998 alongside Ma Huateng, Zhang Zhidong, Xu Chenye, and Zeng Liqing, serving as Chief Administrative Officer and later leading Tencent's philanthropic arm, then stepped down as ",
+      "bio": "Co-founded Tencent in 1998 alongside Ma Huateng, Zhang Zhidong, Xu Chenye, and Zeng Liqing, serving as Chief Administrative Officer and later leading Tencent's philanthropic arm, then stepped down as CAO in March 2013 to focus on philanthropy, founding the Chen Yidan Charity Foundation, co-founding Wuhan College in 2009, and establishing the HK$2.5 billion (US$320 million) Yidan Prize in 2016 to recognize education innovators worldwide.",
+      "status": "active",
+      "birthYear": 1971,
+      "sortOrder": 2,
+      "ingestMeta": {
+        "nameChinese": "陈一丹",
+        "company": "Tencent (co-founder); Yidan Prize Foundation, Chen Yidan Charity Foundation, Wuhan College",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 4,
+        "passagesCount": 13
+      }
+    },
+    {
+      "slug": "cheng-wei",
+      "name": "Cheng Wei (Will Cheng)",
+      "shortDescription": "Founded ride-hailing app Didi Dache in 2012, grew it via a 2015 merger with rival Kuaidi Dache and the 2016 acquisition of Uber's China operations, then led the company through a 2021 NYSE IPO, a subs",
+      "bio": "Founded ride-hailing app Didi Dache in 2012, grew it via a 2015 merger with rival Kuaidi Dache and the 2016 acquisition of Uber's China operations, then led the company through a 2021 NYSE IPO, a subsequent year-long Chinese cybersecurity probe, a $1.2 billion fine, and a 2022 NYSE delisting.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 3,
+      "ingestMeta": {
+        "nameChinese": "程维",
+        "company": "Didi (DiDi Chuxing / DiDi Global)",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 7,
+        "passagesCount": 15
+      }
+    },
+    {
+      "slug": "colin-huang",
+      "name": "Colin Huang (Huang Zheng)",
+      "shortDescription": "Former Google engineer who founded social e-commerce platform Pinduoduo in 2015, grew it into China's second-largest e-commerce platform by market capitalization, and stepped down as CEO in 2020 to fo",
+      "bio": "Former Google engineer who founded social e-commerce platform Pinduoduo in 2015, grew it into China's second-largest e-commerce platform by market capitalization, and stepped down as CEO in 2020 to focus on long-term strategy as chairman.",
+      "status": "active",
+      "birthYear": 1980,
+      "sortOrder": 4,
+      "ingestMeta": {
+        "nameChinese": "黄峥",
+        "company": "Pinduoduo",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 6,
+        "passagesCount": 13
+      }
+    },
+    {
+      "slug": "ding-lei",
+      "name": "Ding Lei (William Ding)",
+      "shortDescription": "Founder of NetEase, China's second-largest video gaming company at the time of a 2022 SCMP report, who stepped back from a front-line corporate role at a NetEase gaming affiliate amid tightened Chines",
+      "bio": "Founder of NetEase, China's second-largest video gaming company at the time of a 2022 SCMP report, who stepped back from a front-line corporate role at a NetEase gaming affiliate amid tightened Chinese regulatory scrutiny of the gaming sector.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 5,
+      "ingestMeta": {
+        "nameChinese": "丁磊",
+        "company": "NetEase",
+        "group": "Group 3 - Internet 1.0",
+        "sourcesCount": 7,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "dong-mingzhu",
+      "name": "Dong Mingzhu",
+      "shortDescription": "Widowed at 36, she left her young son with his grandmother, moved to Guangdong, and joined Gree's predecessor company as an air-conditioner saleswoman in 1990, rising to president by 2001 and chairwom",
+      "bio": "Widowed at 36, she left her young son with his grandmother, moved to Guangdong, and joined Gree's predecessor company as an air-conditioner saleswoman in 1990, rising to president by 2001 and chairwoman by 2012, building Gree from an air-conditioner maker into a conglomerate spanning smart equipment, industrial robots, and new energy.",
+      "status": "active",
+      "birthYear": 1954,
+      "sortOrder": 6,
+      "ingestMeta": {
+        "nameChinese": "董明珠",
+        "company": "Gree Electric Appliances",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 4,
+        "passagesCount": 13
+      }
+    },
+    {
+      "slug": "guo-guangchang",
+      "name": "Guo Guangchang",
+      "shortDescription": "Fudan University-educated founder who started a market-research firm in 1992, then built Fosun Group from 1994 into one of China's largest privately owned conglomerates spanning insurance, pharmaceuti",
+      "bio": "Fudan University-educated founder who started a market-research firm in 1992, then built Fosun Group from 1994 into one of China's largest privately owned conglomerates spanning insurance, pharmaceuticals, property, steel, mining, retail, and asset management, briefly detained by Chinese police in December 2015 while 'assisting authorities with an investigation' before being released four days later, and stepped down from a subsidiary chairmanship in 2017 to give younger executives a bigger role while remaining chairman of the parent company.",
+      "status": "active",
+      "birthYear": 1967,
+      "sortOrder": 7,
+      "ingestMeta": {
+        "nameChinese": "郭广昌",
+        "company": "Fosun International",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 4,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "he-xiaopeng",
+      "name": "He Xiaopeng",
+      "shortDescription": "Alibaba-linked entrepreneur (sold his prior company UCWeb to Alibaba) who leads electric-vehicle maker Xpeng as chairman and CEO, personally took over Xpeng's robotics division in June 2026 ahead of m",
+      "bio": "Alibaba-linked entrepreneur (sold his prior company UCWeb to Alibaba) who leads electric-vehicle maker Xpeng as chairman and CEO, personally took over Xpeng's robotics division in June 2026 ahead of mass production of its humanoid robot 'Iron,' and joined Ant Group's board that same month.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 8,
+      "ingestMeta": {
+        "nameChinese": "何小鹏",
+        "company": "Xpeng (XPeng Motors)",
+        "group": "Group 5 - EV",
+        "sourcesCount": 4,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "jack-ma",
+      "name": "Jack Ma",
+      "shortDescription": "Alibaba co-founder whose Ant Group affiliate was preparing what would have been the world's largest IPO (targeting roughly $34.5 billion) in Shanghai and Hong Kong in November 2020, when Chinese excha",
+      "bio": "Alibaba co-founder whose Ant Group affiliate was preparing what would have been the world's largest IPO (targeting roughly $34.5 billion) in Shanghai and Hong Kong in November 2020, when Chinese exchanges suspended the listing days after Ma publicly criticized financial regulators.",
+      "status": "active",
+      "birthYear": 1964,
+      "sortOrder": 9,
+      "ingestMeta": {
+        "nameChinese": "马云",
+        "company": "Alibaba Group / Ant Group",
+        "group": "Group 3 - Internet 1.0",
+        "sourcesCount": 7,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "kai-fu-lee",
+      "name": "Kai-Fu Lee",
+      "shortDescription": "Taiwanese-American computer scientist who led Microsoft Research China/Asia (1998-2000) and Google China (2005-2009), founded venture capital firm Innovation Works (later Sinovation Ventures) in 2009,",
+      "bio": "Taiwanese-American computer scientist who led Microsoft Research China/Asia (1998-2000) and Google China (2005-2009), founded venture capital firm Innovation Works (later Sinovation Ventures) in 2009, and founded AI company 01.AI in 2023, which builds agentic AI tools for companies using customized open-source models.",
+      "status": "active",
+      "birthYear": 1961,
+      "sortOrder": 10,
+      "ingestMeta": {
+        "nameChinese": "李开复",
+        "company": "01.AI (and Sinovation Ventures)",
+        "group": "Group 7 - Recent breakouts",
+        "sourcesCount": 4,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "lai-meisong",
+      "name": "Lai Meisong",
+      "shortDescription": "Founded ZTO Express and has served as chairman since May 2013 and CEO since the company's inception, building it into one of China's largest express-delivery companies; a former deputy chairman of the",
+      "bio": "Founded ZTO Express and has served as chairman since May 2013 and CEO since the company's inception, building it into one of China's largest express-delivery companies; a former deputy chairman of the China Express Delivery Association.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 11,
+      "ingestMeta": {
+        "nameChinese": "赖梅松",
+        "company": "ZTO Express",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 7,
+        "passagesCount": 13
+      }
+    },
+    {
+      "slug": "lei-jun",
+      "name": "Lei Jun",
+      "shortDescription": "Wuhan University computer-science graduate who joined Kingsoft as an engineer in 1992, later became its CEO, founded Xiaomi, and has since transformed it into a technology conglomerate spanning smartp",
+      "bio": "Wuhan University computer-science graduate who joined Kingsoft as an engineer in 1992, later became its CEO, founded Xiaomi, and has since transformed it into a technology conglomerate spanning smartphones, electric vehicles, and chips.",
+      "status": "active",
+      "birthYear": 1969,
+      "sortOrder": 12,
+      "ingestMeta": {
+        "nameChinese": "雷军",
+        "company": "Xiaomi (also Chairman of Kingsoft, Chairman of Shunwei Capital)",
+        "group": "Group 3 - Internet 1.0",
+        "sourcesCount": 9,
+        "passagesCount": 17
+      }
+    },
+    {
+      "slug": "li-xiang",
+      "name": "Li Xiang",
+      "shortDescription": "Founded electric-vehicle maker Li Auto and continues to lead it as chairman and CEO, publicly emphasizing healthy gross margins as a core strategic goal amid intense competition in China's EV market a",
+      "bio": "Founded electric-vehicle maker Li Auto and continues to lead it as chairman and CEO, publicly emphasizing healthy gross margins as a core strategic goal amid intense competition in China's EV market as of mid-2026.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 13,
+      "ingestMeta": {
+        "nameChinese": "李想",
+        "company": "Li Auto",
+        "group": "Group 5 - EV",
+        "sourcesCount": 8,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "li-xiting",
+      "name": "Li Xiting",
+      "shortDescription": "University of Science and Technology of China physics graduate who worked as a researcher in Wuhan and France before co-founding medical-device maker Mindray in Shenzhen in 1991 with Xu Hang and Cheng",
+      "bio": "University of Science and Technology of China physics graduate who worked as a researcher in Wuhan and France before co-founding medical-device maker Mindray in Shenzhen in 1991 with Xu Hang and Cheng Minghe, growing it into China's largest medical equipment manufacturer, listing it on the NYSE in 2006, taking it private in a 2016 buyout, and relisting it on China's A-share market; he became a naturalized Singaporean citizen in 2018.",
+      "status": "active",
+      "birthYear": 1951,
+      "sortOrder": 14,
+      "ingestMeta": {
+        "nameChinese": "李西廷",
+        "company": "Mindray (Shenzhen Mindray Bio-Medical Electronics)",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 4,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "liang-wenfeng",
+      "name": "Liang Wenfeng",
+      "shortDescription": "Zhejiang University-trained engineer who co-founded quantitative hedge fund High-Flyer, built large-scale computing infrastructure that later supported AI research, and founded AI company DeepSeek in ",
+      "bio": "Zhejiang University-trained engineer who co-founded quantitative hedge fund High-Flyer, built large-scale computing infrastructure that later supported AI research, and founded AI company DeepSeek in July 2023, which gained international attention with the January 2025 release of DeepSeek-R1.",
+      "status": "active",
+      "birthYear": 1985,
+      "sortOrder": 15,
+      "ingestMeta": {
+        "nameChinese": "梁文锋",
+        "company": "DeepSeek (and High-Flyer)",
+        "group": "Group 7 - Recent breakouts",
+        "sourcesCount": 9,
+        "passagesCount": 16
+      }
+    },
+    {
+      "slug": "liu-chuanzhi",
+      "name": "Liu Chuanzhi",
+      "shortDescription": "Institute of Computing Technology researcher who in 1984 used a 200,000-yuan state-institute investment to found what became Legend/Lenovo, later engineering Lenovo's 2004 acquisition of IBM's PC busi",
+      "bio": "Institute of Computing Technology researcher who in 1984 used a 200,000-yuan state-institute investment to found what became Legend/Lenovo, later engineering Lenovo's 2004 acquisition of IBM's PC business before retiring from Legend Holdings' chairmanship in December 2019.",
+      "status": "active",
+      "birthYear": 1944,
+      "sortOrder": 16,
+      "ingestMeta": {
+        "nameChinese": "柳传志",
+        "company": "Lenovo / Legend Holdings",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 4,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "liu-hongsheng",
+      "name": "Liu Hongsheng",
+      "shortDescription": "Shanghai industrialist known as the \"Match King\" who built a diversified empire spanning matches, cement, coal, and wool textiles from the 1920s-1940s, and was later designated a protected \"nationalis",
+      "bio": "Shanghai industrialist known as the \"Match King\" who built a diversified empire spanning matches, cement, coal, and wool textiles from the 1920s-1940s, and was later designated a protected \"nationalist capitalist\" by the Chinese Communist Party after 1949.",
+      "status": "active",
+      "birthYear": 1888,
+      "sortOrder": 17,
+      "ingestMeta": {
+        "nameChinese": "刘鸿生",
+        "company": "Hongsheng Match Company / diversified industrial group (matches, cement, coal, wool textiles)",
+        "group": "Group 1 - Pre-1949 pioneers",
+        "sourcesCount": 3,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "liu-yonghao",
+      "name": "Liu Yonghao",
+      "shortDescription": "Former technical-school teacher who, with three brothers, quit government jobs in 1982 to raise quails and chickens, later founding the animal-feed business that became New Hope Group -- now China's l",
+      "bio": "Former technical-school teacher who, with three brothers, quit government jobs in 1982 to raise quails and chickens, later founding the animal-feed business that became New Hope Group -- now China's largest animal-feed producer -- and co-founding China Minsheng Bank.",
+      "status": "active",
+      "birthYear": 1952,
+      "sortOrder": 18,
+      "ingestMeta": {
+        "nameChinese": "刘永好",
+        "company": "New Hope Group",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 3,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "liu-yongxing",
+      "name": "Liu Yongxing",
+      "shortDescription": "One of four siblings from a family stigmatized as wealthy landlords before the Cultural Revolution, he and his three brothers built a quail-and-chicken-hatching business in 1982 into the Hope Group, w",
+      "bio": "One of four siblings from a family stigmatized as wealthy landlords before the Cultural Revolution, he and his three brothers built a quail-and-chicken-hatching business in 1982 into the Hope Group, which split into four sibling-led companies in 1995, with Liu Yongxing retaining and building East Hope Group into a major player in agribusiness, chemicals, and non-ferrous metals.",
+      "status": "active",
+      "birthYear": 1948,
+      "sortOrder": 19,
+      "ingestMeta": {
+        "nameChinese": "刘永行",
+        "company": "East Hope Group",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 3,
+        "passagesCount": 9
+      }
+    },
+    {
+      "slug": "lu-guanqiu",
+      "name": "Lu Guanqiu",
+      "shortDescription": "Peasant-born former ironsmith who co-founded a small agricultural-machinery factory with six other farmers in 1969 and built it into Wanxiang Group, a major auto-parts and components conglomerate, lea",
+      "bio": "Peasant-born former ironsmith who co-founded a small agricultural-machinery factory with six other farmers in 1969 and built it into Wanxiang Group, a major auto-parts and components conglomerate, leading the company until his death in October 2017.",
+      "status": "active",
+      "birthYear": 1945,
+      "sortOrder": 20,
+      "ingestMeta": {
+        "nameChinese": "鲁冠球",
+        "company": "Wanxiang Group",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 3,
+        "passagesCount": 10
+      }
+    },
+    {
+      "slug": "pan-shiyi",
+      "name": "Pan Shiyi",
+      "shortDescription": "Co-founded SOHO China with wife Zhang Xin in 1995, building it into one of China's leading real estate developers known for landmark Beijing office projects, then resigned as chairman in September 202",
+      "bio": "Co-founded SOHO China with wife Zhang Xin in 1995, building it into one of China's leading real estate developers known for landmark Beijing office projects, then resigned as chairman in September 2022 -- after a failed 2020-2021 attempt to sell the company to Blackstone -- to focus on philanthropy and the arts, having since relocated primarily to the United States.",
+      "status": "active",
+      "birthYear": 1963,
+      "sortOrder": 21,
+      "ingestMeta": {
+        "nameChinese": "潘石屹",
+        "company": "SOHO China",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 3,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "pony-ma",
+      "name": "Pony Ma",
+      "shortDescription": "Shenzhen University computer-science graduate who co-founded Tencent in 1998 with four classmates, launched the OICQ messaging service that became QQ, and continues to lead the company as chairman and",
+      "bio": "Shenzhen University computer-science graduate who co-founded Tencent in 1998 with four classmates, launched the OICQ messaging service that became QQ, and continues to lead the company as chairman and CEO of the Shenzhen-based technology, gaming, entertainment and financial-services conglomerate.",
+      "status": "active",
+      "birthYear": 1971,
+      "sortOrder": 22,
+      "ingestMeta": {
+        "nameChinese": "马化腾",
+        "company": "Tencent",
+        "group": "Group 3 - Internet 1.0",
+        "sourcesCount": 8,
+        "passagesCount": 15
+      }
+    },
+    {
+      "slug": "qin-yinglin",
+      "name": "Qin Yinglin",
+      "shortDescription": "Founded Muyuan Foods and built it into the world's largest pig-farming and breeding operation, stepping down from all executive and board roles on June 3, 2026 to become Lifetime Honorary Chairman and",
+      "bio": "Founded Muyuan Foods and built it into the world's largest pig-farming and breeding operation, stepping down from all executive and board roles on June 3, 2026 to become Lifetime Honorary Chairman and head of the company's research institute, in a formally completed leadership transition.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 23,
+      "ingestMeta": {
+        "nameChinese": "秦英林",
+        "company": "Muyuan Foods",
+        "group": "Group 6 - Consumer/retail/real estate",
+        "sourcesCount": 3,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "ren-jianxin",
+      "name": "Ren Jianxin",
+      "shortDescription": "Founded Bluestar, a small industrial-solvents factory, in 1984 with a RMB 10,000 loan and seven employees, then from 1996 built the state-owned ChemChina empire by taking control of more than 100 trou",
+      "bio": "Founded Bluestar, a small industrial-solvents factory, in 1984 with a RMB 10,000 loan and seven employees, then from 1996 built the state-owned ChemChina empire by taking control of more than 100 troubled, government-owned chemical factories across China, later leading ChemChina's $43 billion acquisition of Swiss agribusiness giant Syngenta and taking the chairmanship of Italian tire maker Pirelli.",
+      "status": "active",
+      "birthYear": 1958,
+      "sortOrder": 24,
+      "ingestMeta": {
+        "nameChinese": "任建新",
+        "company": "ChemChina (China National Chemical Corporation); Syngenta (via ChemChina acquisition); Pirelli",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 3,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "ren-zhengfei",
+      "name": "Ren Zhengfei",
+      "shortDescription": "Former People's Liberation Army engineer who founded Huawei in Shenzhen in 1987 with 21,000 yuan in capital and has served as its CEO continuously since 1988, building it into the world's largest tele",
+      "bio": "Former People's Liberation Army engineer who founded Huawei in Shenzhen in 1987 with 21,000 yuan in capital and has served as its CEO continuously since 1988, building it into the world's largest telecommunications equipment maker.",
+      "status": "active",
+      "birthYear": 1944,
+      "sortOrder": 25,
+      "ingestMeta": {
+        "nameChinese": "任正非",
+        "company": "Huawei Technologies",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 7,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "richard-liu",
+      "name": "Richard Liu (Liu Qiangdong)",
+      "shortDescription": "Founded JD.com in 2004, built it into one of China's largest e-commerce platforms, and handed the CEO role to longtime executive Xu Lei in April 2022 while remaining chairman.",
+      "bio": "Founded JD.com in 2004, built it into one of China's largest e-commerce platforms, and handed the CEO role to longtime executive Xu Lei in April 2022 while remaining chairman.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 26,
+      "ingestMeta": {
+        "nameChinese": "刘强东",
+        "company": "JD.com",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 8,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "robin-li",
+      "name": "Robin Li",
+      "shortDescription": "Former Infoseek search engineer who co-founded Baidu in January 2000, has served as chairman since the company's inception and as CEO since February 2004, and built Baidu into China's dominant search ",
+      "bio": "Former Infoseek search engineer who co-founded Baidu in January 2000, has served as chairman since the company's inception and as CEO since February 2004, and built Baidu into China's dominant search engine.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 27,
+      "ingestMeta": {
+        "nameChinese": "李彦宏",
+        "company": "Baidu",
+        "group": "Group 3 - Internet 1.0",
+        "sourcesCount": 7,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "rong-desheng",
+      "name": "Rong Desheng",
+      "shortDescription": "Younger of the two Rong brothers, responsible for management and technical development of the family's flour and textile empire; assumed full leadership after 1938 and refused to sell the business to ",
+      "bio": "Younger of the two Rong brothers, responsible for management and technical development of the family's flour and textile empire; assumed full leadership after 1938 and refused to sell the business to Japanese interests during wartime pressure.",
+      "status": "active",
+      "birthYear": 1875,
+      "sortOrder": 28,
+      "ingestMeta": {
+        "nameChinese": "荣德生",
+        "company": "Rong Family Corporation (Maoxin flour mills / Shenxin textile mills)",
+        "group": "Group 1 - Pre-1949 pioneers",
+        "sourcesCount": 4,
+        "passagesCount": 14
+      }
+    },
+    {
+      "slug": "rong-zongjing",
+      "name": "Rong Zongjing",
+      "shortDescription": "Wuxi-born industrialist who, with younger brother Rong Desheng, built China's largest privately owned flour-milling and cotton-textile empire in the Republican era, reportedly controlling roughly a th",
+      "bio": "Wuxi-born industrialist who, with younger brother Rong Desheng, built China's largest privately owned flour-milling and cotton-textile empire in the Republican era, reportedly controlling roughly a third of China's flour output and 30 percent of its cotton output by the early 1920s.",
+      "status": "active",
+      "birthYear": 1873,
+      "sortOrder": 29,
+      "ingestMeta": {
+        "nameChinese": "荣宗敬",
+        "company": "Rong Family Corporation (Maoxin flour mills / Shenxin textile mills)",
+        "group": "Group 1 - Pre-1949 pioneers",
+        "sourcesCount": 4,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "shi-zhengrong",
+      "name": "Shi Zhengrong",
+      "shortDescription": "Chinese-Australian solar-technology PhD who returned to China in 2001 with backing from the Wuxi city government to found Suntech Power, briefly became China's richest person after its 2005 NYSE listi",
+      "bio": "Chinese-Australian solar-technology PhD who returned to China in 2001 with backing from the Wuxi city government to found Suntech Power, briefly became China's richest person after its 2005 NYSE listing at a peak $16 billion market capitalization, then was forced out as CEO in August 2012 and stripped of his chairmanship in March 2013 as the company collapsed into bankruptcy under $2.2 billion in debt.",
+      "status": "active",
+      "birthYear": 1963,
+      "sortOrder": 30,
+      "ingestMeta": {
+        "nameChinese": "施正荣",
+        "company": "Suntech Power",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 5,
+        "passagesCount": 16
+      }
+    },
+    {
+      "slug": "su-hua",
+      "name": "Su Hua",
+      "shortDescription": "Co-founded Kuaishou and led it as CEO before stepping down in October 2021 to focus on long-term strategy, transferring day-to-day operational responsibility to co-founder Cheng Yixiao while remaining",
+      "bio": "Co-founded Kuaishou and led it as CEO before stepping down in October 2021 to focus on long-term strategy, transferring day-to-day operational responsibility to co-founder Cheng Yixiao while remaining chairman with unchanged voting rights.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 31,
+      "ingestMeta": {
+        "nameChinese": "宿华",
+        "company": "Kuaishou",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 3,
+        "passagesCount": 8
+      }
+    },
+    {
+      "slug": "wang-chuanfu",
+      "name": "Wang Chuanfu",
+      "shortDescription": "Founded battery maker BYD in 1995 and steered its diversification into electric vehicles, building it into a company that, per his own June 2026 statement, aims to become the world's largest automaker",
+      "bio": "Founded battery maker BYD in 1995 and steered its diversification into electric vehicles, building it into a company that, per his own June 2026 statement, aims to become the world's largest automaker by scale within five years.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 32,
+      "ingestMeta": {
+        "nameChinese": "王传福",
+        "company": "BYD",
+        "group": "Group 5 - EV",
+        "sourcesCount": 8,
+        "passagesCount": 13
+      }
+    },
+    {
+      "slug": "wang-jianlin",
+      "name": "Wang Jianlin",
+      "shortDescription": "Founder of the Dalian Wanda conglomerate (real estate, cinemas, cultural/tourism assets), who by September 2025 was subject to a Chinese court's high-consumption spending restrictions alongside Wanda ",
+      "bio": "Founder of the Dalian Wanda conglomerate (real estate, cinemas, cultural/tourism assets), who by September 2025 was subject to a Chinese court's high-consumption spending restrictions alongside Wanda and several subsidiaries over unpaid debts tied to a major Wuhan development project.",
+      "status": "active",
+      "birthYear": 1954,
+      "sortOrder": 33,
+      "ingestMeta": {
+        "nameChinese": "王健林",
+        "company": "Dalian Wanda Group",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 6,
+        "passagesCount": 13
+      }
+    },
+    {
+      "slug": "wang-ning",
+      "name": "Wang Ning",
+      "shortDescription": "Founded Pop Mart in 2010 as a variety store in Beijing's Zhongguancun district inspired by Japanese gashapon vending machines, took it public on the Hong Kong Stock Exchange in December 2020, and cont",
+      "bio": "Founded Pop Mart in 2010 as a variety store in Beijing's Zhongguancun district inspired by Japanese gashapon vending machines, took it public on the Hong Kong Stock Exchange in December 2020, and continues to lead it as CEO through the global viral popularity of its Labubu toy line.",
+      "status": "active",
+      "birthYear": 1987,
+      "sortOrder": 34,
+      "ingestMeta": {
+        "nameChinese": "王宁",
+        "company": "Pop Mart International Group",
+        "group": "Group 7 - Recent breakouts",
+        "sourcesCount": 8,
+        "passagesCount": 16
+      }
+    },
+    {
+      "slug": "wang-wei-sf-express",
+      "name": "Wang Wei (Dick Wang)",
+      "shortDescription": "Founded SF Express in the early 1990s to serve Hong Kong-bound manufacturers in Guangdong's Shunde district, built it into a major logistics conglomerate, and remains its chairman and majority shareho",
+      "bio": "Founded SF Express in the early 1990s to serve Hong Kong-bound manufacturers in Guangdong's Shunde district, built it into a major logistics conglomerate, and remains its chairman and majority shareholder.",
+      "status": "active",
+      "birthYear": 1970,
+      "sortOrder": 35,
+      "ingestMeta": {
+        "nameChinese": "王卫",
+        "company": "SF Express (SF Holding)",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 3,
+        "passagesCount": 9
+      }
+    },
+    {
+      "slug": "wang-xing",
+      "name": "Wang Xing",
+      "shortDescription": "Serial entrepreneur behind several failed startups (a Friendster clone, a Twitter clone called Fanfou) before co-founding Meituan in 2010, which he has led as CEO ever since, building it into China's ",
+      "bio": "Serial entrepreneur behind several failed startups (a Friendster clone, a Twitter clone called Fanfou) before co-founding Meituan in 2010, which he has led as CEO ever since, building it into China's dominant local-services and food-delivery platform.",
+      "status": "active",
+      "birthYear": 1979,
+      "sortOrder": 36,
+      "ingestMeta": {
+        "nameChinese": "王兴",
+        "company": "Meituan",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 7,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "wei-jianjun",
+      "name": "Wei Jianjun",
+      "shortDescription": "Born in Baoding, Hebei, he was appointed director of Great Wall Motor -- then a small, partly local-government-owned manufacturer founded in 1984 -- in 1990, grew it into one of China's leading pickup",
+      "bio": "Born in Baoding, Hebei, he was appointed director of Great Wall Motor -- then a small, partly local-government-owned manufacturer founded in 1984 -- in 1990, grew it into one of China's leading pickup-truck and SUV manufacturers, led its 1998 privatization and 2003 Hong Kong Stock Exchange listing, and remains chairman as GWM sold over 1.3 million vehicles globally in 2025 across brands including Haval, Wey, Tank, Poer, and Ora.",
+      "status": "active",
+      "birthYear": 1964,
+      "sortOrder": 37,
+      "ingestMeta": {
+        "nameChinese": "魏建军",
+        "company": "Great Wall Motor (GWM)",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 4,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "william-li",
+      "name": "William Li (Li Bin)",
+      "shortDescription": "Founded electric-vehicle maker NIO and continues to lead it as chairman and CEO; delivered a July 2026 speech at Peking University 30 years after his own time there, according to CnEVPost.",
+      "bio": "Founded electric-vehicle maker NIO and continues to lead it as chairman and CEO; delivered a July 2026 speech at Peking University 30 years after his own time there, according to CnEVPost.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 38,
+      "ingestMeta": {
+        "nameChinese": "李斌",
+        "company": "NIO",
+        "group": "Group 5 - EV",
+        "sourcesCount": 4,
+        "passagesCount": 7
+      }
+    },
+    {
+      "slug": "xu-jiayin",
+      "name": "Xu Jiayin",
+      "shortDescription": "Former steelworker who founded Evergrande and built it into China's largest real-estate developer before its 2021 default on roughly $300 billion in liabilities; detained by Chinese authorities in 202",
+      "bio": "Former steelworker who founded Evergrande and built it into China's largest real-estate developer before its 2021 default on roughly $300 billion in liabilities; detained by Chinese authorities in 2023, pleaded guilty in April 2026 to fraud, embezzlement and bribery charges, and was sentenced to life imprisonment by the Shenzhen Intermediate People's Court on August 20, 2026.",
+      "status": "active",
+      "birthYear": 1958,
+      "sortOrder": 39,
+      "ingestMeta": {
+        "nameChinese": "许家印 (also known as Hui Ka Yan in Cantonese/Hong Kong usage)",
+        "company": "China Evergrande Group",
+        "group": "Priority - Xu Jiayin (Evergrande)",
+        "sourcesCount": 7,
+        "passagesCount": 15
+      }
+    },
+    {
+      "slug": "yang-guoqiang",
+      "name": "Yang Guoqiang",
+      "shortDescription": "Founder of Country Garden Holdings, once China's largest home builder by sales, who tendered his resignation as chairman and executive director for age reasons effective March 1, 2023, handing the cha",
+      "bio": "Founder of Country Garden Holdings, once China's largest home builder by sales, who tendered his resignation as chairman and executive director for age reasons effective March 1, 2023, handing the chairmanship to his daughter Yang Huiyan while continuing to participate in corporate operations as a special advisor, amid China's broader property-sector debt crisis.",
+      "status": "active",
+      "birthYear": 1955,
+      "sortOrder": 40,
+      "ingestMeta": {
+        "nameChinese": "杨国强",
+        "company": "Country Garden Holdings",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 4,
+        "passagesCount": 10
+      }
+    },
+    {
+      "slug": "yu-minhong",
+      "name": "Yu Minhong (Michael Yu)",
+      "shortDescription": "Founded New Oriental, China's largest private off-campus education company, and after Beijing's 2021 ban on for-profit tutoring devastated the business, personally pivoted into live-streaming e-commer",
+      "bio": "Founded New Oriental, China's largest private off-campus education company, and after Beijing's 2021 ban on for-profit tutoring devastated the business, personally pivoted into live-streaming e-commerce on Douyin, an initiative he called the 'third revolution of business.'",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 41,
+      "ingestMeta": {
+        "nameChinese": "俞敏洪",
+        "company": "New Oriental Education & Technology Group",
+        "group": "Group 6 - Consumer/retail/real estate",
+        "sourcesCount": 4,
+        "passagesCount": 9
+      }
+    },
+    {
+      "slug": "zhang-chaoyang",
+      "name": "Zhang Chaoyang (Charles Zhang)",
+      "shortDescription": "MIT-trained physicist who founded Sohu, one of China's earliest internet portals, listed it on NASDAQ in 2000, and has more recently taken on public roles as an educator and commentator, including urg",
+      "bio": "MIT-trained physicist who founded Sohu, one of China's earliest internet portals, listed it on NASDAQ in 2000, and has more recently taken on public roles as an educator and commentator, including urging students to reconsider graduate school and defer career plans.",
+      "status": "active",
+      "birthYear": 1964,
+      "sortOrder": 42,
+      "ingestMeta": {
+        "nameChinese": "张朝阳",
+        "company": "Sohu.com",
+        "group": "Group 3 - Internet 1.0",
+        "sourcesCount": 4,
+        "passagesCount": 8
+      }
+    },
+    {
+      "slug": "zhang-jian",
+      "name": "Zhang Jian",
+      "shortDescription": "Qing-dynasty top imperial exam scholar who turned to industry after 1895, founding the Dasheng Cotton Mill in Nantong and framing industrialization as a way to strengthen China against foreign economi",
+      "bio": "Qing-dynasty top imperial exam scholar who turned to industry after 1895, founding the Dasheng Cotton Mill in Nantong and framing industrialization as a way to strengthen China against foreign economic encroachment.",
+      "status": "active",
+      "birthYear": 1853,
+      "sortOrder": 43,
+      "ingestMeta": {
+        "nameChinese": "张謇",
+        "company": "Dasheng Cotton Mill (Nantong industrial group)",
+        "group": "Group 1 - Pre-1949 pioneers",
+        "sourcesCount": 4,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "zhang-ruimin",
+      "name": "Zhang Ruimin",
+      "shortDescription": "Took over a small, failing Qingdao refrigerator factory in 1984 and built it into global appliance group Haier, known for strict quality-control discipline and later for the 'Rendanheyi' decentralized",
+      "bio": "Took over a small, failing Qingdao refrigerator factory in 1984 and built it into global appliance group Haier, known for strict quality-control discipline and later for the 'Rendanheyi' decentralized management model, before stepping down as chairman in November 2021.",
+      "status": "active",
+      "birthYear": 1949,
+      "sortOrder": 44,
+      "ingestMeta": {
+        "nameChinese": "张瑞敏",
+        "company": "Haier Group",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 3,
+        "passagesCount": 12
+      }
+    },
+    {
+      "slug": "zhang-xin",
+      "name": "Zhang Xin",
+      "shortDescription": "Left Beijing for Hong Kong at 14, worked in garment and electronics factories to save for overseas study, earned a scholarship-funded education in the UK, worked in finance in Hong Kong and New York, ",
+      "bio": "Left Beijing for Hong Kong at 14, worked in garment and electronics factories to save for overseas study, earned a scholarship-funded education in the UK, worked in finance in Hong Kong and New York, then co-founded SOHO China with husband Pan Shiyi in 1995, building it into a major Beijing office developer before stepping down as CEO in September 2022 and shifting business activities toward the United States via Closer Media and Closer Properties.",
+      "status": "active",
+      "birthYear": 1965,
+      "sortOrder": 45,
+      "ingestMeta": {
+        "nameChinese": "张欣",
+        "company": "SOHO China",
+        "group": "Group 8 - Appliances/solar/industrials/conglomerates",
+        "sourcesCount": 4,
+        "passagesCount": 11
+      }
+    },
+    {
+      "slug": "zhang-yiming",
+      "name": "Zhang Yiming",
+      "shortDescription": "Nankai University-trained engineer who founded ByteDance in 2012, developed news aggregator Toutiao and short-video platform Douyin (known internationally as TikTok), and stepped down as CEO in Novemb",
+      "bio": "Nankai University-trained engineer who founded ByteDance in 2012, developed news aggregator Toutiao and short-video platform Douyin (known internationally as TikTok), and stepped down as CEO in November 2021 while retaining the chairman title and majority voting control.",
+      "status": "active",
+      "birthYear": 1983,
+      "sortOrder": 46,
+      "ingestMeta": {
+        "nameChinese": "张一鸣",
+        "company": "ByteDance",
+        "group": "Group 4 - Mobile/e-commerce",
+        "sourcesCount": 6,
+        "passagesCount": 13
+      }
+    },
+    {
+      "slug": "zhang-yin",
+      "name": "Zhang Yin (Cheung Yan)",
+      "shortDescription": "Former Guangdong textile-factory bookkeeper who moved to Shenzhen to work in paper trading, then founded Nine Dragons Paper, a recycling company that imports US scrap paper into China and turns it int",
+      "bio": "Former Guangdong textile-factory bookkeeper who moved to Shenzhen to work in paper trading, then founded Nine Dragons Paper, a recycling company that imports US scrap paper into China and turns it into cardboard for export packaging, becoming China's biggest paper maker.",
+      "status": "active",
+      "birthYear": 1957,
+      "sortOrder": 47,
+      "ingestMeta": {
+        "nameChinese": "张茵",
+        "company": "Nine Dragons Paper Holdings",
+        "group": "Group 6 - Consumer/retail/real estate",
+        "sourcesCount": 3,
+        "passagesCount": 10
+      }
+    },
+    {
+      "slug": "zhang-yong",
+      "name": "Zhang Yong",
+      "shortDescription": "Founded the Haidilao hot pot chain and, after some years focusing on high-level strategy as chairman, resumed direct CEO control in January 2026 to lead a 'second revolution' strategic overhaul as ear",
+      "bio": "Founded the Haidilao hot pot chain and, after some years focusing on high-level strategy as chairman, resumed direct CEO control in January 2026 to lead a 'second revolution' strategic overhaul as earnings cooled and China's dining sector slowed.",
+      "status": "active",
+      "birthYear": null,
+      "sortOrder": 48,
+      "ingestMeta": {
+        "nameChinese": "张勇",
+        "company": "Haidilao International Holding",
+        "group": "Group 6 - Consumer/retail/real estate",
+        "sourcesCount": 3,
+        "passagesCount": 9
+      }
+    },
+    {
+      "slug": "zhong-shanshan",
+      "name": "Zhong Shanshan",
+      "shortDescription": "Former journalist and Cultural Revolution-era construction laborer who founded bottled-water company Nongfu Spring in 1996 and built it into China's largest bottled-water maker, and was re-appointed c",
+      "bio": "Former journalist and Cultural Revolution-era construction laborer who founded bottled-water company Nongfu Spring in 1996 and built it into China's largest bottled-water maker, and was re-appointed chairman of its ninth board of directors effective May 19, 2026.",
+      "status": "active",
+      "birthYear": 1954,
+      "sortOrder": 49,
+      "ingestMeta": {
+        "nameChinese": "钟睒睒",
+        "company": "Nongfu Spring",
+        "group": "Group 6 - Consumer/retail/real estate",
+        "sourcesCount": 8,
+        "passagesCount": 15
+      }
+    },
+    {
+      "slug": "zhou-hongyi",
+      "name": "Zhou Hongyi",
+      "shortDescription": "Xi'an Jiaotong University-trained entrepreneur who founded search-keyword company 3721 in 1998, sold it to Yahoo! in 2004 for $120 million, then left after management disagreements to found internet-s",
+      "bio": "Xi'an Jiaotong University-trained entrepreneur who founded search-keyword company 3721 in 1998, sold it to Yahoo! in 2004 for $120 million, then left after management disagreements to found internet-security company Qihoo 360.",
+      "status": "active",
+      "birthYear": 1970,
+      "sortOrder": 50,
+      "ingestMeta": {
+        "nameChinese": "周鸿祎",
+        "company": "Qihoo 360",
+        "group": "Group 3 - Internet 1.0",
+        "sourcesCount": 3,
+        "passagesCount": 10
+      }
+    },
+    {
+      "slug": "zong-qinghou",
+      "name": "Zong Qinghou",
+      "shortDescription": "Former sent-down youth and salt-farm laborer who built Wahaha into China's leading beverage company, won a prolonged legal and trademark battle against joint-venture partner Danone in the mid-2000s, a",
+      "bio": "Former sent-down youth and salt-farm laborer who built Wahaha into China's leading beverage company, won a prolonged legal and trademark battle against joint-venture partner Danone in the mid-2000s, and served as an NPC delegate from 2002-2018 before dying in February 2024.",
+      "status": "active",
+      "birthYear": 1945,
+      "sortOrder": 51,
+      "ingestMeta": {
+        "nameChinese": "宗庆后",
+        "company": "Hangzhou Wahaha Group",
+        "group": "Group 2 - Reform-era pioneers",
+        "sourcesCount": 4,
+        "passagesCount": 12
+      }
+    }
+  ]
+}
