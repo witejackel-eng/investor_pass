@@ -507,6 +507,9 @@ function humanLabel(view: string, slug: string): string {
 
 // ── Continue exploring (home page) ─────────────────────────────────────────
 // Logged-in: server-backed next-unread feed (never repeats read passages).
+// The /api/continue route AUTO-DETECTS the user's most-recently-read person
+// (no hard-coded Buffett default). The response includes the person's name
+// so the UI can render "CONTINUE READING [PERSON]".
 // Guests: localStorage recents, unchanged.
 function RecentlyViewed() {
   const go = useStore((s) => s.go);
@@ -519,16 +522,19 @@ function RecentlyViewed() {
       return [];
     }
   });
-  const [serverItems, setServerItems] = useState<typeof items | null>(null);
+  const [serverState, setServerState] = useState<{
+    items: typeof items;
+    person: { slug: string; name: string; kind: string } | null;
+  } | null>(null);
 
   useEffect(() => {
-    if (!user || serverItems) return;
+    if (!user || serverState) return;
     let active = true;
-    apiGet<{ items: typeof items }>(`/api/continue?person=buffett`)
-      .then((d) => { if (active) setServerItems(d.items); })
-      .catch(() => { if (active) setServerItems([]); });
+    apiGet<{ items: typeof items; person: { slug: string; name: string; kind: string } | null }>(`/api/continue`)
+      .then((d) => { if (active) setServerState({ items: d.items ?? [], person: d.person ?? null }); })
+      .catch(() => { if (active) setServerState({ items: [], person: null }); });
     return () => { active = false; };
-  }, [user, serverItems]);
+  }, [user, serverState]);
 
   if (!user && items.length === 0) return null;
 
@@ -537,27 +543,32 @@ function RecentlyViewed() {
     source: "Source", passage: "Passage", concept: "Concept", event: "Event",
   };
 
-  // Server-backed mode
+  // Server-backed mode (logged-in)
   if (user) {
-    const serverLoading = serverItems === null;
+    const serverLoading = serverState === null;
+    const serverItems = serverState?.items ?? [];
+    const person = serverState?.person;
+    const personKind = person?.kind === "founder" ? "founder" : "investor";
     return (
       <section className="mt-8 border-t-2 border-ink py-6">
         <div className="flex items-center gap-2">
           <Clock className="h-4 w-4 text-signal-dark" />
-          <p className="kicker text-signal-dark">CONTINUE READING</p>
+          <p className="kicker text-signal-dark">
+            CONTINUE READING{person ? ` · ${person.name.toUpperCase()}` : ""}
+          </p>
         </div>
         {serverLoading && <div className="mt-4 h-[72px] border border-rule bg-paper-2 animate-pulse" />}
-        {!serverLoading && serverItems && serverItems.length === 0 && (
+        {!serverLoading && serverItems.length === 0 && (
           <p className="mt-3 font-reader text-sm text-graphite">
             Nothing queued yet — open any passage and this becomes your resume point.
           </p>
         )}
-        {!serverLoading && serverItems && serverItems.length > 0 && (
+        {!serverLoading && serverItems.length > 0 && (
           <div className="mt-4 grid gap-2 md:grid-cols-2">
             {serverItems.map((item) => (
               <button
                 key={item.slug}
-                onClick={() => go(item.view as any, item.view === "year" ? { year: item.slug, investor: "buffett" } : { slug: item.slug, investor: "buffett" })}
+                onClick={() => go(item.view as any, { slug: item.slug, investor: person?.slug ?? "buffett" })}
                 className="group border border-rule bg-paper-2 p-3 text-left transition-colors hover:border-ink"
               >
                 <p className="font-mono text-[0.62rem] uppercase tracking-wider text-graphite">{item.meta}</p>
@@ -566,6 +577,16 @@ function RecentlyViewed() {
               </button>
             ))}
           </div>
+        )}
+        {person && (
+          <p className="mt-3">
+            <button
+              onClick={() => go(personKind as any, { slug: person.slug })}
+              className="chip hover:chip-signal"
+            >
+              OPEN {person.name.toUpperCase()} →
+            </button>
+          </p>
         )}
       </section>
     );
