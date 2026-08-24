@@ -156,9 +156,6 @@ export function CommandPalette() {
                   <CommandItem value="timeline" onSelect={() => { go("timeline", { slug: "buffett" }); setOpen(false); }} className="flex items-center gap-3">
                     <Calendar className="h-4 w-4" /> <span className="font-display text-sm">Buffett timeline</span>
                   </CommandItem>
-                  <CommandItem value="upgrade" onSelect={() => { go("upgrade"); setOpen(false); }} className="flex items-center gap-3">
-                    <ArrowRight className="h-4 w-4" /> <span className="font-display text-sm">Upgrade to Pro</span>
-                  </CommandItem>
                 </CommandGroup>
               </>
             )}

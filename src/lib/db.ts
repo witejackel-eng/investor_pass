@@ -64,10 +64,19 @@ function isTransient(e: unknown): boolean {
 }
 
 function createDb() {
+  // CRITICAL (2026-08-24, third build-outage class): passing
+  // `datasources: { db: { url: undefined } }` when DATABASE_URL is unset
+  // throws PrismaClientConstructorValidationError at MODULE-EVAL time —
+  // before any failure-safe wrapper can catch it — killing every build in
+  // environments without the env var (Vercel preview deployments scoped
+  // Production-only). Omitting `datasources` instead defers validation to
+  // the first query, where the safe()/try-catch layers degrade gracefully.
+  // Verified empirically: no-override constructs fine with DATABASE_URL unset.
+  const url = datasourceUrl()
   const base = new PrismaClient({
     // Query logging is a dev-only affordance; never log SQL in production.
     log: process.env.NODE_ENV === 'production' ? ['error'] : ['query', 'error'],
-    datasources: { db: { url: datasourceUrl() } },
+    ...(url ? { datasources: { db: { url } } } : {}),
   })
 
   if (process.env.IP_DB_RETRY_OFF) return base

@@ -56,7 +56,14 @@ const INDIAN_FOUNDERS = [
   "walchand-hirachand", "yc-deveshwar",
 ] as const;
 
-type Region = "china" | "india";
+type Region = "us" | "china" | "india";
+
+// 8 US founders — founders-collection branch (2026-08-24): Carnegie,
+// J.P. Morgan, Rockefeller, Henry Ford, Bill Gates, Steve Jobs, Bezos, Musk.
+const US_FOUNDERS = [
+  "carnegie", "jp-morgan", "rockefeller", "henry-ford",
+  "bill-gates", "steve-jobs", "bezos", "elon-musk",
+] as const;
 
 async function tag(slug: string, region: Region): Promise<boolean> {
   try {
@@ -72,8 +79,16 @@ async function tag(slug: string, region: Region): Promise<boolean> {
 }
 
 async function main() {
-  console.log(`Tagging founders — 52 Chinese + 51 Indian = 103 Person rows`);
+  console.log(`Tagging founders — 8 US + 52 Chinese + 51 Indian = 111 Person rows`);
   console.log("Existing investors (Buffett/Munger/Marks/…) are untouched.\n");
+
+  let usHit = 0;
+  let usMiss: string[] = [];
+  for (const slug of US_FOUNDERS) {
+    const ok = await tag(slug, "us");
+    if (ok) usHit++; else usMiss.push(slug);
+  }
+  console.log(`us: ${usHit}/${US_FOUNDERS.length} tagged`);
 
   let cnHit = 0;
   let cnMiss: string[] = [];
@@ -91,6 +106,7 @@ async function main() {
   }
   console.log(`india: ${inHit}/${INDIAN_FOUNDERS.length} tagged`);
 
+  if (usMiss.length) console.log(`missing us slugs (DB has no row): ${usMiss.join(", ")}`);
   if (cnMiss.length) console.log(`missing china slugs (DB has no row): ${cnMiss.join(", ")}`);
   if (inMiss.length) console.log(`missing india slugs (DB has no row): ${inMiss.join(", ")}`);
 

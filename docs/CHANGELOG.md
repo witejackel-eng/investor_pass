@@ -3,6 +3,38 @@
 Public-facing product changes. Corrections to the record appear here per the
 evidence policy (Reported → Review → Correct → Verify → Changelog).
 
+## 2026-08-24 — Free-everywhere release
+
+### Preview-build outage fix + US founders collection (this release)
+- FIXED (P0, third build-outage class): every preview deployment on
+  content branches (founders-collection dd1dff2…8463b6d) died at "Collecting
+  page data" with `PrismaClientConstructorValidationError: Invalid value
+  undefined for datasource "db"`. Root cause: `src/lib/db.ts` passed
+  `datasources: { db: { url: undefined } }` when DATABASE_URL was absent in
+  the build environment (the env var is scoped Production-only in Vercel),
+  which throws at module-evaluation time — before any failure-safe wrapper
+  can degrade. Fix: omit `datasources` entirely when the URL is missing;
+  validation then defers to first query where the safe()/try-catch layers
+  handle it. Verified locally: full `bun run build` with DATABASE_URL unset
+  now completes exit-0 (all 702 routes; sitemap degrades to static entries,
+  generateStaticParams return [] and pages render on demand).
+- NEW: **US founders collection** — merged the founders-collection branch:
+  Andrew Carnegie, J.P. Morgan, John D. Rockefeller, Henry Ford, Bill Gates,
+  Steve Jobs, Jeff Bezos, Elon Musk (8 founders, 133 sources, 329
+  paraphrased passages at 140-180 words each, 57 decisions). Ingested via
+  import-db + seed-decisions + tag-founders (kind="founder", region="us").
+- NEW: /founders region filter gains UNITED STATES (us|china|india); US
+  founders sort first (sortOrder 1-8, chronological).
+- PAYWALL: final visible-paywall sweep — removed the START PRO gate asides
+  from /investors and /founders, replaced PassageBoundary's paywall copy
+  with a neutral "search the full library" nudge (it was showing "Showing
+  9,999 of N references" on every truncated entity page), and dropped the
+  "Upgrade to Pro" ⌘K palette item. Database: all 14,175 passages now
+  visibility="public"; all users entitlement="pro"; imports always land
+  public while the paywall is dormant.
+- DATA: Druckenmiller +16 sources (165 passages) and Swensen +20 sources
+  (106 passages) from the expand-paraphrases pass ingested.
+
 ## 2026-02 — Launch releases
 
 ### End-to-end execution pass

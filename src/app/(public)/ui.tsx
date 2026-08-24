@@ -1,10 +1,9 @@
 import Link from "next/link";
 
-import { FREE_PASSAGE_LIMIT, type EntityCount, type PassageCard } from "@/lib/server/public-pages";
+import type { EntityCount, PassageCard } from "@/lib/server/public-pages";
 
 // ── SPA deep-link shapes (verified against src/stores/app-store.ts toHash) ──
 export const spaSearch = (q: string) => `/search?q=${encodeURIComponent(q)}`;
-export const spaUpgrade = () => "/upgrade";
 
 export const fmt = (n: number) => n.toLocaleString("en-US");
 
@@ -157,22 +156,25 @@ export function PassageItem({ p, showInvestor = true }: { p: PassageCard; showIn
 }
 
 export function PassageBoundary({ total }: { total: number }) {
+  // PAYWALL DORMANT — whole site free. The boundary stays as a neutral
+  // "there is more" affordance pointing into the (free) in-app library,
+  // never at a paywall.
   return (
     <aside className="gate mt-8 max-w-2xl">
       <p className="font-display text-lg font-semibold tracking-tight">
-        Showing {FREE_PASSAGE_LIMIT} of {fmt(total)} references.
+        {fmt(total)} references in the full record.
       </p>
       <p className="prose-reader mt-2">
-        Search the complete library, follow every connection, and save your research.
+        This page previews the record — search, filter and read every reference,
+        free, in the app.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-3">
-        <a
-          href={spaUpgrade()}
+        <Link
+          href="/search"
           className="bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
         >
-          START PRO — $9/MONTH
-        </a>
-        <span className="kicker">$79/YEAR — SAVE 27%</span>
+          SEARCH THE FULL LIBRARY
+        </Link>
       </div>
     </aside>
   );

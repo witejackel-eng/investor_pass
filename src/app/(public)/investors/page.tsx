@@ -75,25 +75,6 @@ export default async function InvestorsPage() {
           ))}
         </div>
       </section>
-
-      <aside className="gate mt-12 max-w-2xl">
-        <p className="font-display text-lg font-semibold tracking-tight">
-          The full library goes deeper.
-        </p>
-        <p className="prose-reader mt-2">
-          Every reference searchable, all premium passages unlocked, comparison
-          tools, and your own saved research — bookmarks, collections and alerts.
-        </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <a
-            href="/upgrade"
-            className="bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
-          >
-            START PRO — $9/MONTH
-          </a>
-          <span className="kicker">OR $79/YEAR — SAVE 27%</span>
-        </div>
-      </aside>
     </div>
   );
 }

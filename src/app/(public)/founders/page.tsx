@@ -9,12 +9,12 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Founder Directory",
   description:
-    "Study the public record of exceptional Chinese and Indian business founders — Jack Ma, Pony Ma, Mukesh Ambani, Ratan Tata, Azim Premji and more. Source-linked references, themes, companies and events.",
+    "Study the public record of exceptional business founders — Carnegie, Rockefeller, J.P. Morgan, Henry Ford, Steve Jobs, Bill Gates, Jeff Bezos, Elon Musk, Jack Ma, Mukesh Ambani, Ratan Tata and more. Source-linked references, themes, companies and events.",
   alternates: { canonical: "/founders" },
   openGraph: {
-    title: "Founder Directory — the public record of Eastern business founders",
+    title: "Founder Directory — the public record of great business founders",
     description:
-      "Source-linked research pages for the launch universe of Chinese and Indian business founders: references, themes, companies, events and timelines.",
+      "Source-linked research pages for the launch universe of American, Chinese and Indian business founders: references, themes, companies, events and timelines.",
     type: "website",
     url: "/founders",
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Founder Directory — Investor/Pass",
     description:
-      "The public record of Chinese and Indian business founders, properly indexed. References, themes, companies, events.",
+      "The public record of American, Chinese and Indian business founders, properly indexed. References, themes, companies, events.",
   },
 };
 
@@ -40,21 +40,23 @@ export default async function FoundersPage({
   const sp = await searchParams;
   const regionParam = sp.region?.toLowerCase();
   const region =
-    regionParam === "china" || regionParam === "india" ? regionParam : null;
+    regionParam === "us" || regionParam === "china" || regionParam === "india"
+      ? regionParam
+      : null;
 
   // Server-side filter on `region` (one row already carries it). The All
-  // view (region=null) shows every founder; China / India narrow the lens.
+  // view (region=null) shows every founder; US / China / India narrow the lens.
   const people = region ? all.filter((p) => p.region === region) : all;
   const totalRefs = people.reduce((s, p) => s + p.counts.total, 0);
 
   // Region filter — plain anchor links so server-side filtering stays
   // crawlable (no client JS required). The active state mirrors the
   // chip-ink treatment used elsewhere on the site.
-  const filterHref = (r: "all" | "china" | "india") =>
+  const filterHref = (r: "all" | "us" | "china" | "india") =>
     r === "all" ? "/founders" : `/founders?region=${r}`;
-  const isActive = (r: "all" | "china" | "india") =>
+  const isActive = (r: "all" | "us" | "china" | "india") =>
     (r === "all" && !region) || (r !== "all" && region === r);
-  const filterChip = (label: string, r: "all" | "china" | "india") => (
+  const filterChip = (label: string, r: "all" | "us" | "china" | "india") => (
     <Link
       href={filterHref(r)}
       className={`chip ${isActive(r) ? "chip-ink" : ""}`}
@@ -72,15 +74,16 @@ export default async function FoundersPage({
         meta={[
           `${all.length} FOUNDERS`,
           `${fmt(totalRefs)} PARAPHRASED REFERENCES`,
-          "CHINA · INDIA",
+          "US · CHINA · INDIA",
         ]}
-        lede="Letters, speeches, interviews, shareholder communications and decisions — every founder below has a documented public record, indexed and cross-linked. The Eastern operating builders sit alongside the Western capital allocators: shared themes, shared companies, shared arguments."
+        lede="Letters, speeches, interviews, shareholder communications and decisions — every founder below has a documented public record, indexed and cross-linked. The operating builders of America, China and India sit alongside the Western capital allocators: shared themes, shared companies, shared arguments."
       />
 
       <section className="mt-8">
         <SectionLabel>FILTER BY REGION</SectionLabel>
         <div className="flex flex-wrap gap-1.5">
           {filterChip("ALL", "all")}
+          {filterChip("UNITED STATES", "us")}
           {filterChip("CHINA", "china")}
           {filterChip("INDIA", "india")}
         </div>
@@ -125,25 +128,6 @@ export default async function FoundersPage({
           </EmptyNote>
         ) : null}
       </section>
-
-      <aside className="gate mt-12 max-w-2xl">
-        <p className="font-display text-lg font-semibold tracking-tight">
-          The full library goes deeper.
-        </p>
-        <p className="prose-reader mt-2">
-          Every reference searchable, all premium passages unlocked, comparison
-          tools, and your own saved research — bookmarks, collections and alerts.
-        </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <a
-            href="/upgrade"
-            className="bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
-          >
-            START PRO — $9/MONTH
-          </a>
-          <span className="kicker">OR $79/YEAR — SAVE 27%</span>
-        </div>
-      </aside>
     </div>
   );
 }
