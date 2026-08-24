@@ -136,25 +136,52 @@ async function main() {
     const visibility = rows.some((r) => r.visibility === "pro") ? "pro" : survivor.visibility;
     const notes = [...new Set(rows.map((r) => r.section).filter(Boolean))] as string[];
 
-    await db.$transaction(async (tx) => {
-      // Re-point junctions to the survivor
-      for (const table of ["passageTheme", "passageConcept", "passageCompany", "passageEvent"] as const) {
-        // @ts-expect-error dynamic junction model
-        await tx[table].updateMany({ where: { passageId: { in: prop.mergeIds } }, data: { passageId: prop.survivorId } });
-      }
-      await tx.passage.update({
-        where: { id: prop.survivorId },
-        data: {
-          text: mergedText,
-          context: survivor.context ? `${survivor.context} [merged ${rows.length} units]` : `[merged ${rows.length} units · sections: ${notes.join("; ")}]`,
-          verificationState: "needs_review", // human re-approval required
-          visibility,
-        },
+    // Each proposal is its own transaction. A single failure (e.g., a
+    // junction-row duplicate) must NOT abort the whole run — log + skip.
+    try {
+      await db.$transaction(async (tx) => {
+        // Re-point junctions to the survivor. We must first DELETE any
+        // duplicate junction rows on the merged-away passages whose
+        // entityId already exists on the survivor — otherwise the
+        // updateMany would create a (passageId, entityId) duplicate and
+        // the unique constraint would reject the whole transaction.
+        for (const [table, entityCol] of [
+          ["passageTheme", "themeId"],
+          ["passageConcept", "conceptId"],
+          ["passageCompany", "companyId"],
+          ["passageEvent", "eventId"],
+        ] as const) {
+          // @ts-expect-error dynamic junction model
+          const existing = await tx[table].findMany({
+            where: { passageId: prop.survivorId },
+            select: { [entityCol]: true } as any,
+          });
+          const existingIds = (existing as any[]).map((r) => r[entityCol]).filter(Boolean);
+          if (existingIds.length > 0) {
+            // @ts-expect-error dynamic junction model
+            await tx[table].deleteMany({
+              where: { passageId: { in: prop.mergeIds }, [entityCol]: { in: existingIds } } as any,
+            });
+          }
+          // @ts-expect-error dynamic junction model
+          await tx[table].updateMany({ where: { passageId: { in: prop.mergeIds } }, data: { passageId: prop.survivorId } });
+        }
+        await tx.passage.update({
+          where: { id: prop.survivorId },
+          data: {
+            text: mergedText,
+            context: survivor.context ? `${survivor.context} [merged ${rows.length} units]` : `[merged ${rows.length} units · sections: ${notes.join("; ")}]`,
+            verificationState: "needs_review", // human re-approval required
+            visibility,
+          },
+        });
+        await tx.passage.deleteMany({ where: { id: { in: prop.mergeIds } } });
       });
-      await tx.passage.deleteMany({ where: { id: { in: prop.mergeIds } } });
-    });
-    mergedCount++;
-    if (mergedCount % 25 === 0) console.log(`  merged ${mergedCount}/${proposals.length}`);
+      mergedCount++;
+      if (mergedCount % 25 === 0) console.log(`  merged ${mergedCount}/${proposals.length}`);
+    } catch (mergeErr) {
+      console.error(`  SKIP merge ${prop.survivorId} ← ${prop.mergeIds.join(",")}: ${(mergeErr as Error).message.split("\n")[0]}`);
+    }
   }
 
   console.log(`APPLIED ${mergedCount} merges. Survivors are needs_review until approved in review.`);
