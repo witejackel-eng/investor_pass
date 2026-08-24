@@ -6,7 +6,7 @@ import { apiGet, apiPost, apiDelete, track } from "@/lib/client";
 import { SearchBar } from "@/components/investor/search-bar";
 import { EntityChips, PremiumGate, ProBadge } from "@/components/investor/entity-chips";
 import { Loading } from "./views-core";
-import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal, Download, Share2, AlertTriangle } from "lucide-react";
+import { Bookmark, Save, Trash2, FolderPlus, Lock, Search as SearchIcon, ChevronRight, SlidersHorizontal, Download, Share2, AlertTriangle, FileText } from "lucide-react";
 import { toast } from "sonner";
 import { SITE_URL } from "@/lib/site";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
@@ -902,7 +902,13 @@ export function CollectionsView() {
               <div className="flex items-start justify-between">
                 <p className="font-display text-lg font-bold tracking-tight">{c.title}</p>
                 <div className="flex items-center gap-1.5">
-                  <button onClick={() => exportCollectionMd(c)} className="chip" title="Export as Markdown">
+                  <button onClick={() => exportBrief(c.id, "pdf")} className="chip hover:chip-signal" title="Create Brief (PDF) — full passage text + sources">
+                    <FileText className="h-3 w-3" /> BRIEF · PDF
+                  </button>
+                  <button onClick={() => exportBrief(c.id, "md")} className="chip" title="Create Brief (Markdown)">
+                    <FileText className="h-3 w-3" /> MD
+                  </button>
+                  <button onClick={() => exportCollectionMd(c)} className="chip" title="Export items list as Markdown">
                     <Download className="h-3 w-3" />
                   </button>
                   <button onClick={() => remove(c.id)} className="chip hover:chip-signal"><Trash2 className="h-3 w-3" /></button>
@@ -977,6 +983,34 @@ function downloadFile(content: string, filename: string, mime: string) {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+// Create a structured research Brief (PDF or Markdown) from a collection.
+// Calls /api/export/brief?collection=<id>&format=<fmt> which fetches the
+// full passage text + sources server-side. No AI summarization — every
+// word comes from the selected passages (per the user's constraint).
+async function exportBrief(collectionId: string, format: "pdf" | "md") {
+  try {
+    const res = await fetch(`/api/export/brief?collection=${encodeURIComponent(collectionId)}&format=${format}`, { credentials: "include" });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ error: "Export failed" }));
+      toast.error(err.error || `Export failed (${res.status})`);
+      return;
+    }
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const ext = format === "pdf" ? "pdf" : "md";
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `research-brief.${ext}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success(`Brief exported as ${format.toUpperCase()}`);
+  } catch (e: any) {
+    toast.error(e.message || "Export failed");
+  }
 }
 
 // Export a single collection as Markdown
