@@ -50,7 +50,7 @@ export function AppRoot({ initialView, initialParams }: { initialView?: View; in
     if (initialView && !hasHashView) {
       useStore.setState({ view: initialView, params: initialParams ?? {} });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- bootstrap once
+    // bootstrap once on mount — deps intentionally limited to initialView
   }, [initialView]);
 
   const renderView = () => {

@@ -35,6 +35,7 @@ export function ConceptView({ slug, investor }: { slug: string; investor?: strin
 
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setData(null);
     setError(null);
     apiGet<ConceptData>(`/api/concepts/${slug}?investor=${inv}`)

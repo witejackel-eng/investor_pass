@@ -50,12 +50,19 @@ export type InvestorPageData = {
   shortDescription: string | null;
   bio: string | null;
   birthYear: number | null;
+  region: string | null;
   counts: { sources: number } & RefCounts;
   themes: EntityCount[];
   companies: EntityCount[];
   years: YearSpan;
   passages: PassageCard[];
 };
+
+// Founder pages share the exact same shape as investor pages — they live at
+// /founders/[slug] instead of /investors/[slug] and use "founder" branding, but
+// the underlying record (sources, passages, themes, companies, years) is the
+// same. Alias the type so the founder server code reads cleanly.
+export type FounderPageData = InvestorPageData;
 
 export type InvestorTopicData = {
   person: { slug: string; name: string; shortDescription: string | null };
@@ -269,10 +276,21 @@ async function breakdownBySourceType(
 
 // ── B1 page helpers ─────────────────────────────────────────────────────────
 
-/** Investor profile: /investors/[slug] */
-async function _getInvestorPage(slug: string): Promise<InvestorPageData | null> {
-  const person = await db.person.findUnique({
-    where: { slug },
+/**
+ * Person profile: /investors/[slug] (kind="investor") or
+ * /founders/[slug] (kind="founder"). Both surfaces share the same record
+ * shape; only the URL prefix and "founder" vs "investor" branding differ.
+ *
+ * The `kind` filter is enforced at the SQL layer (findFirst by slug+kind) so
+ * a founder slug like `jack-ma` returns null at /investors/jack-ma (rendering
+ * the Refreshing fallback or 404) and resolves correctly at /founders/jack-ma.
+ */
+async function _getPersonPage(
+  slug: string,
+  kind: "investor" | "founder"
+): Promise<InvestorPageData | null> {
+  const person = await db.person.findFirst({
+    where: { slug, kind },
     select: {
       id: true,
       slug: true,
@@ -280,6 +298,7 @@ async function _getInvestorPage(slug: string): Promise<InvestorPageData | null> 
       shortDescription: true,
       bio: true,
       birthYear: true,
+      region: true,
     },
   });
   if (!person) return null;
@@ -301,6 +320,7 @@ async function _getInvestorPage(slug: string): Promise<InvestorPageData | null> 
     shortDescription: person.shortDescription,
     bio: person.bio,
     birthYear: person.birthYear,
+    region: person.region,
     counts: { sources, ...counts },
     themes,
     companies,
@@ -477,6 +497,9 @@ export type DirectoryEntry = {
   slug: string;
   name: string;
   shortDescription: string | null;
+  // Geographic region for founders: "china" | "india" | null. Investors are
+  // always null (the US/Western roster is implicit / the default surface).
+  region: string | null;
   counts: { sources: number } & RefCounts;
   topTheme: string | null;
 };
@@ -489,6 +512,7 @@ async function _getInvestorDirectory(): Promise<DirectoryEntry[]> {
     slug: string;
     name: string;
     short_description: string | null;
+    region: string | null;
     sort_order: number;
     source_count: bigint;
     passage_count: bigint;
@@ -498,6 +522,7 @@ async function _getInvestorDirectory(): Promise<DirectoryEntry[]> {
     SELECT p.slug,
            p.name,
            p."shortDescription" AS short_description,
+           p.region,
            p."sortOrder" AS sort_order,
            COUNT(DISTINCT s.id) AS source_count,
            COUNT(pa.id) AS passage_count,
@@ -506,13 +531,63 @@ async function _getInvestorDirectory(): Promise<DirectoryEntry[]> {
     LEFT JOIN "Source" s ON s."personId" = p.id
     LEFT JOIN "Passage" pa ON pa."sourceId" = s.id
     WHERE p.status = 'active'
-    GROUP BY p.id, p.slug, p.name, p."shortDescription", p."sortOrder"
+      AND p.kind = 'investor'
+    GROUP BY p.id, p.slug, p.name, p."shortDescription", p.region, p."sortOrder"
     ORDER BY p."sortOrder" ASC`;
 
   return rows.map((r) => ({
     slug: r.slug,
     name: r.name,
     shortDescription: r.short_description,
+    region: r.region,
+    counts: {
+      sources: Number(r.source_count),
+      total: Number(r.passage_count),
+      publicCount: Number(r.public_count),
+    },
+    topTheme: null,
+  }));
+}
+
+/**
+ * Founder directory: /founders. Mirrors `_getInvestorDirectory` but filters
+ * `kind='founder'` so the Chinese (52) + Indian (51) corpora surface here,
+ * not on /investors. Returns `region` ("china" | "india") so the page can
+ * render a region filter via searchParams.
+ */
+async function _getFounderDirectory(): Promise<DirectoryEntry[]> {
+  type Row = {
+    slug: string;
+    name: string;
+    short_description: string | null;
+    region: string | null;
+    sort_order: number;
+    source_count: bigint;
+    passage_count: bigint;
+    public_count: bigint;
+  };
+  const rows = await db.$queryRaw<Row[]>`
+    SELECT p.slug,
+           p.name,
+           p."shortDescription" AS short_description,
+           p.region,
+           p."sortOrder" AS sort_order,
+           COUNT(DISTINCT s.id) AS source_count,
+           COUNT(pa.id) AS passage_count,
+           COUNT(pa.id) FILTER (WHERE pa.visibility = 'public') AS public_count
+    FROM "Person" p
+    LEFT JOIN "Source" s ON s."personId" = p.id
+    LEFT JOIN "Passage" pa ON pa."sourceId" = s.id
+    WHERE p.status = 'active'
+      AND p.kind = 'founder'
+    GROUP BY p.id, p.slug, p.name, p."shortDescription", p.region, p."sortOrder"
+    ORDER BY p."sortOrder" ASC`;
+
+  return rows.map((r) => ({
+    slug: r.slug,
+    name: r.name,
+    shortDescription: r.short_description,
+    region: r.region,
     counts: {
       sources: Number(r.source_count),
       total: Number(r.passage_count),
@@ -526,6 +601,7 @@ async function _getInvestorDirectory(): Promise<DirectoryEntry[]> {
 
 export type SitemapData = {
   investors: { slug: string; lastModified: Date }[];
+  founders: { slug: string; lastModified: Date }[];
   topicPairs: { personSlug: string; themeSlug: string }[];
   themes: { slug: string }[];
   companies: { slug: string }[];
@@ -542,6 +618,7 @@ export type SitemapData = {
 async function _getSitemapData(): Promise<SitemapData> {
   const MIN_TOPIC_REFS = 3;
 
+  // Investors — people whose `kind` is "investor" (Buffett/Munger/Marks/…).
   const investorsRaw = await db.$queryRaw<{ slug: string; last_modified: Date }[]>`
     SELECT p.slug,
            MAX(s."updatedAt") AS last_modified
@@ -549,9 +626,24 @@ async function _getSitemapData(): Promise<SitemapData> {
     JOIN "Source" s ON s."personId" = p.id
     JOIN "Passage" pa ON pa."sourceId" = s.id
     WHERE p.status = 'active'
+      AND p.kind = 'investor'
       AND pa.visibility = 'public'
     GROUP BY p.slug`;
   const investors = investorsRaw.map((r) => ({ slug: r.slug, lastModified: new Date(r.last_modified) }));
+
+  // Founders — Chinese (52) + Indian (51) operators. Same shape as investors
+  // but filtered by `kind='founder'` so /founders/<slug> gets its own URLs.
+  const foundersRaw = await db.$queryRaw<{ slug: string; last_modified: Date }[]>`
+    SELECT p.slug,
+           MAX(s."updatedAt") AS last_modified
+    FROM "Person" p
+    JOIN "Source" s ON s."personId" = p.id
+    JOIN "Passage" pa ON pa."sourceId" = s.id
+    WHERE p.status = 'active'
+      AND p.kind = 'founder'
+      AND pa.visibility = 'public'
+    GROUP BY p.slug`;
+  const founders = foundersRaw.map((r) => ({ slug: r.slug, lastModified: new Date(r.last_modified) }));
 
   // SQL-side aggregation: ~500 result rows instead of pulling every junction row.
   const pairs = await db.$queryRaw<{ person_slug: string; theme_slug: string }[]>`
@@ -600,6 +692,7 @@ async function _getSitemapData(): Promise<SitemapData> {
 
   return {
     investors,
+    founders,
     topicPairs,
     themes: themeRows.map((r) => ({ slug: r.theme.slug })),
     companies: companyRows.map((r) => ({ slug: r.company.slug })),
@@ -628,7 +721,10 @@ async function safe<T>(label: string, fn: () => Promise<T | null>): Promise<T | 
 }
 
 export const getInvestorPage = cache((slug: string) =>
-  safe("getInvestorPage", () => _getInvestorPage(slug))
+  safe("getInvestorPage", () => _getPersonPage(slug, "investor"))
+);
+export const getFounderPage = cache((slug: string) =>
+  safe("getFounderPage", () => _getPersonPage(slug, "founder"))
 );
 export const getInvestorTopic = cache((slug: string, theme: string) =>
   safe("getInvestorTopic", () => _getInvestorTopic(slug, theme))
@@ -648,9 +744,30 @@ export const getYearPage = cache((year: string) =>
 export const getInvestorDirectory = cache(() =>
   safe("getInvestorDirectory", () => _getInvestorDirectory())
 );
+export const getFounderDirectory = cache(() =>
+  safe("getFounderDirectory", () => _getFounderDirectory())
+);
 export const getSitemapData = cache(() =>
   safe("getSitemapData", () => _getSitemapData())
 );
+
+/**
+ * Existence check that confirms a Person row with `kind="founder"` exists.
+ * Lets the /founders/[slug] route distinguish a true 404 (slug never seen)
+ * from a transient DB failure (render Refreshing fallback so ISR can heal).
+ */
+export const founderExists = cache(async (slug: string): Promise<boolean> => {
+  try {
+    return Boolean(
+      await db.person.findFirst({
+        where: { slug, kind: "founder" },
+        select: { id: true },
+      })
+    );
+  } catch {
+    return true; // if the check itself fails, assume it exists (render fallback)
+  }
+});
 
 /** Existence checks — let pages distinguish 404 from a failed load. */
 export const personExists = cache(async (slug: string): Promise<boolean> => {

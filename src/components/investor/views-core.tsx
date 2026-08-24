@@ -18,6 +18,7 @@ import {
   CrossInvestorDemo,
   LearnFeature,
   InvestorResearchFeature,
+  FoundersFeature,
   StartAnywhere,
   DecisionDemo,
   FeaturedTrail,
@@ -174,6 +175,7 @@ export function HomeView() {
       <CrossInvestorDemo />
       <LearnFeature />
       <InvestorResearchFeature />
+      <FoundersFeature />
       <DecisionDemo />
       <FeaturedTrail />
       <StartAnywhere />
@@ -349,6 +351,7 @@ export function InvestorView({ slug }: { slug: string }) {
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setData(null);
     setYears([]);
     setError(null);

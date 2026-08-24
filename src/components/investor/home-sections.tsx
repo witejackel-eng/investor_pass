@@ -924,6 +924,182 @@ export function InvestorResearchFeature() {
   );
 }
 
+// ── FOUNDERS OF THE EAST — Chinese + Indian operator-builders ────────────────
+//
+// Showcases 4–6 featured founders (Jack Ma, Pony Ma, Lei Jun, Mukesh Ambani,
+// Ratan Tata, Azim Premji) deep-linking to /founders/<slug>. Data is fetched
+// live from /api/founders (which calls getFounderDirectory() server-side) and
+// sorted by sortOrder ASC — so the homepage always reflects the same founder
+// ranking as /founders. If the DB is unreachable, six hard-coded fallback
+// cards (each with a real 1-sentence summary) keep the section from going dark.
+
+type FounderEntry = {
+  slug: string;
+  name: string;
+  shortDescription: string | null;
+  region: string | null;
+  counts: { sources: number; total: number; publicCount: number };
+};
+
+type FoundersCache = { at: number; data: FounderEntry[] } | null;
+let foundersCache: FoundersCache = null;
+
+// Hard-coded fallback (one real sentence each, slug-aligned with
+// scripts/ingest/tag-founders.ts). Used only if /api/founders is unreachable
+// — never the happy path, but the homepage never goes dark on a DB hiccup.
+const FALLBACK_FOUNDERS: FounderEntry[] = [
+  {
+    slug: "jack-ma",
+    name: "Jack Ma",
+    shortDescription: "Founded Alibaba from a Hangzhou apartment; built it into the largest e-commerce platform in China.",
+    region: "china",
+    counts: { sources: 0, total: 0, publicCount: 0 },
+  },
+  {
+    slug: "pony-ma",
+    name: "Pony Ma",
+    shortDescription: "Co-founded Tencent and shaped WeChat into China's dominant social-and-payments super-app.",
+    region: "china",
+    counts: { sources: 0, total: 0, publicCount: 0 },
+  },
+  {
+    slug: "lei-jun",
+    name: "Lei Jun",
+    shortDescription: "Founded Xiaomi on a bet that high-spec phones could ship at near-cost and still scale into services.",
+    region: "china",
+    counts: { sources: 0, total: 0, publicCount: 0 },
+  },
+  {
+    slug: "mukesh-ambani",
+    name: "Mukesh Ambani",
+    shortDescription: "Steered Reliance from petrochemicals into telecom with Jio, rewiring India's data and retail economy.",
+    region: "india",
+    counts: { sources: 0, total: 0, publicCount: 0 },
+  },
+  {
+    slug: "ratan-tata",
+    name: "Ratan Tata",
+    shortDescription: "Took the Tata Group global through acquisitions of Tetley, Jaguar Land Rover and Corus across two decades.",
+    region: "india",
+    counts: { sources: 0, total: 0, publicCount: 0 },
+  },
+  {
+    slug: "azim-premji",
+    name: "Azim Premji",
+    shortDescription: "Built Wipro from a vegetable-oil firm into a global IT services leader and gave most of it away.",
+    region: "india",
+    counts: { sources: 0, total: 0, publicCount: 0 },
+  },
+];
+
+function useFounders(): FounderEntry[] {
+  const [data, setData] = useState<FounderEntry[]>(
+    foundersCache?.data ?? FALLBACK_FOUNDERS
+  );
+  useEffect(() => {
+    if (foundersCache && Date.now() - foundersCache.at < 5 * 60_000) return;
+    let active = true;
+    apiGet<{ founders: FounderEntry[] }>("/api/founders")
+      .then((d) => {
+        if (!active) return;
+        const list = Array.isArray(d?.founders) ? d.founders : [];
+        // Take first 6 by sortOrder (the server already orders by sortOrder ASC).
+        const top = list.slice(0, 6);
+        // If the directory is empty (DB reachable but no founders yet),
+        // keep the fallback so the section still showcases the Eastern roster.
+        const next = top.length > 0 ? top : FALLBACK_FOUNDERS;
+        foundersCache = { at: Date.now(), data: next };
+        setData(next);
+      })
+      .catch(() => {
+        if (!active) return;
+        // Keep the fallback (already set as initial state) — homepage stays
+        // populated, just without live source/reference counts.
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+  return data;
+}
+
+export function FoundersFeature() {
+  const founders = useFounders();
+  return (
+    <section
+      className="mt-12 border-t-2 border-ink py-8"
+      aria-labelledby="founders-feature-title"
+    >
+      <div className="section-head">
+        <h2 id="founders-feature-title">Founders of the East.</h2>
+        <p className="kicker">CHINA · INDIA</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-[8fr_4fr]">
+        <div>
+          <p className="max-w-[680px] font-reader text-base text-graphite">
+            Operator-builders, indexed like the investors. Letters, speeches,
+            interviews and decisions — paraphrased with full source attribution,
+            cross-linked into the same themes, companies and events graph as the
+            Western capital allocators.
+          </p>
+          <div className="mt-4 grid gap-px border border-ink bg-rule sm:grid-cols-2 lg:grid-cols-3">
+            {founders.map((f) => {
+              const regionLabel = f.region === "china" ? "CHINA" : f.region === "india" ? "INDIA" : "EAST";
+              return (
+                <a
+                  key={f.slug}
+                  href={`/founders/${f.slug}`}
+                  className="group block bg-paper p-4 transition-colors hover:bg-paper-2"
+                >
+                  <p className="kicker text-signal-dark">{regionLabel}</p>
+                  <p className="mt-1 font-display text-lg font-bold tracking-tight">{f.name}</p>
+                  {f.shortDescription ? (
+                    <p className="mt-1 font-reader text-xs leading-snug text-graphite">
+                      {f.shortDescription}
+                    </p>
+                  ) : null}
+                  {f.counts.total > 0 ? (
+                    <p className="mt-2 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
+                      {f.counts.total.toLocaleString()} references · {f.counts.sources} sources
+                    </p>
+                  ) : null}
+                  <span className="mt-3 inline-flex items-center font-mono text-[0.62rem] uppercase tracking-wider text-ink group-hover:text-signal-dark">
+                    OPEN PROFILE <ArrowRight className="ml-1 inline h-3 w-3" aria-hidden />
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <a
+              href="/founders"
+              className="bg-ink px-4 py-2 text-[0.78rem] font-semibold text-paper transition-colors hover:bg-signal-dark"
+            >
+              BROWSE ALL FOUNDERS
+              <ArrowRight className="ml-1.5 inline h-3.5 w-3.5" aria-hidden />
+            </a>
+            <a href="/investors" className="nav-link text-[0.78rem] font-semibold">
+              COMPARE WITH INVESTORS
+            </a>
+          </div>
+        </div>
+        <aside className="border-l border-rule lg:pl-6" aria-label="Why founders?">
+          <p className="kicker">WHY FOUNDERS?</p>
+          <p className="mt-2 font-reader text-sm text-graphite">
+            The capital allocator and the operator-builder both leave a written
+            record — letters, memos, speeches, interviews, decisions. The same
+            evidence pipeline indexes both, so a Buffett reader and a Jack Ma
+            reader can follow the same thread from one to the other.
+          </p>
+          <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
+            103 founders · 1,531 paraphrased references · China + India
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
 // ── §46 PERSONAL RESEARCH — conceptual preview for guests ─────────────────
 
 export function PersonalResearchPreview({ isLoggedIn }: { isLoggedIn: boolean }) {

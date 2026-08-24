@@ -23,6 +23,7 @@ export function TimelineView({ slug }: { slug: string }) {
 
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setLoading(true);
     setError(null);
     apiGet<{ timeline: TimelineEntry[] }>(`/api/investors/${slug}/timeline`)

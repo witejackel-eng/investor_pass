@@ -42,6 +42,7 @@ export function EventView({ slug, investor }: { slug: string; investor?: string 
 
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setData(null);
     setError(null);
     apiGet<EventData>(`/api/events/${slug}?investor=${inv}`)

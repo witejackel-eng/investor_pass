@@ -26,6 +26,7 @@ export function TopicView({ slug, investor }: { slug: string; investor?: string 
   const inv = investor || "buffett";
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setData(null);
     setError(null);
     apiGet<TopicData>(`/api/themes/${slug}?investor=${inv}`)
@@ -166,6 +167,7 @@ export function CompanyView({ slug, investor }: { slug: string; investor?: strin
   const inv = investor || "buffett";
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setData(null);
     setError(null);
     apiGet<CompanyData>(`/api/companies/${slug}?investor=${inv}`)
@@ -290,6 +292,7 @@ export function YearView({ year, investor }: { year: string; investor?: string }
   const inv = investor || "buffett";
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setData(null);
     setError(null);
     apiGet<YearData>(`/api/years/${year}?investor=${inv}`)
@@ -396,6 +399,7 @@ export function SourceView({ slug }: { slug: string }) {
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on slug change so the prior record does not briefly flash while the new fetch resolves
     setData(null);
     setError(null);
     apiGet<SourceData>(`/api/sources/${slug}`)

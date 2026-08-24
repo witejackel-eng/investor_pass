@@ -19,6 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/learn`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/newsletter`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/investors`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/founders`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/trails`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/changelog`, changeFrequency: "weekly", priority: 0.5 },
     { url: `${BASE}/legal`, changeFrequency: "yearly", priority: 0.3 },
@@ -53,9 +54,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
     entries.push({ url: `${BASE}/kb/${inv.slug}`, changeFrequency: "weekly", priority: 0.8 });
   }
-  for (const pair of data.topicPairs) {
+  for (const f of data.founders) {
     entries.push({
-      url: `${BASE}/investors/${pair.personSlug}/topics/${pair.themeSlug}`,
+      url: `${BASE}/founders/${f.slug}`,
+      lastModified: f.lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
+  }
+  // Build a founder-slug set so topic-pair URLs can be routed to the
+  // founder surface (/founders/<slug>/topics/...) when the person is a
+  // founder, and to the investor surface (/investors/<slug>/topics/...)
+  // otherwise — both render the same underlying data via getInvestorTopic,
+  // but the breadcrumb + canonical differ.
+  const founderSlugs = new Set(data.founders.map((f) => f.slug));
+  for (const pair of data.topicPairs) {
+    const root = founderSlugs.has(pair.personSlug) ? "founders" : "investors";
+    entries.push({
+      url: `${BASE}/${root}/${pair.personSlug}/topics/${pair.themeSlug}`,
       changeFrequency: "monthly",
       priority: 0.6,
     });

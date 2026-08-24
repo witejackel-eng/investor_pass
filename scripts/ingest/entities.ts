@@ -219,7 +219,6 @@ export const COMPANIES: CompanyDef[] = [
   { slug: "pinduoduo", name: "Pinduoduo", canonicalName: "Pinduoduo", industry: "retail", description: "Chinese group-buying e-commerce platform founded by Colin Huang." },
   { slug: "temu", name: "Temu", canonicalName: "Temu", industry: "retail", description: "PDD's cross-border discount marketplace launched in 2022." },
   { slug: "jd-com", name: "JD.com", canonicalName: "JD.com, Inc.", ticker: "JD", industry: "retail", description: "Chinese direct-sale e-commerce platform founded by Richard Liu." },
- (Add Chinese Founders collection: 52 founders, 571 paraphrased passages)
 ];
 
 export const THEMES = [
@@ -332,7 +331,6 @@ export const THEMES = [
   { slug: "regulatory-environment", name: "Regulatory Environment", description: "How statute, agency rule-making, and enforcement shape an industry." },
   { slug: "research-and-development", name: "Research and Development", description: "Sustained spending to push a technical frontier." },
   { slug: "bankruptcy-and-restructuring", name: "Bankruptcy and Restructuring", description: "Distress workouts, debt restructurings, and the lessons of insolvency." },
- (Add Chinese Founders collection: 52 founders, 571 paraphrased passages)
 ];
 
 export const CONCEPTS = [
@@ -383,7 +381,6 @@ export const CONCEPTS = [
   { slug: "political-risk", name: "Political Risk", description: "Exposure to government action — regulation, sanction, or favor." },
   { slug: "regulatory-moat", name: "Regulatory Moat", description: "A license, permit, or rule set that keeps competitors out." },
   { slug: "capital-cycle", name: "Capital Cycle", description: "Industry capital flowing in until returns collapse, then retreating." },
- (Add Chinese Founders collection: 52 founders, 571 paraphrased passages)
 ];
 
 export const EVENTS = [
@@ -415,5 +412,4 @@ export const EVENTS = [
   { slug: "2021-evergrande-default", name: "Evergrande Default", date: "2021-12", description: "Evergrande missed dollar-bond payments, signaling the end of the Chinese property super-cycle." },
   { slug: "2023-country-garden-distress", name: "Country Garden Distress", date: "2023-08", description: "Country Garden tipped into default risk, deepening the property-sector debt crisis." },
   { slug: "2025-deepseek-r1-release", name: "DeepSeek R1 Release", date: "2025-01", description: "DeepSeek released an open-weights reasoning model that re-priced assumptions about AI compute needs." },
- (Add Chinese Founders collection: 52 founders, 571 paraphrased passages)
 ];

@@ -27,6 +27,9 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
             <Link href="/investors" className="nav-link hover:text-foreground">
               INVESTORS
             </Link>
+            <Link href="/founders" className="nav-link hover:text-foreground">
+              FOUNDERS
+            </Link>
             <Link href="/learn" className="nav-link hover:text-foreground">
               LEARN
             </Link>
@@ -49,6 +52,9 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
           <nav aria-label="Footer" className="kicker flex flex-wrap items-center gap-x-4">
             <Link href="/investors" className="hover:text-foreground hover:underline">
               Investors
+            </Link>
+            <Link href="/founders" className="hover:text-foreground hover:underline">
+              Founders
             </Link>
             <a href="/search" className="hover:text-foreground hover:underline">
               Search

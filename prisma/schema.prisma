@@ -113,6 +113,14 @@ model Person {
   bio              String?
   // "buffett" | "munger" | "marks" | "lynch" | "bogle"
   status           String   @default("coming_later") // "active" | "coming_later"
+  // Persona class: "investor" (Western capital allocators — Buffett/Munger/Marks…)
+  // or "founder" (operating builders — Jack Ma, Mukesh Ambani, Ratan Tata…).
+  // Drives the /founders surface and founder-branded detail pages.
+  kind             String   @default("investor")
+  // Geographic region for the founder collection: "us" | "china" | "india" | null.
+  // Investors default to "us"; founders get "china" or "india" tagged by
+  // scripts/ingest/tag-founders.ts after import.
+  region           String?
   birthYear        Int?
   sortOrder        Int      @default(0)
   createdAt        DateTime @default(now())
@@ -122,6 +130,10 @@ model Person {
   decisions        Decision[]
   personCompanies  PersonCompany[]
   personThemes     PersonTheme[]
+
+  @@index([kind])
+  @@index([region])
+  @@index([kind, region])
 }
 
 model Source {
