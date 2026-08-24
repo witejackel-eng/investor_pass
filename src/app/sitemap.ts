@@ -52,7 +52,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.9,
     });
-    entries.push({ url: `${BASE}/kb/${inv.slug}`, changeFrequency: "weekly", priority: 0.8 });
+    // NOTE: /kb/<slug> entries removed 2026-08-24 — no /kb route exists
+    // (never built); the sitemap was advertising 404 URLs to crawlers.
   }
   for (const f of data.founders) {
     entries.push({
