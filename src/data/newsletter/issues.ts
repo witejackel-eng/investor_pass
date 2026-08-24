@@ -62,7 +62,7 @@ export const ISSUES: NewsletterIssue[] = [
     ],
     related: [
       { label: "Start with how hedge funds work", href: "/learn/how-hedge-funds-work" },
-      { label: "Who talks about risk?", href: "/#/view=compare" },
+      { label: "Who talks about risk?", href: "/compare" },
       { label: "The 2008 trail", href: "/trails/2008-through-five-investors" },
     ],
     subscriberEdition: true,

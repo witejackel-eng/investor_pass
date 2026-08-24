@@ -3,8 +3,8 @@ import Link from "next/link";
 import { FREE_PASSAGE_LIMIT, type EntityCount, type PassageCard } from "@/lib/server/public-pages";
 
 // ── SPA deep-link shapes (verified against src/stores/app-store.ts toHash) ──
-export const spaSearch = (q: string) => `/#/view=search&q=${encodeURIComponent(q)}`;
-export const spaUpgrade = () => "/#/view=upgrade";
+export const spaSearch = (q: string) => `/search?q=${encodeURIComponent(q)}`;
+export const spaUpgrade = () => "/upgrade";
 
 export const fmt = (n: number) => n.toLocaleString("en-US");
 
@@ -218,7 +218,7 @@ export function Refreshing({ what }: { what: string }) {
         <Link href="/investors" className="chip chip-signal">
           BROWSE INVESTORS →
         </Link>
-        <a href="/#/view=search" className="chip">
+        <a href="/search" className="chip">
           SEARCH THE LIBRARY →
         </a>
       </div>

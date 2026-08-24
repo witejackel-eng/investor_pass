@@ -820,7 +820,8 @@ export function SavedSearchesView() {
                     const params = new URLSearchParams();
                     if (s.query) params.set("q", s.query);
                     for (const [k, v] of Object.entries(s.filters || {})) { if (v) params.set(k, String(v)); }
-                    const url = `${window.location.origin}/#/view=search&${params.toString()}`;
+                    const qs = params.toString();
+                    const url = `${window.location.origin}/search${qs ? `?${qs}` : ""}`;
                     navigator.clipboard.writeText(url);
                     toast.success("Search URL copied to clipboard");
                   }}
@@ -952,7 +953,13 @@ function exportBookmarksMd(bookmarks: any[]) {
   for (const [kind, items] of Object.entries(grouped)) {
     md += `## ${kindLabels[kind] || kind}\n\n`;
     for (const b of items) {
-      md += `- [${b.label}](${SITE_URL}/#/view=${b.kind === "search" ? "search" : b.kind === "theme" ? "topic" : b.kind}&slug=${b.entityId})\n`;
+      const path = b.kind === "search" ? `/search?q=${encodeURIComponent(b.entityId)}`
+        : b.kind === "theme" ? `/themes/${b.entityId}`
+        : b.kind === "company" ? `/companies/${b.entityId}`
+        : b.kind === "source" ? `/sources/${b.entityId}`
+        : b.kind === "passage" ? `/passages/${b.entityId}`
+        : "/";
+      md += `- [${b.label}](${SITE_URL}${path})\n`;
     }
     md += "\n";
   }

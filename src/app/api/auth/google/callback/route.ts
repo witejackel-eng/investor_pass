@@ -27,7 +27,7 @@ function siteUrl(req: Request): string {
 }
 
 function oauthRedirect(req: Request, errMsg?: string) {
-  const dest = errMsg ? `${siteUrl(req)}/#/view=login&error=google&reason=${errMsg}` : `${siteUrl(req)}/`;
+  const dest = errMsg ? `${siteUrl(req)}/login?error=google&reason=${encodeURIComponent(errMsg)}` : `${siteUrl(req)}/`;
   return NextResponse.redirect(dest);
 }
 

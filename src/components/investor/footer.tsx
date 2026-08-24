@@ -27,8 +27,8 @@ export function Footer() {
             <p className="kicker mb-3">PRODUCT</p>
             <ul className="space-y-2 text-graphite">
               <li><Link href="/investors" className="hover:text-ink">Investors</Link></li>
-              <li><Link href="/#search" className="hover:text-ink">Search</Link></li>
-              {!isPro && <li><Link href="/#/view=upgrade" className="hover:text-ink">Upgrade</Link></li>}
+              <li><Link href="/search" className="hover:text-ink">Search</Link></li>
+              {!isPro && <li><Link href="/upgrade" className="hover:text-ink">Upgrade</Link></li>}
               <li><Link href="/legal" className="hover:text-ink">Legal</Link></li>
             </ul>
           </nav>

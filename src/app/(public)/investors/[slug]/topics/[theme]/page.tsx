@@ -127,7 +127,7 @@ export default async function InvestorTopicPage({ params }: Params) {
                   {data.concepts.map((c) => (
                     <a
                       key={c.slug}
-                      href={`/#/view=search&q=${encodeURIComponent(c.name)}`}
+                      href={`/search?q=${encodeURIComponent(c.name)}`}
                       className="chip"
                     >
                       {c.name} · {fmt(c.total)}
@@ -149,7 +149,7 @@ export default async function InvestorTopicPage({ params }: Params) {
                   {data.person.name.split(" ")[0].toUpperCase()}'S PROFILE →
                 </Link>
                 <a
-                  href={`/#/view=search&q=${encodeURIComponent(`${data.person.name} ${data.theme.name}`)}`}
+                  href={`/search?q=${encodeURIComponent(`${data.person.name} ${data.theme.name}`)}`}
                   className="chip"
                 >
                   SEARCH IN THE APP →

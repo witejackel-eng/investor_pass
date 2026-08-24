@@ -148,7 +148,7 @@ export default async function YearPage({ params }: Params) {
                     {data.nextYear} →
                   </Link>
                 ) : null}
-                <a href={`/#/view=search&q=${encodeURIComponent(String(data.year))}`} className="chip chip-signal">
+                <a href={`/search?q=${encodeURIComponent(String(data.year))}`} className="chip chip-signal">
                   SEARCH IN THE APP →
                 </a>
               </div>

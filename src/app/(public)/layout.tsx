@@ -50,10 +50,10 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
             <Link href="/investors" className="hover:text-foreground hover:underline">
               Investors
             </Link>
-            <a href="/#/view=search" className="hover:text-foreground hover:underline">
+            <a href="/search" className="hover:text-foreground hover:underline">
               Search
             </a>
-            <a href="/#/view=upgrade" className="hover:text-foreground hover:underline">
+            <a href="/upgrade" className="hover:text-foreground hover:underline">
               Pro — $9/month or $79/year
             </a>
           </nav>

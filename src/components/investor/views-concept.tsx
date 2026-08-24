@@ -30,16 +30,32 @@ type ConceptData = {
 export function ConceptView({ slug, investor }: { slug: string; investor?: string }) {
   const go = useStore((s) => s.go);
   const [data, setData] = useState<ConceptData | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const inv = investor || "buffett";
 
   useEffect(() => {
     let active = true;
+    setData(null);
+    setError(null);
     apiGet<ConceptData>(`/api/concepts/${slug}?investor=${inv}`)
       .then((d) => { if (active) setData(d); })
-      .catch(() => { if (active) setData(null); });
+      .catch(() => { if (active) setError("This record could not be loaded. It may not exist in the index, or the connection was lost."); });
     return () => { active = false; };
   }, [slug, inv]);
 
+  if (error) {
+    return (
+      <div className="mx-auto max-w-[720px] px-4 py-16 text-center">
+        <p className="kicker text-signal-dark">/ NOT AVAILABLE</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold">Unable to load this view</h2>
+        <p className="mt-3 font-reader text-base text-graphite">{error}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => go("home")} className="chip chip-signal">RETURN HOME →</button>
+          <button onClick={() => go("search")} className="chip">SEARCH THE RECORD →</button>
+        </div>
+      </div>
+    );
+  }
   if (!data) return <Loading />;
 
   return (

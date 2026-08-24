@@ -18,15 +18,34 @@ export function TimelineView({ slug }: { slug: string }) {
   const go = useStore((s) => s.go);
   const [timeline, setTimeline] = useState<TimelineEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selectedDecade, setSelectedDecade] = useState<number | null>(null);
 
   useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(null);
     apiGet<{ timeline: TimelineEntry[] }>(`/api/investors/${slug}/timeline`)
-      .then((d) => setTimeline(d.timeline))
-      .finally(() => setLoading(false));
+      .then((d) => { if (active) setTimeline(d.timeline); })
+      .catch(() => { if (active) setError("This record could not be loaded. It may not exist in the index, or the connection was lost."); })
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
   }, [slug]);
 
   if (loading) return <Loading />;
+  if (error) {
+    return (
+      <div className="mx-auto max-w-[720px] px-4 py-16 text-center">
+        <p className="kicker text-signal-dark">/ NOT AVAILABLE</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold">Unable to load this view</h2>
+        <p className="mt-3 font-reader text-base text-graphite">{error}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => go("home")} className="chip chip-signal">RETURN HOME →</button>
+          <button onClick={() => go("search")} className="chip">SEARCH THE RECORD →</button>
+        </div>
+      </div>
+    );
+  }
 
   const decades = [...new Set(timeline.map((t) => Math.floor(t.year / 10) * 10))].sort((a, b) => a - b);
   const filtered = selectedDecade !== null

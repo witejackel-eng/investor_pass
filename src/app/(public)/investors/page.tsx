@@ -86,7 +86,7 @@ export default async function InvestorsPage() {
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <a
-            href="/#/view=upgrade"
+            href="/upgrade"
             className="bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
           >
             START PRO — $9/MONTH

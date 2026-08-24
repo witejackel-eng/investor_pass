@@ -28,7 +28,7 @@ export async function fanOutNewSource(opts: {
 
     const title = opts.personName ? `${opts.personName}: new material indexed` : "New material indexed";
     const body = `${opts.passageCount} passages from “${opts.sourceTitle}”${opts.year ? ` (${opts.year})` : ""} are now searchable.`;
-    const url = `#/view=source&slug=${encodeURIComponent(opts.sourceSlug)}`;
+    const url = `/sources/${encodeURIComponent(opts.sourceSlug)}`;
 
     await db.notification.createMany({
       data: follows.map((f) => ({

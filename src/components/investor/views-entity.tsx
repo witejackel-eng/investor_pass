@@ -22,10 +22,30 @@ type TopicData = {
 export function TopicView({ slug, investor }: { slug: string; investor?: string }) {
   const go = useStore((s) => s.go);
   const [data, setData] = useState<TopicData | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const inv = investor || "buffett";
   useEffect(() => {
-    apiGet<TopicData>(`/api/themes/${slug}?investor=${inv}`).then(setData);
+    let active = true;
+    setData(null);
+    setError(null);
+    apiGet<TopicData>(`/api/themes/${slug}?investor=${inv}`)
+      .then((d) => { if (active) setData(d); })
+      .catch(() => { if (active) setError("This record could not be loaded. It may not exist in the index, or the connection was lost."); });
+    return () => { active = false; };
   }, [slug, inv]);
+  if (error) {
+    return (
+      <div className="mx-auto max-w-[720px] px-4 py-16 text-center">
+        <p className="kicker text-signal-dark">/ NOT AVAILABLE</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold">Unable to load this view</h2>
+        <p className="mt-3 font-reader text-base text-graphite">{error}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => go("home")} className="chip chip-signal">RETURN HOME →</button>
+          <button onClick={() => go("search")} className="chip">SEARCH THE RECORD →</button>
+        </div>
+      </div>
+    );
+  }
   if (!data) return <Loading />;
 
   return (
@@ -142,10 +162,30 @@ type CompanyData = {
 export function CompanyView({ slug, investor }: { slug: string; investor?: string }) {
   const go = useStore((s) => s.go);
   const [data, setData] = useState<CompanyData | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const inv = investor || "buffett";
   useEffect(() => {
-    apiGet<CompanyData>(`/api/companies/${slug}?investor=${inv}`).then(setData);
+    let active = true;
+    setData(null);
+    setError(null);
+    apiGet<CompanyData>(`/api/companies/${slug}?investor=${inv}`)
+      .then((d) => { if (active) setData(d); })
+      .catch(() => { if (active) setError("This record could not be loaded. It may not exist in the index, or the connection was lost."); });
+    return () => { active = false; };
   }, [slug, inv]);
+  if (error) {
+    return (
+      <div className="mx-auto max-w-[720px] px-4 py-16 text-center">
+        <p className="kicker text-signal-dark">/ NOT AVAILABLE</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold">Unable to load this view</h2>
+        <p className="mt-3 font-reader text-base text-graphite">{error}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => go("home")} className="chip chip-signal">RETURN HOME →</button>
+          <button onClick={() => go("search")} className="chip">SEARCH THE RECORD →</button>
+        </div>
+      </div>
+    );
+  }
   if (!data) return <Loading />;
 
   return (
@@ -246,10 +286,30 @@ type YearData = {
 export function YearView({ year, investor }: { year: string; investor?: string }) {
   const go = useStore((s) => s.go);
   const [data, setData] = useState<YearData | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const inv = investor || "buffett";
   useEffect(() => {
-    apiGet<YearData>(`/api/years/${year}?investor=${inv}`).then(setData);
+    let active = true;
+    setData(null);
+    setError(null);
+    apiGet<YearData>(`/api/years/${year}?investor=${inv}`)
+      .then((d) => { if (active) setData(d); })
+      .catch(() => { if (active) setError("This record could not be loaded. It may not exist in the index, or the connection was lost."); });
+    return () => { active = false; };
   }, [year, inv]);
+  if (error) {
+    return (
+      <div className="mx-auto max-w-[720px] px-4 py-16 text-center">
+        <p className="kicker text-signal-dark">/ NOT AVAILABLE</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold">Unable to load this view</h2>
+        <p className="mt-3 font-reader text-base text-graphite">{error}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => go("home")} className="chip chip-signal">RETURN HOME →</button>
+          <button onClick={() => go("search")} className="chip">SEARCH THE RECORD →</button>
+        </div>
+      </div>
+    );
+  }
   if (!data) return <Loading />;
 
   return (
@@ -333,9 +393,29 @@ type SourceData = {
 export function SourceView({ slug }: { slug: string }) {
   const go = useStore((s) => s.go);
   const [data, setData] = useState<SourceData | null>(null);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
-    apiGet<SourceData>(`/api/sources/${slug}`).then(setData);
+    let active = true;
+    setData(null);
+    setError(null);
+    apiGet<SourceData>(`/api/sources/${slug}`)
+      .then((d) => { if (active) setData(d); })
+      .catch(() => { if (active) setError("This record could not be loaded. It may not exist in the index, or the connection was lost."); });
+    return () => { active = false; };
   }, [slug]);
+  if (error) {
+    return (
+      <div className="mx-auto max-w-[720px] px-4 py-16 text-center">
+        <p className="kicker text-signal-dark">/ NOT AVAILABLE</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold">Unable to load this view</h2>
+        <p className="mt-3 font-reader text-base text-graphite">{error}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => go("home")} className="chip chip-signal">RETURN HOME →</button>
+          <button onClick={() => go("search")} className="chip">SEARCH THE RECORD →</button>
+        </div>
+      </div>
+    );
+  }
   if (!data) return <Loading />;
 
   return (

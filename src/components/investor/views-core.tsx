@@ -346,10 +346,41 @@ export function InvestorView({ slug }: { slug: string }) {
   const go = useStore((s) => s.go);
   const [data, setData] = useState<InvestorDetail | null>(null);
   const [years, setYears] = useState<{ year: number; sources: number; passages: number }[]>([]);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
-    apiGet<InvestorDetail>(`/api/investors/${slug}`).then(setData);
-    apiGet<{ years: { year: number; sources: number; passages: number }[] }>(`/api/investors/${slug}/years`).then((d) => setYears(d.years));
+    let active = true;
+    setData(null);
+    setYears([]);
+    setError(null);
+    Promise.all([
+      apiGet<InvestorDetail>(`/api/investors/${slug}`),
+      apiGet<{ years: { year: number; sources: number; passages: number }[] }>(`/api/investors/${slug}/years`)
+        .then((d) => d.years)
+        .catch(() => [] as { year: number; sources: number; passages: number }[]),
+    ])
+      .then(([d, ys]) => {
+        if (!active) return;
+        setData(d);
+        setYears(ys);
+      })
+      .catch(() => {
+        if (active) setError("This record could not be loaded. It may not exist in the index, or the connection was lost.");
+      });
+    return () => { active = false; };
   }, [slug]);
+  if (error) {
+    return (
+      <div className="mx-auto max-w-[720px] px-4 py-16 text-center">
+        <p className="kicker text-signal-dark">/ NOT AVAILABLE</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold">Unable to load this view</h2>
+        <p className="mt-3 font-reader text-base text-graphite">{error}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button onClick={() => go("home")} className="chip chip-signal">RETURN HOME →</button>
+          <button onClick={() => go("search")} className="chip">SEARCH THE RECORD →</button>
+        </div>
+      </div>
+    );
+  }
   if (!data) return <Loading />;
   const { investor } = data;
   return (

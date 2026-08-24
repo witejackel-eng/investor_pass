@@ -78,7 +78,7 @@ export async function GET(req: Request) {
     lint: () => snapshotCheck("lint"),
     database,
     search: searchCheck,
-    search_route: () => apiRoute("/#/view=search", "SEARCH ROUTE"),
+    search_route: () => apiRoute("/search", "SEARCH ROUTE"),
     stats: () => apiRoute("/api/stats", "STATS API"),
     coverage: () => apiRoute("/api/themes/risk-management/coverage", "COVERAGE API"),
     trails: () => apiRoute("/api/trails", "TRAILS API"),

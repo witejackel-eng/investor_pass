@@ -15,10 +15,10 @@ export default function PublicNotFound() {
         <Link href="/investors" className="chip chip-signal">
           BROWSE ALL INVESTORS →
         </Link>
-        <a href="/#/view=graph" className="chip">
+        <a href="/graph" className="chip">
           SEE THE NETWORK →
         </a>
-        <a href="/#/view=search" className="chip">
+        <a href="/search" className="chip">
           SEARCH THE LIBRARY →
         </a>
         <Link href="/" className="chip">

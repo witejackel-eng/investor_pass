@@ -174,7 +174,7 @@ export default async function InvestorPage({ params }: Params) {
             ))}
           </div>
           <div className="mt-4">
-            <a href="/#/view=graph" className="chip chip-signal">
+            <a href="/graph" className="chip chip-signal">
               SEE THE FULL NETWORK →
             </a>
           </div>

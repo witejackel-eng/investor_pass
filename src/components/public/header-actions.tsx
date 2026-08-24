@@ -43,7 +43,7 @@ export function PublicHeaderActions() {
       <span className="flex items-center gap-4">
         <Link href="/" className="nav-link hover:text-foreground">OPEN APP</Link>
         <a
-          href="/#/view=upgrade"
+          href="/upgrade"
           className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
         >
           UPGRADE — $9/MONTH
@@ -54,9 +54,9 @@ export function PublicHeaderActions() {
 
   return (
     <span className="flex items-center gap-4">
-      <a href="/#/view=login" className="nav-link hover:text-foreground">LOG IN</a>
+      <a href="/login" className="nav-link hover:text-foreground">LOG IN</a>
       <a
-        href="/#/view=upgrade"
+        href="/upgrade"
         className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
       >
         PRO — $9/MONTH

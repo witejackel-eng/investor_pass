@@ -156,7 +156,7 @@ export default async function TrailPage({ params }: Params) {
             {trail.exploreNext.map((next: { label?: string; title?: string; href?: string }, i: number) => (
               <a
                 key={i}
-                href={next.href || "#/view=search"}
+                href={next.href || "/search"}
                 className="chip"
               >
                 {(next.label ?? next.title ?? "EXPLORE").toUpperCase()} →
@@ -176,7 +176,7 @@ export default async function TrailPage({ params }: Params) {
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <a
-            href="/#/view=signup"
+            href="/signup"
             className="bg-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
           >
             CREATE YOUR RESEARCH LIBRARY

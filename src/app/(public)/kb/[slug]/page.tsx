@@ -69,7 +69,7 @@ export default async function KnowledgeBasePage({ params }: Params) {
       <section className="mt-10 max-w-3xl" aria-label="Index pages">
         <p className="kicker mb-3">INDEX PAGES — CROSS-REFERENCE GUIDES FOR DEEP RESEARCH</p>
         {[
-          { t: "Sources", d: `Every indexed document — letters, memos, speeches, interviews (${p.sources.toLocaleString()})`, href: `/#/view=investor&slug=${p.slug}`, chip: "BROWSE" },
+          { t: "Sources", d: `Every indexed document — letters, memos, speeches, interviews (${p.sources.toLocaleString()})`, href: `/investors/${p.slug}`, chip: "BROWSE" },
           { t: "Companies", d: `All companies referenced across the indexed record (${p.companies})`, href: `/investors/${p.slug}`, chip: "BROWSE" },
           { t: "Themes", d: `The canonical ideas this investor actually addresses (${p.themes})`, href: `/investors/${p.slug}`, chip: "BROWSE" },
           { t: "Decisions", d: `Documented actions with sources and outcomes (${p.decisions})`, href: `/investors/${p.slug}`, chip: "BROWSE" },

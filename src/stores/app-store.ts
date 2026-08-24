@@ -152,10 +152,54 @@ export const useStore = create<State>((set, get) => ({
   },
 }));
 
+// Map legacy #/view=entity&slug=... direct-hash navigations to their clean
+// real-path equivalents. Only fires on initial page load (a direct visit or
+// shared link) — in-app go() uses pushState and never re-runs this module,
+// so SPA navigation is unaffected. popstate just reflects state.
+function legacyHashRedirect(): boolean {
+  if (typeof window === "undefined") return false;
+  const h = window.location.hash.replace(/^#\/?/, "");
+  if (!h) return false;
+  const sp = new URLSearchParams(h);
+  const view = sp.get("view") || "";
+  const slug = sp.get("slug") || "";
+  const investor = sp.get("investor") || "";
+  const id = sp.get("id") || "";
+  const year = sp.get("year") || "";
+  const q = sp.get("q") || "";
+  let clean: string | null = null;
+  switch (view) {
+    case "home": clean = "/"; break;
+    case "search": clean = q ? `/search?q=${encodeURIComponent(q)}` : "/search"; break;
+    case "compare": clean = "/compare"; break;
+    case "investor": if (slug) clean = `/investors/${slug}`; break;
+    case "company": if (slug) clean = `/companies/${slug}`; break;
+    case "topic": if (slug && investor) clean = `/investors/${investor}/topics/${slug}`; break;
+    case "event": if (slug) clean = `/events/${slug}`; break;
+    case "year": if (year) clean = `/years/${year}`; break;
+    case "theme": if (slug) clean = `/themes/${slug}`; break;
+    case "source": if (slug) clean = `/sources/${slug}`; break;
+    case "passage": if (id) clean = `/passages/${id}`; break;
+    case "graph": clean = "/graph"; break;
+    case "library": clean = "/library"; break;
+    case "upgrade": clean = "/upgrade"; break;
+    case "login": clean = "/login"; break;
+    case "signup": clean = "/signup"; break;
+  }
+  if (clean) {
+    // Use replace so we don't create a duplicate history entry.
+    window.location.replace(clean);
+    return true;
+  }
+  return false;
+}
+
 // Initialize from hash on first client load
 if (typeof window !== "undefined") {
-  const { view, params } = fromHash();
-  useStore.setState({ view, params });
+  if (!legacyHashRedirect()) {
+    const { view, params } = fromHash();
+    useStore.setState({ view, params });
+  }
   window.addEventListener("popstate", () => {
     const { view, params } = fromHash();
     useStore.setState({ view, params });

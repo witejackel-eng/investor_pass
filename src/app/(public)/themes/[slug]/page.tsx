@@ -138,7 +138,7 @@ export default async function ThemePage({ params }: Params) {
                   ALL INVESTORS →
                 </Link>
                 <a
-                  href={`/#/view=search&q=${encodeURIComponent(data.name)}`}
+                  href={`/search?q=${encodeURIComponent(data.name)}`}
                   className="chip chip-signal"
                 >
                   SEARCH IN THE APP →

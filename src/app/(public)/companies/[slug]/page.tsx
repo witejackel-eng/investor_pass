@@ -141,7 +141,7 @@ export default async function CompanyPage({ params }: Params) {
             links: (
               <div className="flex flex-wrap gap-1.5">
                 <a
-                  href={`/#/view=search&q=${encodeURIComponent(data.name)}`}
+                  href={`/search?q=${encodeURIComponent(data.name)}`}
                   className="chip chip-signal"
                 >
                   SEARCH IN THE APP →

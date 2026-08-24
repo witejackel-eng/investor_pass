@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { apiGet, track } from "@/lib/client";
 import { useInvestors } from "@/hooks/use-investors";
 
@@ -209,9 +210,9 @@ export function CompareView() {
             <div className="mt-4 grid gap-6" style={colsStyle}>
               {data.columns.map((col) => (
                 <div key={col.investor.slug} className="border-t-2 border-[var(--ink)] pt-3">
-                  <a href={`#/view=investor&slug=${col.investor.slug}`} className="text-lg font-semibold hover:underline">
+                  <Link href={`/investors/${col.investor.slug}`} className="text-lg font-semibold hover:underline">
                     {col.investor.name}
-                  </a>
+                  </Link>
                   <p className="mt-1 text-xs uppercase tracking-wide text-[var(--graphite)]">
                     {col.total} indexed references{col.years.length ? ` · ${col.years[0]}–${col.years[col.years.length - 1]}` : ""}
                   </p>
@@ -230,12 +231,12 @@ export function CompareView() {
                         </p>
                         <p className="prose-reader mt-1 line-clamp-4 text-sm">{ps.text}…</p>
                         <div className="mt-2 flex gap-3 text-xs">
-                          <a href={`#/view=passage&id=${ps.id}&investor=${col.investor.slug}`} className="underline decoration-[var(--signal)] underline-offset-2">
+                          <Link href={`/passages/${ps.id}`} className="underline decoration-[var(--signal)] underline-offset-2">
                             Open passage →
-                          </a>
-                          <a href={`#/view=source&slug=${ps.source.slug}`} className="text-[var(--graphite)] underline underline-offset-2">
+                          </Link>
+                          <Link href={`/sources/${ps.source.slug}`} className="text-[var(--graphite)] underline underline-offset-2">
                             Source
-                          </a>
+                          </Link>
                         </div>
                       </li>
                     ))}
