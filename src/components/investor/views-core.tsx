@@ -1,4 +1,5 @@
 "use client";
+import { isAllAccess } from "@/lib/promo";
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
 import { apiGet, track } from "@/lib/client";
@@ -61,7 +62,7 @@ export function useStats(): Stats | null {
 
 export function HomeView() {
   const go = useStore((s) => s.go);
-  const isPro = useStore((s) => s.user?.entitlement === "pro");
+  const isPro = useStore((s) => s.user?.entitlement === "pro") || isAllAccess();
   const [currency] = useCurrency();
   const stats = useStats();
   const user = useStore((s) => s.user);

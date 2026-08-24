@@ -3,15 +3,6 @@ import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useStore, type View } from "@/stores/app-store";
 import { isAllAccess } from "@/lib/promo";
-
-// 3-day all-access: set synthetic pro user at module scope so SSR HTML
-// doesn't flash pricing/upsell. Runs once at import (server + client).
-if (isAllAccess()) {
-  useStore.setState({
-    user: { id: "", email: "", name: null, entitlement: "pro", role: "user" },
-    userLoading: false,
-  });
-}
 import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import { Masthead } from "@/components/investor/masthead";
 import { Footer } from "@/components/investor/footer";

@@ -1,4 +1,5 @@
 "use client";
+import { isAllAccess } from "@/lib/promo";
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
 import { apiGet } from "@/lib/client";

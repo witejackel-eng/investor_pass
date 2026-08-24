@@ -5,6 +5,7 @@
  * badge — never a PRO upsell; signed-in free users get OPEN APP + upgrade;
  * anonymous visitors get LOG IN / SIGN UP + the PRO button.
  */
+import { isAllAccess } from "@/lib/promo";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -26,7 +27,7 @@ export function PublicHeaderActions() {
     return <span className="kicker" aria-hidden>·</span>; // layout-stable placeholder
   }
 
-  if (me?.entitlement === "pro") {
+  if ((me?.entitlement === "pro" || isAllAccess())) {
     return (
       <span className="flex items-center gap-4">
         <Link href="/" className="nav-link hover:text-foreground">OPEN APP</Link>

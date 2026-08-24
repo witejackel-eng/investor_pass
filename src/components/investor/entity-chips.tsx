@@ -1,4 +1,5 @@
 "use client";
+import { isAllAccess } from "@/lib/promo";
 import { useStore } from "@/stores/app-store";
 import { cn } from "@/lib/utils";
 import { Lock } from "lucide-react";
