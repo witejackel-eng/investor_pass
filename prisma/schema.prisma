@@ -133,6 +133,7 @@ model Person {
   decisions        Decision[]
   personCompanies  PersonCompany[]
   personThemes     PersonTheme[]
+  filings          Filing[]
 
   @@index([kind])
   @@index([region])
@@ -606,4 +607,55 @@ model AppConfig {
   value     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Filings Library — SEC EDGAR (US) + NSE/BSE (India)
+// Full-text-searchable filing archive. Original compressed text stored on
+// Cloudflare R2 (S3-compatible); metadata + extracted text snippet in Postgres.
+// Continuous daily updater polls for new filings.
+// ────────────────────────────────────────────────────────────────────────────
+
+model Filing {
+  id              String   @id @default(cuid())
+  country         String   // "US" | "IN"
+  // US: CIK; IN: NSE symbol or BSE code
+  companyId       String
+  companyName     String
+  // US: 10-K | 10-Q | 8-K | S-1 | S-3 | DEF 14A | Form 4 | 13F | 13D | 13G | 20-F | 6-K | SC 13D/A
+  // IN: annual-report | quarterly-results | shareholding-pattern | corporate-governance | announcement | drhp | rhp | prospectus
+  formType        String
+  filingDate      DateTime
+  periodOfReport  DateTime?
+  // US: accession number; IN: exchange filing ID
+  accessionNumber String?  @unique
+  title           String
+  sourceUrl       String
+  // R2 storage path: filings/US/AAPL/10-K/0000320193-23-000106.html.zst
+  storagePath     String?
+  fileType        String   // "html" | "pdf" | "txt" | "xbrl"
+  fileSizeOriginal Int    @default(0)
+  fileSizeCompressed Int  @default(0)
+  textExtracted   Boolean  @default(false)
+  // First ~2000 chars of extracted text for preview/snippet in search results
+  textPreview     String?
+  // Full extracted text for full-text search (tsvector-indexed)
+  searchText      String?
+  // Link to existing Person (investor/founder) when the filing is about them
+  personId        String?
+  // Link to existing Company when available
+  companySlug     String?
+  crawledAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  person          Person?  @relation(fields: [personId], references: [id], onDelete: SetNull)
+
+  @@index([country])
+  @@index([companyId])
+  @@index([formType])
+  @@index([filingDate])
+  @@index([country, companyId])
+  @@index([country, formType])
+  @@index([companySlug])
+  @@index([personId])
 }
