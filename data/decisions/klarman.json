@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Founding Baupost Group with $27M and a value-first mandate",
+    "decisionDate": "1982",
+    "action": "founded",
+    "statement": "Left Mutual Series to co-found Baupost Group with three partners and roughly $27 million in initial client capital, organizing the firm around capital preservation, a margin-of-safety discipline, and a willingness to hold cash and illiquid distressed assets rather than chase benchmarks.\n\nThe structure deliberately accepted permanent-style capital constraints to permit multi-year holding periods, and the investment charter refused to constrain the firm to a single asset class - distressed debt, real estate, private equity, and public equities were all eligible, with allocation determined by where price-to-value gaps were widest.\n\nThe mandate formalized a downside-first posture: avoid permanent loss of capital first, achieve a satisfactory absolute return second, with no commitment to relative performance against any index.",
+    "outcome": "Baupost compounded client capital at a mid-teens annualized net return over the subsequent four decades, growing from $27 million to roughly $22 billion under management without ever taking outside private equity capital or sacrificing its value discipline.\n\nThe decision to permit cash holdings and illiquid positions proved decisive in 1990-1991, 2001-2002, 2008-2009, and 2020, when the firm was able to deploy aggressively while peers were forced sellers.\n\nThe founding choices - absolute-return framing, multi-asset flexibility, and patience with sub-100% deployment - became the template for an entire school of concentrated value-investing partnerships.",
+    "outcomeSourceUrl": "https://ritholtz.com/2026/06/transcript-seth-klarman/",
+    "confidence": "high",
+    "verified": true,
+    "tags": [
+      "founding-and-origins",
+      "margin-of-safety",
+      "business-philosophy",
+      "patience"
+    ]
+  },
+  {
+    "title": "Sustained distressed-debt buying through the 1990 S&L and RTC workout cycle",
+    "decisionDate": "1990",
+    "action": "invested",
+    "statement": "Committed a meaningful share of Baupost's capital to distressed debt and bankruptcy claims during the savings-and-loan workout era, including securities being sold by the Resolution Trust Corporation and by forced sellers across the leveraged-buyout-financing markets.\n\nThe thesis was that forced institutional selling - regardless of the underlying collateral's cash-flow value - was creating price-to-recovery gaps wide enough to absorb the analytical, legal, and timing risk of bankruptcy proceedings.\n\nKlarman insisted on senior positions in capital structures and on discounts to conservative recovery estimates, refusing to reach down the quality ladder even when higher-yielding junior claims were available.",
+    "outcome": "The 1990-1992 distressed book generated strong recoveries as the RTC liquidations cleared, the economy recovered, and bankruptcy plans paid out at multiples of the distressed purchase prices.\n\nThe episode established Baupost as a recurring participant in subsequent distressed cycles - 2002 telecom and energy, 2008-2009 financials, 2020 pandemic-affected credit - and validated the senior-claim-at-deep-discount method as the firm's signature credit application.\n\nIt also surfaced the structural advantage of permanent-style capital, since the multi-year workout horizons would have been infeasible for a fund facing quarterly redemptions.",
+    "outcomeSourceUrl": "https://www.ivey.uwo.ca/bengrahaminvesting/resources/interviews-notes/seth-a-klarman",
+    "confidence": "high",
+    "verified": true,
+    "tags": [
+      "bankruptcy-and-restructuring",
+      "contrarianism",
+      "margin-of-safety",
+      "liquidity"
+    ]
+  },
+  {
+    "title": "Deploying dry powder into the 2008 financial crisis dislocation",
+    "decisionDate": "2008",
+    "action": "invested",
+    "statement": "Drew down a substantial portion of the firm's cash position during 2008 and early 2009 to acquire distressed credit, mortgage-backed securities, and re-rated equities at prices implying recovery values far above entry.\n\nThe thesis was that forced deleveraging across the global banking system was producing price-to-value gaps comparable to those of the early 1930s, with senior claims trading at discounts that compensated for even severe downside scenarios.\n\nKlarman framed the deployment as the moment the prior decade of patience had been designed for, and explicitly rejected the pressure to wait for clearer signals that prices had bottomed.",
+    "outcome": "Baupost produced strong positive absolute returns in 2008 and again in 2009, in contrast to the broad hedge fund industry's losses, by purchasing securities that recovered as the panic subsided and central-bank liquidity returned.\n\nThe episode also produced Klarman's 'Forgotten Lessons of 2008' letter, cataloguing twenty observations on the crisis that he argued would be relearned only in the next bust.\n\nThe 2008 deployment became the reference case for the firm's entire investment approach - the proof that the cost of holding cash through a long bull market was the price of being able to act when the cycle broke.",
+    "outcomeSourceUrl": "https://fs.blog/the-forgotten-lessons-of-2008",
+    "confidence": "high",
+    "verified": true,
+    "tags": [
+      "crisis-response",
+      "contrarianism",
+      "cash-reserves",
+      "bankruptcy-and-restructuring"
+    ]
+  },
+  {
+    "title": "Long-running cash stance of roughly 20-40% of assets under management",
+    "decisionDate": "1995",
+    "action": "held",
+    "statement": "Maintained, across multiple market cycles and over many years, a substantial cash position - historically in the range of twenty to forty percent of assets under management - refusing to deploy fully even during extended bull markets.\n\nThe decision was a direct application of the margin-of-safety framework: cash was treated as an option on future dislocation, with the option's value assessed against the actual future set of bargains rather than against a fully-invested benchmark.\n\nKlarman explicitly accepted multi-year stretches of relative underperformance during rising markets as the cost of preserving the dry-powder option for the next forced-seller episode.",
+    "outcome": "The cash stance allowed Baupost to act as a buyer of size during 1990, 1998, 2001-2002, 2008-2009, and 2020, precisely when forced sellers created the widest price-to-value gaps of each cycle.\n\nThe choice attracted periodic client pressure and press second-guessing during long bull runs, but was retained through the firm's entire history as a structural rather than tactical position.\n\nThe decision also reinforced the firm's absolute-return identity by ensuring Baupost never became a leveraged or fully-deployed participant in the late stages of any bubble.",
+    "outcomeSourceUrl": "https://pictureperfectportfolios.com/seth-klarman-cash-option-value-doing-nothing",
+    "confidence": "high",
+    "verified": true,
+    "tags": [
+      "cash-reserves",
+      "patience",
+      "opportunity-cost",
+      "risk-management"
+    ]
+  },
+  {
+    "title": "Publishing 'Margin of Safety' as a limited-print book and refusing to reprint",
+    "decisionDate": "1991",
+    "action": "published",
+    "statement": "Authored and published 'Margin of Safety: Risk-Averse Value Investing Strategies for the Thoughtful Investor' through HarperBusiness in 1991, in a single print run of approximately five thousand copies, and subsequently declined all offers to reprint the book.\n\nThe book articulated the firm's investment framework - capital preservation first, margin of safety as the central discipline, contrarianism rooted in independent value estimates, and the treatment of cash as optionality rather than drag.\n\nKlarman's refusal to reprint was framed as a preference for the book to circulate among serious readers rather than become a mass-market commodity, even as secondhand copies eventually traded at multiples of the original cover price.",
+    "outcome": "The book became one of the most sought-after out-of-print texts in modern finance, with used copies trading for hundreds and sometimes thousands of dollars and excerpts circulating widely among value investors.\n\nThe framework articulated in 1991 - including the twenty-percent-plus cash stance, the senior-distressed-debt preference, and the absolute-return framing - remained the operating template for Baupost over the subsequent three decades.\n\nKlarman later extended the same Graham-and-Dodd discipline by co-editing the seventh edition of Security Analysis, cementing his role as a steward of the value-investing canon rather than merely a practitioner of it.",
+    "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Margin_of_Safety_(book)",
+    "confidence": "high",
+    "verified": true,
+    "tags": [
+      "margin-of-safety",
+      "business-philosophy",
+      "valuation",
+      "risk-management"
+    ]
+  }
+]

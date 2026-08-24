@@ -210,10 +210,16 @@ async function main() {
 
   // Optional CLI filter: `bun scripts/ingest/import-db.ts fisher icahn` imports only
 // those corpora files. Without args, imports everything (full re-seed).
+// Reads data/corpora/ recursively so subdirectories like `earnings-calls/` are picked up.
 const onlyFiles = process.argv.slice(2).map((a) => (a.endsWith(".jsonl") ? a : `${a}.jsonl`));
-const corpusFiles = readdirSync("data/corpora")
+const corpusFiles = (readdirSync("data/corpora", { recursive: true }) as unknown[]).filter(
+  (f): f is string => typeof f === "string",
+)
   .filter((f) => f.endsWith(".jsonl"))
-  .filter((f) => onlyFiles.length === 0 || onlyFiles.includes(f));
+  // Normalize Windows-style separators and drop leading "./" if present so the
+  // CLI filter can match bare filenames like `coca-cola.jsonl` regardless of subdirectory.
+  .map((f) => f.replace(/^\.\//, ""))
+  .filter((f) => onlyFiles.length === 0 || onlyFiles.some((o) => f === o || f.endsWith(`/${o}`) || f.endsWith(`\\${o}`)));
   for (const file of corpusFiles) {
     const lines = (await Bun.file(`data/corpora/${file}`).text())
       .split("\n")
