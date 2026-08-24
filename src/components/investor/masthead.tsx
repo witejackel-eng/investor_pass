@@ -6,7 +6,7 @@ import { useStore, type View } from "@/stores/app-store";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiGet, apiPost } from "@/lib/client";
 import { cn } from "@/lib/utils";
-import { Search, Bookmark, FolderOpen, User as UserIcon, LogOut, Crown, Bell, Menu, X } from "lucide-react";
+import { Search, Bookmark, FolderOpen, User as UserIcon, LogOut, Bell, Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/investor/theme-toggle";
 
 type NotificationItem = { id: string; title: string; body: string; url: string; read: boolean; createdAt: string };
@@ -177,11 +177,7 @@ export function Masthead() {
           </button>
           {user ? (
             <>
-              {user.entitlement === "pro" && (
-                <span className="hidden items-center gap-1 text-signal-dark sm:inline-flex">
-                  <Crown className="h-3.5 w-3.5" /> PRO
-                </span>
-              )}
+              {/* PAYWALL DORMANT — Crown/PRO badge removed while all-access is on. */}
               <NotificationsBell />
               <button onClick={() => go("bookmarks")} className="nav-link hidden sm:inline-flex items-center gap-1.5" aria-label="Bookmarks">
                 <Bookmark className="h-3.5 w-3.5" />
@@ -246,9 +242,10 @@ export function Masthead() {
             )}
           </nav>
           <div className="border-t border-ink px-4 py-4">
+            {/* PAYWALL DORMANT — entitlement chip removed while all-access is on. */}
             {user ? (
               <p className="font-mono text-xs uppercase tracking-wider text-graphite">
-                {user.entitlement === "pro" ? "PRO MEMBER" : "FREE PLAN"}
+                MEMBER · {user.name || user.email.split("@")[0]}
               </p>
             ) : (
               <div className="flex gap-3">

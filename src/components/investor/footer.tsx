@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useStore } from "@/stores/app-store";
 
 export function Footer() {
-  const isPro = useStore((s) => s.user?.entitlement === "pro");
+  // PAYWALL DORMANT — no Upgrade link while all-access is on.
   return (
     <footer className="mt-auto border-t border-ink bg-paper">
       <div className="mx-auto max-w-[1320px] px-4 py-10 sm:px-6 lg:px-8">
@@ -28,7 +28,7 @@ export function Footer() {
             <ul className="space-y-2 text-graphite">
               <li><Link href="/investors" className="hover:text-ink">Investors</Link></li>
               <li><Link href="/search" className="hover:text-ink">Search</Link></li>
-              {!isPro && <li><Link href="/upgrade" className="hover:text-ink">Upgrade</Link></li>}
+              <li><Link href="/founders" className="hover:text-ink">Founders</Link></li>
               <li><Link href="/legal" className="hover:text-ink">Legal</Link></li>
             </ul>
           </nav>

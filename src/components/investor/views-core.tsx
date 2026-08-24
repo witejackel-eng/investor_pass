@@ -1,5 +1,4 @@
 "use client";
-import { isAllAccess } from "@/lib/promo";
 import { useEffect, useState } from "react";
 import { useStore } from "@/stores/app-store";
 import { apiGet, track } from "@/lib/client";
@@ -8,11 +7,10 @@ import { PersonalHomeRails } from "@/components/investor/personal-home";
 import { FollowButton } from "@/components/investor/follow-button";
 import { DecisionLedger } from "@/components/investor/decision-ledger";
 import { SearchBar } from "@/components/investor/search-bar";
-import { EntityChips, PremiumGate } from "@/components/investor/entity-chips";
+import { EntityChips } from "@/components/investor/entity-chips";
 import { BookmarkButton } from "@/components/investor/bookmark-button";
 import { FollowSuggestionsStrip } from "@/components/investor/views-entity";
-import { SourceTypeBadge, ProBadge } from "@/components/investor/entity-chips";
-import { PRICING, ANNUAL_SAVING, useCurrency } from "@/lib/pricing";
+import { SourceTypeBadge } from "@/components/investor/entity-chips";
 import {
   RiskCoverageCard,
   CrossInvestorDemo,
@@ -63,8 +61,6 @@ export function useStats(): Stats | null {
 
 export function HomeView() {
   const go = useStore((s) => s.go);
-  const isPro = useStore((s) => s.user?.entitlement === "pro") || isAllAccess();
-  const [currency] = useCurrency();
   const stats = useStats();
   const user = useStore((s) => s.user);
 
@@ -214,64 +210,7 @@ export function HomeView() {
       {/* ── WHAT INVESTOR/PASS IS ── */}
       <ThesisPrinciples />
 
-      {/* ── PRO — launch pricing (hidden for Pro members: nothing left to sell them) ── */}
-      {!isPro && (
-      <section className="mt-12 border-t-2 border-ink py-8" aria-labelledby="pro-title">
-        <div className="section-head">
-          <h2 id="pro-title">Make your research system yours.</h2>
-          <p className="kicker">PRO</p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="border border-ink p-6">
-            <p className="kicker">FREE</p>
-            <p className="mt-2 font-display text-3xl font-bold">$0</p>
-            <p className="mt-1 font-reader text-sm text-graphite">Experience the graph — read, browse, explore, learn.</p>
-            <ul className="mt-4 space-y-2 font-reader text-sm text-graphite">
-              <li>· All {stats?.investors ?? 31} investor research pages</li>
-              <li>· Theme, company, year and event pages</li>
-              <li>· Selected preview passages, every source cited</li>
-              <li>· Timeline navigation, public trails and explainers</li>
-            </ul>
-            {!user && (
-              <button onClick={() => go("signup")} className="mt-5 border border-ink px-4 py-2 text-[0.78rem] font-semibold hover:bg-paper-2">
-                CREATE A FREE ACCOUNT
-              </button>
-            )}
-          </div>
-          <div className="border-2 border-ink p-6 shadow-[4px_4px_0_0_var(--ink)]">
-            <div className="flex items-center justify-between">
-              <p className="kicker text-signal-dark">PRO</p>
-              <ProBadge />
-            </div>
-            <p className="mt-2 font-display text-3xl font-bold">
-              {PRICING[currency].monthly}<span className="text-base font-normal text-graphite">/month</span>
-            </p>
-            <p className="mt-1 font-mono text-xs text-graphite">
-              or {PRICING[currency].annual}/year — {ANNUAL_SAVING[currency]}
-            </p>
-            <p className="mt-1 font-reader text-sm text-graphite">A complete research system — launch pricing.</p>
-            <ul className="mt-4 space-y-2 font-reader text-sm text-graphite">
-              <li>· <strong className="text-ink">Full search</strong> across every one of {(stats?.passages ?? 12000).toLocaleString()}+ research units</li>
-              <li>· <strong className="text-ink">Unlimited Compare</strong> — any investors, any topic</li>
-              <li>· <strong className="text-ink">Follow investors &amp; ideas</strong> — never lose track</li>
-              <li>· <strong className="text-ink">Continue where you left off</strong></li>
-              <li>· <strong className="text-ink">See what&apos;s new</strong> since your last visit</li>
-              <li>· <strong className="text-ink">Save your research</strong> — bookmarks, collections, saved searches, trails</li>
-            </ul>
-            {isPro ? (
-              <div className="mt-5 w-full border border-ink bg-paper-2 py-2.5 text-center text-sm font-semibold text-signal-dark">
-                ✓ YOU&apos;RE ON PRO — EVERYTHING UNLOCKED
-              </div>
-            ) : (
-              <button onClick={() => go("upgrade")} className="mt-5 w-full bg-ink py-2.5 text-sm font-semibold text-paper hover:bg-signal-dark transition-colors">
-                START PRO
-              </button>
-            )}
-          </div>
-        </div>
-      </section>
-
-      )}
+      {/* PAYWALL DORMANT — Home PRO pricing section removed while all-access is on. */}
 
       {/* ── FINAL SEARCH CTA ── */}
       <FinalSearchCta />

@@ -5,9 +5,9 @@
  * safe to export in full. Letter texts themselves remain Berkshire's
  * copyright and are only linked.
  *
- * Free-tier-aware: pro-visibility passages are summarized as titles only
- * (respecting entitlement server-side would need auth; exports here contain
- * public-tier content plus counts of pro units per source).
+ * PAYWALL DORMANT: every passage exports with full text (no Pro-tier
+ * summarization). The `pro` flag is retained in the row shape for
+ * forward-compat but always false while the all-access switch is on.
  */
 import { db } from "@/lib/db";
 import { buildPdf, type PdfBlock } from "@/lib/export/pdf";
@@ -39,7 +39,8 @@ export async function GET(req: Request) {
   const groups = new Map<string, { title: string; year: number | null; type: string; publisher: string | null; url: string | null; units: { seq: number; text: string; pro: boolean }[] }>();
   for (const r of rows) {
     const g = groups.get(r.sourceSlug) ?? { title: r.sourceTitle, year: r.year, type: r.sourceType, publisher: r.publisher, url: r.url, units: [] };
-    g.units.push({ seq: r.sequence, text: r.text, pro: r.visibility === "pro" });
+    // PAYWALL DORMANT: always export full text. Flag retained for forward-compat.
+    g.units.push({ seq: r.sequence, text: r.text, pro: false });
     groups.set(r.sourceSlug, g);
   }
   const chapters = [...groups.values()].map((g) => ({
@@ -57,7 +58,7 @@ export async function GET(req: Request) {
       blocks.push({ text: c.title, style: "h2" });
       blocks.push({ text: c.meta, style: "small" });
       for (const u of c.g.units) {
-        blocks.push({ text: u.pro ? `[Pro-tier unit ${u.seq} — upgrade to read]` : `${u.seq}. ${u.text}` });
+        blocks.push({ text: `${u.seq}. ${u.text}` });
       }
     }
     const pdf = buildPdf(TITLE, SUB, blocks);
@@ -70,7 +71,7 @@ export async function GET(req: Request) {
       author: "Investor/Pass",
       chapters: chapters.map((c) => ({
         title: c.title,
-        html: `<p><em>${c.meta}</em></p>` + c.g.units.map((u) => u.pro ? `<p><em>[Pro unit ${u.seq}]</em></p>` : `<p>${u.text.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</p>`).join(""),
+        html: `<p><em>${c.meta}</em></p>` + c.g.units.map((u) => `<p>${u.text.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</p>`).join(""),
       })),
     });
     return new Response(new Uint8Array(epub), { headers: { "Content-Type": "application/epub+zip", "Content-Disposition": 'attachment; filename="buffett-research-volume.epub"', "Cache-Control": "public, s-maxage=3600" } });
@@ -80,7 +81,7 @@ export async function GET(req: Request) {
   let md = `# ${TITLE}\n\n_${SUB}._\n\nExported ${new Date().toISOString().slice(0, 10)} · ${rows.length.toLocaleString()} research units · ${chapters.length} sources. Paraphrased research units with source attribution — never reproductions of Berkshire's copyrighted letters; official PDFs are linked per source.\n\n---\n`;
   for (const c of chapters) {
     md += `\n## ${c.title}\n\n${c.meta}\n\n`;
-    for (const u of c.g.units) md += u.pro ? `- _[Pro unit ${u.seq}]_\n` : `- ${u.text}\n`;
+    for (const u of c.g.units) md += `- ${u.text}\n`;
   }
   return new Response(md, { headers: { "Content-Type": "text/markdown; charset=utf-8", "Content-Disposition": 'attachment; filename="buffett-research-volume.md"', "Cache-Control": "public, s-maxage=3600" } });
 }

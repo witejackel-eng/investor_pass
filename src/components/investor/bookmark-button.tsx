@@ -26,13 +26,7 @@ export function BookmarkButton({
       </button>
     );
   }
-  if (user.entitlement !== "pro") {
-    return (
-      <button onClick={() => go("upgrade")} className="chip" title="Upgrade to Pro to save bookmarks">
-        <Bookmark className="h-3 w-3" /> PRO
-      </button>
-    );
-  }
+  // PAYWALL DORMANT — every logged-in user can bookmark (was Pro-only).
 
   const toggle = async () => {
     setLoading(true);

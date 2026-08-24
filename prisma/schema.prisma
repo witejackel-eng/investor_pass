@@ -22,7 +22,10 @@ model User {
   name          String?
   passwordHash  String
   // effective entitlement: "free" | "pro"
-  entitlement   String   @default("free")
+  // PAYWALL DORMANT — every user is Pro by default while the all-access
+  // switch in src/lib/promo.ts returns true. To re-enable the paywall,
+  // flip this default back to "free" and re-activate isAllAccess().
+  entitlement   String   @default("pro")
   // "user" | "admin"
   role          String   @default("user")
   createdAt     DateTime @default(now())
@@ -175,8 +178,12 @@ model Passage {
   page        String?
   section     String?
   sequence    Int      @default(0)
-  // "public" | "pro" — premium passages only returned to entitled users
-  visibility  String   @default("pro")
+  // "public" | "pro" — PAYWALL DORMANT: all passages default to public
+  // while the all-access switch in src/lib/promo.ts returns true.
+  // Existing pro-tier passages are also bulk-flipped to public via SQL.
+  // To re-enable the paywall: flip default back to "pro", re-activate
+  // isAllAccess(), and run UPDATE "Passage" SET visibility='pro' WHERE ...
+  visibility  String   @default("public")
   // Master Plan §7/§9: "verified" | "provisional" | "needs_review" | "rejected"
   verificationState String @default("verified")
   createdAt   DateTime @default(now())

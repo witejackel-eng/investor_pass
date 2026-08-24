@@ -1,11 +1,14 @@
 "use client";
 /**
- * Auth-aware header actions for public pages. One /api/me fetch (cached by
- * the request dedupe in TanStack-less minimal fetch): Pro users see their PRO
- * badge — never a PRO upsell; signed-in free users get OPEN APP + upgrade;
- * anonymous visitors get LOG IN / SIGN UP + the PRO button.
+ * Auth-aware header actions for public pages.
+ *
+ * PAYWALL DORMANT — no PRO upsell, no UPGRADE button. Every visitor has
+ * full library access. Logged-in users see OPEN APP; anonymous visitors
+ * see LOG IN / SIGN UP.
+ *
+ * One /api/me fetch (cached by the request dedupe in TanStack-less
+ * minimal fetch).
  */
-import { isAllAccess } from "@/lib/promo";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -27,27 +30,12 @@ export function PublicHeaderActions() {
     return <span className="kicker" aria-hidden>·</span>; // layout-stable placeholder
   }
 
-  if ((me?.entitlement === "pro" || isAllAccess())) {
-    return (
-      <span className="flex items-center gap-4">
-        <Link href="/" className="nav-link hover:text-foreground">OPEN APP</Link>
-        <span className="border border-[var(--signal)] bg-[var(--signal-ghost)] px-3 py-1.5 font-mono text-[0.68rem] font-bold uppercase tracking-wider text-[var(--signal-dark)]">
-          ✓ PRO
-        </span>
-      </span>
-    );
-  }
-
+  // PAYWALL DORMANT — every visitor (logged-in or anon) gets full access.
+  // No PRO badge, no UPGRADE button.
   if (me) {
     return (
       <span className="flex items-center gap-4">
         <Link href="/" className="nav-link hover:text-foreground">OPEN APP</Link>
-        <a
-          href="/upgrade"
-          className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
-        >
-          UPGRADE — $9/MONTH
-        </a>
       </span>
     );
   }
@@ -56,10 +44,10 @@ export function PublicHeaderActions() {
     <span className="flex items-center gap-4">
       <a href="/login" className="nav-link hover:text-foreground">LOG IN</a>
       <a
-        href="/upgrade"
+        href="/signup"
         className="bg-[var(--ink)] px-3 py-1.5 font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--signal-dark)]"
       >
-        PRO — $9/MONTH
+        SIGN UP
       </a>
     </span>
   );

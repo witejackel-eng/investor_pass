@@ -1,0 +1,590 @@
+{
+ "generatedAt": "2026-08-24T09:38:52.587Z",
+ "stats": {
+  "total": 13515,
+  "avg": 972,
+  "p10": 349,
+  "median": 1079,
+  "p90": 1472,
+  "thin": 432
+ },
+ "proposals": [
+  {
+   "survivorId": "cmt710ml10046q6mikqiv20qh",
+   "mergeIds": [
+    "cmt710ml10047q6midichabf1"
+   ],
+   "mergedPreview": "Liu started his career teaching at a technical school; in 1982 he and his three brothers quit government jobs to invest in breeding quails and chickens for sale",
+   "sourceId": "cmt70t99n00f1q6jjjfg4dpf6"
+  },
+  {
+   "survivorId": "cmt710ml10049q6miunehtejg",
+   "mergeIds": [
+    "cmt710ml1004aq6mi8sj9dkqc",
+    "cmt710ml1004bq6milr2gbkeq",
+    "cmt710ml1004cq6minsgjy1tl"
+   ],
+   "mergedPreview": "Liu helped establish China Minsheng Bank, becoming vice-chairman and by 1999 its largest shareholder; by 2011 he held about 7 percent of the bank's shares. Quit",
+   "sourceId": "cmt70t99n00f1q6jjjfg4dpf6"
+  },
+  {
+   "survivorId": "cmt710rit005fq6misdcbfvh9",
+   "mergeIds": [
+    "cmt710rit005gq6miqhtpsj05",
+    "cmt710rit005hq6miw1ftg70d",
+    "cmt710rit005iq6milile94ly"
+   ],
+   "mergedPreview": "Lu was born into a peasant family, dropped out of school at 15, and worked as an ironsmith before co-founding a small factory with six other farmers in July 196",
+   "sourceId": "cmt70te6i00goq6jju2yitkac"
+  },
+  {
+   "survivorId": "cmt710zx9007jq6mi2hfbtpx8",
+   "mergeIds": [
+    "cmt710zx9007kq6miv6x4p21u",
+    "cmt710zx9007lq6misbao4u4k",
+    "cmt710zx9007mq6mirg3mhzoc"
+   ],
+   "mergedPreview": "Took over as director of Great Wall Motor in 1990 and led the company through privatization in 1998 and a Hong Kong Stock Exchange listing in 2003. GWM became o",
+   "sourceId": "cmt70tmim00jcq6jjufpu6jvx"
+  },
+  {
+   "survivorId": "cmt7112nu0080q6miiwrmzsn9",
+   "mergeIds": [
+    "cmt7112nu0081q6mivi6b15y6",
+    "cmt7112nu0082q6miq09t6j62"
+   ],
+   "mergedPreview": "Founded Bluestar in 1984 as a small industrial-solvents factory and grew it into China National Bluestar Group. From 1996, consolidated more than 100 troubled, ",
+   "sourceId": "cmt70tp7l00k1q6jjb6b3lrnp"
+  },
+  {
+   "survivorId": "cmt71284v02nmq6mi9uikbn25",
+   "mergeIds": [
+    "cmt71284v02nnq6mi8theozqt"
+   ],
+   "mergedPreview": "Ma's first job was at China Motion Telecom Development, where he developed pager software for a reported $176 per month, before co-founding Tencent in 1998 with",
+   "sourceId": "cmt70uuey0305q6jjw2axhg01"
+  },
+  {
+   "survivorId": "cmt712dr902oeq6mix7u49hbe",
+   "mergeIds": [
+    "cmt712dr902ofq6mio7wdhe0p"
+   ],
+   "mergedPreview": "Jindal held elected office in Haryana and served as a state power minister, an unusually direct combination of industrial and political authority that is treate",
+   "sourceId": "cmt712dol02odq6mirsdb51up"
+  },
+  {
+   "survivorId": "cmt712goy02pfq6mi7twb2555",
+   "mergeIds": [
+    "cmt712goy02pgq6mi5webitcp",
+    "cmt712goy02phq6mi492j7rc7",
+    "cmt712goy02piq6mijr5q1hzz"
+   ],
+   "mergedPreview": "Cao was born in 1946 in Fuqing, Fujian, into a family that had been wealthy but lost everything fleeing the Chinese civil war, forcing him to leave school at ag",
+   "sourceId": "cmt712gmb02peq6mio9pkfyj3"
+  },
+  {
+   "survivorId": "cmt712mqx02r0q6mizpod05x3",
+   "mergeIds": [
+    "cmt712mqx02r1q6miawrhpw69",
+    "cmt712mqx02r2q6miyydu5zhe"
+   ],
+   "mergedPreview": "Liu's father, a comprador at a major Chinese shipping firm, died when Liu was six, leaving the family in financial difficulty; Liu attended St. John's Universit",
+   "sourceId": "cmt712moa02qzq6milay5k4b0"
+  },
+  {
+   "survivorId": "cmt712mqx02r4q6mix8zkolff",
+   "mergeIds": [
+    "cmt712mqx02r5q6mi2ao8pe5z",
+    "cmt712mqx02r6q6mi155xbfm0",
+    "cmt712mqx02r7q6miojd3zyuz"
+   ],
+   "mergedPreview": "Built a diversified industrial conglomerate beginning with match manufacturing, then expanding into cement, coal, and wool textiles. Liu became one of Republica",
+   "sourceId": "cmt712moa02qzq6milay5k4b0"
+  },
+  {
+   "survivorId": "cmt714ns104lwq6mivk4b9ksj",
+   "mergeIds": [
+    "cmt714ns104lxq6mizogj7wvi",
+    "cmt714ns104lyq6mi2kse2i88"
+   ],
+   "mergedPreview": "Liu founded JD.com in 2004 and received China's 'Person of the Year of Chinese Economy 2011' award from CCTV, and was named among Fortune's 'World's 50 Greatest",
+   "sourceId": "cmt714npe04lvq6migevkgcng"
+  },
+  {
+   "survivorId": "cmt714rsa04mqq6miy7yu4utk",
+   "mergeIds": [
+    "cmt714rsa04mrq6mi2cyrwbst"
+   ],
+   "mergedPreview": "Founded Nine Dragons Paper Holdings, building a recycled-paper and cardboard manufacturing business tied to US scrap-paper imports. Nine Dragons Paper grew into",
+   "sourceId": "cmt714rpn04mlq6micdwb351y"
+  },
+  {
+   "survivorId": "cmt714ur704neq6mir3xfv8kr",
+   "mergeIds": [
+    "cmt714ur704nfq6miom3dkmqq"
+   ],
+   "mergedPreview": "Liang attended Zhejiang University, earning both bachelor's and master's degrees in engineering, and began his career applying machine-learning methods to quant",
+   "sourceId": "cmt714uok04ndq6mi6ud90jvc"
+  },
+  {
+   "survivorId": "cmt71504804ocq6mirp4potu3",
+   "mergeIds": [
+    "cmt71504804odq6mis5998czd"
+   ],
+   "mergedPreview": "Before Meituan, Wang built and lost control of a Facebook clone called Xiaonei (later rebranded Renren after being sold due to financial problems) and founded m",
+   "sourceId": "cmt71501l04obq6mi717f3roj"
+  },
+  {
+   "survivorId": "cmt7154br04pwq6mial35picr",
+   "mergeIds": [
+    "cmt7154br04pxq6mi75ftq4c1",
+    "cmt7154br04pyq6mi702iqasr",
+    "cmt7154br04pzq6mibg7srmav"
+   ],
+   "mergedPreview": "Founded and grew Muyuan Foods into the world's largest pig-farming and breeding operation over more than two decades. Muyuan Foods' revenue nearly doubled from ",
+   "sourceId": "cmt71549404prq6mispx9bk6e"
+  },
+  {
+   "survivorId": "cmt7156gy04qdq6mi387ffb04",
+   "mergeIds": [
+    "cmt7156gy04qeq6min4m5uucs",
+    "cmt7156gy04qfq6micbfvcsnn"
+   ],
+   "mergedPreview": "On May 19, 2026, following shareholder approval at Nongfu Spring's annual general meeting, Zhong Shanshan was appointed chairman of the company's newly elected ",
+   "sourceId": "cmt7156eb04qcq6mijbnz8zrk"
+  },
+  {
+   "survivorId": "cmt715cw304slq6mij07xccuv",
+   "mergeIds": [
+    "cmt715cw304smq6mirbuex7ii",
+    "cmt715cw304snq6midv0y94y3",
+    "cmt715cw304soq6mivnnl1n9k"
+   ],
+   "mergedPreview": "Zhang Jian placed first in the highest imperial civil-service examination in 1894, then abandoned officialdom in 1895 to found the Dasheng Cotton Mill in his ho",
+   "sourceId": "cmt715ctf04skq6misimm2qgp"
+  },
+  {
+   "survivorId": "cmt715cw304sqq6mi9scm51ag",
+   "mergeIds": [
+    "cmt715cw304srq6miohn7nhlr"
+   ],
+   "mergedPreview": "Took an official post as Industrial and Commercial Secretary in Yuan Shikai's early Republican government in 1913, then resigned in 1915 to return to Nantong. Z",
+   "sourceId": "cmt715ctf04skq6misimm2qgp"
+  },
+  {
+   "survivorId": "cmt715lpm04v0q6mi99gdavee",
+   "mergeIds": [
+    "cmt715lpm04v1q6mii1jbsw6r"
+   ],
+   "mergedPreview": "The prospectus disclosed that the firm had reached operating profitability while scaling, a fact that distinguished it from the loss-on-listing profile of most ",
+   "sourceId": "cmt715lmp04uzq6miuxq0icvt"
+  },
+  {
+   "survivorId": "cmt715na604xqq6miavtlx938",
+   "mergeIds": [
+    "cmt715na604xrq6mibdzofeew"
+   ],
+   "mergedPreview": "Zong grew up in poverty in Zhejiang, dropped out of middle school, was part of China's 'sent-down' youth movement, and worked at a salt farm in Zhoushan before ",
+   "sourceId": "cmt715n7j04xpq6min3wcomgc"
+  },
+  {
+   "survivorId": "cmt715nv104xyq6mivybx5ufk",
+   "mergeIds": [
+    "cmt715nv104xzq6mivuc48s1n"
+   ],
+   "mergedPreview": "Reneged on a December 2006 agreement to sell a majority stake in Wahaha's non-JV operations to Danone, triggering formal legal disputes in 2007. Danone and Waha",
+   "sourceId": "cmt715nsd04xtq6mip6vc9yiu"
+  },
+  {
+   "survivorId": "cmt715php04y8q6mi19jg8ps7",
+   "mergeIds": [
+    "cmt715php04y9q6midn16k6hd",
+    "cmt715php04yaq6miug0j5o1j",
+    "cmt715php04ybq6miqhrzswin"
+   ],
+   "mergedPreview": "Chen took Shanda's parent company private in early 2012, with himself, his wife Chrissy Luo, and his brother retaining a combined 57% stake, converting the grou",
+   "sourceId": "cmt715pf104y7q6mi0a1m9o7m"
+  },
+  {
+   "survivorId": "cmt715php04ycq6miqeudqrr1",
+   "mergeIds": [
+    "cmt715php04ydq6mifjhg3s32"
+   ],
+   "mergedPreview": "Committed $1 billion in late 2016 to found the Tianqiao and Chrissy Chen Institute for brain science research. The Chen Institute established Chen Frontier Labs",
+   "sourceId": "cmt715pf104y7q6mi0a1m9o7m"
+  },
+  {
+   "survivorId": "cmt715q2n04ygq6miav61vlub",
+   "mergeIds": [
+    "cmt715q2n04yhq6mizs9a891d"
+   ],
+   "mergedPreview": "Chen earned an economics degree from Fudan University in 1993, worked at state-owned developer Shanghai Lujiazui Group and then Kinghing Trust & Investment, bef",
+   "sourceId": "cmt715q0004yfq6mizc7ixtqa"
+  },
+  {
+   "survivorId": "cmt715tvx04z8q6mixyotd6i7",
+   "mergeIds": [
+    "cmt715tvx04z9q6miu23j4m4x"
+   ],
+   "mergedPreview": "Built Evergrande into China's largest real-estate developer through aggressive, debt-financed expansion into real estate, sports, entertainment, and beverages. ",
+   "sourceId": "cmt715tqe04z7q6mioi1ungkx"
+  },
+  {
+   "survivorId": "cmt715usu04zeq6miwoz1vc0i",
+   "mergeIds": [
+    "cmt715usu04zfq6migppx6fem"
+   ],
+   "mergedPreview": "Chinese authorities detained Xu in 2023 following the default; he was not seen in public again until his April 2026 trial, according to the Guardian. China's se",
+   "sourceId": "cmt715ups04zbq6mih6pkq92d"
+  },
+  {
+   "survivorId": "cmt7160kh05qsq6mi85yfh7dj",
+   "mergeIds": [
+    "cmt7160kh05qtq6mil3vjq82v"
+   ],
+   "mergedPreview": "Co-founded Mindray in Shenzhen in 1991 with Xu Hang and Cheng Minghe, focused on domestic patient-monitoring, imaging, and diagnostic products. Listed Mindray o",
+   "sourceId": "cmt7160hq05qmq6milj3kht6p"
+  },
+  {
+   "survivorId": "cmt7165nm05s4q6mixkxlnfg3",
+   "mergeIds": [
+    "cmt7165nm05s5q6mitdpusa01",
+    "cmt7165nm05s6q6mirwi28kmy"
+   ],
+   "mergedPreview": "Founded ICT New Technology Development Company (later Legend, then Lenovo) in 1984 using a state-institute investment. Retired as Chairman of Legend Holdings in",
+   "sourceId": "cmt7165kv05s2q6mirx88pni3"
+  },
+  {
+   "survivorId": "cmt7166bz05sbq6mitt7d9aoy",
+   "mergeIds": [
+    "cmt7166bz05scq6miz7847xf9"
+   ],
+   "mergedPreview": "Returned to the Lenovo chairmanship in February 2009 during the global financial crisis to steer a turnaround. Lenovo achieved a successful turnaround under Liu",
+   "sourceId": "cmt71669805s8q6mir3uye9k7"
+  },
+  {
+   "survivorId": "cmt71ik31008vq63m2cohhl6h",
+   "mergeIds": [
+    "cmt71ik31008wq63m52640imt"
+   ],
+   "mergedPreview": "Pan Shiyi married his third wife, Zhang Xin, in 1994, and the couple co-founded SOHO China in 1995 in Beijing, building it from scratch into a major office-prop",
+   "sourceId": "cmt71683w05sjq6miax7656mn"
+  },
+  {
+   "survivorId": "cmt71ik31008zq63mzpkm7joo",
+   "mergeIds": [
+    "cmt71ik310090q63m9ram8v61"
+   ],
+   "mergedPreview": "Co-founded SOHO China with Zhang Xin in 1995, building it into a major Beijing-focused office developer. Pursued a sale of the couple's controlling SOHO China s",
+   "sourceId": "cmt71683w05sjq6miax7656mn"
+  },
+  {
+   "survivorId": "cmt716ahj05t2q6miw7im1qtq",
+   "mergeIds": [
+    "cmt716ahj05t3q6mixs2fanng"
+   ],
+   "mergedPreview": "Founded New Oriental and built it into China's largest private off-campus education services company prior to the 2021 regulatory crackdown. Personally launched",
+   "sourceId": "cmt716aet05t0q6mi9vmyo1n6"
+  },
+  {
+   "survivorId": "cmt716dm405tpq6mikmmsuqw4",
+   "mergeIds": [
+    "cmt716dm405tqq6miec18jab7",
+    "cmt716dm405trq6miic7ztse7"
+   ],
+   "mergedPreview": "Fosun's December 2015 disclosure described Guo Guangchang as assisting authorities with an investigation, a characterization that accompanied his brief absence ",
+   "sourceId": "cmt716djd05tlq6mihfvwh08l"
+  },
+  {
+   "survivorId": "cmt716eah05tvq6micbmweytp",
+   "mergeIds": [
+    "cmt716eah05twq6mia6zo5lb9"
+   ],
+   "mergedPreview": "Stepped down as chairman of subsidiary Shanghai Fosun High Technology (Group) in November 2017 to give younger executives more responsibility, while remaining c",
+   "sourceId": "cmt716e7q05ttq6mis6jwr8n4"
+  },
+  {
+   "survivorId": "cmt716q4b05xxq6mixapzarks",
+   "mergeIds": [
+    "cmt716q4b05xyq6mit44bg78k",
+    "cmt716q4b05xzq6mi1wyrpix8"
+   ],
+   "mergedPreview": "Zhang holds a bachelor's degree from Tsinghua University and a PhD from MIT, an academic background distinct from many domestic-trained internet-era Chinese fou",
+   "sourceId": "cmt716q1j05xwq6mialbhh7a8"
+  },
+  {
+   "survivorId": "cmt716sbr05ybq6migp8hd8ua",
+   "mergeIds": [
+    "cmt716sbr05ycq6mihfrztziz",
+    "cmt716sbr05ydq6mi8eod3boq",
+    "cmt716sbr05yeq6miai3ttwiq"
+   ],
+   "mergedPreview": "Co-founder Cheng Yixiao, who created the Kuaishou app a decade earlier as a tool for creating and sharing animated pictures, took over as CEO and became respons",
+   "sourceId": "cmt716s9005y9q6miq57ogcbc"
+  },
+  {
+   "survivorId": "cmt71708y0618q6mihiip8inm",
+   "mergeIds": [
+    "cmt71708y0619q6migdr02bcg"
+   ],
+   "mergedPreview": "Li founded and continues to lead NIO as chairman and CEO, a dual role he has held since the company's founding, per Wikipedia and LinkedIn. NIO grew into a majo",
+   "sourceId": "cmt7170660617q6miindr3e2x"
+  },
+  {
+   "survivorId": "cmt7174no061zq6mitdi5vmzm",
+   "mergeIds": [
+    "cmt7174no0620q6mifn9jzg11",
+    "cmt7174no0621q6mi3mdqjnf6"
+   ],
+   "mergedPreview": "Rong Desheng entered employment at the Shanghai Tongshun Bank in 1890, then co-founded a small flour mill in Wuxi with his brother in 1902 using savings from th",
+   "sourceId": "cmt7174l0061yq6micu398xj2"
+  },
+  {
+   "survivorId": "cmt7174no0623q6miar3wf53w",
+   "mergeIds": [
+    "cmt7174no0624q6mi3yvwh2dz",
+    "cmt7174no0625q6mipqf00y84",
+    "cmt7174no0626q6mibcwltx2p"
+   ],
+   "mergedPreview": "Assumed sole leadership of the family's flour-and-textile empire after his brother Rong Zongjing's death in 1938. Refused Japanese demands to sell or cede contr",
+   "sourceId": "cmt7174l0061yq6micu398xj2"
+  },
+  {
+   "survivorId": "cmt7179h5062wq6miszmaty11",
+   "mergeIds": [
+    "cmt7179h5062xq6mieovx1wqi",
+    "cmt7179h5062yq6mi4cfq7z3h",
+    "cmt7179h5062zq6midz9ff2vf"
+   ],
+   "mergedPreview": "Lai has been deeply involved in China's express-delivery industry for over 20 years and previously served as deputy chairman of the China Express Delivery Assoc",
+   "sourceId": "cmt7179eg062vq6mi8d4l30n8"
+  },
+  {
+   "survivorId": "cmt717b5n0639q6mif19u9md9",
+   "mergeIds": [
+    "cmt717b5n063aq6miy5rzd74f"
+   ],
+   "mergedPreview": "Lai Meisong's ZTO Express my 2025 | Lai Meisong: High-Quality Development to Reduce Overall Logistics. Lai Meisong's ZTO Express lai Meisong, founder, Chairman,",
+   "sourceId": "cmt717b2z0638q6mim04vzdwm"
+  },
+  {
+   "survivorId": "cmt717j3f065oq6mix81ug6p0",
+   "mergeIds": [
+    "cmt717j3f065pq6mirwtka25y",
+    "cmt717j3f065qq6mixra0d6dq"
+   ],
+   "mergedPreview": "Wang founded BYD in 1995 as a rechargeable-battery maker before diversifying into automobiles and, later, electric vehicles. Founded BYD in 1995 as a battery ma",
+   "sourceId": "cmt717j0q065nq6mi3ob1kr2d"
+  },
+  {
+   "survivorId": "cmt717nfa066gq6mipss1gmhf",
+   "mergeIds": [
+    "cmt717nfa066hq6miou7reux2"
+   ],
+   "mergedPreview": "Rose through Gree's sales and management ranks from 1990 saleswoman to president (2001) to chairwoman (2012). Gree grew into a major conglomerate with annual re",
+   "sourceId": "cmt717ncm066dq6miavpryvvx"
+  },
+  {
+   "survivorId": "cmt717tyh067mq6mir1bovrl0",
+   "mergeIds": [
+    "cmt717tyh067nq6mil80poj3z",
+    "cmt717tyh067oq6mi5d73plon",
+    "cmt717tyh067pq6migdbhshtg"
+   ],
+   "mergedPreview": "When Zhang took over as general manager of the Qingdao Refrigerator Plant (Haier's predecessor), it had annual sales of just 3.48 million yuan and a loss of 1.4",
+   "sourceId": "cmt717tvs067lq6mirigwr2sy"
+  },
+  {
+   "survivorId": "cmt717tyh067sq6mi3yknc2li",
+   "mergeIds": [
+    "cmt717tyh067tq6mij1b2o14u"
+   ],
+   "mergedPreview": "Stepped down as Haier Group chairman and CEO in November 2021, with President Zhou Yunjie succeeding him as chairman and CEO; Zhang volunteered not to be renomi",
+   "sourceId": "cmt717tvs067lq6mirigwr2sy"
+  },
+  {
+   "survivorId": "cmt7189gf06qjq6mi3tzh1bxp",
+   "mergeIds": [
+    "cmt7189gf06qkq6mi72xns495",
+    "cmt7189gf06qlq6mimhszioyw",
+    "cmt7189gf06qmq6miekwldh0d"
+   ],
+   "mergedPreview": "Zhou founded 3721 in 1998, a search engine that sold Chinese-language keywords for Roman-alphabet domain names, an early and distinctly China-specific internet ",
+   "sourceId": "cmt7189ds06qiq6mis1879bgs"
+  },
+  {
+   "survivorId": "cmt718bef06r4q6mieos2hfqz",
+   "mergeIds": [
+    "cmt718bef06r5q6mi0ms2kbwf"
+   ],
+   "mergedPreview": "Founded Pop Mart in 2010 and built its collectible blind-box toy business, including the Labubu and Skullpanda product lines. Pop Mart's Labubu-driven growth ma",
+   "sourceId": "cmt718bbr06r0q6midlqm3jjp"
+  },
+  {
+   "survivorId": "cmt718bzh06r9q6mi7oqejo3g",
+   "mergeIds": [
+    "cmt718bzh06raq6mipfz1lcmz"
+   ],
+   "mergedPreview": "Signaled a strategic pivot toward balanced, sustainable growth and category diversification (including home appliances) following the March 2026 share-price dro",
+   "sourceId": "cmt718bws06r7q6mir6wg4317"
+  },
+  {
+   "survivorId": "cmt718rbh0719q6mi15xbi1o5",
+   "mergeIds": [
+    "cmt718rbh071aq6mioolgpn2l"
+   ],
+   "mergedPreview": "Co-founded the Hope Group with three siblings in 1982, starting with quail and chicken hatching, then agreed to split the group into four separate sibling-led c",
+   "sourceId": "cmt718r8t0714q6mipxjbudtv"
+  },
+  {
+   "survivorId": "cmt718tff071oq6mipg1egm4b",
+   "mergeIds": [
+    "cmt718tff071pq6misuoktsjj"
+   ],
+   "mergedPreview": "Founded Li Auto and has continued serving as its chairman and CEO, prioritizing gross-margin discipline amid competitive pressure as of mid-2026. Li Auto contin",
+   "sourceId": "cmt718tcr071nq6min9qumgkd"
+  },
+  {
+   "survivorId": "cmt7192d3074sq6mi5qzzcmz1",
+   "mergeIds": [
+    "cmt7192d3074tq6mi3d5tpe2i"
+   ],
+   "mergedPreview": "Founded SF Express in the early 1990s to provide express delivery between Guangdong manufacturers and Hong Kong buyers. SF Express grew into SF Holding, a major",
+   "sourceId": "cmt7192af074oq6mi5k14k605"
+  },
+  {
+   "survivorId": "cmt7195ny0768q6miwugl8p7u",
+   "mergeIds": [
+    "cmt7195ny0769q6miboy686xq",
+    "cmt7195ny076aq6miwqrpxn9w"
+   ],
+   "mergedPreview": "After leaving the military and working briefly for a Shenzhen oil-logistics company, Ren founded Huawei in September 1987 with registered capital of 21,000 yuan",
+   "sourceId": "cmt7195la0766q6mibjod2uv1"
+  },
+  {
+   "survivorId": "cmt7199j0076zq6milso329wb",
+   "mergeIds": [
+    "cmt7199j00770q6mi5n93e0f7",
+    "cmt7199j00771q6mij8lx07sd",
+    "cmt7199j00772q6mix31ax6rf"
+   ],
+   "mergedPreview": "He is described by the Yidan Prize Foundation as the 'Father of Internet Philanthropy' and ranked top of the 13th China Charity Ranking in 2016 and as China's t",
+   "sourceId": "cmt7199gc076tq6miot3kux5r"
+  },
+  {
+   "survivorId": "cmt719bps077dq6migpf8paue",
+   "mergeIds": [
+    "cmt719bps077eq6miuvd5a3s6",
+    "cmt719bps077fq6mivqkl995w"
+   ],
+   "mergedPreview": "On June 10, 2026, He announced he would personally take charge of Xpeng's robot unit, with mass production of its humanoid robot 'Iron' described as imminent, p",
+   "sourceId": "cmt719bn4077cq6mi7pw49yir"
+  },
+  {
+   "survivorId": "cmt719rdz07dhq6miyzfzubyw",
+   "mergeIds": [
+    "cmt719rdz07diq6mis9vxm9dr"
+   ],
+   "mergedPreview": "Founded Haidilao and grew it into a leading Chinese hot pot chain before stepping back in recent years to focus on high-level strategy as chairman. Resumed the ",
+   "sourceId": "cmt719rbb07ddq6miv2zv5giv"
+  },
+  {
+   "survivorId": "cmt719vio07f4q6mix93zf54s",
+   "mergeIds": [
+    "cmt719vio07f5q6mix4fph8zs"
+   ],
+   "mergedPreview": "Founded Suntech Power in 2001 with Wuxi municipal government backing and led its rapid growth through a 2005 NYSE listing. Suntech's 2005 listing made Shi brief",
+   "sourceId": "cmt719vg007f2q6mi1kyvkhxm"
+  },
+  {
+   "survivorId": "cmt719w3o07f9q6mi6mvo4rv8",
+   "mergeIds": [
+    "cmt719w3o07faq6mil7xpqzej"
+   ],
+   "mergedPreview": "Following his 2013 removal, Shi Zhengrong publicly characterized the board's action against him as procedurally flawed and lacking lawful basis, a disputed clai",
+   "sourceId": "cmt719w1007f7q6mi68gc1nvk"
+  },
+  {
+   "survivorId": "cmt719woo07fhq6mi2drts77t",
+   "mergeIds": [
+    "cmt719woo07fiq6mi9ljk43s3"
+   ],
+   "mergedPreview": "After Suntech's 2005 NYSE listing, Shi became the richest person in China, with a peak net worth of $2.9 billion in 2008 (ranking No. 396 on Forbes' World's Bil",
+   "sourceId": "cmt719wm007fgq6mixc8ft3pu"
+  },
+  {
+   "survivorId": "cmt719y7t07fqq6miqncyql3i",
+   "mergeIds": [
+    "cmt719y7t07frq6miw9cvbibx",
+    "cmt719y7t07fsq6misdbelqxb",
+    "cmt719y7t07ftq6miqwvhobk7"
+   ],
+   "mergedPreview": "Before founding Baidu, Li worked as an engineer at Infoseek, an early search-industry pioneer, and as a senior consultant for IDD Information Services, per Baid",
+   "sourceId": "cmt719y5607fpq6mifjjp5je1"
+  },
+  {
+   "survivorId": "cmt71a3fh07goq6mitkav1fiz",
+   "mergeIds": [
+    "cmt71a3fh07gpq6miggfgvtgg",
+    "cmt71a3fh07gqq6miq9b45p29",
+    "cmt71a3fh07grq6mi5803w3my"
+   ],
+   "mergedPreview": "Ltd. over disputes tied to financing failures on a major Wanda development project in Wuhan; Caixin reported Wang's name was later removed from the public versi",
+   "sourceId": "cmt71a3ct07gmq6mivrcfb95l"
+  },
+  {
+   "survivorId": "cmt71a6xg07h9q6mi2obbfne6",
+   "mergeIds": [
+    "cmt71a6xg07haq6miyk37xx54",
+    "cmt71a6xg07hbq6mipk73ifw4"
+   ],
+   "mergedPreview": "Lei joined Kingsoft as an engineer in 1992, became its CEO in 1998, led it to a 2007 Hong Kong Stock Exchange IPO, then resigned as president and CEO on Decembe",
+   "sourceId": "cmt71a6us07h8q6mivvafxt4u"
+  },
+  {
+   "survivorId": "cmt71a7ig07heq6miecspwu4h",
+   "mergeIds": [
+    "cmt71a7ig07hfq6miiyw3xivb",
+    "cmt71a7ig07hgq6milbp1xvrs",
+    "cmt71a7ig07hhq6mi1wsrwxc5"
+   ],
+   "mergedPreview": "Lei has driven Xiaomi's expansion beyond smartphones into electric vehicles and semiconductors, per SCMP's June 2025 characterization of him as 'transforming Xi",
+   "sourceId": "cmt71a7ft07hdq6miciv5fm0k"
+  },
+  {
+   "survivorId": "cmt71abk107i2q6migpx6y5fr",
+   "mergeIds": [
+    "cmt71abk107i3q6miscgehxdk",
+    "cmt71abk107i4q6miakkio1q1"
+   ],
+   "mergedPreview": "Cheng founded Didi in 2012, initially launching as taxi-hailing app Didi Dache, then merged with rival Kuaidi Dache in 2015 and acquired Uber's China operations",
+   "sourceId": "cmt71abhb07i1q6mi61s0ymcw"
+  },
+  {
+   "survivorId": "cmt71ac9w07i9q6mifmmo1e3x",
+   "mergeIds": [
+    "cmt71ac9w07iaq6mix0tras28"
+   ],
+   "mergedPreview": "Didi stated on Weibo that it fully accepted the regulator's decision and would rectify its wrongdoings. Proceeded with a $4.4 billion NYSE IPO on June 30, 2021,",
+   "sourceId": "cmt71ac7407i6q6mi0pzswa4q"
+  },
+  {
+   "survivorId": "cmt71ag0207isq6mixfjkc6t0",
+   "mergeIds": [
+    "cmt71ag0207itq6mib5yfzsck",
+    "cmt71ag0207iuq6mio4tyosp1",
+    "cmt71ag0207ivq6mikcelpn9t"
+   ],
+   "mergedPreview": "Zhang was born April 1, 1983 in Longyan, Fujian, and studied microelectronics engineering at Nankai University in Tianjin before founding ByteDance in 2012. Zha",
+   "sourceId": "cmt71afxb07irq6mie6zcjbxm"
+  },
+  {
+   "survivorId": "cmt71itdg00axq63ma13rmkrb",
+   "mergeIds": [
+    "cmt71itdg00ayq63myrfh6dm6"
+   ],
+   "mergedPreview": "Founded venture capital firm Innovation Works in 2009, later renamed Sinovation Ventures, investing in AI startups. Founded 01.AI in 2023, a Beijing-based AI co",
+   "sourceId": "cmt71it9q00atq63mb0dranla"
+  }
+ ]
+}

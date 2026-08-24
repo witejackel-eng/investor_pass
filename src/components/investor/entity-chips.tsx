@@ -37,6 +37,9 @@ export function EntityChips({
   );
 }
 
+// PAYWALL DORMANT — PremiumGate renders nothing while all-access is on.
+// Component definition retained so existing imports don't break; to
+// re-enable the paywall, restore the JSX below.
 export function PremiumGate({
   hiddenCount,
   onUpgrade,
@@ -46,6 +49,8 @@ export function PremiumGate({
   onUpgrade: () => void;
   label?: string;
 }) {
+  return null;
+  /*
   return (
     <div className="gate mt-6">
       <div className="flex items-start gap-3">
@@ -74,6 +79,7 @@ export function PremiumGate({
       </div>
     </div>
   );
+  */
 }
 
 export function SourceTypeBadge({ type }: { type: string }) {
@@ -91,12 +97,16 @@ export function SourceTypeBadge({ type }: { type: string }) {
   return <span className="chip chip-ink">{labels[type] || type}</span>;
 }
 
+// PAYWALL DORMANT — ProBadge renders nothing while all-access is on.
 export function ProBadge() {
+  return null;
+  /*
   return (
     <span className="chip chip-signal">
       <Lock className="h-2.5 w-2.5" /> PRO
     </span>
   );
+  */
 }
 
 // Sources whose passages are a novelist's rendering, not the investor's own words.

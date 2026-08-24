@@ -49,7 +49,7 @@ export async function POST(req: Request) {
   let passageCount = 0;
   for (const p of body.passages || []) {
     const passage = await db.passage.create({
-      data: { sourceId: source.id, text: p.text, visibility: "pro", sequence: passageCount++ },
+      data: { sourceId: source.id, text: p.text, visibility: "public", sequence: passageCount++ },
     });
     for (const ts of p.themes || []) {
       const t = await db.theme.upsert({ where: { slug: ts }, update: {}, create: { slug: ts, name: ts.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) } });

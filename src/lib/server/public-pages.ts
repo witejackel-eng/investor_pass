@@ -1,11 +1,13 @@
 /**
  * Server-side data access for public SEO routes (Lane B).
  *
- * Rules enforced here:
- *  - Rendered passage content is ALWAYS filtered to `visibility: "public"`.
- *    Pro passages are never selected for anonymous HTML.
- *  - Aggregate counts may include pro records — that is the paywall teaser
- *    ("Showing 5 of 37 references"), per spec §26/§74.
+ * PAYWALL DORMANT — the whole library is free to every visitor.
+ *  - Rendered passage content is NO LONGER filtered by visibility. All
+ *    passages (formerly public + pro) are selected for anonymous HTML.
+ *  - FREE_PASSAGE_LIMIT cap removed — every referenced passage renders.
+ *  - To re-enable the paywall: restore the `visibility: "public"` filter
+ *    in refCounts/samplePublicPassages/sitemap, re-cap samplePublicPassages,
+ *    and run UPDATE "Passage" SET visibility='pro' WHERE ... .
  *  - Investor↔theme/company relationships are derived through passages
  *    (PersonTheme/PersonCompany junctions are sparsely populated in the corpus).
  */
@@ -14,7 +16,8 @@ import { cache } from "react";
 import { db } from "@/lib/db";
 import type { Prisma } from "@prisma/client";
 
-export const FREE_PASSAGE_LIMIT = 5;
+// PAYWALL DORMANT: no cap on rendered passages — the whole record shows.
+export const FREE_PASSAGE_LIMIT = 9999;
 
 // ── Shared types ────────────────────────────────────────────────────────────
 
@@ -142,22 +145,19 @@ function mergeWhere(base: Prisma.PassageWhereInput, extra?: Prisma.PassageWhereI
 }
 
 async function refCounts(where: Prisma.PassageWhereInput): Promise<RefCounts> {
-  const [total, publicCount] = await Promise.all([
-    db.passage.count({ where }),
-    db.passage.count({ where: mergeWhere(where, { visibility: "public" }) }),
-  ]);
-  return { total, publicCount };
+  // PAYWALL DORMANT: total === publicCount (all passages render).
+  const total = await db.passage.count({ where });
+  return { total, publicCount: total };
 }
 
-/** First N public passages for a filter, newest-source-first (timeline feel). */
+/** First N passages for a filter, newest-source-first (timeline feel). */
 async function samplePublicPassages(
   where: Prisma.PassageWhereInput,
   take: number = FREE_PASSAGE_LIMIT
 ): Promise<PassageCard[]> {
   const rows = await db.passage.findMany({
     where: mergeWhere(where, {
-      visibility: "public",
-      // Evidence rule §9: public HTML only ever renders reviewed material.
+      // Evidence rule §9: HTML only ever renders reviewed material.
       verificationState: { notIn: ["needs_review", "rejected"] },
     }),
     select: PASSAGE_CARD_SELECT,
@@ -627,7 +627,6 @@ async function _getSitemapData(): Promise<SitemapData> {
     JOIN "Passage" pa ON pa."sourceId" = s.id
     WHERE p.status = 'active'
       AND p.kind = 'investor'
-      AND pa.visibility = 'public'
     GROUP BY p.slug`;
   const investors = investorsRaw.map((r) => ({ slug: r.slug, lastModified: new Date(r.last_modified) }));
 
@@ -641,7 +640,6 @@ async function _getSitemapData(): Promise<SitemapData> {
     JOIN "Passage" pa ON pa."sourceId" = s.id
     WHERE p.status = 'active'
       AND p.kind = 'founder'
-      AND pa.visibility = 'public'
     GROUP BY p.slug`;
   const founders = foundersRaw.map((r) => ({ slug: r.slug, lastModified: new Date(r.last_modified) }));
 
@@ -655,8 +653,7 @@ async function _getSitemapData(): Promise<SitemapData> {
     JOIN "Theme" t ON t.id = pt."themeId"
     WHERE p.status = 'active'
     GROUP BY p.slug, t.slug
-    HAVING COUNT(*) >= ${MIN_TOPIC_REFS}
-       AND SUM(CASE WHEN pa.visibility = 'public' THEN 1 ELSE 0 END) >= 1`;
+    HAVING COUNT(*) >= ${MIN_TOPIC_REFS}`;
   const topicPairs = pairs
     .map((r) => ({ personSlug: r.person_slug, themeSlug: r.theme_slug }))
     .sort(
@@ -668,22 +665,19 @@ async function _getSitemapData(): Promise<SitemapData> {
 
   const [themeRows, companyRows, eventRows, yearRows] = await Promise.all([
     db.passageTheme.findMany({
-      where: { passage: { visibility: "public" } },
       select: { theme: { select: { slug: true } } },
       distinct: ["themeId"],
     }),
     db.passageCompany.findMany({
-      where: { passage: { visibility: "public" } },
       select: { company: { select: { slug: true } } },
       distinct: ["companyId"],
     }),
     db.passageEvent.findMany({
-      where: { passage: { visibility: "public" } },
       select: { event: { select: { slug: true } } },
       distinct: ["eventId"],
     }),
     db.source.findMany({
-      where: { year: { not: null }, passages: { some: { visibility: "public" } } },
+      where: { year: { not: null } },
       distinct: ["year"],
       select: { year: true },
       orderBy: { year: "asc" },
