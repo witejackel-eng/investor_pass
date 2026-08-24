@@ -745,6 +745,185 @@ export const getSitemapData = cache(() =>
   safe("getSitemapData", () => _getSitemapData())
 );
 
+// ── Decision Ledger (Master Plan §19-20) ─────────────────────────────────────
+// Public index of every verified decision across all investors. Supports
+// optional filtering by company, year, or theme. Each entry carries the
+// person + company + event context for the timeline UI.
+
+export type DecisionLedgerEntry = {
+  id: string;
+  title: string;
+  date: string | null;
+  action: string | null;
+  statement: string | null;
+  outcome: string | null;
+  outcomeSourceUrl: string | null;
+  confidence: string | null;
+  verified: boolean;
+  tags: string[];
+  person: { slug: string; name: string; kind: string };
+  company: { slug: string; name: string } | null;
+  event: { slug: string; name: string } | null;
+};
+
+export type DecisionLedgerFilter = {
+  companySlug?: string;
+  themeSlug?: string;
+  year?: string;
+  personSlug?: string;
+};
+
+export type DecisionLedgerData = {
+  total: number;
+  filtered: number;
+  decisions: DecisionLedgerEntry[];
+  facets: {
+    companies: { slug: string; name: string; count: number }[];
+    themes: { slug: string; name: string; count: number }[];
+    years: { year: string; count: number }[];
+    persons: { slug: string; name: string; count: number }[];
+  };
+};
+
+async function _getDecisionLedger(filter: DecisionLedgerFilter = {}): Promise<DecisionLedgerData | null> {
+  // Build the WHERE clause from the filter
+  const where: Prisma.DecisionWhereInput = { verified: true };
+  if (filter.personSlug) {
+    where.person = { slug: filter.personSlug };
+  }
+  if (filter.companySlug) {
+    where.company = { slug: filter.companySlug };
+  }
+  if (filter.year) {
+    // decisionDate is a String field — match by prefix (year)
+    where.decisionDate = { startsWith: filter.year };
+  }
+  if (filter.themeSlug) {
+    // Decisions don't have a direct theme relation; filter by tag inclusion.
+    // The tags field is a comma-separated string in some seed data; here we
+    // match decisions whose tags array contains the theme slug.
+    where.tags = { has: filter.themeSlug };
+  }
+
+  const [all, filtered, companies, themes, years, persons] = await Promise.all([
+    db.decision.count({ where: { verified: true } }),
+    db.decision.count({ where }),
+    db.decision.groupBy({
+      by: ["companyId"],
+      where: { verified: true, companyId: { not: null } },
+      _count: true,
+      orderBy: { _count: { companyId: "desc" } },
+      take: 30,
+    }),
+    // Themes: derive from tags arrays (can't groupBy on scalar array directly,
+    // so we pull all tag sets and aggregate in JS).
+    db.decision.findMany({
+      where: { verified: true },
+      select: { tags: true },
+    }),
+    db.decision.groupBy({
+      by: ["decisionDate"],
+      where: { verified: true },
+      _count: true,
+      orderBy: { decisionDate: "asc" },
+    }),
+    db.decision.groupBy({
+      by: ["personId"],
+      where: { verified: true },
+      _count: true,
+      orderBy: { _count: { personId: "desc" } },
+    }),
+  ]);
+
+  // Resolve company + person names for facets
+  const companyIds = companies.map((c) => c.companyId).filter(Boolean) as string[];
+  const personIds = persons.map((p) => p.personId);
+  const [companyRows, personRows] = await Promise.all([
+    companyIds.length ? db.company.findMany({ where: { id: { in: companyIds } }, select: { id: true, slug: true, name: true } }) : Promise.resolve([]),
+    personIds.length ? db.person.findMany({ where: { id: { in: personIds } }, select: { id: true, slug: true, name: true, kind: true } }) : Promise.resolve([]),
+  ]);
+  const companyMap = new Map(companyRows.map((c) => [c.id, c] as [string, typeof c]));
+  const personMap = new Map(personRows.map((p) => [p.id, p] as [string, typeof p]));
+
+  // Aggregate theme facets from tag arrays
+  const themeCounts = new Map<string, number>();
+  for (const d of themes) {
+    for (const tag of d.tags || []) {
+      themeCounts.set(tag, (themeCounts.get(tag) || 0) + 1);
+    }
+  }
+  // Resolve theme names
+  const themeSlugs = [...themeCounts.entries()].map(([slug]) => slug);
+  const themeRows = themeSlugs.length ? await db.theme.findMany({ where: { slug: { in: themeSlugs } }, select: { slug: true, name: true } }) : [];
+  const themeMap = new Map<string, string>(themeRows.map((t) => [t.slug, t.name] as [string, string]));
+  const themeFacets = [...themeCounts.entries()]
+    .map(([slug, count]) => ({ slug, name: themeMap.get(slug) || slug.replace(/-/g, " "), count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 30);
+
+  // Group years (extract 4-digit year from decisionDate which may be "1972" or "2008-09-16")
+  const yearMap = new Map<string, number>();
+  for (const y of years) {
+    const yr = (y.decisionDate || "").slice(0, 4);
+    if (yr) yearMap.set(yr, (yearMap.get(yr) || 0) + y._count);
+  }
+  const yearFacets = [...yearMap.entries()]
+    .map(([year, count]) => ({ year, count }))
+    .sort((a, b) => a.year.localeCompare(b.year));
+
+  // Fetch the filtered decisions with person + company + event context
+  const rows = await db.decision.findMany({
+    where,
+    include: {
+      person: { select: { slug: true, name: true, kind: true } },
+      company: { select: { slug: true, name: true } },
+      event: { select: { slug: true, name: true } },
+    },
+    orderBy: [{ decisionDate: "asc" }, { createdAt: "asc" }],
+    take: 500, // safety cap
+  });
+
+  return {
+    total: all,
+    filtered,
+    decisions: rows.map((d) => ({
+      id: d.id,
+      title: d.title,
+      date: d.decisionDate ?? d.date,
+      action: d.action,
+      statement: d.statement,
+      outcome: d.outcome,
+      outcomeSourceUrl: d.outcomeSourceUrl,
+      confidence: d.confidence,
+      verified: d.verified,
+      tags: d.tags || [],
+      person: { slug: d.person.slug, name: d.person.name, kind: d.person.kind },
+      company: d.company ? { slug: d.company.slug, name: d.company.name } : null,
+      event: d.event ? { slug: d.event.slug, name: d.event.name } : null,
+    })),
+    facets: {
+      companies: companies
+        .map((c) => {
+          const co = companyMap.get(c.companyId!);
+          return co ? { slug: co.slug, name: co.name, count: c._count } : null;
+        })
+        .filter(Boolean) as { slug: string; name: string; count: number }[],
+      themes: themeFacets,
+      years: yearFacets,
+      persons: persons
+        .map((p) => {
+          const person = personMap.get(p.personId);
+          return person ? { slug: person.slug, name: person.name, count: p._count } : null;
+        })
+        .filter(Boolean) as { slug: string; name: string; count: number }[],
+    },
+  };
+}
+
+export const getDecisionLedger = cache((filter: DecisionLedgerFilter = {}) =>
+  safe("getDecisionLedger", () => _getDecisionLedger(filter))
+);
+
 /**
  * Existence check that confirms a Person row with `kind="founder"` exists.
  * Lets the /founders/[slug] route distinguish a true 404 (slug never seen)

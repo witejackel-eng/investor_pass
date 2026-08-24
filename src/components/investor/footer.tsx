@@ -27,8 +27,10 @@ export function Footer() {
             <p className="kicker mb-3">PRODUCT</p>
             <ul className="space-y-2 text-graphite">
               <li><Link href="/investors" className="hover:text-ink">Investors</Link></li>
-              <li><Link href="/search" className="hover:text-ink">Search</Link></li>
+              <li><Link href="/decisions" className="hover:text-ink">Decision Ledger</Link></li>
               <li><Link href="/founders" className="hover:text-ink">Founders</Link></li>
+              <li><Link href="/search" className="hover:text-ink">Search</Link></li>
+              <li><Link href="/graph" className="hover:text-ink">Graph</Link></li>
               <li><Link href="/legal" className="hover:text-ink">Legal</Link></li>
             </ul>
           </nav>

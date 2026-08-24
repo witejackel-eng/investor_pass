@@ -1,6 +1,7 @@
 /**
  * Seeds the Decision Ledger from data/decisions/*.json.
- * Idempotent: keyed on (personId, title). Run: bun scripts/seed-decisions.ts
+ * Idempotent: keyed on (personId, title). Uses upsert so re-running
+ * updates tags/fields on existing rows. Run: bun scripts/seed-decisions.ts
  */
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
@@ -21,33 +22,36 @@ async function main() {
     }
     const entries = JSON.parse(readFileSync(join(dir, file), "utf-8"));
     let created = 0;
-    let skipped = 0;
+    let updated = 0;
     for (const e of entries) {
+      // Find existing by (personId, title) — the unique business key.
       const existing = await db.decision.findFirst({
         where: { personId: person.id, title: e.title },
         select: { id: true },
       });
+      const tags = Array.isArray(e.tags) ? e.tags : [];
+      const data = {
+        personId: person.id,
+        title: e.title,
+        decisionDate: e.decisionDate ?? null,
+        action: e.action ?? null,
+        statement: e.statement ?? null,
+        outcome: e.outcome ?? null,
+        outcomeSourceUrl: e.outcomeSourceUrl ?? null,
+        confidence: e.confidence ?? "medium",
+        verified: Boolean(e.verified),
+        tags,
+        description: Array.isArray(e.tags) && e.tags.length ? `tags: ${e.tags.join(",")}` : null,
+      };
       if (existing) {
-        skipped++;
-        continue;
+        await db.decision.update({ where: { id: existing.id }, data });
+        updated++;
+      } else {
+        await db.decision.create({ data });
+        created++;
       }
-      await db.decision.create({
-        data: {
-          personId: person.id,
-          title: e.title,
-          decisionDate: e.decisionDate ?? null,
-          action: e.action ?? null,
-          statement: e.statement ?? null,
-          outcome: e.outcome ?? null,
-          outcomeSourceUrl: e.outcomeSourceUrl ?? null,
-          confidence: e.confidence ?? "medium",
-          verified: Boolean(e.verified),
-          description: Array.isArray(e.tags) ? `tags: ${e.tags.join(",")}` : null,
-        },
-      });
-      created++;
     }
-    console.log(`${personSlug}: created=${created} skipped=${skipped}`);
+    console.log(`${personSlug}: created=${created} updated=${updated}`);
   }
 }
 

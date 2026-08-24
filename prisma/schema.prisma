@@ -283,6 +283,8 @@ model Decision {
   // confidence: "high" | "medium" | "inferred"
   confidence       String?
   verified         Boolean @default(false)
+  // Theme/concept tags for the Decision Ledger filter UI.
+  tags             String[] @default([])
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -293,6 +295,7 @@ model Decision {
 
   @@index([personId])
   @@index([companyId])
+  @@index([tags], type: Gin)
 }
 
 // ── Retention layer: reading continuity ──────────────────────────────────────

@@ -39,7 +39,8 @@ export type View =
   | "signup"
   | "forgot"
   | "reset"
-  | "admin";
+  | "admin"
+  | "decisions";
 
 export type ViewParams = Record<string, string | undefined>;
 
