@@ -8,6 +8,7 @@
  * Premium (pro) passages are NEVER sent to anonymous clients. The server
  * resolves entitlement first and queries only permitted records.
  */
+import { isAllAccess } from "@/lib/promo";
 import "server-only";
 import { db } from "../db";
 import { parseQuery, type ParsedQuery } from "./intent";

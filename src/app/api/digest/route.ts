@@ -4,6 +4,7 @@
  * Free users get a gate payload, never an email — EMAIL_MODE stays off until
  * payments-live (Phase 8 gate).
  */
+import { isAllAccess } from "@/lib/promo";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/auth/session";

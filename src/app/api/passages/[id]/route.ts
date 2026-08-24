@@ -1,3 +1,4 @@
+import { isAllAccess } from "@/lib/promo";
 import { db } from "@/lib/db";
 import { json, error } from "@/lib/api";
 import { getSessionUser } from "@/lib/auth/session";
@@ -21,7 +22,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   if (!passage) return error("Passage not found", 404);
 
   const user = await getSessionUser();
-  const isPro = user?.entitlement === "pro";
+  const isPro = (user?.entitlement === "pro" || isAllAccess());
 
   // Visibility gate — pro passages only for entitled users
   if (passage.visibility === "pro" && !isPro) {

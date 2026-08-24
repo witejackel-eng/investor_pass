@@ -1,3 +1,4 @@
+import { isAllAccess } from "@/lib/promo";
 import { db } from "@/lib/db";
 import { json, error } from "@/lib/api";
 import { getSessionUser } from "@/lib/auth/session";
@@ -28,7 +29,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
   if (!source) return error("Source not found", 404);
 
   const user = await getSessionUser();
-  const isPro = user?.entitlement === "pro";
+  const isPro = (user?.entitlement === "pro" || isAllAccess());
 
   const visiblePassages = source.passages.filter((p) => isPro || p.visibility === "public");
 

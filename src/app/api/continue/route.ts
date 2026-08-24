@@ -4,6 +4,7 @@
  * sequence — strictly excludes anything already in PassageProgress.
  * Guests: empty array so the UI falls back to localStorage recents.
  */
+import { isAllAccess } from "@/lib/promo";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/auth/session";

@@ -3,6 +3,7 @@
  * Free tier: first 3 verified entries + total count. Pro: full ledger.
  * Chronological; outcome provenance links included for every entry.
  */
+import { isAllAccess } from "@/lib/promo";
 import { db } from "@/lib/db";
 import { error } from "@/lib/api";
 import { getSessionUser } from "@/lib/auth/session";
@@ -19,7 +20,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
   if (!person) return error("Investor not found", 404);
 
   const user = await getSessionUser();
-  const isPro = user?.entitlement === "pro";
+  const isPro = (user?.entitlement === "pro" || isAllAccess());
 
   const all = await db.decision.findMany({
     where: { personId: person.id, verified: true },

@@ -1,3 +1,4 @@
+import { isAllAccess } from "@/lib/promo";
 import { db } from "@/lib/db";
 import { json, error } from "@/lib/api";
 import { getSessionUser } from "@/lib/auth/session";
@@ -31,7 +32,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   if (!company) return error("Company not found", 404);
 
   const user = await getSessionUser();
-  const isPro = user?.entitlement === "pro";
+  const isPro = (user?.entitlement === "pro" || isAllAccess());
 
   const filtered = company.passages.filter(
     (pc) =>

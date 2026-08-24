@@ -15,6 +15,7 @@
 import "server-only";
 import { db } from "../db";
 import { isFounderGrant } from "./founder";
+import { isAllAccess } from "@/lib/promo";
 import { cookies } from "next/headers";
 
 const SESSION_COOKIE = "ip_session";
@@ -198,6 +199,8 @@ export async function getSessionUser(): Promise<{
         entitlement = "free";
       }
     }
+    // 3-day all-access promo: every logged-in visitor is Pro.
+    if (isAllAccess()) entitlement = "pro";
     return {
       id: session.user.id,
       email: session.user.email,

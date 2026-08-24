@@ -1,3 +1,4 @@
+import { isAllAccess } from "@/lib/promo";
 import { searchPassages, type SearchFilters } from "@/lib/server/search";
 import { getSessionUser } from "@/lib/auth/session";
 import { json, error } from "@/lib/api";
@@ -33,7 +34,7 @@ export async function GET(req: Request) {
   };
 
   const user = await getSessionUser();
-  const isPro = user?.entitlement === "pro";
+  const isPro = (user?.entitlement === "pro" || isAllAccess());
 
   try {
     const result = await searchPassages(q, filters, isPro, page, pageSize);

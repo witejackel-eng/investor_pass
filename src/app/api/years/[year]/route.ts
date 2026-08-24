@@ -1,3 +1,4 @@
+import { isAllAccess } from "@/lib/promo";
 import { db } from "@/lib/db";
 import { json, error } from "@/lib/api";
 import { getSessionUser } from "@/lib/auth/session";
@@ -35,7 +36,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ year: st
   });
 
   const user = await getSessionUser();
-  const isPro = user?.entitlement === "pro";
+  const isPro = (user?.entitlement === "pro" || isAllAccess());
 
   const themes = new Map<string, { slug: string; name: string }>();
   const companies = new Map<string, { slug: string; name: string }>();
