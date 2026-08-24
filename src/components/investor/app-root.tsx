@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useStore, type View } from "@/stores/app-store";
+import { isAllAccess } from "@/lib/promo";
 import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import { Masthead } from "@/components/investor/masthead";
 import { Footer } from "@/components/investor/footer";
@@ -41,6 +42,17 @@ export function AppRoot({ initialView, initialParams }: { initialView?: View; in
   useEffect(() => {
     loadUser();
   }, [loadUser]);
+
+  // 3-day all-access: set synthetic pro user in the store BEFORE first
+  // paint so SSR HTML doesn't flash pricing/upsell (which loadUser would
+  // only remove after hydration). Server time during SSR; browser time
+  // after — both within the 3-day window.
+  if (isAllAccess() && !useStore.getState().user) {
+    useStore.setState({
+      user: { id: "", email: "", name: null, entitlement: "pro", role: "user" },
+      userLoading: false,
+    });
+  }
 
   // Real-path entry (/search, /compare): set the view without writing a
   // hash so the URL stays clean and shareable. Hash navigation continues
