@@ -99,15 +99,11 @@ export function Masthead() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const navItems: { label: string; view: View; match: View[]; href?: string }[] = [
-    // INVESTORS links to the crawlable, ISR-cached public directory — the SPA
-    // view stays reachable from the directory itself.
-    { label: "INVESTORS", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source"], href: "/investors" },
-    { label: "DECISIONS", view: "decisions", match: ["decisions"], href: "/decisions" },
-    { label: "LEARN", view: "learn", match: ["learn"], href: "/learn" },
+    // 5-item header per the UX spec: Discover | Search | Research | Learn | Library
+    { label: "DISCOVER", view: "investors", match: ["investors", "investor", "topic", "company", "year", "source", "concept", "event"], href: "/discover" },
     { label: "SEARCH", view: "search", match: ["search"], href: "/search" },
-    { label: "GRAPH", view: "graph", match: ["graph"] },
-    { label: "TRAILS", view: "trails", match: ["trails", "trailDetail"] },
-    { label: "COMPARE", view: "compare", match: ["compare"], href: "/compare" },
+    { label: "RESEARCH", view: "trails", match: ["trails", "trailDetail", "compare", "decisions", "graph"], href: "/research" },
+    { label: "LEARN", view: "learn", match: ["learn"], href: "/learn" },
     { label: "LIBRARY", view: "library", match: ["library", "bookmarks", "searches", "collections", "watchlist"] },
   ];
 
