@@ -3,6 +3,34 @@
 Public-facing product changes. Corrections to the record appear here per the
 evidence policy (Reported → Review → Correct → Verify → Changelog).
 
+## 2026-08-25 — Research tools release
+
+### Decision Ledger ×1.5, Compare rebuild, trails that lead somewhere
+- NEW: **Decision Ledger 364 → 546 decisions.** Ten investors previously at
+  zero now carry documented records (Bogle, Soros, Livermore, Templeton,
+  Greenblatt, Fisher, Pabrai, Ackman, Icahn, Terry Smith); nine more topped
+  up (Munger, Lynch, Graham, Dalio, Marks, Druckenmiller, Simons, Swensen,
+  Klarman); 23 Indian founders entered the ledger (Ratan Tata, Mukesh Ambani,
+  Narayana Murthy, Azim Premji, Dhirubhai Ambani, Adani, Nilekani, the
+  Kamath and Bansal brothers, Kiran Mazumdar-Shaw, Falguni Nayar, and the
+  cautionary cases — Satyam's Raju, BYJU'S). Every entry keeps the
+  statement → action → outcome + source-URL discipline; the public index
+  shows the 529 verified.
+- REBUILT: **Compare** — 2 to 6 people, investors and founders together,
+  grouped by region with a name filter; four views (side by side, stacked,
+  highlight differences, timeline); a summary stats bar; per-person decision
+  cards with outcomes and confidence. FIXED: a filter bug hid every seeded
+  decision from comparisons (Marks showed 0 of his record).
+- FIXED: **trails** — clicking a trail step in the app did nothing (the link
+  handler only understood hash routes); "continue the research" chips all
+  pointed at /search (property-name mismatch); one Dalio step 404'd.
+- NEW: 50 trail-anchoring passages — Graham's 1955 Senate testimony (8) and
+  Dalio's How the Economic Machine Works (7), each 140–180 words.
+- BACKFILL: 6,869 passages committed to corpus files but never ingested —
+  the full Berkshire shareholder-letter archive (1981–2000) and the Marks
+  memo archive now render on their source pages. Library: 14,623 passages,
+  1,473 sources, 148 people.
+
 ## 2026-08-24 — Free-everywhere release
 
 ### Preview-build outage fix + US founders collection (this release)
