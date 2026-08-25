@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Aadhaar — building identity as public infrastructure",
+  "decisionDate": "2009-06-24",
+  "action": "founded",
+  "statement": "Nilekani left Infosys co-chairmanship to build UIDAI, arguing that a biometric identity number could become the pipe infrastructure of Indian public life.",
+  "outcome": "Aadhaar enrolled over a billion people, became the world's largest biometric ID system, and seeded the India Stack — UPI payments, DBT transfers — that digitized the Indian economy.",
+  "outcomeSourceUrl": "https://uidai.gov.in/en/role-historical-perspective.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "public-infrastructure-bets",
+   "innovation"
+  ]
+ },
+ {
+  "title": "Returning to Infosys as chairman in the crisis",
+  "decisionDate": "2017-08-24",
+  "action": "founded",
+  "statement": "After a board-level governance collapse and CEO exit, Nilekani returned as non-executive chairman to stabilize the company he co-founded, at a moment of maximal uncertainty.",
+  "outcome": "He appointed Salil Parekh as CEO, restored client and investor confidence, and stepped back in 2022 with the company at record scale.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-infosys-nilekani-idUSKCN1B508P",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "turnaround-management",
+   "leadership-transition"
+  ]
+ },
+ {
+  "title": "Funding and chairing the EkStep foundation",
+  "decisionDate": "2015-01-01",
+  "action": "founded",
+  "statement": "Nilekani and wife Rohini founded EkStep to build open digital learning infrastructure, applying the platform philosophy of Aadhaar to primary literacy.",
+  "outcome": "EkStep's open-source approach influenced India's DIKSHA education platform reaching hundreds of millions of students.",
+  "outcomeSourceUrl": "https://ekstep.org/about-us/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy",
+   "public-infrastructure-bets"
+  ]
+ }
+]

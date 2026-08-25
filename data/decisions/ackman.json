@@ -1,0 +1,114 @@
+[
+ {
+  "title": "Founding Pershing Square with a concentrated activist model",
+  "decisionDate": "2004-01-01",
+  "action": "founded",
+  "statement": "After winding up Gotham Partners, Ackman launched Pershing Square to hold large, public, research-intensive positions in a handful of companies and push for changes to unlock value.",
+  "outcome": "The fund produced some of the industry's best early years, including returns above 40% in 2009, and became the most prominent activist platform of its generation.",
+  "outcomeSourceUrl": "https://pershingsquareholdings.com/about-us/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "concentration"
+  ]
+ },
+ {
+  "title": "MBIA short — the five-year bet against the bond insurer",
+  "decisionDate": "2002-12-01",
+  "action": "exited",
+  "statement": "Ackman analyzed MBIA's structured-finance guarantees and concluded the company was insolvent on any realistic reading of its exposures; he shorted the stock and published his research publicly.",
+  "outcome": "Vilified and investigated for years, he was vindicated when the 2008 crisis broke the monolines; the research became legendary for its rigor, though the profits were modest relative to the effort.",
+  "outcomeSourceUrl": "https://www.bloomberg.com/news/articles/2012-11-08/bill-ackman-the-bond-insurer-war",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "risk-management"
+  ]
+ },
+ {
+  "title": "General Growth Properties — buying the bankrupt mall REIT",
+  "decisionDate": "2008-11-01",
+  "action": "invested",
+  "statement": "When the second-largest mall operator filed for bankruptcy in the crisis, Ackman determined the assets were worth multiples of the distressed equity price and bought roughly 25% of the shares at the bottom.",
+  "outcome": "The equity emerged from bankruptcy and rose dramatically; Pershing's roughly $60 million position turned into over $1 billion — the firm's signature crisis win.",
+  "outcomeSourceUrl": "https://www.wsj.com/articles/SB10001424052748704324204575305041990450398",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "crisis-management",
+   "contrarianism"
+  ]
+ },
+ {
+  "title": "J.C. Penney — the failed turnaround bet",
+  "decisionDate": "2010-10-01",
+  "action": "invested",
+  "statement": "Ackman bought about a quarter of the retailer and hired Ron Johnson from Apple to eliminate discounts and transform stores into a collection of branded boutiques.",
+  "outcome": "The strategy catastrophically alienated the customer base: sales fell roughly 25% in a year, Johnson was fired, and Pershing exited at a loss approaching $500 million. It remains Ackman's most-cited operational overreach.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-penney-ackman-idUSBRE9740W720130808",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "mistakes-and-learning",
+   "turnaround-management"
+  ]
+ },
+ {
+  "title": "Herbalife — the billion-dollar short of the nutrition company",
+  "decisionDate": "2012-12-20",
+  "action": "exited",
+  "statement": "Ackman publicly shorted roughly $1 billion of Herbalife, calling it a pyramid scheme destined for regulatory shutdown, in the most publicized activist short of the era.",
+  "outcome": "The stock roughly tripled from his average short price amid a squeeze; Carl Icahn took the opposite side. Ackman covered in 2018 at a loss of about $1 billion — the lesson he drew publicly was that his thesis might have been right but the bet structure was unbounded.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-herbalife-ackman-idUSKBN1F626F",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "mistakes-and-learning",
+   "risk-management"
+  ]
+ },
+ {
+  "title": "Canadian Pacific — the activist railway turnaround",
+  "decisionDate": "2011-10-01",
+  "action": "invested",
+  "statement": "Ackman won a proxy fight at CP, replaced the CEO with Hunter Harrison, and forced the operating-ratio transformation of a railroad long considered unfixable.",
+  "outcome": "The operating ratio fell from the mid-80s toward 60; the stock roughly quintupled, and the campaign became the textbook case of operational activism.",
+  "outcomeSourceUrl": "https://www.wsj.com/articles/SB10001424052702303612804577338253181351784",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "turnaround-management",
+   "concentration"
+  ]
+ },
+ {
+  "title": "COVID crash — buying Hilton, Lowe's and restaurant stocks at the bottom",
+  "decisionDate": "2020-03-18",
+  "action": "invested",
+  "statement": "With markets in free fall, Ackman went on CNBC in an emotional segment and bought beaten-down hospitality and retail equities with a large portion of Pershing's capital.",
+  "outcome": "The March 2020 bottom purchases produced a 70% gain for the year 2020, Pershing's best ever.",
+  "outcomeSourceUrl": "https://www.cnbc.com/2020/03/18/bill-ackman-coronavirus-investment.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "crisis-management",
+   "contrarianism"
+  ]
+ },
+ {
+  "title": "Universal Music spinout — the largest holding restructure",
+  "decisionDate": "2021-01-01",
+  "action": "invested",
+  "statement": "Ackman accumulated roughly 10% of Universal Music and drove its distribution from Vivendi, later distributing the stake to shareholders after an abandoned SPAC structure.",
+  "outcome": "The position became Pershing's largest holding at a valuation in the tens of billions; the episode demonstrated his willingness to hold 'franchise' assets semi-permanently.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/media-telecom/vivendi-spin-off-universal-music-completed-2021-09-24/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "concentration",
+   "franchise"
+  ]
+ }
+]

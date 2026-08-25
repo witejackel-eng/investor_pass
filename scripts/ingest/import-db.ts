@@ -230,8 +230,15 @@ async function main() {
 
   // Optional CLI filter: `bun scripts/ingest/import-db.ts fisher icahn` imports only
 // those corpora files. Without args, imports everything (full re-seed).
+// `--delta` (anywhere in args): skip sources whose DB passage count already
+// matches the corpus file — imports ONLY what changed. Safe for passage IDs
+// of unchanged sources (no delete/recreate churn, bookmarks keep working).
 // Reads data/corpora/ recursively so subdirectories like `earnings-calls/` are picked up.
-const onlyFiles = process.argv.slice(2).map((a) => (a.endsWith(".jsonl") ? a : `${a}.jsonl`));
+const rawArgs = process.argv.slice(2);
+const deltaMode = rawArgs.includes("--delta");
+const onlyFiles = rawArgs
+  .filter((a) => !a.startsWith("--"))
+  .map((a) => (a.endsWith(".jsonl") ? a : `${a}.jsonl`));
 const corpusFiles = (readdirSync("data/corpora", { recursive: true }) as unknown[]).filter(
   (f): f is string => typeof f === "string",
 )
@@ -250,7 +257,17 @@ const corpusFiles = (readdirSync("data/corpora", { recursive: true }) as unknown
       const personId = personIds[line.personSlug];
       if (!personId) continue;
 
+      const valid = line.passages.filter((p) => p.text && p.text.length >= 50);
+
       let source = await db.source.findUnique({ where: { slug: line.source.slug } });
+
+      // DELTA MODE: source exists with the same passage count → nothing to do.
+      // Keeps unchanged passages (and their IDs / junctions / bookmarks) intact.
+      if (deltaMode && source) {
+        const dbCount = await db.passage.count({ where: { sourceId: source.id } });
+        if (dbCount === valid.length) continue;
+      }
+
       if (!source) {
         source = await db.source.create({
           data: {
@@ -273,7 +290,6 @@ const corpusFiles = (readdirSync("data/corpora", { recursive: true }) as unknown
 
       await db.passage.deleteMany({ where: { sourceId: source.id } });
 
-      const valid = line.passages.filter((p) => p.text && p.text.length >= 50);
       if (!valid.length) continue;
 
       // BULK: one insert per source instead of thousands of round trips

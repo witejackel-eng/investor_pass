@@ -138,12 +138,12 @@ export default async function TrailPage({ params }: Params) {
             </h2>
             <p className="prose-reader mt-2">{node.blurb}</p>
             {node.link ? (
-              <a
+              <Link
                 href={node.link.startsWith("#") ? `/${node.link}` : node.link}
                 className="chip chip-signal mt-3 inline-block"
               >
                 OPEN IN THE LIBRARY →
-              </a>
+              </Link>
             ) : null}
           </li>
         ))}
@@ -153,14 +153,14 @@ export default async function TrailPage({ params }: Params) {
         <section className="mt-12 max-w-3xl border-t-2 border-[var(--ink)] pt-6">
           <p className="kicker mb-3">CONTINUE THE RESEARCH</p>
           <div className="flex flex-wrap gap-1.5">
-            {trail.exploreNext.map((next: { label?: string; title?: string; href?: string }, i: number) => (
-              <a
+            {trail.exploreNext.map((next: { label?: string; title?: string; link?: string; href?: string }, i: number) => (
+              <Link
                 key={i}
-                href={next.href || "/search"}
+                href={next.link || next.href || "/search"}
                 className="chip"
               >
                 {(next.label ?? next.title ?? "EXPLORE").toUpperCase()} →
-              </a>
+              </Link>
             ))}
           </div>
         </section>

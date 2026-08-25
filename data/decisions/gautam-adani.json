@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Building Mundra port against the incumbents",
+  "decisionDate": "1998-01-01",
+  "action": "founded",
+  "statement": "Adani developed Mundra on the Gujarat coast as a private deep-draft port, competing with the state-owned major ports in an industry private capital had never cracked.",
+  "outcome": "Mundra became India's largest private port and the anchor of the Adani conglomerate's infrastructure platform, generating the cash and credibility for everything after.",
+  "outcomeSourceUrl": "https://www.adaniports.com/about-us",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "infrastructure-building",
+   "founding-and-origins"
+  ]
+ },
+ {
+  "title": "Carmichael coal mine — the contested Australia bet",
+  "decisionDate": "2010-01-01",
+  "action": "invested",
+  "statement": "Adani committed to the giant Queensland coal basin, holding through years of environmental litigation and activist pressure that made Carmichael the world's most contested mining project.",
+  "outcome": "First coal shipped in 2021; the mine's economics and Adani's resolve were both proven, though the project became the emblem of climate activism's power over finance.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/energy/adani-carmichael-coal-2021-12-29/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "infrastructure-building",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Surviving the Hindenburg short",
+  "decisionDate": "2023-01-24",
+  "action": "founded",
+  "statement": "When Hindenburg Research's report alleging accounting manipulation erased roughly $100 billion of Adani group market value, Adani rallied institutional support, paid down pledge-linked debt, and refused to dilute control at the bottom.",
+  "outcome": "Shares recovered most of the loss over the following year; the group refinanced, completed key projects, and a Supreme Court expert committee found no conclusive regulatory failure — though the episode permanently raised the conglomerate's scrutiny.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/indias-adani-crippled-by-us-short-sellers-report-2023-01-27/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "crisis-management",
+   "debt-discipline"
+  ]
+ }
+]

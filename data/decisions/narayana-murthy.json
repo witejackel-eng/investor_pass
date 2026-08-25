@@ -1,0 +1,58 @@
+[
+ {
+  "title": "Founding Infosys with $250 borrowed from his wife",
+  "decisionDate": "1981-07-02",
+  "action": "founded",
+  "statement": "Murthy and six co-founders started Infosys with Rs 10,000 — roughly $250, borrowed from his wife Sudha — after his earlier venture and a communist-phase arrest had failed, betting on exporting Indian software talent.",
+  "outcome": "Infosys became the bellwether of Indian IT services, grew to employ hundreds of thousands, and its 1999 NASDAQ listing — the first Indian company listed there — created the outsourcing era's flagship.",
+  "outcomeSourceUrl": "https://www.infosys.com/about/history.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "outsourcing-strategy"
+  ]
+ },
+ {
+  "title": "The Global Delivery Model — shipping work, not people",
+  "decisionDate": "1990-01-01",
+  "action": "founded",
+  "statement": "Infosys pioneered the offshore development center model — doing client work from India at a fraction of on-site cost — codified as the Global Delivery Model.",
+  "outcome": "The GDM became the industry standard, created the Indian IT services sector, and enabled the cost-quality positioning that made the sector globally competitive.",
+  "outcomeSourceUrl": "https://www.infosys.com/about/history.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "outsourcing-strategy",
+   "innovation"
+  ]
+ },
+ {
+  "title": "Voluntary delisting fight and transparency-first governance",
+  "decisionDate": "1990-01-01",
+  "action": "founded",
+  "statement": "When the 1990s buyback boom tempted the founders to cash out, Murthy refused to buy back shares below fair value, insisting that minority shareholders' interests were the company's highest obligation.",
+  "outcome": "The governance reputation enabled the 1999 ADR listing at a premium and made Infosys the West's trusted counterpart for Indian delivery; Murthy became the global face of Indian corporate integrity.",
+  "outcomeSourceUrl": "https://www.infosys.com/sustainability.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance",
+   "shareholder-orientation"
+  ]
+ },
+ {
+  "title": "ESOPs — making thousands of employees rupee millionaires",
+  "decisionDate": "1994-01-01",
+  "action": "founded",
+  "statement": "Infosys was among the first Indian companies to distribute stock options broadly across its engineering workforce, aligning employees with the listing.",
+  "outcome": "Widely-distributed ESOP wealth created Bangalore's first generation of professional wealth and became a talent weapon the rest of the industry was forced to copy.",
+  "outcomeSourceUrl": "https://www.infosys.com/about/history.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "esops-and-ownership",
+   "shareholder-orientation"
+  ]
+ }
+]

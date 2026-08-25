@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Founding Zerodha as flat-fee discount brokerage",
+  "decisionDate": "2010-08-15",
+  "action": "founded",
+  "statement": "The Kamath brothers launched Zerodha with zero-brokerage equity delivery and flat-fee intraday pricing at a time when incumbents charged percentage brokerage, bootstrapping with no external capital.",
+  "outcome": "Zerodha became India's largest brokerage by active clients — surpassing the entrenched incumbents with a fraction of their staff and no VC money — and its model forced the industry's repricing.",
+  "outcomeSourceUrl": "https://zerodha.com/about",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "disruptive-pricing",
+   "bootstrapping"
+  ]
+ },
+ {
+  "title": "Refusing venture capital for fourteen years",
+  "decisionDate": "2010-08-15",
+  "action": "founded",
+  "statement": "The founders systematically declined outside capital, arguing that profitability and customer alignment were the durable edge and that growth funded by margins outpermed growth funded by burn.",
+  "outcome": "The bootstrapped model survived the 2020s fintech winter untouched; Zerodha remained the most profitable brokerage in India with among the highest revenue-per-employee in global finance.",
+  "outcomeSourceUrl": "https://yourstory.com/2023/06/zerodha-nithin-kamath-bootstrapped-fintech",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "bootstrapping",
+   "cash-flow-discipline"
+  ]
+ },
+ {
+  "title": "Rainmatter — the in-house fintech incubator",
+  "decisionDate": "2016-01-01",
+  "action": "founded",
+  "statement": "The brothers created Rainmatter to fund and incubate adjacent financial businesses — smallcase, Sensibull, GoldenPi and others — with patient capital rather than acquisition.",
+  "outcome": "Rainmatter's portfolio became the connective tissue of India's retail trading ecosystem and institutionalized the founders' ecosystem philosophy.",
+  "outcomeSourceUrl": "https://rainmatter.com/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "innovation",
+   "cash-flow-discipline"
+  ]
+ }
+]

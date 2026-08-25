@@ -1,0 +1,30 @@
+[
+ {
+  "title": "The UltraTech–Grasim consolidation of Indian cement",
+  "decisionDate": "2004-01-01",
+  "action": "acquired",
+  "statement": "Under KM Birla, the group restructured cement holdings into UltraTech and executed successive acquisitions — including the 2010 Samruddhi swap and later the Binani and China-assets purchases — driving toward national scale.",
+  "outcome": "UltraTech became India's largest and among the world's most efficient cement producers, the model of the Birla modernization era.",
+  "outcomeSourceUrl": "https://www.ultratechcement.com/about-us/our-journey",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "scale-economics"
+  ]
+ },
+ {
+  "title": "Hindalco's Novelis acquisition — $6 billion of aluminum downstream",
+  "decisionDate": "2007-05-15",
+  "action": "acquired",
+  "statement": "Birla bought the Atlanta-based aluminum-rolling giant Novelis for roughly $6 billion, at that time the largest overseas acquisition by an Indian company, moving Hindalco out of commodity upstream volatility.",
+  "outcome": "Novelis's beverage-can franchises and recycling platform cushioned Hindalco through the post-2008 crash; the deal is cited as the moment the Aditya Birla group became a global materials player.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/idUSDEL124722/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "globalization"
+  ]
+ }
+]

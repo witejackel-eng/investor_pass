@@ -1,0 +1,112 @@
+[
+ {
+  "title": "First Index Investment Trust — launching the first retail index fund",
+  "decisionDate": "1976-08-31",
+  "action": "founded",
+  "statement": "Despite Fidelity's chairman reportedly saying the fund would never work and predictions that investors would never settle for average returns, Bogle raised an initial $11.3 million — far short of the $150 million target — to launch a fund that simply held the S&P 500.",
+  "outcome": "Mocked as 'Bogle's Folly,' the fund (renamed Vanguard 500 Index Fund) survived its difficult early years, crossed $100 billion in assets by 1999, and became one of the largest mutual funds in the world; by the 2010s index funds collectively overtook active funds in US equity assets.",
+  "outcomeSourceUrl": "https://www.vanguard.com/vanguard-corp/about-vanguard/bogle-index-fund-milestones",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "index-investing",
+   "innovation"
+  ]
+ },
+ {
+  "title": "Vanguard mutual-ownership structure — making the funds own the management company",
+  "decisionDate": "1974-09-24",
+  "action": "founded",
+  "statement": "After being fired as head of Wellington Management, Bogle reorganized Vanguard so that the fund shareholders collectively owned the management company, which would operate at cost — an ownership structure he called the only true mutual mutual fund company.",
+  "outcome": "The at-cost structure removed the conflict between fund profits and shareholder returns, funded a relentless fee decline from roughly 2% era costs to basis points, and is credited by Bogle as the enabling decision behind everything else Vanguard did.",
+  "outcomeSourceUrl": "https://about.vanguard.com/corporate-profile/history",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance",
+   "index-investing"
+  ]
+ },
+ {
+  "title": "Total Bond Market Index Fund — extending indexing to fixed income",
+  "decisionDate": "1986-12-31",
+  "action": "founded",
+  "statement": "Bogle extended the index concept from equities to the broadly diversified investment-grade bond market, arguing that active bond managers faced the same cost drag as equity managers with even less room to overcome it.",
+  "outcome": "The fund became one of the largest bond funds in the industry and established broad-market bond indexing as a standard component of institutional and retail portfolios.",
+  "outcomeSourceUrl": "https://www.vanguard.com/vanguard-corp/about-vanguard/bogle-index-fund-milestones",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "index-investing",
+   "diversification"
+  ]
+ },
+ {
+  "title": "Requiring independent directors on Vanguard funds",
+  "decisionDate": "1982-01-01",
+  "action": "founded",
+  "statement": "Bogle pushed fund boards toward true independence from the adviser, arguing that directors elected by shareholders should serve as the fund's watchdog on fees and conflicts — a stance he pressed in speeches and later books after stepping back.",
+  "outcome": "The governance principles he championed at Vanguard were eventually embedded in SEC rules requiring a majority of independent directors on fund boards industry-wide in 2001.",
+  "outcomeSourceUrl": "https://www.sec.gov/rules/final/ic-26999.htm",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance"
+  ]
+ },
+ {
+  "title": "Publishing Common Sense on Mutual Funds",
+  "decisionDate": "1999-10-15",
+  "action": "founded",
+  "statement": "Bogle consolidated the costs-matter hypothesis, reversion to the mean, and the 'witches' brew' of speculation into his comprehensive statement of the case for owning the whole market while paying the least possible to do it.",
+  "outcome": "The book became the canonical text of the index movement, is still assigned in finance courses worldwide, and its 10th-anniversary edition extended the argument to the 2008 crisis.",
+  "outcomeSourceUrl": "https://www.wiley.com/en-us/Common+Sense+on+Mutual+Funds%2C+Fully+Updated+10th+Anniversary+Edition-p-9780470138137",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "index-investing",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "The 'cost matters hypothesis' — formalizing why active management fails",
+  "decisionDate": "2005-01-01",
+  "action": "founded",
+  "statement": "In his Financial Analysts Journal article, Bogle reframed the case against active management as arithmetic rather than skill: gross market return minus costs equals net investor return, and costs are certain while alpha is not.",
+  "outcome": "The framing became the standard citation in the index-versus-active debate and underpinned the sustained shift of trillions of dollars into low-cost index vehicles over the following two decades.",
+  "outcomeSourceUrl": "https://www.cfainstitute.org/-/media/documents/article/pdfs/financial-analysts-journal/2005-january-february/2005-v61-n1.1.aspx",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "index-investing",
+   "market-psychology"
+  ]
+ },
+ {
+  "title": "Telling investors 'stay the course' through the 2008-2009 crash",
+  "decisionDate": "2008-10-31",
+  "action": "founded",
+  "statement": "With the S&P 500 down more than 40% from its peak and investors fleeing equity funds, Borge publicly repeated his standing instruction: rebalance into the decline, stay the course, and treat the crash as a decline in the permanent value of nothing.",
+  "outcome": "Investors who followed the discipline bought the bottom third of the 2009 recovery; Vanguard saw net inflows into its balanced index strategies during the worst months while active competitors suffered redemptions.",
+  "outcomeSourceUrl": "https://www.vanguard.com/vanguard-corp/bogle-comments/markets-economy-perspective",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "risk-management",
+   "patience"
+  ]
+ },
+ {
+  "title": "Charitable giving of roughly half his lifetime income",
+  "decisionDate": "2016-01-01",
+  "action": "founded",
+  "statement": "Bogle systematically donated approximately half of his career earnings, including donating his $1 million 2014 Institutional Investor Lifetime Achievement Award and directing the bulk of his book royalties, through the Bogle Financial Markets Research Center.",
+  "outcome": "His estate plan continued the pattern; upon his January 2019 death, obituaries uniformly emphasized the unusual proportion of lifetime income given away by a man who ran a $5 trillion institution.",
+  "outcomeSourceUrl": "https://www.nytimes.com/2019/01/16/obituaries/john-bogle-dead.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy"
+  ]
+ }
+]

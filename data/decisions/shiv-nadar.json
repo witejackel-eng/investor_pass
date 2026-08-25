@@ -1,0 +1,43 @@
+[
+ {
+  "title": "Founding HCL from a Delhi barsati",
+  "decisionDate": "1976-08-11",
+  "action": "founded",
+  "statement": "Nadar and colleagues left DCM Data Products to start Hindustan Computers Limited with Rs 187,000, among the earliest Indian IT ventures, initially making calculators and microcomputers.",
+  "outcome": "HCL survived and outgrew nearly every contemporary; today it is a $13 billion revenue global technology company spanning services and enterprise products.",
+  "outcomeSourceUrl": "https://www.hcl.com/about-us",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "outsourcing-strategy"
+  ]
+ },
+ {
+  "title": "Selling the hardware business to focus on services",
+  "decisionDate": "1990-01-01",
+  "action": "invested",
+  "statement": "Facing the post-liberalization collapse of hardware tariffs and margins, Nadar progressively shifted HCL toward software services and R&D outsourcing, even ceding joint-venture control to partner HP.",
+  "outcome": "The pivot from products to services anticipated the industry's direction by several years; HCL's engineering-services model became its differentiated engine.",
+  "outcomeSourceUrl": "https://www.hcl.com/about-us",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "technology-pivot",
+   "outsourcing-strategy"
+  ]
+ },
+ {
+  "title": "Shiv Nadar Foundation — the SSN engineering institution",
+  "decisionDate": "1996-01-01",
+  "action": "founded",
+  "statement": "Nadar founded the SSN College of Engineering in Chennai and progressively endowed it, later building Shiv Nadar University and VidyaGyan schools for rural gifted students.",
+  "outcome": "The foundation has funded thousands of scholars and built research universities ranked among India's private leaders; Nadar has given away several billion dollars, largely to education.",
+  "outcomeSourceUrl": "https://www.shivnadarfoundation.org/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy"
+  ]
+ }
+]

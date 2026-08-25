@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Founding Biocon in a garage",
+  "decisionDate": "1978-01-01",
+  "action": "founded",
+  "statement": "Mazumdar Shaw started Biocon as an enzymes venture in a Bangalore garage at 25, after being denied brewing jobs in Australia because she was a woman — with Rs 10,000 and a rented space.",
+  "outcome": "Biocon became India's largest biopharmaceutical company, moved from enzymes to statins to biosimilars, and its founder became the face of Indian science entrepreneurship.",
+  "outcomeSourceUrl": "https://www.biocon.com/about-us/our-journey",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "innovation"
+  ]
+ },
+ {
+  "title": "The statins pivot — from enzymes to biopharma",
+  "decisionDate": "1998-01-01",
+  "action": "invested",
+  "statement": "Mazumdar Shaw committed the company to fermentation-based statin production at scale, competing with global pharma at price points they would not match.",
+  "outcome": "Biocon's statins made it the world's largest producer of several cholesterol molecules, funded the move into biosimilars, and made the 2004 IPO among India's most successful pharma listings.",
+  "outcomeSourceUrl": "https://www.biocon.com/about-us/our-journey",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "technology-pivot",
+   "scale-economics"
+  ]
+ },
+ {
+  "title": "Biosimilars and the $3.3 billion... actually the 2022 Biocon Biologics Viatris deal",
+  "decisionDate": "2022-02-27",
+  "action": "acquired",
+  "statement": "Biocon Biologics agreed to acquire Viatris's biosimilars business for roughly $3.3 billion, betting that biosimilar scale would be the industry's consolidation endgame.",
+  "outcome": "The acquisition made Biocon Biologics one of the world's largest biosimilars players with full control of its global commercial infrastructure.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/healthcare-pharmaceuticals/biocon-biologics-buy-viatris-biosimilars-business-335-bn-2022-02-27/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "scale-economics"
+  ]
+ }
+]

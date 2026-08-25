@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Founding Flipkart as an Amazon-style bookstore",
+  "decisionDate": "2007-10-01",
+  "action": "founded",
+  "statement": "Two ex-Amazon Bangalore engineers quit to start an Indian e-commerce company with book sales, coding the site themselves and personally delivering early orders.",
+  "outcome": "Flipkart pioneered Indian e-commerce — cash on delivery, the Big Billion Days sale — and defined the category until its $16 billion sale to Walmart in 2018.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-walmart-flipkart-idUSKCN1IE09W",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "d2c-economics"
+  ]
+ },
+ {
+  "title": "Cash on delivery — inventing trust for Indian e-commerce",
+  "decisionDate": "2010-01-01",
+  "action": "founded",
+  "statement": "The brothers recognized that Indian consumers would not prepay online, and built the COD logistics chain that solved the market's core trust problem.",
+  "outcome": "COD became the industry's default and unlocked the Indian e-commerce market; it remains the structural difference from Western online retail economics.",
+  "outcomeSourceUrl": "https://www.livemint.com/companies/start-ups/flipkart-cod-india-ecommerce/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "d2c-economics",
+   "innovation"
+  ]
+ },
+ {
+  "title": "Myntra acquisition and the app-only controversy",
+  "decisionDate": "2014-05-01",
+  "action": "acquired",
+  "statement": "Flipkart bought fashion marketplace Myntra for roughly $300 million, then briefly forced an app-only website shutdown that misread customer behavior.",
+  "outcome": "Myntra became the profitable core of Flipkart Fashion; the app-only retreat was reversed within months and remains the canonical Indian caution against copying China's playbook.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-flipkart-myntra-idUSKBN0E805J20140521",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "mistakes-and-learning"
+  ]
+ }
+]

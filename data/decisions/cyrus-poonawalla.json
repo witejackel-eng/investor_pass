@@ -1,0 +1,30 @@
+[
+ {
+  "title": "Building the Serum Institute on horse-serum economics",
+  "decisionDate": "1966-01-01",
+  "action": "founded",
+  "statement": "Poonawalla founded the Serum Institute on his family's stud farm, recognizing that horses inoculated for serum could produce vaccines at costs the pharma majors would not attempt.",
+  "outcome": "Serum became the world's largest vaccine manufacturer by doses, producing more than any competitor at prices that made global immunization affordable.",
+  "outcomeSourceUrl": "https://www.seruminstitute.com/about_us.php",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "scale-economics"
+  ]
+ },
+ {
+  "title": "The COVID vaccine scale-up bet",
+  "decisionDate": "2020-04-01",
+  "action": "invested",
+  "statement": "Before efficacy was proven, Poonawalla committed hundreds of millions to build capacity for the AstraZeneca/Oxford and Covovax candidates, gambling that speed would be decisive.",
+  "outcome": "Serum produced billions of COVID doses for India and COVAX, became the pandemic's largest single vaccine supplier to the developing world, and the bet multiplied the family's wealth several-fold.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/healthcare-pharmaceuticals/serum-institute-covid-vaccines-2021-01-11/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "crisis-management",
+   "scale-economics"
+  ]
+ }
+]

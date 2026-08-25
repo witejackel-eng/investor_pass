@@ -1,0 +1,30 @@
+[
+ {
+  "title": "The Scorpio — betting the auto business on an indigenous SUV",
+  "decisionDate": "2002-01-01",
+  "action": "founded",
+  "statement": "Mahindra committed the automotive division's future to a fully indigenous, affordable SUV developed with minimum external help, in a market assumed to require foreign platforms.",
+  "outcome": "The Scorpio's success established Mahindra as a genuine automaker rather than a licensee, and the product lineage — Bolero, XUV series — carried the company's automotive identity for two decades.",
+  "outcomeSourceUrl": "https://www.mahindra.com/newsroom/story-scorpio",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "innovation",
+   "founding-and-origins"
+  ]
+ },
+ {
+  "title": "SsangYong acquisition and the EV pivot",
+  "decisionDate": "2010-11-23",
+  "action": "acquired",
+  "statement": "Mahindra acquired the distressed Korean automaker SsangYong, and a decade later faced its bankruptcy through the COVID era while committing the group to electric platforms.",
+  "outcome": "SsangYong was eventually divested at a loss, while the EV commitment — Born Electric platform and multiple billion-dollar raises — positioned Mahindra as India's domestic EV champion against the global entrants.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-ssangyong-mahindra-idUSKBN2A20YZ",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "ev-transition"
+  ]
+ }
+]

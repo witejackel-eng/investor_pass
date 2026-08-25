@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Patching together India's first mobile circles",
+  "decisionDate": "1995-01-01",
+  "action": "founded",
+  "statement": "Mittal won the Delhi cellular license and rapidly assembled an all-India footprint across state-by-state auctions, partnering with European carriers and building the brand around low-cost handsets and prepaid cards.",
+  "outcome": "Airtel became India's largest telecom operator and Africa's second-largest after the 2010 Zain acquisition, the archetypal Indian-built multinational in infrastructure services.",
+  "outcomeSourceUrl": "https://www.airtel.in/about-bharti/about-bharti-mittal",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "infrastructure-building"
+  ]
+ },
+ {
+  "title": "Zain Africa acquisition",
+  "decisionDate": "2010-06-08",
+  "action": "acquired",
+  "statement": "Bharti paid $10.7 billion for Zain's African operations, its second attempt after MTN collapsed, extending the low-cost, high-volume Airtel model to 15 African markets.",
+  "outcome": "Africa became the group's growth engine for the next decade, validating the outbound strategy of India's infrastructure capitalism.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/idUSTRE6574S320100608",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "globalization"
+  ]
+ },
+ {
+  "title": "Surviving Jio's price war",
+  "decisionDate": "2016-09-01",
+  "action": "founded",
+  "statement": "When Reliance Jio made data effectively free, Mittal consolidated — acquiring Telenor India and Tata's consumer mobility — while cutting debt through tower-asset monetization rather than capitulating on price leadership.",
+  "outcome": "Airtel and Jio emerged as the two durable private players of the consolidated market; Mittal's deleveraging kept the group solvent through the industry's most violent repricing.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/india-telecom-consolidation-idUSKBN1HX0MF",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "crisis-management",
+   "m-and-a-acquisitions"
+  ]
+ }
+]

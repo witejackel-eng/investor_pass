@@ -1,0 +1,85 @@
+[
+ {
+  "title": "Founding Fundsmith with the buy-good-companies-do-nothing doctrine",
+  "decisionDate": "2010-11-01",
+  "action": "founded",
+  "statement": "After selling Tullett Prebon, Smith founded Fundsmith with a stated strategy of buying a small number of high-quality, cash-generative consumer and healthcare franchises and holding them indefinitely — 'buy good companies, don't overpay, do nothing.'",
+  "outcome": "The fund became the largest actively managed equity fund in the UK within a decade and Smith the country's highest-profile fund manager, with assets exceeding £20 billion.",
+  "outcomeSourceUrl": "https://www.fundsmith.co.uk/about-us",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "Buy-and-hold portfolio turnover near zero",
+  "decisionDate": "2010-11-01",
+  "action": "invested",
+  "statement": "Fundsmith's approach holds roughly 25-30 stocks and trades almost never — annual turnover around 5% — on the argument that trading is a cost with no expected return.",
+  "outcome": "The tax efficiency and compounding of the low-turnover approach became the fund's structural edge; Smith presented each year's full holdings and trades transparently.",
+  "outcomeSourceUrl": "https://www.fundsmith.co.uk/philosophy",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "long-term-ownership",
+   "patience"
+  ]
+ },
+ {
+  "title": "The annual 'show me the money' shareholder meetings",
+  "decisionDate": "2012-01-01",
+  "action": "founded",
+  "statement": "Smith instituted free public annual meetings at which he presents complete performance, holdings and reasoning, in plain language and often scathing commentary on industry practice.",
+  "outcome": "The meetings, at which he has famously told investors who don't understand the strategy to leave, set a transparency benchmark and drew thousands in person and online.",
+  "outcomeSourceUrl": "https://www.fundsmith.co.uk/annual-shareholders-meeting",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "shareholder-orientation"
+  ]
+ },
+ {
+  "title": "Concentrated bets on consumer franchises",
+  "decisionDate": "2010-11-01",
+  "action": "invested",
+  "statement": "From inception, the fund has concentrated in companies like Nestlé, Microsoft, Novo Nordisk, Stryker and PepsiCo — asset-light, high-return, cash-generative businesses with durable competitive positions.",
+  "outcome": "The concentration, up to roughly 8% per name, produced top-decile performance for the first decade, though periods of underperformance after 2020 tested the discipline.",
+  "outcomeSourceUrl": "https://www.fundsmith.co.uk/philosophy",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "concentration",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "Tullett Prebon — building and selling the interdealer broker",
+  "decisionDate": "1974-01-01",
+  "action": "founded",
+  "statement": "Smith joined and later led Collins Stewart and then Tullett Prebon, building an interdealer broking business and eventually selling the firm to TP ICAP in 2016.",
+  "outcome": "The sale provided the capital for his philanthropy and Fundsmith stake; Smith donated £25 million of the proceeds to fund a cancer centre in Kent.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-tp-icap-tullett-idUSKCN0UU1A4R20160113",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "philanthropy"
+  ]
+ },
+ {
+  "title": "Smithson Investment Trust — the quality-factor listed vehicle",
+  "decisionDate": "2018-10-01",
+  "action": "founded",
+  "statement": "Smith launched a listed investment trust applying the Fundsmith discipline to smaller and mid-cap global quality stocks, raising £822 million in the largest UK trust IPO in years.",
+  "outcome": "The vehicle performed well in its early years; Smith later announced its planned wind-up in 2024 when it traded persistently at a discount, returning capital rather than managing a structurally discounted fund — consistent with his stated contempt for asset-gathering.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/finance/fundsmiths-smithson-trust-wind-down-2024-03-15/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance",
+   "shareholder-orientation"
+  ]
+ }
+]

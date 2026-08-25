@@ -1,0 +1,86 @@
+[
+ {
+  "title": "Founding Fisher & Company as an investment counselor",
+  "decisionDate": "1931-01-01",
+  "action": "founded",
+  "statement": "Days after his 1931 Stanford graduation, at the bottom of the Depression, Fisher opened his investment counseling practice, betting that thorough fundamental research on growth companies would find clients even then.",
+  "outcome": "The firm survived the era and Fisher pioneered the discipline later called growth investing: deep research into a company's management, R&D, sales organization and profit margins.",
+  "outcomeSourceUrl": "https://www.cfainstitute.org/-/media/documents/book/rf-review/2011/rfr-v26-n4-reprint.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "Buying Motorola in 1955 and holding it for life",
+  "decisionDate": "1955-01-01",
+  "action": "invested",
+  "statement": "Fisher made Motorola one of his core 'fifteen points' investments, evaluating the quality of its engineering culture, management depth and growth runway — the archetypal scuttlebutt-driven purchase.",
+  "outcome": "Held for the remainder of Fisher's life, the position compounded enormously; it is the canonical example of his argument that the best time to sell a great growth company is almost never.",
+  "outcomeSourceUrl": "https://www.fool.com/investing/general/2013/06/07/philip-fishers-motorola-investment.aspx",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "long-term-ownership",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "Writing 'Common Stocks and Uncommon Profits'",
+  "decisionDate": "1958-01-01",
+  "action": "founded",
+  "statement": "Fisher published the fifteen-points framework and the 'scuttlebutt' method — gathering intelligence from customers, competitors, ex-employees and suppliers — as the first complete statement of growth-stock research.",
+  "outcome": "The book profoundly influenced Warren Buffett, who described himself as 85% Graham and 15% Fisher; it remains in print after more than six decades.",
+  "outcomeSourceUrl": "https://www.wiley.com/en-us/Common+Stocks+and+Uncommon+Profits+and+Other+Writings-p-9780471445500",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "Texas Instruments purchase through the 1960s",
+  "decisionDate": "1956-01-01",
+  "action": "invested",
+  "statement": "Fisher bought Texas Instruments early, impressed by its semiconductor engineering culture and R&D pipeline, and held through violent drawdowns that came with its high multiple.",
+  "outcome": "TI became one of the great growth stocks of the era; Fisher used the holding to demonstrate his point that the right question is not how high the multiple but how durable the growth.",
+  "outcomeSourceUrl": "https://www.fool.com/investing/general/2013/06/07/philip-fishers-motorola-investment.aspx",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "long-term-ownership",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "Concentrating portfolios in a handful of companies",
+  "decisionDate": "1960-01-01",
+  "action": "invested",
+  "statement": "Fisher argued explicitly against wide diversification, holding as few as three to ten positions when conviction and quality justified it — a radical stance in the diversification-minded investment-counsel industry.",
+  "outcome": "His concentration doctrine, balanced by extreme selectivity in what merited a position, became a defining influence on modern concentrated investing.",
+  "outcomeSourceUrl": "https://www.wiley.com/en-us/Common+Stocks+and+Uncommon+Profits+and+Other+Writings-p-9780471445500",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "concentration",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Advising against selling winners for tax reasons",
+  "decisionDate": "1958-01-01",
+  "action": "exited",
+  "statement": "Fisher taught that if the job was done properly on purchase, the default action on a great company is nothing — that trading around positions for tax or market-timing reasons destroys the compounding that justifies the risk.",
+  "outcome": "His sell rules — only when the thesis breaks, management degrades, or a better opportunity is overwhelming — remain the standard formulation of the buy-and-hold growth discipline.",
+  "outcomeSourceUrl": "https://www.wiley.com/en-us/Common+Stocks+and+Uncommon+Profits+and+Other+Writings-p-9780471445500",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "long-term-ownership",
+   "patience"
+  ]
+ }
+]

@@ -1,64 +1,120 @@
 [
-  {
-    "title": "Founding Renaissance Technologies with a mathematician-led research model",
-    "decisionDate": "1982",
-    "action": "founded",
-    "statement": "After a decade of academic work in mathematics and a stint in code-breaking at the Institute for Defense Analyses, Jim Simons founded Renaissance Technologies in 1982 with the explicit wager that market microstructure contained statistical patterns detectable by mathematicians, physicists, and computer scientists rather than by discretionary traders.\n\nThe firm was structured around research rather than deal flow: employees were hired for quantitative training rather than market experience, and the trading floor reported to the research organization rather than the reverse.\n\nThe decision was unusual at the dawn of the hedge fund industry, when most firms competed on fundamental analysis, relationships with corporate management, or macroeconomic forecasting - none of which Renaissance intended to do at all.",
-    "outcome": "The wager proved transformative: Renaissance's Medallion Fund compounded at roughly sixty-six percent gross annually for the next three decades, an order of magnitude beyond the broad hedge fund industry.\n\nThe decision to organize around researchers rather than traders created the culture in which the firm's signals could be discovered, validated, and continuously refreshed - the durable advantage that discretionary competitors, even celebrated ones, have rarely been able to replicate.\n\nThe 1982 founding established the template for the entire quantitative-finance industry that would follow in the subsequent four decades.",
-    "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Renaissance_Technologies",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "founding-and-origins",
-      "innovation",
-      "business-philosophy"
-    ]
-  },
-  {
-    "title": "Launching the Renaissance Institutional Equities Fund (RIEF) to scale capacity",
-    "decisionDate": "2005",
-    "action": "launched",
-    "statement": "Renaissance launched the Renaissance Institutional Equities Fund in 2005 to manage tens of billions of dollars of outside capital - a deliberate departure from the closed, capacity-capped Medallion structure that had been the firm's flagship since the early 1990s.\n\nThe new fund was designed to hold long equity positions, with lower turnover and longer holding periods than Medallion, in order to be capacity-elastic and to absorb institutional allocations at lower fees than the Medallion structure permitted.\n\nThe thesis was that Renaissance's research infrastructure could produce a separate strategy with a different return-and-capacity profile: less extraordinary than Medallion but capable of being offered to outside pension funds, endowments, and sovereign wealth funds that Medallion could not accommodate.",
-    "outcome": "RIEF grew to tens of billions of dollars within a few years of launch, but its 2008 loss during the financial crisis - while the closed Medallion Fund again generated gains - revealed that Medallion's signals did not translate to a large, equity-benchmarked, lower-turnover vehicle.\n\nThe episode demonstrated that capacity is not merely a scaling parameter but a defining characteristic of a quantitative strategy: a strategy that works at one scale does not necessarily work at another, and the patterns available at higher scale are frequently inferior.\n\nDespite the 2008 setback, RIEF continued to operate and recovered, but the contrast with Medallion became a defining feature of Renaissance's relationship with institutional investors - who could not access the firm's highest-Sharpe strategy at any scale.",
-    "outcomeSourceUrl": "https://www.businessinsider.com/jim-simons-and-renaissance-institutional-equities-funds-30-largest-holdings-2011-2",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "innovation",
-      "long-term-ownership",
-      "business-philosophy",
-      "mistakes-and-learning"
-    ]
-  },
-  {
-    "title": "Stepping down as CEO and handing research leadership to Peter Brown",
-    "decisionDate": "2009",
-    "action": "retired",
-    "statement": "Jim Simons retired as chief executive of Renaissance Technologies in 2009, transitioning to a non-executive chairman role and handing operating leadership to Peter Brown, a mathematician and long-time co-head of research at the firm.\n\nThe succession was structured to preserve the firm's research culture rather than rely on the founder's personal pattern recognition - an unusual choice in an industry where founders frequently remain at the helm for life.\n\nThe decision reflected confidence that the firm's edge had been encoded into a research process and infrastructure whose collective competence exceeded any single individual's, and that the founder's continued daily involvement was no longer the binding constraint on performance.",
-    "outcome": "The Medallion Fund's returns in the years after Simons stepped down did not collapse - contrary to the prediction one would make if the edge had depended on the founder's discretion - confirming that Renaissance had successfully institutionalized its research capability.\n\nThe succession became a reference case for founder transitions at research-driven investment firms, demonstrating that quantitative edges can persist beyond the founder when the research process is robustly institutionalized.\n\nSimons remained as non-executive chairman and continued to participate in strategic decisions, but the firm's operating record through subsequent market cycles validated the 2009 handover.",
-    "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Renaissance_Technologies",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "leadership-transition",
-      "founder-ceo-succession",
-      "business-philosophy"
-    ]
-  },
-  {
-    "title": "Settling the IRS dispute over short-term gains characterization for $7 billion",
-    "decisionDate": "2021",
-    "action": "settled",
-    "statement": "Renaissance Technologies and its current and former executives agreed in 2021 to pay approximately seven billion dollars to the Internal Revenue Service to resolve a long-running dispute over the tax treatment of gains derived from Medallion's short-dated options structures - the largest tax settlement in United States history at the time.\n\nThe IRS position was that the structures had been used to convert economically short-term trading profits, which would be taxed at ordinary income rates, into long-term capital gains taxed at preferential rates. RenTech had disputed the characterization but elected to settle after years of audit and controversy.\n\nFounder Jim Simons personally agreed to pay an additional approximately six hundred and seventy million dollars as part of the settlement, acknowledging the personal stake of the firm's principals in the disputed structures.",
-    "outcome": "The settlement closed the long-running audit without requiring RenTech to admit the IRS's characterization, but materially reduced the after-tax economics of the firm's principal shareholders and current employees.\n\nThe size of the payment - seven billion dollars plus Simons's personal contribution - itself became a measurement of the scale of the trading profits the structures had been used to shelter, and indirectly of the magnitude of Medallion's underlying returns.\n\nThe episode did not affect the firm's investment process or the Medallion Fund's continuing performance, but it illustrated the structural tension between financial engineering and the tax code: even a research-driven, quantitatively rigorous firm cannot insulate itself from the institutional environment in which it operates, and the very durability of its edge invites the scrutiny that ultimately constrains the structures built around it.",
-    "outcomeSourceUrl": "https://www.ft.com/content/8cef8c70-5d02-4762-9100-2d92d0c761a0",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "regulatory-environment",
-      "risk-management",
-      "mistakes-and-learning",
-      "business-philosophy"
-    ]
-  }
+ {
+  "title": "Founding Renaissance Technologies with a mathematician-led research model",
+  "decisionDate": "1982",
+  "action": "founded",
+  "statement": "After a decade of academic work in mathematics and a stint in code-breaking at the Institute for Defense Analyses, Jim Simons founded Renaissance Technologies in 1982 with the explicit wager that market microstructure contained statistical patterns detectable by mathematicians, physicists, and computer scientists rather than by discretionary traders.\n\nThe firm was structured around research rather than deal flow: employees were hired for quantitative training rather than market experience, and the trading floor reported to the research organization rather than the reverse.\n\nThe decision was unusual at the dawn of the hedge fund industry, when most firms competed on fundamental analysis, relationships with corporate management, or macroeconomic forecasting - none of which Renaissance intended to do at all.",
+  "outcome": "The wager proved transformative: Renaissance's Medallion Fund compounded at roughly sixty-six percent gross annually for the next three decades, an order of magnitude beyond the broad hedge fund industry.\n\nThe decision to organize around researchers rather than traders created the culture in which the firm's signals could be discovered, validated, and continuously refreshed - the durable advantage that discretionary competitors, even celebrated ones, have rarely been able to replicate.\n\nThe 1982 founding established the template for the entire quantitative-finance industry that would follow in the subsequent four decades.",
+  "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Renaissance_Technologies",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "innovation",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Launching the Renaissance Institutional Equities Fund (RIEF) to scale capacity",
+  "decisionDate": "2005",
+  "action": "launched",
+  "statement": "Renaissance launched the Renaissance Institutional Equities Fund in 2005 to manage tens of billions of dollars of outside capital - a deliberate departure from the closed, capacity-capped Medallion structure that had been the firm's flagship since the early 1990s.\n\nThe new fund was designed to hold long equity positions, with lower turnover and longer holding periods than Medallion, in order to be capacity-elastic and to absorb institutional allocations at lower fees than the Medallion structure permitted.\n\nThe thesis was that Renaissance's research infrastructure could produce a separate strategy with a different return-and-capacity profile: less extraordinary than Medallion but capable of being offered to outside pension funds, endowments, and sovereign wealth funds that Medallion could not accommodate.",
+  "outcome": "RIEF grew to tens of billions of dollars within a few years of launch, but its 2008 loss during the financial crisis - while the closed Medallion Fund again generated gains - revealed that Medallion's signals did not translate to a large, equity-benchmarked, lower-turnover vehicle.\n\nThe episode demonstrated that capacity is not merely a scaling parameter but a defining characteristic of a quantitative strategy: a strategy that works at one scale does not necessarily work at another, and the patterns available at higher scale are frequently inferior.\n\nDespite the 2008 setback, RIEF continued to operate and recovered, but the contrast with Medallion became a defining feature of Renaissance's relationship with institutional investors - who could not access the firm's highest-Sharpe strategy at any scale.",
+  "outcomeSourceUrl": "https://www.businessinsider.com/jim-simons-and-renaissance-institutional-equities-funds-30-largest-holdings-2011-2",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "innovation",
+   "long-term-ownership",
+   "business-philosophy",
+   "mistakes-and-learning"
+  ]
+ },
+ {
+  "title": "Stepping down as CEO and handing research leadership to Peter Brown",
+  "decisionDate": "2009",
+  "action": "retired",
+  "statement": "Jim Simons retired as chief executive of Renaissance Technologies in 2009, transitioning to a non-executive chairman role and handing operating leadership to Peter Brown, a mathematician and long-time co-head of research at the firm.\n\nThe succession was structured to preserve the firm's research culture rather than rely on the founder's personal pattern recognition - an unusual choice in an industry where founders frequently remain at the helm for life.\n\nThe decision reflected confidence that the firm's edge had been encoded into a research process and infrastructure whose collective competence exceeded any single individual's, and that the founder's continued daily involvement was no longer the binding constraint on performance.",
+  "outcome": "The Medallion Fund's returns in the years after Simons stepped down did not collapse - contrary to the prediction one would make if the edge had depended on the founder's discretion - confirming that Renaissance had successfully institutionalized its research capability.\n\nThe succession became a reference case for founder transitions at research-driven investment firms, demonstrating that quantitative edges can persist beyond the founder when the research process is robustly institutionalized.\n\nSimons remained as non-executive chairman and continued to participate in strategic decisions, but the firm's operating record through subsequent market cycles validated the 2009 handover.",
+  "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Renaissance_Technologies",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "leadership-transition",
+   "founder-ceo-succession",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Settling the IRS dispute over short-term gains characterization for $7 billion",
+  "decisionDate": "2021",
+  "action": "settled",
+  "statement": "Renaissance Technologies and its current and former executives agreed in 2021 to pay approximately seven billion dollars to the Internal Revenue Service to resolve a long-running dispute over the tax treatment of gains derived from Medallion's short-dated options structures - the largest tax settlement in United States history at the time.\n\nThe IRS position was that the structures had been used to convert economically short-term trading profits, which would be taxed at ordinary income rates, into long-term capital gains taxed at preferential rates. RenTech had disputed the characterization but elected to settle after years of audit and controversy.\n\nFounder Jim Simons personally agreed to pay an additional approximately six hundred and seventy million dollars as part of the settlement, acknowledging the personal stake of the firm's principals in the disputed structures.",
+  "outcome": "The settlement closed the long-running audit without requiring RenTech to admit the IRS's characterization, but materially reduced the after-tax economics of the firm's principal shareholders and current employees.\n\nThe size of the payment - seven billion dollars plus Simons's personal contribution - itself became a measurement of the scale of the trading profits the structures had been used to shelter, and indirectly of the magnitude of Medallion's underlying returns.\n\nThe episode did not affect the firm's investment process or the Medallion Fund's continuing performance, but it illustrated the structural tension between financial engineering and the tax code: even a research-driven, quantitatively rigorous firm cannot insulate itself from the institutional environment in which it operates, and the very durability of its edge invites the scrutiny that ultimately constrains the structures built around it.",
+  "outcomeSourceUrl": "https://www.ft.com/content/8cef8c70-5d02-4762-9100-2d92d0c761a0",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "regulatory-environment",
+   "risk-management",
+   "mistakes-and-learning",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "The Baum-Wolfes commodity trading system",
+  "decisionDate": "1988-01-01",
+  "action": "founded",
+  "statement": "Simons hired mathematicians Leonard Baum and James Ax to build predictive models from futures price data, moving Renaissance from discretionary currency trading toward purely statistical systems.",
+  "outcome": "The Baum-Wolfes models and their successors produced the first systematic returns; the era established the founding insight that human judgment added noise, not signal, to certain market frequencies.",
+  "outcomeSourceUrl": "https://www.amazon.com/Man-Who-Solved-Market-Insights/dp/0241422155",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "innovation",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "The Medallion Fund's fee and capital structure",
+  "decisionDate": "1988-01-01",
+  "action": "founded",
+  "statement": "Simons capped Medallion's capital — first at hundreds of millions, later roughly $10 billion — and charged the highest fees in the industry (5 and 44, later 5 and 66), treating capacity as the binding constraint.",
+  "outcome": "Medallion returned roughly 66% annually before fees for three decades, the greatest track record in history; the capital cap meant the profits compounded internally for employees rather than being diluted by outside money.",
+  "outcomeSourceUrl": "https://www.bloomberg.com/news/articles/2020-03-30/jim-simons-renaissance-technologies-profile",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "concentration",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Building the data infrastructure before it was possible elsewhere",
+  "decisionDate": "1990-01-01",
+  "action": "founded",
+  "statement": "Renaissance bought decades of historical price data, cleaned it by hand, and built computing infrastructure in the 1980s and early 1990s — a decade before 'big data' existed as a phrase.",
+  "outcome": "The data moat — decades of cleaned tick-level history no competitor could buy — became as decisive as the models; Simons described cleaning data as the unglamorous core of the enterprise.",
+  "outcomeSourceUrl": "https://www.quantamagazine.org/jim-simons-the-code-breaker-20170530/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "innovation",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "The 100%-model rule — no human overrides of signals",
+  "decisionDate": "2000-01-01",
+  "action": "founded",
+  "statement": "After experiments showed discretionary intervention degraded performance, Renaissance enforced the rule that the system's signals execute without exception — even during events humans were certain they understood better.",
+  "outcome": "The discipline removed the most expensive failure mode of systematic investing; employees who could not resist overriding were rotated out. Medallion's consistency across 9/11, 2008 and 2020 is attributed to it.",
+  "outcomeSourceUrl": "https://www.amazon.com/Man-Who-Solved-Market-Insights/dp/0241422155",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy",
+   "risk-management"
+  ]
+ }
 ]

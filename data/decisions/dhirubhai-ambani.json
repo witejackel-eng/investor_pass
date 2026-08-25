@@ -1,0 +1,58 @@
+[
+ {
+  "title": "Reliance IPO — creating the Indian equity cult",
+  "decisionDate": "1977-01-01",
+  "action": "founded",
+  "statement": "Ambani took Reliance Textiles public in 1977, marketing shares door-to-door to ordinary Indians in Gujarat — a population the broker community assumed would never buy stocks.",
+  "outcome": "The issue was oversubscribed multiple times; within a decade Reliance had hundreds of thousands of shareholders and had converted middle-class India into equity investors, a constituency no listed company had before.",
+  "outcomeSourceUrl": "https://www.relianceindustries.com/about-us/our-history.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "ipo-and-capital-markets",
+   "founding-and-origins"
+  ]
+ },
+ {
+  "title": "Patalganga and Hazira — betting on world-scale petrochemicals",
+  "decisionDate": "1981-01-01",
+  "action": "founded",
+  "statement": "Under licence-raj constraints, Ambani built the Patalganga polyester complex and then Hazira at world scale, importing modular construction speed Indian industry had never seen.",
+  "outcome": "Hazira's phased build-out gave Reliance the feedstock and intermediate base for the Jamnagar era; the projects demonstrated that Indian capital projects could be built at global speed.",
+  "outcomeSourceUrl": "https://www.relianceindustries.com/about-us/our-history.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "infrastructure-building",
+   "scale-economics"
+  ]
+ },
+ {
+  "title": "The 1980s rights-issue engineering",
+  "decisionDate": "1982-01-01",
+  "action": "founded",
+  "statement": "Ambani used a series of partially-paid rights issues and conversions to fund expansion without ceding control, structures that were legal under the era's rules but stretched their logic.",
+  "outcome": "The financings funded Reliance's rise and triggered the era's fiercest regulatory and press battles; the structures were closed off by later regulation, and Ambani's record remains the reference case for promoter financial engineering.",
+  "outcomeSourceUrl": "https://www.outlookindia.com/magazine/story/the-phenomenon-called-dhirubhai/295411",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "capital-allocation",
+   "regulatory-navigation"
+  ]
+ },
+ {
+  "title": "The bear-cartel fight over Reliance shares",
+  "decisionDate": "1982-03-18",
+  "action": "invested",
+  "statement": "When a bear cartel hammered Reliance shares in March 1982, Ambani's network of loyal retail shareholders bought the stock back en masse, cornering the bears.",
+  "outcome": "The episode — 'the Reliance rescue' — became legend among the first generation of Indian retail investors and demonstrated the mobilizable loyalty of the shareholder base the IPO had created.",
+  "outcomeSourceUrl": "https://www.outlookindia.com/magazine/story/the-phenomenon-called-dhirubhai/295411",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "crisis-management",
+   "shareholder-orientation"
+  ]
+ }
+]

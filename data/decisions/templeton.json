@@ -1,0 +1,113 @@
+[
+ {
+  "title": "Buying 100 shares of every NYSE stock under $1 in 1939",
+  "decisionDate": "1939-01-01",
+  "action": "invested",
+  "statement": "With war spreading in Europe and most advisors predicting further depression, Templeton instructed his broker to buy 100 shares of every stock trading under one dollar on the NYSE — about 104 companies, 34 of them in bankruptcy.",
+  "outcome": "He quadrupled his money within roughly four years as war-production demand revived the economy; only four of the hundred positions turned out to be losses. The trade became the emblem of maximum-pessimism buying.",
+  "outcomeSourceUrl": "https://www.templeton.org/about-sir-john/biography",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Pioneering global investment through the Templeton Growth Fund",
+  "decisionDate": "1954-11-29",
+  "action": "founded",
+  "statement": "At a time when Americans were legally free but culturally unwilling to invest abroad, Templeton founded the Templeton Growth Fund in Canada, spending months a year visiting companies in Japan, Europe and later everywhere.",
+  "outcome": "The fund's 38-year record under Templeton averaged roughly 15% annually; Templeton is credited as the father of global investing and was knighted for his contribution.",
+  "outcomeSourceUrl": "https://www.templeton.org/about-sir-john/biography",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "globalization",
+   "contrarianism"
+  ]
+ },
+ {
+  "title": "Japanese equity overweight through the postwar rise",
+  "decisionDate": "1960-01-01",
+  "action": "invested",
+  "statement": "Beginning in the 1960s, when Japan was a frontier market still recovering from war, Templeton toured its companies and invested heavily in a market most Western institutions ignored.",
+  "outcome": "Japan's rise to the world's second-largest economy multiplied the investments many times over; Templeton reduced the position by the late 1980s as Japanese valuations reached extremes he considered indefensible.",
+  "outcomeSourceUrl": "https://www.nytimes.com/2008/07/08/business/08templeton.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "globalization",
+   "contrarianism"
+  ]
+ },
+ {
+  "title": "Selling Japan at the 1980s bubble peak",
+  "decisionDate": "1989-01-01",
+  "action": "exited",
+  "statement": "By the late 1980s, with the Nikkei approaching 40,000 and Japanese stocks carrying extreme multiples, Templeton systematically exited Japanese equities despite continued institutional enthusiasm for Japan's 'new era.'",
+  "outcome": "The Nikkei peaked at 38,915 on December 29, 1989 and fell more than 60% over the following decade. The exit became a canonical example of selling euphoria that had outrun any defensible value.",
+  "outcomeSourceUrl": "https://www.nytimes.com/2008/07/08/business/08templeton.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "bubbles-and-crashes"
+  ]
+ },
+ {
+  "title": "Calling the internet bubble 'a once-in-a-generation opportunity to short'",
+  "decisionDate": "2000-01-01",
+  "action": "exited",
+  "statement": "Months before the peak, Templeton publicly argued that internet stocks would suffer the greatest wipeout of value in a generation, and put his own money behind zero-coupon bond and short strategies.",
+  "outcome": "The Nasdaq fell 78% from March 2000 to October 2002; his short positions were reported to have returned roughly 70% for the year.",
+  "outcomeSourceUrl": "https://money.cnn.com/2000/01/11/markets/templeton/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "bubbles-and-crashes"
+  ]
+ },
+ {
+  "title": "Selling the fund business to Franklin Resources",
+  "decisionDate": "1992-10-01",
+  "action": "exited",
+  "statement": "Templeton sold his asset-management firm, including the Growth Fund franchise, to Franklin Resources, completing his exit from day-to-day management.",
+  "outcome": "The combined Franklin Templeton organization became one of the largest global asset managers, with over $1.4 trillion under management; the Templeton Foundation received the proceeds powering his philanthropy.",
+  "outcomeSourceUrl": "https://www.annualreports.com/HostedData/AnnualReports/PDF/NYSE_BEN_1992.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "philanthropy"
+  ]
+ },
+ {
+  "title": "Founding the Templeton Prize to honor spiritual progress",
+  "decisionDate": "1972-01-01",
+  "action": "founded",
+  "statement": "Templeton established the prize — originally the Templeton Prize for Progress in Religion — deliberately exceeding the Nobel award in value, arguing that research into spiritual realities deserved equivalent prestige.",
+  "outcome": "The prize, first awarded to Mother Teresa, has honored the Dalai Lama, Desmond Tutu and leading scientists; the John Templeton Foundation he endowed became a major funder of research at the boundary of science and religion with over $3 billion given.",
+  "outcomeSourceUrl": "https://www.templeton.org/about-sir-john/biography",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy"
+  ]
+ },
+ {
+  "title": "Maximum-pessimism principle — formalizing the buying discipline",
+  "decisionDate": "1990-01-01",
+  "action": "founded",
+  "statement": "Templeton summarized his lifetime method as buying at the point of maximum pessimism — the moment when a company, industry or country is so hated that no bad news remains to be priced — and selling at maximum optimism.",
+  "outcome": "The aphorism and the practice behind it became the reference point for global contrarian investing; his interview compilations and the Templeton Foundation archives preserve the method in his own words.",
+  "outcomeSourceUrl": "https://www.templeton.org/about-sir-john/biography",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "business-philosophy"
+  ]
+ }
+]

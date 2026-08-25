@@ -1,0 +1,30 @@
+[
+ {
+  "title": "Quitting banking at 50 to found Nykaa",
+  "decisionDate": "2012-01-01",
+  "action": "founded",
+  "statement": "Nayar left her MD role at Kotak Mahindra to start an online beauty retailer, becoming founder, operator and category missionary at an age when most executives wind down.",
+  "outcome": "Nykaa built the Indian beauty market's organized retail layer, reached profitability years before e-commerce peers, and its 2021 IPO made Nayar India's wealthiest self-made female billionaire.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/retail-consumer/naykaa-ipo-falguni-nayar-2021-11-02/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "d2c-economics"
+  ]
+ },
+ {
+  "title": "Inventory-first in a discount marketplace era",
+  "decisionDate": "2012-01-01",
+  "action": "founded",
+  "statement": "Against the loss-making horizontal marketplace orthodoxy, Nykaa held beauty inventory, controlled authenticity and service, and refused to buy growth with discounts.",
+  "outcome": "The model produced positive contribution margins years before its IPO, and validated that Indian vertical e-commerce could be built profitably.",
+  "outcomeSourceUrl": "https://yourstory.com/companies/nykaa",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "unit-economics",
+   "d2c-economics"
+  ]
+ }
+]

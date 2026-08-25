@@ -1,0 +1,30 @@
+[
+ {
+  "title": "The rise — BYJU'S becomes the world's most valuable edtech",
+  "decisionDate": "2015-01-01",
+  "action": "founded",
+  "statement": "Raveendran built BYJU'S from his test-prep tutoring into a K-12 learning app whose 2015 video-product launch defined Indian edtech for global capital.",
+  "outcome": "Valuation peaked at $22 billion by 2022, with Tiger Global, Sequoia and the Qatar fund as backers; it was India's most celebrated startup story.",
+  "outcomeSourceUrl": "https://www.reuters.com/world/india/byjus-once-indias-hottest-startup-2023-06-19/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "scale-before-profitability",
+   "founding-and-origins"
+  ]
+ },
+ {
+  "title": "The collapse — aggressive sales and hidden loans unwind the company",
+  "decisionDate": "2022-01-01",
+  "action": "exited",
+  "statement": "Sustained by sales practices that locked families into multi-year loans, BYJU'S cracked when the post-COVID cohort expired; founder secrecy about a $1.2 billion term loan and auditor resignation triggered default proceedings.",
+  "outcome": "Valuation collapsed toward zero; lenders seized control of a US subsidiary, the auditor and board departed, and insolvency proceedings began in 2024 — the largest startup failure in Indian history and the cautionary tale of growth bought with debt.",
+  "outcomeSourceUrl": "https://www.reuters.com/world/india/byjus-crisis-timeline-2024-01-25/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "fraud-and-collapse",
+   "mistakes-and-learning"
+  ]
+ }
+]

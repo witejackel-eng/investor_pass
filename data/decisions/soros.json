@@ -1,0 +1,139 @@
+[
+ {
+  "title": "Founding Quantum Fund with Jim Rogers",
+  "decisionDate": "1973-01-01",
+  "action": "founded",
+  "statement": "After his Arrow/DoubleClick-era work and a fractious split from F.M. Mayer, Soros set up his own shop and then the Quantum Fund, applying the philosophy of reflexivity he had developed as a student under Karl Popper to markets.",
+  "outcome": "Quantum returned roughly 30% annually over its first two decades and became one of the most successful funds in history, making Soros a billionaire and financing his open-society philanthropy.",
+  "outcomeSourceUrl": "https://www.investopedia.com/insights/george-soros-biography/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy",
+   "concentration"
+  ]
+ },
+ {
+  "title": "Shorting sterling ahead of Black Wednesday",
+  "decisionDate": "1992-09-16",
+  "action": "exited",
+  "statement": "Recognizing that Britain's ERM peg was unsustainable given German interest rates and the UK's inflation, Soros built a short position reported at roughly $10 billion across Quantum and other accounts, prepared to hold through political pressure.",
+  "outcome": "On September 16, 1992 the Bank of England withdrew from the ERM and let sterling float; Quantum's profit was reported at approximately $1 billion in a single day, and Soros became known as 'the man who broke the Bank of England.'",
+  "outcomeSourceUrl": "https://www.investopedia.com/ask/answers/08/george-soros-bank-of-england.asp",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "risk-management"
+  ]
+ },
+ {
+  "title": "Writing 'The Alchemy of Finance' and formalizing reflexivity",
+  "decisionDate": "1987-01-01",
+  "action": "founded",
+  "statement": "Soros codified his theory that market prices do not passively reflect fundamentals but actively shape them — bias affects fundamentals which affect bias — and published an experiment-rich account of applying the theory in real time.",
+  "outcome": "The book became required reading for macro traders and reframed how a generation of practitioners thought about bubbles and disequilibrium markets.",
+  "outcomeSourceUrl": "https://www.wiley.com/en-us/The+Alchemy+of+Finance-p-9781118041506",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "market-psychology",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Southeast Asian currency shorts during the 1997 crisis",
+  "decisionDate": "1997-07-01",
+  "action": "exited",
+  "statement": "As Thai baht and regional pegs came under pressure from dollar-pegged overvalued exchange rates and short-term dollar debt, Quantum and other macro funds ran short positions against the currencies.",
+  "outcome": "The baht float of July 2, 1997 began the Asian financial crisis; Malaysia's PM Mahathir publicly accused Soros of destabilizing the region, though the role of fundamentals remains the mainstream explanation. The episode made Soros a political figure in Asia.",
+  "outcomeSourceUrl": "https://www.nytimes.com/1997/10/27/world/soros-sees-no-guilt-in-asian-crises.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Losing $2 billion in the Russia default while the Russia fund still profited",
+  "decisionDate": "1998-08-17",
+  "action": "exited",
+  "statement": "Quantum had a substantial long position in Russian assets going into the August 1998 default and devaluation, which Soros had publicly warned about — but had not fully exited in time; the loss approached $2 billion at the fund level.",
+  "outcome": "The episode demonstrated the gap between his macro thesis and his fund's positioning; the dedicated Russia fund itself closed with roughly 30% annualized returns for its life. Soros called it one of his most painful lessons about acting on one's own analysis.",
+  "outcomeSourceUrl": "https://www.nytimes.com/1998/08/28/business/how-soros-fell-hook-line-and-sinker",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "mistakes-and-learning",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Doubling down on tech into the 2000 top after Druckenmiller's warning",
+  "decisionDate": "2000-03-01",
+  "action": "invested",
+  "statement": "In early 2000, against the advice of Stanley Druckenmiller who had exited tech, Soros increased Quantum's technology exposure, expecting the rally to continue long enough to exit later.",
+  "outcome": "Quantum fell roughly 22% in the first months of 2000; Soros publicly admitted the mistake, replaced his management, and moved Quantum into a safer, lower-return vehicle — publicly saying 'maybe I don't understand the market anymore.'",
+  "outcomeSourceUrl": "https://www.theguardian.com/business/2000/apr/29/observerbusinesssection.theobserver1",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "mistakes-and-learning",
+   "bubbles-and-crashes"
+  ]
+ },
+ {
+  "title": "Open Society Foundations — building the philanthropy at scale",
+  "decisionDate": "1993-01-01",
+  "action": "founded",
+  "statement": "Soros consolidated his giving into the Open Society Foundations, applying Popper's open-society philosophy — that no one has a monopoly on truth and institutions must allow error correction — first in Eastern Europe and then globally.",
+  "outcome": "OSF has disbursed over $19 billion across more than 120 countries, making Soros one of the largest philanthropists in history and the model of ideology-driven mega-giving.",
+  "outcomeSourceUrl": "https://www.opensocietyfoundations.org/who-we-are",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy"
+  ]
+ },
+ {
+  "title": "2008 crash — going from cautious to aggressively long after September",
+  "decisionDate": "2008-10-01",
+  "action": "invested",
+  "statement": "After protecting capital through the Lehman disintegration, Soros returned to active management of his own account in the fourth quarter of 2008, buying equities aggressively at the lows.",
+  "outcome": "His fund reportedly gained roughly 8% in 2009 on these positions, and Soros wrote that the episode vindicated both his reflexivity framework — the crash was a textbook reflexive bust — and the discipline of re-engaging after certainty collapsed.",
+  "outcomeSourceUrl": "https://www.ft.com/content/910a3f48-9dc6-11de-a2b1-00144feabdc0",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Pledging $1 billion to OSI-style university networks",
+  "decisionDate": "2021-05-17",
+  "action": "invested",
+  "statement": "At the age of 90, Soros committed $1 billion to founding the Open Society University Network, a global network of teaching institutions to advance open-society values.",
+  "outcome": "The pledge was among the largest single gifts in the history of higher education philanthropy.",
+  "outcomeSourceUrl": "https://www.nytimes.com/2021/05/17/us/soros-open-society-foundation.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy"
+  ]
+ },
+ {
+  "title": "Handing Soros Fund Management to family-office-only status",
+  "decisionDate": "2011-07-26",
+  "action": "exited",
+  "statement": "Citing new regulatory reporting requirements under Dodd-Frank and the strain of managing outside capital, Soros returned all outside money and converted his firm to a family office.",
+  "outcome": "The conversion preserved the capital base for the family and the Foundations; the step was followed within months by other legendary managers including Stanley Druckenmiller and Carl Icahn.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-soros-fund-idUSTRE76P52R20110727",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance"
+  ]
+ }
+]

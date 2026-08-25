@@ -1,174 +1,286 @@
 [
-  {
-    "title": "See's Candies (1972) - pushed Buffett past cigar-butt valuation to pay up for a brand",
-    "decisionDate": "1972",
-    "action": "acquired",
-    "statement": "Munger was the inside-Berkshire voice that pushed Buffett to pay the asking price for See's Candies in 1972. The seller wanted roughly $30 million for the company, which had about $8 million of net tangible assets and was earning about $4 million pre-tax. Buffett's cigar-butt instinct told him to pay no more than the asset value; Munger argued that the franchise - a brand that had been built on the West Coast over decades and that customers paid a premium for - was worth the asking price, because the brand could raise prices year after year without losing volume.\n\nBuffett eventually compromised at $25 million, and the decision became the one Munger would later call the first crack in the cigar-butt habit. See's, he said, taught Berkshire to look past the asset value toward the franchise value - to recognize that intangibles like brand, distribution, and customer loyalty were not speculative add-ons to intrinsic value but the source of it. The 2007 Berkshire shareholder letter, written decades later, would still be citing See's as the textbook case for what a real moat does to a business's cash economics.",
-    "outcome": "See's went on to generate cumulative pre-tax earnings in the many hundreds of millions of dollars on the original $25 million base, with only modest incremental capital required. The asset base barely grew; the cash flow grew enormously because customers kept paying up for the name. The whole return came from the brand's pricing power, not from reinvestment.\n\nMore importantly, See's became the school. Every later Berkshire acquisition - Coca-Cola, Gillette, GEICO in full - was, in Munger's framing, a graduate of the See's school. The mental model that great franchises grow cash faster than assets because of brand and pricing power was learned at See's, and it shaped every subsequent capital allocation decision Berkshire made. Buffett's 2007 letter, available at https://www.berkshirehathaway.com/letters/2007ltr.pdf, is the canonical retrospective on the See's lesson.",
-    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2007ltr.pdf",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "brand-building",
-      "moats",
-      "pricing-power",
-      "capital-allocation"
-    ]
-  },
-  {
-    "title": "PetroChina (2002-2003) - bought a one-foot hurdle on the public filings alone",
-    "decisionDate": "2002",
-    "action": "invested",
-    "statement": "In 2002 and 2003, Berkshire accumulated roughly 1.3% of PetroChina for about $488 million, a price that valued the entire business at roughly $37 billion. Buffett said at the time that he had read the company's annual report, done the math, and concluded that the market was valuing the whole company at less than what he thought it was worth on a barrel-of-oil-equivalent basis. Munger backed the bet, which was the first major post-Berkshire-historic China position and the precursor to the BYD investment six years later.\n\nThe decision was a textbook illustration of the Munger-Buffett method: underwrite the business from the public filings, refuse to be scared off by the foreign-jurisdiction discount, and pay the price the market was offering when the gap between price and value was clearly wide. Buffett later called PetroChina a one-foot hurdle - an easy decision once the work was done. The bet was Munger's China thesis in its earliest public form: great companies in China were available at lower multiples than comparable great companies in the United States.",
-    "outcome": "Berkshire sold the entire PetroChina position between 2007 and 2008 for roughly $4 billion, netting about an eight-times return on the original $488 million investment. The sale was completed before the oil price collapsed in the second half of 2008, a piece of timing Buffett characterized as luck rather than skill.\n\nThe position proved Munger's broader thesis that international franchise investing was a real and recurring opportunity set. PetroChina became the proof of concept that allowed Buffett and Munger to take the much larger and riskier bet on BYD in the depths of the 2008 crisis. The 2007 Berkshire shareholder letter, available at https://www.berkshirehathaway.com/letters/2007ltr.pdf, is the canonical record of the PetroChina sale and Buffett's reflections on the position.",
-    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2007ltr.pdf",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "international-expansion",
-      "valuation",
-      "margin-of-safety"
-    ]
-  },
-  {
-    "title": "BYD (2008) - Munger's champion bet on a Chinese EV maker at the crisis lows",
-    "decisionDate": "2008",
-    "action": "invested",
-    "statement": "In September 2008, at the depths of the global financial crisis, Berkshire Hathaway (through its MidAmerican subsidiary) invested $230 million for roughly 9.6% of BYD Company Limited, the Chinese battery and electric-vehicle maker. The investment was Munger's champion play inside Berkshire. He had been introduced to BYD's founder, Wang Chuanfu, by Li Lu, the Chinese-American investor who served as Munger's protégé and as the bridge into the China opportunity set. Munger argued forcefully to Buffett that Wang was one of the most capable operating executives he had ever met, and that the combination of low-cost Chinese manufacturing, advanced battery chemistry, and an early-mover position in electrified transport would compound for decades.\n\nBuffett had been skeptical. The deal had to clear the Chinese regulatory process, the foreign-investment permissions, and the normal Berkshire filters. Munger, by every account of the period, refused to let the deal die. He told Buffett in plain terms that he considered BYD a once-in-a-generation opportunity, and that the surface-level concerns about Chinese corporate governance and disclosure that scared other foreign investors away had already been priced into the cheap entry. The 2008 Berkshire shareholder letter, available at https://www.berkshirehathaway.com/letters/2008ltr.pdf, discloses the position and the rationale.",
-    "outcome": "The position multiplied many times in value over the next fifteen years. BYD went from a battery maker with a small automotive business in 2008 to the largest EV manufacturer in China, and by 2022 had overtaken Tesla as the world's largest producer of plug-in vehicles. By the time Munger discussed BYD at the 2023 Daily Journal meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, the company was making more than $2 billion after taxes in its Chinese auto business alone.\n\nMunger said at the 2023 meeting that BYD was so much ahead of Tesla in China that it was almost ridiculous, noting that Tesla had cut prices twice in China the prior year while BYD had raised prices. He called the founder's compensation structure - using his own stock rather than the company's - a form of old-fashioned capitalist virtue that had largely disappeared from American business. The position, on the original $230 million investment, would become one of the most profitable investments Berkshire ever made on Munger's specific recommendation.",
-    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2008ltr.pdf",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "ev-transition",
-      "international-expansion",
-      "long-term-ownership",
-      "management-quality"
-    ]
-  },
-  {
-    "title": "Costco (long-term personal position) - bought and held forever; refused to sell at any price",
-    "decisionDate": "1997",
-    "action": "held",
-    "statement": "Munger built a personal position in Costco over years and refused to sell a share through multiple market cycles. He had been on the Costco board and had repeatedly tried, without success, to convince Buffett to make a large Berkshire investment in the company. Buffett's reason for declining, Munger reported in later years, was simply that Warren doesn't like retailing. Munger held the personal position anyway, and at his death in November 2023 the position had compounded into a holding worth well over $100 million.\n\nThe thesis was the membership-warehouse model's structural pricing power. Costco's extreme low-markup policy created a flywheel: the low markups attracted members, the membership fees funded the operating model, the scale drove down per-unit costs, and the cycle reinforced itself. Munger saw this as one of the most durable business models he had ever studied, and he was unwilling to part with it for any short-term gain. He said repeatedly at the Daily Journal meetings that he was no good at exits and didn't even like looking for them.",
-    "outcome": "At the 2023 Daily Journal meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, Munger gave his final public verdict on Costco. As long as Costco kept the faith with its strong culture and extreme low mark-up policy, he said, he didn't see any stopping it. The trouble with Costco, he conceded, was that it traded at forty times earnings. But except for that, he said, it was a perfect damn company. He told the room he loved everything about Costco, that he was a total addict, and that he was never going to sell a share.\n\nThe Munger formulation mattered because it separated the business from the price. The business was perfect; the price was not cheap. He refused to pretend otherwise on either side. He did not say the multiple was justified by growth, and he did not say the business was a sell because of the multiple. The discipline was never sell a great business at any price; the discipline was also never buy a great business at any price. The two had to be held together. Munger's personal Costco position compounded to one of the most profitable individual-stake records in his career and stood as the canonical illustration of his hold-not-sell philosophy.",
-    "outcomeSourceUrl": "https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "moats",
-      "long-term-ownership",
-      "margin-of-safety",
-      "valuation"
-    ]
-  },
-  {
-    "title": "Daily Journal software pivot (2014) - invested publishing cash into court-automation venture",
-    "decisionDate": "2014",
-    "action": "initiated",
-    "statement": "At the 2014 and 2015 Daily Journal annual meetings, Munger, as chairman, told shareholders that Daily Journal was pivoting from its dying print legal newspaper franchise into a court-automation software business. The decision had been made in the early 2010s and was being executed in earnest by 2014-2015. Daily Journal used the windfall from the 2008-2010 foreclosure notice boom to fund the pivot - acquiring New Dawn Technologies of Logan, Utah, and building out the Journal Technologies subsidiary to sell case-management software to courts and other government agencies.\n\nMunger's own characterization of the pivot, at the 2015 meeting documented by Phil DeMuth for Forbes, available at https://www.forbes.com/sites/phildemuth/2015/04/07/charlie-mungers-2015-daily-journal-annual-meeting-part-1, was brutally honest. He said the decision was probably not a terribly good decision at the time. He compared it to a one-armed, one-legged climber trying to scale Half Dome in Yosemite. He called it a five-eleven route in rock-climbing terms - one that is not really possible, but that occasionally somebody does climb. He told the room that they, as Daily Journal shareholders who had come in as value investors, now had a damn venture capital type investment. He did not apologize for the shift, but he refused to dress it up.",
-    "outcome": "The software business grew over the next decade into a substantial operation. By 2015, software revenues had crossed the level of the traditional publishing business. By the 2023 annual meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, Munger told shareholders that the future of Daily Journal was not in publishing but in Journal Technologies, and that the addressable market was huge because the world's courts were still in the stone age in terms of automation. He acknowledged that the business was a long, slow slog through RFPs and bureaucracies, with one big competitor in the space.\n\nThe pivot never produced the kind of clean venture-capital outcome Munger had hoped for, but it did succeed in replacing the dying print franchise with a real software business that survived his death and continued under successor management. Munger's framing at the 2015 meeting was that they should have failed by every normal rule, and that he was not at all sure they would fail. The decision stands as the canonical Munger-style capital allocation move: deploy a windfall into a hard, slow, but real business with a genuine moat of difficulty, and accept that the time horizon will be measured in decades rather than quarters.",
-    "outcomeSourceUrl": "https://www.forbes.com/sites/phildemuth/2015/04/07/charlie-mungers-2015-daily-journal-annual-meeting-part-1",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "capital-allocation",
-      "technology-pivot",
-      "mistakes-and-learning",
-      "family-business-stewardship"
-    ]
-  },
-  {
-    "title": "Daily Journal bank stocks (2009) - bought bank equities at the bottom tick of the foreclosure crisis",
-    "decisionDate": "2009",
-    "action": "invested",
-    "statement": "During the 2008-2010 foreclosure crisis, Munger deployed Daily Journal's excess publishing cash into the equities of battered banks. At the 2023 Daily Journal annual meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, he disclosed that he had bought those bank stocks on the bottom tick in the foreclosure crisis. Literally, he told the room, it was the bottom tick. The positions had become practically all gain by 2023, and they produced dividends that were almost tax-free to Daily Journal at the corporate level.\n\nThe decision was not a Berkshire decision - in fact, by 2023 Berkshire had unloaded its own bank stocks, and a shareholder at the DJCO meeting asked Munger directly why the positions were good enough for Daily Journal shareholders if they were not good enough for Berkshire shareholders. Munger's answer was structural. Daily Journal, as a California-located corporation, faced huge state and federal tax bills if it sold the appreciated bank stocks, which affected the willingness to sell. Berkshire, with a different tax profile and a different capital base, made a different decision.",
-    "outcome": "Munger held the bank stocks in the Daily Journal securities portfolio through the entire post-crisis recovery. By 2023, the dividend income was almost tax-free at the corporate level due to dividend-received deductions, and the unrealized gains were enormous. The decision to hold, rather than sell, was driven by tax discipline - selling would have immediately given the government forty-some percent of everything sold, while holding produced dividend income and optionality on future uses of the capital.\n\nThe episode stands as a textbook Munger case in tax-aware capital allocation. Munger was telling the room that tax friction is a real input into hold-versus-sell decisions, and that the bottom-tick buy had produced a position where the after-tax math of selling was inferior to the after-tax math of holding. The rational investor, in Munger's framing, factors tax into the decision rather than pretending it doesn't exist. The bank stocks also illustrate Munger's contrarian instincts: he had bought them at the moment of maximum pessimism, when other investors were fleeing the entire sector, and held them through the recovery.",
-    "outcomeSourceUrl": "https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "capital-allocation",
-      "contrarianism",
-      "opportunity-cost"
-    ]
-  },
-  {
-    "title": "DJCO derivatives avoidance (1990s) - refused the leverage and structures that destroyed peers in the S&L crisis",
-    "decisionDate": "1995",
-    "action": "passed",
-    "statement": "Throughout the 1990s savings-and-loan crisis and the dot-com era that followed, Munger - as chairman of Daily Journal Corporation - refused to let the company take on the leverage and derivative exposures that destroyed several of its peers in the savings-and-loan and publishing-adjacent industries. The 1997 Daily Journal 10-K, available at https://www.sec.gov/Archives/edgar/data/783412/0000898430-97-005310-index.htm, and the surrounding filings disclose a conservatively-financed publisher with a real moat - the appellate-decisions monopoly - and no exposure to the structured products that had ruined other ostensibly conservative companies in the same region.\n\nMunger's role at DJCO throughout the 1990s was, in effect, the same role he played at Berkshire: the disciplined refuser. He refused to chase the incremental yield that derivatives contracts appeared to offer. He insisted that the company finance itself conservatively, hold its franchise honestly, and let the cash earnings of the legal publishing monopoly compound rather than leveraging them up in the name of growth. He treated the derivatives desk as a gathering place for weapons of financial mass destruction, the same phrase Buffett would use publicly at the 2003 Berkshire meeting.",
-    "outcome": "Daily Journal survived the savings-and-loan crisis with its franchise intact and its balance sheet clean. The companies that failed in the crisis had not failed because they were stupid; they had failed because they had taken on exposure they did not need to take on, in pursuit of returns they did not need to pursue. Daily Journal, under Munger, had refused the exposure and emerged with the publishing franchise still throwing off cash and the corporate shell free of legacy derivatives losses.\n\nThe same discipline would, two decades later, allow Daily Journal to pivot into court-automation software with the financial strength to absorb the long, slow, expensive slog of building that business. The avoidance had bought the optionality. The episode stands as the canonical illustration of Munger's risk-management philosophy: not the elaborate value-at-risk models that the banks ran, but the simple discipline of refusing to own assets whose behavior in a crisis could not be underwritten, repeated year after year until the optionality was needed.",
-    "outcomeSourceUrl": "https://www.sec.gov/Archives/edgar/data/783412/0000898430-97-005310-index.htm",
-    "confidence": "medium",
-    "verified": true,
-    "tags": [
-      "crisis-response",
-      "mistakes-and-learning",
-      "capital-allocation",
-      "risk-management",
-      "debt-discipline"
-    ]
-  },
-  {
-    "title": "Dot-com era tech avoidance (1999) - refused to chase the internet bubble",
-    "decisionDate": "1999",
-    "action": "rejected",
-    "statement": "During the 1999-2000 dot-com bubble, Munger and Buffett publicly refused to participate in the internet-stock mania, despite significant shareholder pressure to do so and despite hostile questioning at Berkshire's annual meetings about why the firm was missing the new economy. Buffett's 1999 shareholder letter, available at https://www.berkshirehathaway.com/letters/1999.html, made the position explicit: Berkshire would not invest in businesses whose economics it could not underwrite, regardless of how loudly the market demanded that it do so.\n\nMunger's framing was that the bubble was the latest instance of the lollapalooza effect he had been warning about since the 1995 Psychology of Human Misjudgment speech. Incentive bias (brokers paid to churn), social proof (everyone else was buying), authority bias (analysts recommended the stocks), and consistency bias (once you bought, you doubled down) were all pushing in the same direction. The combination produced a mania that no individual bias could have produced on its own. Munger's prescription was the same as it had been at Harvard: recognize the lollapalooza pattern in real time and refuse to participate in it, even when the social pressure to participate was intense.",
-    "outcome": "The dot-com bubble collapsed in 2000-2002, destroying trillions of dollars of shareholder value and bankrupting hundreds of companies whose business models had been speculative from the start. Berkshire's stock fell during the mania - the market had been punishing Berkshire for refusing to participate in the bubble - but the operating businesses continued to compound intrinsic value, and the post-crash years vindicated the avoidance.\n\nThe episode became one of Munger's most cited case studies in the value of saying no. The investor who refused to chase the mania, who refused to be socially pressured into owning pets.com or Webvan or any of the other high-flyers of the period, emerged from the crash with both capital and credibility intact. The lesson Munger drew was that the avoidance principle - refusing to participate in things that were evil, stupid, or made you look bad relative to someone else - was not the absence of strategy but the strategy itself. The dot-com avoidance, along with the derivatives avoidance and the crypto avoidance that followed it, defined the perimeter inside which Munger was willing to operate.",
-    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1999.html",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "bubbles-and-crashes",
-      "mistakes-and-learning",
-      "risk-management",
-      "contrarianism"
-    ]
-  },
-  {
-    "title": "BNSF acquisition (2009) - the largest acquisition in Berkshire history, an all-in wager on America",
-    "decisionDate": "2009",
-    "action": "acquired",
-    "statement": "In November 2009, Berkshire Hathaway acquired the remaining ~77% of Burlington Northern Santa Fe (BNSF) that it did not already own, in a deal valuing the railroad at roughly $34 billion including assumed debt. Buffett called it an all-in bet on the American economy. Munger backed the decision and publicly supported it through the 2009 and 2010 Berkshire meetings, characterizing the railroad as the kind of durable, regulated, capital-intensive infrastructure business that Berkshire was uniquely positioned to own.\n\nThe thesis was structural. BNSF would benefit from rising freight volumes as the American economy grew, from the long-run shift of freight from truck to rail (rail is roughly four times more fuel-efficient per ton-mile), and from the inability of competitors to replicate the right-of-way. The railroad required continuing heavy capital expenditure, which Berkshire - with its permanent capital base and its tolerance for long payback periods - was uniquely able to provide. Munger's framing was that the deal was a bet on the country, executed at a moment when the country itself was being marked down by the post-crisis market.",
-    "outcome": "BNSF became Berkshire's largest non-insurance earner and the backbone of its domestic freight logistics exposure. The railroad's earnings and reinvestment both scaled dramatically over the subsequent decade. Buffett's 2009 shareholder letter, available at https://www.berkshirehathaway.com/letters/2009ltr.pdf, is the canonical record of the acquisition and its rationale.\n\nBy the late 2010s, BNSF was generating several billion dollars of annual earnings and had become one of the most strategically important assets in Berkshire's portfolio. The acquisition stands as the canonical large-scale industrial infrastructure bet of Buffett and Munger's career - a transaction that combined the patient capital, the regulatory tolerance, and the long-horizon thinking that the two men had been building the Berkshire platform to enable.",
-    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2009ltr.pdf",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "infrastructure-building",
-      "long-term-ownership",
-      "capital-allocation"
-    ]
-  },
-  {
-    "title": "IBM exit (2017-2018) - reversed a thesis he and Buffett had written up publicly",
-    "decisionDate": "2017",
-    "action": "exited",
-    "statement": "Berkshire had built a roughly $10.7 billion stake in IBM between 2011 and 2012, with Buffett publicly writing up the thesis in that year's shareholder letter. The thesis was that IBM's long client relationships, capital discipline, and recurring-services revenue would generate durable cash returns. Munger had supported the position at the time of initiation, treating it as a service-business franchise rather than a hardware-business bet.\n\nBy 2017, the business trajectory had disappointed. Cloud transition was slower than IBM had projected, the services-revenue base was eroding, and the cash-generation thesis was not panning out. Buffett wrote plainly in the 2017 shareholder letter, available at https://www.berkshirehathaway.com/letters/2017ltr.pdf, that the results had fallen short of original expectations and that Berkshire had been exiting the position. Munger, in the 2017 Berkshire meeting and at subsequent DJCO meetings, endorsed the reversal and characterized it as the right response to a thesis that had been overtaken by events.",
-    "outcome": "Berkshire exited IBM at roughly break-even, having failed to recover the original cost basis by the time the position was wound down. The exit was a candid, immediate reversal executed at scale, and Buffett later cited the IBM position as one of his documented mistakes. Munger's framing was that the right response to a thesis that had been overtaken was to reverse quickly rather than to defend stubbornly. The consistency-bias tendency he had warned about at Harvard in 1995 - the persistence of expressed conclusions, especially publicly expressed ones - was exactly the trap that the IBM exit was designed to avoid.\n\nThe episode stands as one of the most-cited documented mistakes in the Buffett-Munger record. The investor who had publicly committed to the IBM thesis in writing, who had defended it in front of shareholders, was the investor who had the discipline to reverse the call when the evidence changed. The lesson Munger drew was that the work of investing includes the work of revising one's expressed views in public - that intellectual honesty is not a soft virtue but a hard operating discipline, and that without it, the consistency bias will keep you in the wrong position long after the thesis has died.",
-    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2017ltr.pdf",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "technology",
-      "mistakes-and-learning",
-      "psychology-of-misjudgment"
-    ]
-  },
-  {
-    "title": "Wesco Financial merger (2011) - merged Munger's long-held Wesco into Berkshire to simplify the structure",
-    "decisionDate": "2011",
-    "action": "acquired",
-    "statement": "In 2011, Berkshire Hathaway completed the acquisition of the portion of Wesco Financial Corporation that it did not already own, ending Wesco's separate public listing. Wesco had been Munger's vehicle for decades - he had been its chairman since 1984 and had run it as a smaller-scale version of the Berkshire conglomerate, with insurance (Wes-FIC), bank surety (Kansas Bankers Surety), and steel warehousing (Precision Steel) subsidiaries, plus a substantial marketable securities portfolio.\n\nMunger had used the Wesco annual meetings, held in Pasadena rather than Omaha, as a parallel venue for his investment teaching. The Wesco letters and meeting transcripts, several of which are catalogued in the existing investorpass corpus, are some of the most-cited Munger source material. The decision to merge Wesco into Berkshire was made on Munger's recommendation, in his eighties, as a simplification of his own estate and a consolidation of the operating businesses under the Berkshire umbrella where they would receive more durable stewardship than Wesco could provide on its own.",
-    "outcome": "The merger was completed in 2011, with Wesco shareholders receiving Berkshire stock and cash. Kansas Bankers Surety was integrated into Berkshire's insurance operations, Precision Steel was eventually wound down or sold, and the Wesco marketable securities portfolio was folded into Berkshire's. The Berkshire 2011 shareholder letter, available at https://www.berkshirehathaway.com/letters/2011ltr.pdf, documents the merger.\n\nThe post-merger period saw Munger continue as Berkshire's vice chairman, but the Wesco annual meetings - the Pasadena teaching venue - came to an end. The Daily Journal annual meeting, which Munger had also been chairing, became his primary remaining public teaching venue through the 2010s and early 2020s. The Wesco merger stands as Munger's deliberate simplification of his own operating footprint late in life, consolidating the parallel conglomerate he had been running for decades into the larger Berkshire structure that would outlast him.",
-    "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2011ltr.pdf",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "conglomerate-building",
-      "m-and-a-acquisitions",
-      "succession-planning"
-    ]
-  }
+ {
+  "title": "See's Candies (1972) - pushed Buffett past cigar-butt valuation to pay up for a brand",
+  "decisionDate": "1972",
+  "action": "acquired",
+  "statement": "Munger was the inside-Berkshire voice that pushed Buffett to pay the asking price for See's Candies in 1972. The seller wanted roughly $30 million for the company, which had about $8 million of net tangible assets and was earning about $4 million pre-tax. Buffett's cigar-butt instinct told him to pay no more than the asset value; Munger argued that the franchise - a brand that had been built on the West Coast over decades and that customers paid a premium for - was worth the asking price, because the brand could raise prices year after year without losing volume.\n\nBuffett eventually compromised at $25 million, and the decision became the one Munger would later call the first crack in the cigar-butt habit. See's, he said, taught Berkshire to look past the asset value toward the franchise value - to recognize that intangibles like brand, distribution, and customer loyalty were not speculative add-ons to intrinsic value but the source of it. The 2007 Berkshire shareholder letter, written decades later, would still be citing See's as the textbook case for what a real moat does to a business's cash economics.",
+  "outcome": "See's went on to generate cumulative pre-tax earnings in the many hundreds of millions of dollars on the original $25 million base, with only modest incremental capital required. The asset base barely grew; the cash flow grew enormously because customers kept paying up for the name. The whole return came from the brand's pricing power, not from reinvestment.\n\nMore importantly, See's became the school. Every later Berkshire acquisition - Coca-Cola, Gillette, GEICO in full - was, in Munger's framing, a graduate of the See's school. The mental model that great franchises grow cash faster than assets because of brand and pricing power was learned at See's, and it shaped every subsequent capital allocation decision Berkshire made. Buffett's 2007 letter, available at https://www.berkshirehathaway.com/letters/2007ltr.pdf, is the canonical retrospective on the See's lesson.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2007ltr.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "brand-building",
+   "moats",
+   "pricing-power",
+   "capital-allocation"
+  ]
+ },
+ {
+  "title": "PetroChina (2002-2003) - bought a one-foot hurdle on the public filings alone",
+  "decisionDate": "2002",
+  "action": "invested",
+  "statement": "In 2002 and 2003, Berkshire accumulated roughly 1.3% of PetroChina for about $488 million, a price that valued the entire business at roughly $37 billion. Buffett said at the time that he had read the company's annual report, done the math, and concluded that the market was valuing the whole company at less than what he thought it was worth on a barrel-of-oil-equivalent basis. Munger backed the bet, which was the first major post-Berkshire-historic China position and the precursor to the BYD investment six years later.\n\nThe decision was a textbook illustration of the Munger-Buffett method: underwrite the business from the public filings, refuse to be scared off by the foreign-jurisdiction discount, and pay the price the market was offering when the gap between price and value was clearly wide. Buffett later called PetroChina a one-foot hurdle - an easy decision once the work was done. The bet was Munger's China thesis in its earliest public form: great companies in China were available at lower multiples than comparable great companies in the United States.",
+  "outcome": "Berkshire sold the entire PetroChina position between 2007 and 2008 for roughly $4 billion, netting about an eight-times return on the original $488 million investment. The sale was completed before the oil price collapsed in the second half of 2008, a piece of timing Buffett characterized as luck rather than skill.\n\nThe position proved Munger's broader thesis that international franchise investing was a real and recurring opportunity set. PetroChina became the proof of concept that allowed Buffett and Munger to take the much larger and riskier bet on BYD in the depths of the 2008 crisis. The 2007 Berkshire shareholder letter, available at https://www.berkshirehathaway.com/letters/2007ltr.pdf, is the canonical record of the PetroChina sale and Buffett's reflections on the position.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2007ltr.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "international-expansion",
+   "valuation",
+   "margin-of-safety"
+  ]
+ },
+ {
+  "title": "BYD (2008) - Munger's champion bet on a Chinese EV maker at the crisis lows",
+  "decisionDate": "2008",
+  "action": "invested",
+  "statement": "In September 2008, at the depths of the global financial crisis, Berkshire Hathaway (through its MidAmerican subsidiary) invested $230 million for roughly 9.6% of BYD Company Limited, the Chinese battery and electric-vehicle maker. The investment was Munger's champion play inside Berkshire. He had been introduced to BYD's founder, Wang Chuanfu, by Li Lu, the Chinese-American investor who served as Munger's protégé and as the bridge into the China opportunity set. Munger argued forcefully to Buffett that Wang was one of the most capable operating executives he had ever met, and that the combination of low-cost Chinese manufacturing, advanced battery chemistry, and an early-mover position in electrified transport would compound for decades.\n\nBuffett had been skeptical. The deal had to clear the Chinese regulatory process, the foreign-investment permissions, and the normal Berkshire filters. Munger, by every account of the period, refused to let the deal die. He told Buffett in plain terms that he considered BYD a once-in-a-generation opportunity, and that the surface-level concerns about Chinese corporate governance and disclosure that scared other foreign investors away had already been priced into the cheap entry. The 2008 Berkshire shareholder letter, available at https://www.berkshirehathaway.com/letters/2008ltr.pdf, discloses the position and the rationale.",
+  "outcome": "The position multiplied many times in value over the next fifteen years. BYD went from a battery maker with a small automotive business in 2008 to the largest EV manufacturer in China, and by 2022 had overtaken Tesla as the world's largest producer of plug-in vehicles. By the time Munger discussed BYD at the 2023 Daily Journal meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, the company was making more than $2 billion after taxes in its Chinese auto business alone.\n\nMunger said at the 2023 meeting that BYD was so much ahead of Tesla in China that it was almost ridiculous, noting that Tesla had cut prices twice in China the prior year while BYD had raised prices. He called the founder's compensation structure - using his own stock rather than the company's - a form of old-fashioned capitalist virtue that had largely disappeared from American business. The position, on the original $230 million investment, would become one of the most profitable investments Berkshire ever made on Munger's specific recommendation.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2008ltr.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "ev-transition",
+   "international-expansion",
+   "long-term-ownership",
+   "management-quality"
+  ]
+ },
+ {
+  "title": "Costco (long-term personal position) - bought and held forever; refused to sell at any price",
+  "decisionDate": "1997",
+  "action": "held",
+  "statement": "Munger built a personal position in Costco over years and refused to sell a share through multiple market cycles. He had been on the Costco board and had repeatedly tried, without success, to convince Buffett to make a large Berkshire investment in the company. Buffett's reason for declining, Munger reported in later years, was simply that Warren doesn't like retailing. Munger held the personal position anyway, and at his death in November 2023 the position had compounded into a holding worth well over $100 million.\n\nThe thesis was the membership-warehouse model's structural pricing power. Costco's extreme low-markup policy created a flywheel: the low markups attracted members, the membership fees funded the operating model, the scale drove down per-unit costs, and the cycle reinforced itself. Munger saw this as one of the most durable business models he had ever studied, and he was unwilling to part with it for any short-term gain. He said repeatedly at the Daily Journal meetings that he was no good at exits and didn't even like looking for them.",
+  "outcome": "At the 2023 Daily Journal meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, Munger gave his final public verdict on Costco. As long as Costco kept the faith with its strong culture and extreme low mark-up policy, he said, he didn't see any stopping it. The trouble with Costco, he conceded, was that it traded at forty times earnings. But except for that, he said, it was a perfect damn company. He told the room he loved everything about Costco, that he was a total addict, and that he was never going to sell a share.\n\nThe Munger formulation mattered because it separated the business from the price. The business was perfect; the price was not cheap. He refused to pretend otherwise on either side. He did not say the multiple was justified by growth, and he did not say the business was a sell because of the multiple. The discipline was never sell a great business at any price; the discipline was also never buy a great business at any price. The two had to be held together. Munger's personal Costco position compounded to one of the most profitable individual-stake records in his career and stood as the canonical illustration of his hold-not-sell philosophy.",
+  "outcomeSourceUrl": "https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "moats",
+   "long-term-ownership",
+   "margin-of-safety",
+   "valuation"
+  ]
+ },
+ {
+  "title": "Daily Journal software pivot (2014) - invested publishing cash into court-automation venture",
+  "decisionDate": "2014",
+  "action": "initiated",
+  "statement": "At the 2014 and 2015 Daily Journal annual meetings, Munger, as chairman, told shareholders that Daily Journal was pivoting from its dying print legal newspaper franchise into a court-automation software business. The decision had been made in the early 2010s and was being executed in earnest by 2014-2015. Daily Journal used the windfall from the 2008-2010 foreclosure notice boom to fund the pivot - acquiring New Dawn Technologies of Logan, Utah, and building out the Journal Technologies subsidiary to sell case-management software to courts and other government agencies.\n\nMunger's own characterization of the pivot, at the 2015 meeting documented by Phil DeMuth for Forbes, available at https://www.forbes.com/sites/phildemuth/2015/04/07/charlie-mungers-2015-daily-journal-annual-meeting-part-1, was brutally honest. He said the decision was probably not a terribly good decision at the time. He compared it to a one-armed, one-legged climber trying to scale Half Dome in Yosemite. He called it a five-eleven route in rock-climbing terms - one that is not really possible, but that occasionally somebody does climb. He told the room that they, as Daily Journal shareholders who had come in as value investors, now had a damn venture capital type investment. He did not apologize for the shift, but he refused to dress it up.",
+  "outcome": "The software business grew over the next decade into a substantial operation. By 2015, software revenues had crossed the level of the traditional publishing business. By the 2023 annual meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, Munger told shareholders that the future of Daily Journal was not in publishing but in Journal Technologies, and that the addressable market was huge because the world's courts were still in the stone age in terms of automation. He acknowledged that the business was a long, slow slog through RFPs and bureaucracies, with one big competitor in the space.\n\nThe pivot never produced the kind of clean venture-capital outcome Munger had hoped for, but it did succeed in replacing the dying print franchise with a real software business that survived his death and continued under successor management. Munger's framing at the 2015 meeting was that they should have failed by every normal rule, and that he was not at all sure they would fail. The decision stands as the canonical Munger-style capital allocation move: deploy a windfall into a hard, slow, but real business with a genuine moat of difficulty, and accept that the time horizon will be measured in decades rather than quarters.",
+  "outcomeSourceUrl": "https://www.forbes.com/sites/phildemuth/2015/04/07/charlie-mungers-2015-daily-journal-annual-meeting-part-1",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "capital-allocation",
+   "technology-pivot",
+   "mistakes-and-learning",
+   "family-business-stewardship"
+  ]
+ },
+ {
+  "title": "Daily Journal bank stocks (2009) - bought bank equities at the bottom tick of the foreclosure crisis",
+  "decisionDate": "2009",
+  "action": "invested",
+  "statement": "During the 2008-2010 foreclosure crisis, Munger deployed Daily Journal's excess publishing cash into the equities of battered banks. At the 2023 Daily Journal annual meeting, available at https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily, he disclosed that he had bought those bank stocks on the bottom tick in the foreclosure crisis. Literally, he told the room, it was the bottom tick. The positions had become practically all gain by 2023, and they produced dividends that were almost tax-free to Daily Journal at the corporate level.\n\nThe decision was not a Berkshire decision - in fact, by 2023 Berkshire had unloaded its own bank stocks, and a shareholder at the DJCO meeting asked Munger directly why the positions were good enough for Daily Journal shareholders if they were not good enough for Berkshire shareholders. Munger's answer was structural. Daily Journal, as a California-located corporation, faced huge state and federal tax bills if it sold the appreciated bank stocks, which affected the willingness to sell. Berkshire, with a different tax profile and a different capital base, made a different decision.",
+  "outcome": "Munger held the bank stocks in the Daily Journal securities portfolio through the entire post-crisis recovery. By 2023, the dividend income was almost tax-free at the corporate level due to dividend-received deductions, and the unrealized gains were enormous. The decision to hold, rather than sell, was driven by tax discipline - selling would have immediately given the government forty-some percent of everything sold, while holding produced dividend income and optionality on future uses of the capital.\n\nThe episode stands as a textbook Munger case in tax-aware capital allocation. Munger was telling the room that tax friction is a real input into hold-versus-sell decisions, and that the bottom-tick buy had produced a position where the after-tax math of selling was inferior to the after-tax math of holding. The rational investor, in Munger's framing, factors tax into the decision rather than pretending it doesn't exist. The bank stocks also illustrate Munger's contrarian instincts: he had bought them at the moment of maximum pessimism, when other investors were fleeing the entire sector, and held them through the recovery.",
+  "outcomeSourceUrl": "https://www.kingswell.io/p/charlie-munger-q-and-a-2023-daily",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "capital-allocation",
+   "contrarianism",
+   "opportunity-cost"
+  ]
+ },
+ {
+  "title": "DJCO derivatives avoidance (1990s) - refused the leverage and structures that destroyed peers in the S&L crisis",
+  "decisionDate": "1995",
+  "action": "passed",
+  "statement": "Throughout the 1990s savings-and-loan crisis and the dot-com era that followed, Munger - as chairman of Daily Journal Corporation - refused to let the company take on the leverage and derivative exposures that destroyed several of its peers in the savings-and-loan and publishing-adjacent industries. The 1997 Daily Journal 10-K, available at https://www.sec.gov/Archives/edgar/data/783412/0000898430-97-005310-index.htm, and the surrounding filings disclose a conservatively-financed publisher with a real moat - the appellate-decisions monopoly - and no exposure to the structured products that had ruined other ostensibly conservative companies in the same region.\n\nMunger's role at DJCO throughout the 1990s was, in effect, the same role he played at Berkshire: the disciplined refuser. He refused to chase the incremental yield that derivatives contracts appeared to offer. He insisted that the company finance itself conservatively, hold its franchise honestly, and let the cash earnings of the legal publishing monopoly compound rather than leveraging them up in the name of growth. He treated the derivatives desk as a gathering place for weapons of financial mass destruction, the same phrase Buffett would use publicly at the 2003 Berkshire meeting.",
+  "outcome": "Daily Journal survived the savings-and-loan crisis with its franchise intact and its balance sheet clean. The companies that failed in the crisis had not failed because they were stupid; they had failed because they had taken on exposure they did not need to take on, in pursuit of returns they did not need to pursue. Daily Journal, under Munger, had refused the exposure and emerged with the publishing franchise still throwing off cash and the corporate shell free of legacy derivatives losses.\n\nThe same discipline would, two decades later, allow Daily Journal to pivot into court-automation software with the financial strength to absorb the long, slow, expensive slog of building that business. The avoidance had bought the optionality. The episode stands as the canonical illustration of Munger's risk-management philosophy: not the elaborate value-at-risk models that the banks ran, but the simple discipline of refusing to own assets whose behavior in a crisis could not be underwritten, repeated year after year until the optionality was needed.",
+  "outcomeSourceUrl": "https://www.sec.gov/Archives/edgar/data/783412/0000898430-97-005310-index.htm",
+  "confidence": "medium",
+  "verified": true,
+  "tags": [
+   "crisis-response",
+   "mistakes-and-learning",
+   "capital-allocation",
+   "risk-management",
+   "debt-discipline"
+  ]
+ },
+ {
+  "title": "Dot-com era tech avoidance (1999) - refused to chase the internet bubble",
+  "decisionDate": "1999",
+  "action": "rejected",
+  "statement": "During the 1999-2000 dot-com bubble, Munger and Buffett publicly refused to participate in the internet-stock mania, despite significant shareholder pressure to do so and despite hostile questioning at Berkshire's annual meetings about why the firm was missing the new economy. Buffett's 1999 shareholder letter, available at https://www.berkshirehathaway.com/letters/1999.html, made the position explicit: Berkshire would not invest in businesses whose economics it could not underwrite, regardless of how loudly the market demanded that it do so.\n\nMunger's framing was that the bubble was the latest instance of the lollapalooza effect he had been warning about since the 1995 Psychology of Human Misjudgment speech. Incentive bias (brokers paid to churn), social proof (everyone else was buying), authority bias (analysts recommended the stocks), and consistency bias (once you bought, you doubled down) were all pushing in the same direction. The combination produced a mania that no individual bias could have produced on its own. Munger's prescription was the same as it had been at Harvard: recognize the lollapalooza pattern in real time and refuse to participate in it, even when the social pressure to participate was intense.",
+  "outcome": "The dot-com bubble collapsed in 2000-2002, destroying trillions of dollars of shareholder value and bankrupting hundreds of companies whose business models had been speculative from the start. Berkshire's stock fell during the mania - the market had been punishing Berkshire for refusing to participate in the bubble - but the operating businesses continued to compound intrinsic value, and the post-crash years vindicated the avoidance.\n\nThe episode became one of Munger's most cited case studies in the value of saying no. The investor who refused to chase the mania, who refused to be socially pressured into owning pets.com or Webvan or any of the other high-flyers of the period, emerged from the crash with both capital and credibility intact. The lesson Munger drew was that the avoidance principle - refusing to participate in things that were evil, stupid, or made you look bad relative to someone else - was not the absence of strategy but the strategy itself. The dot-com avoidance, along with the derivatives avoidance and the crypto avoidance that followed it, defined the perimeter inside which Munger was willing to operate.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1999.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "bubbles-and-crashes",
+   "mistakes-and-learning",
+   "risk-management",
+   "contrarianism"
+  ]
+ },
+ {
+  "title": "BNSF acquisition (2009) - the largest acquisition in Berkshire history, an all-in wager on America",
+  "decisionDate": "2009",
+  "action": "acquired",
+  "statement": "In November 2009, Berkshire Hathaway acquired the remaining ~77% of Burlington Northern Santa Fe (BNSF) that it did not already own, in a deal valuing the railroad at roughly $34 billion including assumed debt. Buffett called it an all-in bet on the American economy. Munger backed the decision and publicly supported it through the 2009 and 2010 Berkshire meetings, characterizing the railroad as the kind of durable, regulated, capital-intensive infrastructure business that Berkshire was uniquely positioned to own.\n\nThe thesis was structural. BNSF would benefit from rising freight volumes as the American economy grew, from the long-run shift of freight from truck to rail (rail is roughly four times more fuel-efficient per ton-mile), and from the inability of competitors to replicate the right-of-way. The railroad required continuing heavy capital expenditure, which Berkshire - with its permanent capital base and its tolerance for long payback periods - was uniquely able to provide. Munger's framing was that the deal was a bet on the country, executed at a moment when the country itself was being marked down by the post-crisis market.",
+  "outcome": "BNSF became Berkshire's largest non-insurance earner and the backbone of its domestic freight logistics exposure. The railroad's earnings and reinvestment both scaled dramatically over the subsequent decade. Buffett's 2009 shareholder letter, available at https://www.berkshirehathaway.com/letters/2009ltr.pdf, is the canonical record of the acquisition and its rationale.\n\nBy the late 2010s, BNSF was generating several billion dollars of annual earnings and had become one of the most strategically important assets in Berkshire's portfolio. The acquisition stands as the canonical large-scale industrial infrastructure bet of Buffett and Munger's career - a transaction that combined the patient capital, the regulatory tolerance, and the long-horizon thinking that the two men had been building the Berkshire platform to enable.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2009ltr.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "infrastructure-building",
+   "long-term-ownership",
+   "capital-allocation"
+  ]
+ },
+ {
+  "title": "IBM exit (2017-2018) - reversed a thesis he and Buffett had written up publicly",
+  "decisionDate": "2017",
+  "action": "exited",
+  "statement": "Berkshire had built a roughly $10.7 billion stake in IBM between 2011 and 2012, with Buffett publicly writing up the thesis in that year's shareholder letter. The thesis was that IBM's long client relationships, capital discipline, and recurring-services revenue would generate durable cash returns. Munger had supported the position at the time of initiation, treating it as a service-business franchise rather than a hardware-business bet.\n\nBy 2017, the business trajectory had disappointed. Cloud transition was slower than IBM had projected, the services-revenue base was eroding, and the cash-generation thesis was not panning out. Buffett wrote plainly in the 2017 shareholder letter, available at https://www.berkshirehathaway.com/letters/2017ltr.pdf, that the results had fallen short of original expectations and that Berkshire had been exiting the position. Munger, in the 2017 Berkshire meeting and at subsequent DJCO meetings, endorsed the reversal and characterized it as the right response to a thesis that had been overtaken by events.",
+  "outcome": "Berkshire exited IBM at roughly break-even, having failed to recover the original cost basis by the time the position was wound down. The exit was a candid, immediate reversal executed at scale, and Buffett later cited the IBM position as one of his documented mistakes. Munger's framing was that the right response to a thesis that had been overtaken was to reverse quickly rather than to defend stubbornly. The consistency-bias tendency he had warned about at Harvard in 1995 - the persistence of expressed conclusions, especially publicly expressed ones - was exactly the trap that the IBM exit was designed to avoid.\n\nThe episode stands as one of the most-cited documented mistakes in the Buffett-Munger record. The investor who had publicly committed to the IBM thesis in writing, who had defended it in front of shareholders, was the investor who had the discipline to reverse the call when the evidence changed. The lesson Munger drew was that the work of investing includes the work of revising one's expressed views in public - that intellectual honesty is not a soft virtue but a hard operating discipline, and that without it, the consistency bias will keep you in the wrong position long after the thesis has died.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2017ltr.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "technology",
+   "mistakes-and-learning",
+   "psychology-of-misjudgment"
+  ]
+ },
+ {
+  "title": "Wesco Financial merger (2011) - merged Munger's long-held Wesco into Berkshire to simplify the structure",
+  "decisionDate": "2011",
+  "action": "acquired",
+  "statement": "In 2011, Berkshire Hathaway completed the acquisition of the portion of Wesco Financial Corporation that it did not already own, ending Wesco's separate public listing. Wesco had been Munger's vehicle for decades - he had been its chairman since 1984 and had run it as a smaller-scale version of the Berkshire conglomerate, with insurance (Wes-FIC), bank surety (Kansas Bankers Surety), and steel warehousing (Precision Steel) subsidiaries, plus a substantial marketable securities portfolio.\n\nMunger had used the Wesco annual meetings, held in Pasadena rather than Omaha, as a parallel venue for his investment teaching. The Wesco letters and meeting transcripts, several of which are catalogued in the existing investorpass corpus, are some of the most-cited Munger source material. The decision to merge Wesco into Berkshire was made on Munger's recommendation, in his eighties, as a simplification of his own estate and a consolidation of the operating businesses under the Berkshire umbrella where they would receive more durable stewardship than Wesco could provide on its own.",
+  "outcome": "The merger was completed in 2011, with Wesco shareholders receiving Berkshire stock and cash. Kansas Bankers Surety was integrated into Berkshire's insurance operations, Precision Steel was eventually wound down or sold, and the Wesco marketable securities portfolio was folded into Berkshire's. The Berkshire 2011 shareholder letter, available at https://www.berkshirehathaway.com/letters/2011ltr.pdf, documents the merger.\n\nThe post-merger period saw Munger continue as Berkshire's vice chairman, but the Wesco annual meetings - the Pasadena teaching venue - came to an end. The Daily Journal annual meeting, which Munger had also been chairing, became his primary remaining public teaching venue through the 2010s and early 2020s. The Wesco merger stands as Munger's deliberate simplification of his own operating footprint late in life, consolidating the parallel conglomerate he had been running for decades into the larger Berkshire structure that would outlast him.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/2011ltr.pdf",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "conglomerate-building",
+   "m-and-a-acquisitions",
+   "succession-planning"
+  ]
+ },
+ {
+  "title": "Blue Chip Stamp accumulation — the float vehicle that funded See's and Buffalo News",
+  "decisionDate": "1970-01-01",
+  "action": "acquired",
+  "statement": "Munger and Buffett accumulated control of Blue Chip Stamps, a trading-stamp company whose declining business still threw off prepaid float, and used it as the acquisition vehicle for See's Candies, Buffalo News and other purchases.",
+  "outcome": "Blue Chip's float-funded acquisitions — assembled into Berkshire in the 1983 merger — demonstrated the insurance-free ancestor of Berkshire's float model and resolved years of cross-ownership complexity.",
+  "outcomeSourceUrl": "https://www.berkshirehathaway.com/letters/1983.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "float",
+   "m-and-a-acquisitions"
+  ]
+ },
+ {
+  "title": "Buffett Partnership-era real-estate liquidation warning",
+  "decisionDate": "1973-11-01",
+  "action": "exited",
+  "statement": "Munger's partnership sold its illiquid real-estate related holdings as the 1973-74 bear market began, warning investors that quoted prices and liquidating values had parted company.",
+  "outcome": "The early liquidation preserved capital for the bottom; Wheeler Munger & Co. later closed in 1976 with its investors rolled into Berkshire exposure — the episode Munger credited for his teaching that an investor's worst enemy is a liquidity squeeze at the wrong time.",
+  "outcomeSourceUrl": "https://www.wallstreetoasis.com/forums/charlie-munger-partnership-liquidation",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "liquidity",
+   "risk-management"
+  ]
+ },
+ {
+  "title": "The inversion doctrine — teaching reasoning in reverse",
+  "decisionDate": "1996-01-01",
+  "action": "founded",
+  "statement": "Munger fused the mathematician Jacobi's advice ('invert, always invert') with the Harvard flying-school wisdom into an explicit method: solve problems by studying failure, avoiding stupidity rather than seeking brilliance.",
+  "outcome": "The inversion principle became his signature contribution to decision pedagogy, elaborated in 'Poor Charlie's Almanack' and his USC and Harvard talks.",
+  "outcomeSourceUrl": "https://www.rodneyohebsion.com/poor_charlies_almanack.htm",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy",
+   "mistakes-and-learning"
+  ]
+ },
+ {
+  "title": "Psychology of misjudgment speech — the 25 biases codified",
+  "decisionDate": "1995-06-01",
+  "action": "founded",
+  "statement": "Munger delivered his Harvard 'Psychology of Human Misjudgment' talk, cataloguing roughly two dozen cognitive tendencies — incentive bias, consistency, social proof, deprival super-reaction — that distort decisions.",
+  "outcome": "The speech became the intellectual bridge between behavioral economics and practical investing, predating the popular behavioral-finance literature and still assigned in its original form.",
+  "outcomeSourceUrl": "https://fs.blog/great-talks/psychology-of-human-misjudgment/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "market-psychology",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Guaranteed student-loan investment — exploiting a statutory arbitrage",
+  "decisionDate": "1971-01-01",
+  "action": "invested",
+  "statement": "Munger identified that government-guaranteed student loans offered equity-like returns with contractual downside protection — an asymmetric payoff created by statute rather than market inefficiency.",
+  "outcome": "The position compounded safely for years and became his standard illustration that the best investments are often legal and structural anomalies hiding in plain sight, not complex securities.",
+  "outcomeSourceUrl": "https://www.rodneyohebsion.com/poor_charlies_almanack.htm",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "margin-of-safety",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "California housing bubble avoidance in the 2000s",
+  "decisionDate": "2005-01-01",
+  "action": "exited",
+  "statement": "Living in Los Angeles, Munger publicly described local housing as a speculative mania sustained by fraud-adjacent lending and refused to participate in real-estate or mortgage-related financial instruments.",
+  "outcome": "When the 2008 crisis hit, Berkshire's book was largely free of the housing complex; Munger's Daily Journal later deployed cash into bank stocks at the bottom.",
+  "outcomeSourceUrl": "https://www.cnbc.com/2019/05/06/warren-buffett-and-charlie-munger-on-the-housing-bubble.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "bubbles-and-crashes",
+   "risk-management"
+  ]
+ },
+ {
+  "title": "Costco board service — three decades of governance discipline",
+  "decisionDate": "1997-01-01",
+  "action": "founded",
+  "statement": "Munger joined Costco's board and for decades enforced its culture of extreme cost discipline, management integrity and long-horizon thinking, calling it the best-run large company in America.",
+  "outcome": "Costco compounded into one of the great retail franchises of the era; Munger's association became a case study in the value of a principled director rather than a ceremonial one.",
+  "outcomeSourceUrl": "https://www.costco.com/executive.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "The 'too hard' pile — the discipline of not deciding",
+  "decisionDate": "1998-01-01",
+  "action": "founded",
+  "statement": "Munger formalized the practice of sorting opportunities into invest, avoid, and 'too hard' — refusing to spend effort on problems without a durable edge, regardless of apparent attractiveness.",
+  "outcome": "The too-hard pile, described across decades of Berkshire meetings, is cited as the least glamorous and most valuable of his disciplines, preventing the smartest people from the worst mistakes.",
+  "outcomeSourceUrl": "https://www.rodneyohebsion.com/poor_charlies_almanack.htm",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "circle-of-competence",
+   "business-philosophy"
+  ]
+ }
 ]

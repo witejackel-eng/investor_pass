@@ -1,0 +1,72 @@
+[
+ {
+  "title": "Tetley acquisition — the first great Indian cross-border purchase",
+  "decisionDate": "2000-02-10",
+  "action": "acquired",
+  "statement": "Ratan Tata bought the 170-year-old British tea brand Tetley for roughly £271 million — larger than Tata Tea itself at the time — reversing the colonial-era relationship between Indian producer and British brand.",
+  "outcome": "Tetley became the platform for Tata Global Beverages and proved the post-liberalization Indian multinational could integrate an iconic Western consumer brand; Ratan Tata later cited it as the deal that taught the group it could buy abroad.",
+  "outcomeSourceUrl": "https://www.theguardian.com/business/2000/feb/10/3",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "globalization"
+  ]
+ },
+ {
+  "title": "Corus Steel acquisition",
+  "decisionDate": "2007-01-31",
+  "action": "acquired",
+  "statement": "Tata Steel paid $12 billion for the Anglo-Dutch steelmaker Corus, an acquisition nearly ten times its own size, to gain European footprint and move up the value chain.",
+  "outcome": "The timing near the commodity peak burdened Tata Steel with debt through the subsequent decade and remains the group's most criticized deal — Ratan Tata defended it as a strategic necessity whose cycle timing, not logic, failed.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-tata-steel-corus-idUSL3067346120070131",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "mistakes-and-learning"
+  ]
+ },
+ {
+  "title": "Jaguar Land Rover acquisition from Ford",
+  "decisionDate": "2008-03-26",
+  "action": "acquired",
+  "statement": "At the depth of the 2008 crisis, Tata Motors bought Jaguar Land Rover from Ford for $2.3 billion, roughly a third of what Ford had paid for the marques.",
+  "outcome": "JLR became the profit engine of Tata Motors, powering its transformation into a global automaker; the purchase is ranked among the greatest turnaround acquisitions of the era.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-tata-jlr-idUSLS49000320080326",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "turnaround-management"
+  ]
+ },
+ {
+  "title": "The Tata Nano — engineering the one-lakh car",
+  "decisionDate": "2008-01-10",
+  "action": "founded",
+  "statement": "Ratan Tata personally championed a rear-engined, sub-$2,000 family car meant to move Indian families off two-wheelers safely — one of the most audacious cost-engineering projects in automotive history.",
+  "outcome": "The Nano's product brilliance never overcame its marketing as a 'poor man's car' and the Singur factory controversy; production ended by 2018. Tata treated it as an engineering triumph and a commercial lesson.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-tata-nano-idUSKCN1B91E1",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "innovation",
+   "mistakes-and-learning"
+  ]
+ },
+ {
+  "title": "Mistry dismissal and the battle for the group's soul",
+  "decisionDate": "2016-10-24",
+  "action": "exited",
+  "statement": "Ratan Tata moved to remove Cyrus Mistry as chairman of Tata Sons, restoring the trust-ownership principle against a successor he judged had strayed from the group's philanthropic and governance traditions.",
+  "outcome": "The boardroom war ran through Indian courts and the NCLT for years; ultimately the Tata Trusts' control structure held, and Ratan Tata returned as interim chairman before N. Chandrasekaran's appointment.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-tata-sons-mistry-idUSKBN12Q0BJ",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance",
+   "leadership-transition"
+  ]
+ }
+]

@@ -1,0 +1,30 @@
+[
+ {
+  "title": "Founding Zomato as a restaurant-listing pivot",
+  "decisionDate": "2008-07-01",
+  "action": "founded",
+  "statement": "Goyal and Pankaj Chaddah built Zomato from an internal office cafeteria menu wiki into the subcontinent's dominant restaurant discovery platform.",
+  "outcome": "The pivot to food delivery in 2015 rode the smartphone boom; Zomato's 2021 IPO was the landmark listing of the Indian startup era.",
+  "outcomeSourceUrl": "https://www.zomato.com/about",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "two-sided-markets"
+  ]
+ },
+ {
+  "title": "Blinkit acquisition — the 10-minute grocery gamble",
+  "decisionDate": "2022-06-24",
+  "action": "acquired",
+  "statement": "Zomato acquired loss-making quick-commerce pioneer Blinkit for roughly $568 million in stock, betting that 10-minute grocery would consolidate faster than food delivery and at greater scale.",
+  "outcome": "The deal was initially punished by investors; within two years Blinkit became the growth narrative that re-rated Zomato's entire equity story, with quick-commerce valuations exceeding the food-delivery core.",
+  "outcomeSourceUrl": "https://www.reuters.com/technology/zomato-buy-blinkit-568-million-stock-deal-2022-06-24/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "scale-before-profitability"
+  ]
+ }
+]

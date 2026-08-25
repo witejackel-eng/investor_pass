@@ -1,0 +1,85 @@
+[
+ {
+  "title": "1907 Panic — going long in the pit at the bottom",
+  "decisionDate": "1907-10-24",
+  "action": "invested",
+  "statement": "During the banking panic of 1907, Livermore recognized that forced liquidation had exhausted itself and bought stocks at distressed prices while other traders were being wiped out.",
+  "outcome": "He made his first million-dollar profit; J.P. Morgan himself reportedly sent word asking him to stop shorting (which Livermore had already stopped). The trade made his national reputation at age 30.",
+  "outcomeSourceUrl": "https://www.smithsonianmag.com/history/panic-1907-45881103/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "1929 crash — shorting the greatest bull market in history",
+  "decisionDate": "1929-10-24",
+  "action": "exited",
+  "statement": "Recognizing classic distribution signs — leadership stalling, volume rising on declines, brokers' loans swelling — Livermore built a massive short position across leading stocks into October 1929.",
+  "outcome": "On Black Tuesday and the days after, his reported profit reached $100 million, roughly $1.5 billion in modern terms. It was the greatest single trade of his career and the peak of his wealth.",
+  "outcomeSourceUrl": "https://www.investopedia.com/articles/07/bear-market-livermore.asp",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "bubbles-and-crashes"
+  ]
+ },
+ {
+  "title": "1908 cotton trade — trusting a tip against his own system",
+  "decisionDate": "1908-01-01",
+  "action": "exited",
+  "statement": "Livermore violated his own rules by averaging down in cotton on the advice of Ted Pahle, a trader he trusted, adding to a losing position until the loss consumed his entire capital.",
+  "outcome": "He went broke for the third time and famously said the loss of money was nothing next to the lesson: never average losses, never trade on another man's judgment. The episode is a canonical case study in discipline failure.",
+  "outcomeSourceUrl": "https://www.investopedia.com/articles/07/bear-market-livermore.asp",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "mistakes-and-learning",
+   "position-sizing"
+  ]
+ },
+ {
+  "title": "The pivotal points system — trading only at confirmation",
+  "decisionDate": "1923-01-01",
+  "action": "founded",
+  "statement": "Livermore distilled his tape-reading into explicit rules: wait for pivotal points — price levels where a stock confirms or refutes its trend — and never act before confirmation, never anticipate the market.",
+  "outcome": "The pivotal-point doctrine, published in his 1940 book 'How to Trade in Stocks,' anticipated modern breakout trading and remains the intellectual ancestor of trend-following systems.",
+  "outcomeSourceUrl": "https://www.rodneyohebsion.com/how_to_trade_in_stocks.htm",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy",
+   "market-psychology"
+  ]
+ },
+ {
+  "title": "Bucket-shop apprenticeship — learning to read the tape",
+  "decisionDate": "1892-01-01",
+  "action": "founded",
+  "statement": "At 14, Livermore took a job posting quotes at Paine Webber's Boston office and taught himself to recognize repeating patterns in the ticker, testing predictions in bucket shops where bets were placed on price moves.",
+  "outcome": "He became so consistently profitable that Boston bucket shops banned him; by his early twenties 'The Boy Plunger' had banked his first $10,000 stake trading on pattern recognition alone.",
+  "outcomeSourceUrl": "https://www.investopedia.com/articles/07/bear-market-livermore.asp",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins"
+  ]
+ },
+ {
+  "title": "1915 return from bankruptcy with Bethlehem Steel",
+  "decisionDate": "1915-05-01",
+  "action": "invested",
+  "statement": "Owing over $1 million after the 1914 failure, Livermore rebuilt discipline in a small office, waiting weeks for the right setup before buying Bethlehem Steel on war demand at the pivotal point — his first position of size since his comeback.",
+  "outcome": "The trade roughly quintupled his stake, paid off all his old debts in full — though he was not legally obliged to after bankruptcy — and restored his standing in Wall Street.",
+  "outcomeSourceUrl": "https://www.rodneyohebsion.com/how_to_trade_in_stocks.htm",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "turnaround-management",
+   "mistakes-and-learning"
+  ]
+ }
+]

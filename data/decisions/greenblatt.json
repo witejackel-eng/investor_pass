@@ -1,0 +1,83 @@
+[
+ {
+  "title": "Founding Gotham Capital with a special-situations mandate",
+  "decisionDate": "1985-01-01",
+  "action": "founded",
+  "statement": "Greenblatt started Gotham Capital with about $7 million to specialize in spinoffs, restructurings, rights offerings, mergers and other special situations — inefficiencies too small or complicated for large institutions.",
+  "outcome": "Gotham compounded at roughly 50% annually in its first decade, among the best records ever reported, before Greenblatt returned outside capital in 1995 to manage his own money.",
+  "outcomeSourceUrl": "https://www.cfa.org/-/media/documents/article/pdfs/2005-coverage-proceedings-v64.1.6154.aspx",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "concentration",
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Writing 'You Can Be a Stock Market Genius'",
+  "decisionDate": "1997-01-01",
+  "action": "founded",
+  "statement": "Greenblatt wrote the first accessible treatment of special-situations investing, laying out the mechanics of spinoffs, merger securities and recapitalizations for the ordinary investor.",
+  "outcome": "The book remains the standard reference for event-driven investing and launched a generation of hedge fund careers.",
+  "outcomeSourceUrl": "https://www.simonandschuster.com/books/You-Can-Be-a-Stock-Market-Genius/Joel-Greenblatt/9780684840079",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Creating the Magic Formula and publishing it free",
+  "decisionDate": "2005-12-01",
+  "action": "founded",
+  "statement": "Greenblatt systematized value plus quality — ranking stocks by cheapness (earnings yield) and return on capital — into a mechanical strategy he published openly, with free screening tools, in 'The Little Book That Beats the Market.'",
+  "outcome": "The book sold over a million copies; independent studies found the formula's long-run backtest excess returns though with punishing drawdowns, illustrating Greenblatt's own caveat that simple does not mean easy.",
+  "outcomeSourceUrl": "https://www.magicformulainvesting.com/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "valuation",
+   "quality-businesses"
+  ]
+ },
+ {
+  "title": "Value Investors Club — founding the vetted online community",
+  "decisionDate": "1999-01-01",
+  "action": "founded",
+  "statement": "Greenblatt created an online investment club whose membership, capped and competitively admitted, shares detailed investment write-ups subject to peer rating.",
+  "outcome": "The club became a recognized training ground for value analysts and a rare example of durable, high-quality crowdsourced investment research.",
+  "outcomeSourceUrl": "https://www.valueinvestorsclub.com/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Formula Investing / Gotham Funds — bringing the formula to institutions",
+  "decisionDate": "2009-01-01",
+  "action": "founded",
+  "statement": "After the 2008 crisis, Greenblatt launched actively managed mutual funds applying systematic value-and-quality strategies at institutional scale.",
+  "outcome": "The funds grew to several billion under management; performance was solid though below the backtests, an honest outcome Greenblatt himself used to teach the difference between in-sample and live results.",
+  "outcomeSourceUrl": "https://www.gothamfunds.com/about",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "index-investing",
+   "valuation"
+  ]
+ },
+ {
+  "title": "Columbia Business School teaching — the special-situations course",
+  "decisionDate": "1996-01-01",
+  "action": "founded",
+  "statement": "Greenblatt taught the value and special-situations curriculum at Columbia, co-authoring the case-driven text 'Value Investing: From Graham to Buffett and Beyond.'",
+  "outcome": "His course shaped numerous prominent value investors and kept the Graham tradition anchored in actionable, situation-specific analysis.",
+  "outcomeSourceUrl": "https://www8.gsb.columbia.edu/programs/mba/academics/electives/value-investment-courses",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy"
+  ]
+ }
+]

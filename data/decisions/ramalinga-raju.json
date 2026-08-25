@@ -1,0 +1,16 @@
+[
+ {
+  "title": "The Satyam confession — India's largest accounting fraud",
+  "decisionDate": "2009-01-07",
+  "action": "exited",
+  "statement": "Raju confessed by letter that Satyam's balance sheet carried roughly $1 billion of fictitious cash and assets, inflated for years, calling the fraud 'like riding a tiger, not knowing how to get off without being eaten.'",
+  "outcome": "Satyam's board was superseded by government order; the company was auctioned to Tech Mahindra within months. Raju was convicted in 2015, sentenced, and the case became India's defining corporate-governance lesson.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-satyam-fraud-idUSTRE5071I720090108",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "fraud-and-collapse",
+   "mistakes-and-learning"
+  ]
+ }
+]

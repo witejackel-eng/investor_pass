@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Empress Mills — the founding venture",
+  "decisionDate": "1877-01-01",
+  "action": "founded",
+  "statement": "Jamsetji built Empress Mills in Nagpur on the central cotton belt, introducing ring spindles and quality professionalism to Indian textiles.",
+  "outcome": "The mills generated the capital and credibility for everything the Tata group became; the professional-management structure he installed — separating ownership from operations — defined the group for 150 years.",
+  "outcomeSourceUrl": "https://www.tata.com/about-us/tata-milestones",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "professionalization-vs-promoter"
+  ]
+ },
+ {
+  "title": "Conceiving Tata Steel against the imperial orthodoxy",
+  "decisionDate": "1907-08-26",
+  "action": "founded",
+  "statement": "Jamsetji was told by the colonial administration that Indians could never make steel; he located the Sakchi ore fields, hired experts, and his successors completed Tata Iron and Steel after his death.",
+  "outcome": "Tata Steel's first ingot poured in 1912; it became Asia's first integrated steel plant and the industrial spine of the group — the reference case for believing native capability against imperial judgment.",
+  "outcomeSourceUrl": "https://www.tatasteel.com/about-us/our-story/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "infrastructure-building"
+  ]
+ },
+ {
+  "title": "The bequest that made the trusts own the group",
+  "decisionDate": "1904-01-01",
+  "action": "founded",
+  "statement": "In his will, Jamsetji routed his fortune into a trust for education, science and community welfare, establishing the structure by which Tata Sons' dividends largely fund philanthropy.",
+  "outcome": "The Tata Trusts became India's most consequential philanthropic institutions, funding the Indian Institute of Science, cancer hospitals and a century of scientific capacity; roughly two-thirds of Tata Sons remains trust-held today.",
+  "outcomeSourceUrl": "https://www.tatatrusts.org/about-us",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy",
+   "corporate-governance"
+  ]
+ }
+]

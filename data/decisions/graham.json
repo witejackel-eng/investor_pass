@@ -1,92 +1,148 @@
 [
-  {
-    "title": "GEICO 1948 — Graham-Newman buys half a direct-to-consumer insurer for ~$712,000",
-    "decisionDate": "1948",
-    "action": "invested",
-    "statement": "Graham-Newman Corporation invested approximately $712,000 in 1948 to acquire half of Government Employees Insurance Company, a small direct-to-consumer auto insurer based in the Washington, D.C. area. The deal was unusual for the partnership: Graham-Newman had historically focused on asset-value plays, arbitrage, and special situations, so an outright acquisition of half a new insurance franchise was a step outside the partnership's usual mandate.\n\nThe analytical case rested on GEICO's underwriting model. The company sold auto insurance directly to federal employees — a lower-risk book than the general driving population — and avoided the agency-commission structure that constrained most competitors. The combination of a superior book and a lower cost base produced an underwriting margin other insurers could not match at the same premium levels.\n\nGraham and his partner Jerry Newman negotiated the purchase with the founder. The Securities and Exchange Commission subsequently ruled that the partnership's stake in an insurance company exceeded the percentage an investment fund was permitted to hold, and required Graham-Newman to distribute most of the GEICO shares to its own shareholders. The forced distribution became one of the most consequential involuntary decisions in the partnership's history.",
-    "outcome": "The GEICO stake distributed to Graham-Newman's shareholders compounded through the post-war decades as the company expanded its direct-to-consumer model nationally. An investor who held 100 shares of Graham-Newman in 1948 and retained the GEICO distribution would, over the following twenty-five years, have seen that distribution alone grow to roughly $1.66 million. Graham himself later noted that the analytical case had identified the soundness of the business and the cheapness of the price, but that the magnitude of the long-run return was in no sense forecast by the partnership at the time of purchase.\n\nThe position became one of the best-documented investments in twentieth-century value investing, and is now treated as a canonical example of the asymmetry between analytical soundness and realised payoff. The episode illustrates Graham's view that an investor can be right about the business without being right about the size of the payoff.\n\nThe later 1970s near-collapse of GEICO — when the company abandoned its underwriting discipline in pursuit of premium growth — confirmed Graham's view that low-cost operators can be ruined by chasing premium volume. The episode became a recurring case in the value-investing literature for both the upside of the original 1948 investment and the warning embedded in the later rescue.",
-    "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Benjamin_Graham",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "margin-of-safety",
-      "long-term-ownership",
-      "insurance-economics"
-    ]
-  },
-  {
-    "title": "Northern Pipeline 1926 — buying a Standard Oil spinoff at a discount to its own liquid assets",
-    "decisionDate": "1926",
-    "action": "invested",
-    "statement": "In 1926, Graham identified Northern Pipeline Company — a Standard Oil subsidiary that had been distributed to shareholders — as trading at a discount to its liquid assets. Reading the company's annual report, Graham observed that Northern Pipeline held cash and government securities far in excess of its entire market capitalisation, with the operating pipeline almost an afterthought in the valuation.\n\nGraham began accumulating shares at the prevailing market price and prepared to act at the company's annual meeting. His approach was novel for the era: a minority shareholder using public filings, the proxy machinery, and the annual-meeting floor to push a board to distribute surplus assets to shareholders rather than leave them embedded in the operating company.\n\nGraham won partial distribution after a contested meeting with the board. The company returned a portion of its surplus securities to shareholders in specie, crystallising the value the market had been ignoring. The campaign is one of the earliest documented activist interventions in the modern sense — the balance sheet did the analytical work, and the annual meeting did the catalytic work.",
-    "outcome": "The Northern Pipeline trade established Graham's reputation for finding value in corners of the market that the consensus had written off. The mechanics — buy a security trading below the value of its liquid assets, agitate for distribution, collect the spread — became one of the running methods of Graham's investment account in the late 1920s.\n\nThe case also seeded the analytical principle that would become central to Graham's later work: the market regularly leaves cash, securities, and contractual claims unpriced inside operating companies. The analyst's job is to read the balance sheet carefully enough to find them, and to be willing to act when the price is right.\n\nNorthern Pipeline became one of the recurring cases Graham used in his teaching at Columbia, where it served as a working example of how a balance-sheet reading can produce returns uncorrelated with the general market or with the analyst's view of the underlying operating business. The case is repeatedly cited in the later commentary on Graham's career as the formative asset-value episode.",
-    "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Benjamin_Graham",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "margin-of-safety",
-      "contrarianism",
-      "valuation"
-    ]
-  },
-  {
-    "title": "Rockwood & Co. cocoa-bean exchange 1954 — the arbitrage that broke Graham's own framework",
-    "decisionDate": "1954",
-    "action": "invested",
-    "statement": "In 1954, Graham-Newman evaluated the Rockwood & Company cocoa-bean exchange offer. Rockwood, a Brooklyn chocolate manufacturer, held a large inventory of cocoa beans that had appreciated in value; selling the beans directly would have triggered a substantial tax liability. The company instead offered to exchange cocoa beans for its own shares at a fixed ratio, in effect buying back its stock with beans.\n\nThe structure created an apparent arbitrage: each share of Rockwood could be purchased in the open market and tendered to the company in exchange for cocoa beans worth more than the share's purchase price. The spread between the share price and the cocoa-bean value was wide enough to attract the Graham-Newman partnership, which instructed its young analyst Warren Buffett to work the trade.\n\nBuffett recognised that the hedged arbitrage — buy shares, tender for beans, sell cocoa futures to lock the spread — was profitable but capped. He chose instead to buy Rockwood shares outright, betting that the shrinking share count would leave the unredeemed shares worth more than the immediate arbitrage profit. Graham-Newman also participated in the standard arbitrage leg, earning a more modest but realised return.",
-    "outcome": "Buffett's unhedged position outperformed the straightforward arbitrage. As more shares were tendered and the bean inventory per remaining share grew, the value of the unredeemed Rockwood stock appreciated substantially. The case is documented in Buffett's later writing and in the Graham-Newman letters, where it appears as one of several 1954-1956 special situations.\n\nThe episode is repeatedly cited as a hinge moment: Buffett's analysis went beyond the partnership's standard arbitrage framework and toward a view that business-quality considerations could dominate the catalyst dimension. For Graham-Newman, the case reinforced the view that arbitrage and workout opportunities recur in unusual corners of the market — reorganisations, tax-driven exchanges, and recapitalisations where the catalyst is legal or tax-driven rather than operational.\n\nThe partnership's expected-return framework handled the unusual cases with the same discipline as the standard ones. The Rockwood case is the documented instance of the transition from Graham's strict arbitrage method to Buffett's later business-quality framework, and is taught as such in value-investing coursework.",
-    "outcomeSourceUrl": "https://finance.yahoo.com/news/look-back-warren-buffetts-six-153526270.html",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "asymmetric-payoffs",
-      "contrarianism",
-      "second-level-thinking"
-    ]
-  },
-  {
-    "title": "1929-1932 drawdown survival — Graham's investment account nearly folded, then held",
-    "decisionDate": "1929",
-    "action": "held",
-    "statement": "Graham's investment account survived the 1929-1932 drawdown without liquidating its better positions. The account had been running with margin leverage, and the wipeout was severe: by the trough in 1932, cumulative losses approached seventy percent. Graham writes in his memoirs that the experience was the formative financial event of his life.\n\nGraham and his partner Jerry Newman kept the partnership alive partly through the loyalty of their limited partners, who did not demand redemptions, and partly through Graham forgoing his management salary for several years. The underlying positions, although deeply under water, were in businesses with real assets and the capacity to recover when the cycle turned.\n\nGraham's decision was not to sell into the panic. He writes that he could not have known at the trough that the positions would recover, and that the decision to hold was a function of the partners' forbearance as much as of his own analysis. The survival was, in his own telling, partly an analytical call and partly a structural one.",
-    "outcome": "Graham recovered the 1929-1932 losses across the 1933-1937 recovery, and the experience became the basis for the analytical framework he would codify in Security Analysis (1934) and The Intelligent Investor (1949). The lessons drawn from the drawdown — distrust of leverage, insistence on balance-sheet tests, demand for a wider margin of safety — became the defining features of his later method.\n\nThe 1929-1932 survival is treated in the value-investing literature as a near-miss rather than a triumph. Graham's candour about the role of leverage and about the dependence on partner forbearance is unusual among investment memoirs, and the lesson drawn by his students — including Buffett, who has written about Graham's 1929 experience — is that survival through a drawdown is a precondition for any later compounding.\n\nGraham's later insistence on the margin of safety as the central principle of investment is itself a direct analytical response to the 1929-1932 experience. The framework that produced the most-cited value-investing books of the twentieth century was forged in an episode Graham regarded as one of the closest calls of his career.",
-    "outcomeSourceUrl": "https://novelinvestor.com/rise-fall-rise-ben-graham",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "mistakes-and-learning",
-      "debt-discipline",
-      "bubbles-and-crashes"
-    ]
-  },
-  {
-    "title": "Post-1929 leverage reduction — Graham stops financing investment positions with borrowed money",
-    "decisionDate": "1932",
-    "action": "reduced",
-    "statement": "After surviving the 1929-1932 drawdown, Graham reduced the use of margin leverage in his investment operation. The decision is documented in his memoirs and in his later writing, where he treats leverage as a structural fragility independent of the analyst's underlying positions.\n\nGraham's argument against leverage is twofold. First, leverage amplifies analytical error: a margin call can force the sale of a position at a price that has nothing to do with intrinsic value, converting a temporary mark-down into a permanent loss. Second, leverage introduces a non-analytical actor — the lender — whose view of the position can force liquidation at exactly the wrong moment.\n\nGraham writes that in 1929 he had been cautious by the standards of the era, but that his caution had not been sufficient to prevent the drawdown. The lesson he drew was that a margin of safety against analytical error was insufficient if the portfolio could be liquidated at the bottom by lenders who did not share the analyst's view.",
-    "outcome": "The post-1929 reduction in leverage is treated in the value-investing literature as a defining break in Graham's method. The framework he codified in Security Analysis (1934) explicitly de-emphasises leverage as a permanent feature of an investment operation and treats borrowed money as a tool to be used only sparingly and only against positions whose maturity the analyst can independently control.\n\nThe post-1929 discipline reshaped the Graham-Newman partnership's operating model: the partnership's letters from 1946 onward disclose little use of borrowed money, and the audited balance sheets show only modest short-term liabilities against an equity base held in cash, securities, and receivables. The operating posture reflects the lesson Graham drew from 1929.\n\nThe decision also seeded the broader principle, repeated in The Intelligent Investor, that the analyst's first job is to avoid permanent loss of capital, and that leverage is the most reliable route to permanent loss. The post-1929 reduction is therefore not a single tactical call but the foundation of the risk-management framework Graham taught for the rest of his life.",
-    "outcomeSourceUrl": "https://novelinvestor.com/rise-fall-rise-ben-graham",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "debt-discipline",
-      "risk-management",
-      "mistakes-and-learning"
-    ]
-  },
-  {
-    "title": "1955 growth-stock thesis — Graham declines to pay any price for fast growers",
-    "decisionDate": "1955",
-    "action": "rejected",
-    "statement": "In his 1955 Senate Banking Committee testimony and in his contemporary writing, Graham registered a measured scepticism about the then-fashionable 'growth stock' thesis — the view that an investor should pay almost any price for a company whose earnings were growing rapidly, on the grounds that compounding would justify the price in retrospect.\n\nGraham's objection was not that growth was undesirable. He conceded that an investor who could reliably identify businesses with multi-decade growth runways would do well to own them. His objection was that the analytical tools of the day did not support the forecasts growth-stock buyers were making, and that the prices being paid embedded growth assumptions so aggressive that the analytical margin of safety was negative.\n\nGraham recommended instead that the investor focus on businesses whose normalised earning power, capitalised at a conservative rate, justified the price without requiring a growth assumption. If growth materialised, the investor would benefit; if it did not, the investor would still have paid a defensible price. The asymmetry, in Graham's view, lay in not requiring growth to justify the entry.",
-    "outcome": "The growth-stock thesis Graham rejected became the dominant framework of the late 1950s and 1960s bull market, and many of the names most enthusiastically recommended under that framework failed to deliver the decades of growth that had been priced in. The 1973-1974 bear market repriced the growth-stock universe sharply, vindicating Graham's caution retrospectively.\n\nGraham did not abandon his position in later writing. The Intelligent Investor's later editions repeated the caution that the analyst should not pay a price that required specific growth to be realised, even when the analyst found the underlying business compelling. The framework was consistent across decades.\n\nThe growth-stock debate became one of the recurring points of contrast between Graham and his students. Buffett's later framework — pay a fair price for a wonderful business — explicitly rejects Graham's caution in favour of a willingness to pay for durability and growth. The divergence is one of the most documented in the value-investing literature, and Graham's 1955 testimony is one of the earliest canonical statements of the position Buffett would later move past.",
-    "outcomeSourceUrl": "https://novelinvestor.com/graham-mysteries-stock-market",
-    "confidence": "high",
-    "verified": true,
-    "tags": [
-      "valuation",
-      "circle-of-competence",
-      "second-level-thinking"
-    ]
-  }
+ {
+  "title": "GEICO 1948 — Graham-Newman buys half a direct-to-consumer insurer for ~$712,000",
+  "decisionDate": "1948",
+  "action": "invested",
+  "statement": "Graham-Newman Corporation invested approximately $712,000 in 1948 to acquire half of Government Employees Insurance Company, a small direct-to-consumer auto insurer based in the Washington, D.C. area. The deal was unusual for the partnership: Graham-Newman had historically focused on asset-value plays, arbitrage, and special situations, so an outright acquisition of half a new insurance franchise was a step outside the partnership's usual mandate.\n\nThe analytical case rested on GEICO's underwriting model. The company sold auto insurance directly to federal employees — a lower-risk book than the general driving population — and avoided the agency-commission structure that constrained most competitors. The combination of a superior book and a lower cost base produced an underwriting margin other insurers could not match at the same premium levels.\n\nGraham and his partner Jerry Newman negotiated the purchase with the founder. The Securities and Exchange Commission subsequently ruled that the partnership's stake in an insurance company exceeded the percentage an investment fund was permitted to hold, and required Graham-Newman to distribute most of the GEICO shares to its own shareholders. The forced distribution became one of the most consequential involuntary decisions in the partnership's history.",
+  "outcome": "The GEICO stake distributed to Graham-Newman's shareholders compounded through the post-war decades as the company expanded its direct-to-consumer model nationally. An investor who held 100 shares of Graham-Newman in 1948 and retained the GEICO distribution would, over the following twenty-five years, have seen that distribution alone grow to roughly $1.66 million. Graham himself later noted that the analytical case had identified the soundness of the business and the cheapness of the price, but that the magnitude of the long-run return was in no sense forecast by the partnership at the time of purchase.\n\nThe position became one of the best-documented investments in twentieth-century value investing, and is now treated as a canonical example of the asymmetry between analytical soundness and realised payoff. The episode illustrates Graham's view that an investor can be right about the business without being right about the size of the payoff.\n\nThe later 1970s near-collapse of GEICO — when the company abandoned its underwriting discipline in pursuit of premium growth — confirmed Graham's view that low-cost operators can be ruined by chasing premium volume. The episode became a recurring case in the value-investing literature for both the upside of the original 1948 investment and the warning embedded in the later rescue.",
+  "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Benjamin_Graham",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "margin-of-safety",
+   "long-term-ownership",
+   "insurance-economics"
+  ]
+ },
+ {
+  "title": "Northern Pipeline 1926 — buying a Standard Oil spinoff at a discount to its own liquid assets",
+  "decisionDate": "1926",
+  "action": "invested",
+  "statement": "In 1926, Graham identified Northern Pipeline Company — a Standard Oil subsidiary that had been distributed to shareholders — as trading at a discount to its liquid assets. Reading the company's annual report, Graham observed that Northern Pipeline held cash and government securities far in excess of its entire market capitalisation, with the operating pipeline almost an afterthought in the valuation.\n\nGraham began accumulating shares at the prevailing market price and prepared to act at the company's annual meeting. His approach was novel for the era: a minority shareholder using public filings, the proxy machinery, and the annual-meeting floor to push a board to distribute surplus assets to shareholders rather than leave them embedded in the operating company.\n\nGraham won partial distribution after a contested meeting with the board. The company returned a portion of its surplus securities to shareholders in specie, crystallising the value the market had been ignoring. The campaign is one of the earliest documented activist interventions in the modern sense — the balance sheet did the analytical work, and the annual meeting did the catalytic work.",
+  "outcome": "The Northern Pipeline trade established Graham's reputation for finding value in corners of the market that the consensus had written off. The mechanics — buy a security trading below the value of its liquid assets, agitate for distribution, collect the spread — became one of the running methods of Graham's investment account in the late 1920s.\n\nThe case also seeded the analytical principle that would become central to Graham's later work: the market regularly leaves cash, securities, and contractual claims unpriced inside operating companies. The analyst's job is to read the balance sheet carefully enough to find them, and to be willing to act when the price is right.\n\nNorthern Pipeline became one of the recurring cases Graham used in his teaching at Columbia, where it served as a working example of how a balance-sheet reading can produce returns uncorrelated with the general market or with the analyst's view of the underlying operating business. The case is repeatedly cited in the later commentary on Graham's career as the formative asset-value episode.",
+  "outcomeSourceUrl": "https://en.wikipedia.org/wiki/Benjamin_Graham",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "margin-of-safety",
+   "contrarianism",
+   "valuation"
+  ]
+ },
+ {
+  "title": "Rockwood & Co. cocoa-bean exchange 1954 — the arbitrage that broke Graham's own framework",
+  "decisionDate": "1954",
+  "action": "invested",
+  "statement": "In 1954, Graham-Newman evaluated the Rockwood & Company cocoa-bean exchange offer. Rockwood, a Brooklyn chocolate manufacturer, held a large inventory of cocoa beans that had appreciated in value; selling the beans directly would have triggered a substantial tax liability. The company instead offered to exchange cocoa beans for its own shares at a fixed ratio, in effect buying back its stock with beans.\n\nThe structure created an apparent arbitrage: each share of Rockwood could be purchased in the open market and tendered to the company in exchange for cocoa beans worth more than the share's purchase price. The spread between the share price and the cocoa-bean value was wide enough to attract the Graham-Newman partnership, which instructed its young analyst Warren Buffett to work the trade.\n\nBuffett recognised that the hedged arbitrage — buy shares, tender for beans, sell cocoa futures to lock the spread — was profitable but capped. He chose instead to buy Rockwood shares outright, betting that the shrinking share count would leave the unredeemed shares worth more than the immediate arbitrage profit. Graham-Newman also participated in the standard arbitrage leg, earning a more modest but realised return.",
+  "outcome": "Buffett's unhedged position outperformed the straightforward arbitrage. As more shares were tendered and the bean inventory per remaining share grew, the value of the unredeemed Rockwood stock appreciated substantially. The case is documented in Buffett's later writing and in the Graham-Newman letters, where it appears as one of several 1954-1956 special situations.\n\nThe episode is repeatedly cited as a hinge moment: Buffett's analysis went beyond the partnership's standard arbitrage framework and toward a view that business-quality considerations could dominate the catalyst dimension. For Graham-Newman, the case reinforced the view that arbitrage and workout opportunities recur in unusual corners of the market — reorganisations, tax-driven exchanges, and recapitalisations where the catalyst is legal or tax-driven rather than operational.\n\nThe partnership's expected-return framework handled the unusual cases with the same discipline as the standard ones. The Rockwood case is the documented instance of the transition from Graham's strict arbitrage method to Buffett's later business-quality framework, and is taught as such in value-investing coursework.",
+  "outcomeSourceUrl": "https://finance.yahoo.com/news/look-back-warren-buffetts-six-153526270.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "asymmetric-payoffs",
+   "contrarianism",
+   "second-level-thinking"
+  ]
+ },
+ {
+  "title": "1929-1932 drawdown survival — Graham's investment account nearly folded, then held",
+  "decisionDate": "1929",
+  "action": "held",
+  "statement": "Graham's investment account survived the 1929-1932 drawdown without liquidating its better positions. The account had been running with margin leverage, and the wipeout was severe: by the trough in 1932, cumulative losses approached seventy percent. Graham writes in his memoirs that the experience was the formative financial event of his life.\n\nGraham and his partner Jerry Newman kept the partnership alive partly through the loyalty of their limited partners, who did not demand redemptions, and partly through Graham forgoing his management salary for several years. The underlying positions, although deeply under water, were in businesses with real assets and the capacity to recover when the cycle turned.\n\nGraham's decision was not to sell into the panic. He writes that he could not have known at the trough that the positions would recover, and that the decision to hold was a function of the partners' forbearance as much as of his own analysis. The survival was, in his own telling, partly an analytical call and partly a structural one.",
+  "outcome": "Graham recovered the 1929-1932 losses across the 1933-1937 recovery, and the experience became the basis for the analytical framework he would codify in Security Analysis (1934) and The Intelligent Investor (1949). The lessons drawn from the drawdown — distrust of leverage, insistence on balance-sheet tests, demand for a wider margin of safety — became the defining features of his later method.\n\nThe 1929-1932 survival is treated in the value-investing literature as a near-miss rather than a triumph. Graham's candour about the role of leverage and about the dependence on partner forbearance is unusual among investment memoirs, and the lesson drawn by his students — including Buffett, who has written about Graham's 1929 experience — is that survival through a drawdown is a precondition for any later compounding.\n\nGraham's later insistence on the margin of safety as the central principle of investment is itself a direct analytical response to the 1929-1932 experience. The framework that produced the most-cited value-investing books of the twentieth century was forged in an episode Graham regarded as one of the closest calls of his career.",
+  "outcomeSourceUrl": "https://novelinvestor.com/rise-fall-rise-ben-graham",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "mistakes-and-learning",
+   "debt-discipline",
+   "bubbles-and-crashes"
+  ]
+ },
+ {
+  "title": "Post-1929 leverage reduction — Graham stops financing investment positions with borrowed money",
+  "decisionDate": "1932",
+  "action": "reduced",
+  "statement": "After surviving the 1929-1932 drawdown, Graham reduced the use of margin leverage in his investment operation. The decision is documented in his memoirs and in his later writing, where he treats leverage as a structural fragility independent of the analyst's underlying positions.\n\nGraham's argument against leverage is twofold. First, leverage amplifies analytical error: a margin call can force the sale of a position at a price that has nothing to do with intrinsic value, converting a temporary mark-down into a permanent loss. Second, leverage introduces a non-analytical actor — the lender — whose view of the position can force liquidation at exactly the wrong moment.\n\nGraham writes that in 1929 he had been cautious by the standards of the era, but that his caution had not been sufficient to prevent the drawdown. The lesson he drew was that a margin of safety against analytical error was insufficient if the portfolio could be liquidated at the bottom by lenders who did not share the analyst's view.",
+  "outcome": "The post-1929 reduction in leverage is treated in the value-investing literature as a defining break in Graham's method. The framework he codified in Security Analysis (1934) explicitly de-emphasises leverage as a permanent feature of an investment operation and treats borrowed money as a tool to be used only sparingly and only against positions whose maturity the analyst can independently control.\n\nThe post-1929 discipline reshaped the Graham-Newman partnership's operating model: the partnership's letters from 1946 onward disclose little use of borrowed money, and the audited balance sheets show only modest short-term liabilities against an equity base held in cash, securities, and receivables. The operating posture reflects the lesson Graham drew from 1929.\n\nThe decision also seeded the broader principle, repeated in The Intelligent Investor, that the analyst's first job is to avoid permanent loss of capital, and that leverage is the most reliable route to permanent loss. The post-1929 reduction is therefore not a single tactical call but the foundation of the risk-management framework Graham taught for the rest of his life.",
+  "outcomeSourceUrl": "https://novelinvestor.com/rise-fall-rise-ben-graham",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "debt-discipline",
+   "risk-management",
+   "mistakes-and-learning"
+  ]
+ },
+ {
+  "title": "1955 growth-stock thesis — Graham declines to pay any price for fast growers",
+  "decisionDate": "1955",
+  "action": "rejected",
+  "statement": "In his 1955 Senate Banking Committee testimony and in his contemporary writing, Graham registered a measured scepticism about the then-fashionable 'growth stock' thesis — the view that an investor should pay almost any price for a company whose earnings were growing rapidly, on the grounds that compounding would justify the price in retrospect.\n\nGraham's objection was not that growth was undesirable. He conceded that an investor who could reliably identify businesses with multi-decade growth runways would do well to own them. His objection was that the analytical tools of the day did not support the forecasts growth-stock buyers were making, and that the prices being paid embedded growth assumptions so aggressive that the analytical margin of safety was negative.\n\nGraham recommended instead that the investor focus on businesses whose normalised earning power, capitalised at a conservative rate, justified the price without requiring a growth assumption. If growth materialised, the investor would benefit; if it did not, the investor would still have paid a defensible price. The asymmetry, in Graham's view, lay in not requiring growth to justify the entry.",
+  "outcome": "The growth-stock thesis Graham rejected became the dominant framework of the late 1950s and 1960s bull market, and many of the names most enthusiastically recommended under that framework failed to deliver the decades of growth that had been priced in. The 1973-1974 bear market repriced the growth-stock universe sharply, vindicating Graham's caution retrospectively.\n\nGraham did not abandon his position in later writing. The Intelligent Investor's later editions repeated the caution that the analyst should not pay a price that required specific growth to be realised, even when the analyst found the underlying business compelling. The framework was consistent across decades.\n\nThe growth-stock debate became one of the recurring points of contrast between Graham and his students. Buffett's later framework — pay a fair price for a wonderful business — explicitly rejects Graham's caution in favour of a willingness to pay for durability and growth. The divergence is one of the most documented in the value-investing literature, and Graham's 1955 testimony is one of the earliest canonical statements of the position Buffett would later move past.",
+  "outcomeSourceUrl": "https://novelinvestor.com/graham-mysteries-stock-market",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "valuation",
+   "circle-of-competence",
+   "second-level-thinking"
+  ]
+ },
+ {
+  "title": "Graham-Newman Corporation — the founding vehicle",
+  "decisionDate": "1936-01-01",
+  "action": "founded",
+  "statement": "Graham organized his partnership's successor as a closed-end fund with Jerome Newman, applying the disciplines of Security Analysis to a permanent capital vehicle.",
+  "outcome": "Graham-Newman compounded roughly 14% annually across its life while the broader market returned roughly 12%, doing so through the Great Depression, the war and the postwar boom — with its techniques (net-nets, arbitrage, liquidations) becoming the industry's founding toolkit.",
+  "outcomeSourceUrl": "https://www.cfapubs.org/doi/10.2469/faj.v61.n1.2620",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "margin-of-safety"
+  ]
+ },
+ {
+  "title": "Statistical bargains during the 1937-38 recession",
+  "decisionDate": "1938-01-01",
+  "action": "invested",
+  "statement": "Graham deployed Graham-Newman's cash into issues trading below net current asset value as the 1937-38 bear market drove prices to statistical bargain levels.",
+  "outcome": "The 1938 recovery validated the net-net discipline; Graham documented in his writing that the firm's bargain purchases systematically outperformed as conditions normalized.",
+  "outcomeSourceUrl": "https://www.grahamanddoddsville.net/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "margin-of-safety"
+  ]
+ },
+ {
+  "title": "Buying the controlling position in a dying industry to force liquidation",
+  "decisionDate": "1947-01-01",
+  "action": "acquired",
+  "statement": "Graham-Newman at times bought enough of a stagnant company to control the vote and force distribution of its assets — most famously with the Philadelphia and Reading coal-and-iron complex, reorganized into a holding vehicle for other bargains.",
+  "outcome": "The reorganizations returned capital to shareholders at levels far above the market price of the securities when accumulated; the technique of 'buying the company below its liquidation value and making the value real' entered the activist toolkit.",
+  "outcomeSourceUrl": "https://www.grahamanddoddsville.net/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "margin-of-safety",
+   "corporate-governance"
+  ]
+ },
+ {
+  "title": "Post-war shift from net-nets to qualitative quality",
+  "decisionDate": "1948-01-01",
+  "action": "invested",
+  "statement": "As the post-war boom eliminated most statistical bargains, Graham acknowledged the opportunity set had changed and emphasized earnings power, diversification and defensive quality over pure asset discounts in his revised editions of Security Analysis.",
+  "outcome": "The methodological humility — adapting the framework when the market changed rather than waiting for bargains to return — is cited by later value investors including Buffett as the mark of Graham's scientific temperament.",
+  "outcomeSourceUrl": "https://www.wiley.com/en-us/Security+Analysis%2C+Seventh+Edition-p-9781264932405",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy",
+   "valuation"
+  ]
+ }
 ]

@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Staying at Anand to build the cooperative",
+  "decisionDate": "1949-01-01",
+  "action": "founded",
+  "statement": "A petroleum engineer awaiting a scholarship, Kurien was posted to a dusty government creamery at Anand and chose to stay to help Tribhuvandas Patel's farmer cooperative rather than leave for his intended career.",
+  "outcome": "That stay built the Kaira District Cooperative — Amul — and the institutional architecture of the White Revolution.",
+  "outcomeSourceUrl": "https://amul.com/m/kurien-biography",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "cooperative-model"
+  ]
+ },
+ {
+  "title": "Operation Flood — the White Revolution at national scale",
+  "decisionDate": "1970-01-01",
+  "action": "founded",
+  "statement": "Kurien designed and led Operation Flood, using donated European skim-milk-powder monetization to build a national dairy grid of village cooperatives.",
+  "outcome": "Over 26 years India went from milk-deficient to the world's largest milk producer; the Anand Pattern was replicated in oilseeds and fruit and remains the world's largest agricultural-development program by livelihoods touched.",
+  "outcomeSourceUrl": "https://www.nddb.coop/about/history",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "cooperative-model",
+   "public-infrastructure-bets"
+  ]
+ },
+ {
+  "title": "Resisting the multinationals in the Bombay milk market",
+  "decisionDate": "1966-01-01",
+  "action": "founded",
+  "statement": "When Polson and the multinationals fought the cooperative's entry into Bombay, Kurien fought the dairy-interest politics until Prime Minister Shastri toured Anand and sided with the farmers.",
+  "outcome": "The victory gave the cooperative metropolitan market access and produced the Amul girl ad campaign — the world's longest-running outdoor advertising — built on the dairy-politics story.",
+  "outcomeSourceUrl": "https://amul.com/m/kurien-biography",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "cooperative-model",
+   "policy-betting"
+  ]
+ }
+]

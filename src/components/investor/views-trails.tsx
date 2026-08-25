@@ -35,6 +35,23 @@ function navigateToHash(link: string) {
   window.dispatchEvent(new PopStateEvent("popstate"));
 }
 
+function navigateFromTrail(link: string) {
+  // Trail node links are REAL PATHS (/companies/…, /sources/…, /themes/…).
+  // The old handler only understood #/ hash routes, so clicking a trail step
+  // was a silent no-op (preventDefault + early return). Real paths now get a
+  // full navigation; hash links keep the SPA behavior.
+  if (typeof window === "undefined") return;
+  if (link.startsWith("#/")) {
+    navigateToHash(link);
+    return;
+  }
+  if (link.startsWith("/")) {
+    window.location.assign(link);
+    return;
+  }
+  window.location.assign(`/${link}`);
+}
+
 function HashLink({
   href,
   className,
@@ -52,8 +69,10 @@ function HashLink({
       className={className}
       aria-label={ariaLabel}
       onClick={(e) => {
+        // Let plain external URLs (http/https/mailto) behave natively.
+        if (/^(https?:|mailto:|tel:)/.test(href)) return;
         e.preventDefault();
-        navigateToHash(href);
+        navigateFromTrail(href);
       }}
     >
       {children}

@@ -126,10 +126,10 @@
       {
         "year": 2013,
         "entityKind": "source",
-        "entitySlug": "how-the-economic-machine-works",
+        "entitySlug": "economicprinciples-org-economic-machine",
         "title": "Dalio's debt-cycle template",
-        "blurb": "Dalio's indexed transcript introduces his template for economies driven by credit cycles — expansion, contraction, and restructuring. Read alongside the 2008 sources above, it offers a cycle-based frame for the same events.",
-        "link": "/sources/how-the-economic-machine-works"
+        "blurb": "Dalio's Economic Principles essay introduces his template for economies driven by credit cycles — expansion, contraction, and restructuring. Read alongside the 2008 sources above, it offers a cycle-based frame for the same events.",
+        "link": "/sources/economicprinciples-org-economic-machine"
       },
       {
         "year": 2020,
@@ -158,7 +158,7 @@
         "entityKind": "source",
         "entitySlug": "senate-testimony-1955",
         "title": "Senate testimony, 1955",
-        "blurb": "Graham appeared before the U.S. Senate Banking Committee during its 1955 stock-market study; the original transcript is linked from the source's provenance panel. Passage-level excerpts have not yet been added, so this step anchors the trail to the primary document itself.",
+        "blurb": "Graham appeared before the U.S. Senate Banking Committee during its 1955 stock-market study. The indexed excerpts preserve his answers on margin debt, valuation, and what he would advise a prudent investor — the primary document anchors the trail's start.",
         "link": "/sources/senate-testimony-1955"
       },
       {

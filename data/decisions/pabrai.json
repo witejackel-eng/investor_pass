@@ -1,0 +1,83 @@
+[
+ {
+  "title": "Founding Pabrai Investment Funds with the Buffett partnership structure",
+  "decisionDate": "1999-01-01",
+  "action": "founded",
+  "statement": "Pabrai copied Warren Buffett's original 1950s partnership fee structure — no management fee, 6% hurdle, 25% of gains above it — to align himself with a small number of partners.",
+  "outcome": "The structure attracted permanent capital and his funds compounded at roughly 18% annually over their first 15 years, among the best records of the era.",
+  "outcomeSourceUrl": "https://www.pabraifunds.com/about",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "shareholder-orientation"
+  ]
+ },
+ {
+  "title": "Buying Stewart Information Services during the 2008 crisis",
+  "decisionDate": "2008-01-01",
+  "action": "invested",
+  "statement": "With title insurers priced for permanent collapse, Pabrai researched the century of Stewart's cash generation through real-estate cycles and bought heavily as the sector traded near liquidation values.",
+  "outcome": "Stewart recovered and multiplied from his purchase prices; Pabrai called it a canonical 'heads I win big, tails I don't lose much' position.",
+  "outcomeSourceUrl": "https://www.fool.com/investing/general/2009/06/18/mohnish-pabrai-stewart-information.aspx",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "margin-of-safety"
+  ]
+ },
+ {
+  "title": "The Dhando Investor — articulating low-risk high-uncertainty buying",
+  "decisionDate": "2007-01-01",
+  "action": "founded",
+  "statement": "Pabrai systematized his method as 'Dhando' — the Indian word for business done with margin of safety — arguing that the best investments are low-risk bets on high-uncertainty situations the market prices as high-risk.",
+  "outcome": "The book became a modern value-investing staple and popularized asymmetric-payoff thinking among retail investors.",
+  "outcomeSourceUrl": "https://www.wiley.com/en-us/The+Dhandho+Investor-p-9780470043899",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy",
+   "margin-of-safety"
+  ]
+ },
+ {
+  "title": "The 2011 CRM misstep and its public postmortem",
+  "decisionDate": "2011-01-01",
+  "action": "invested",
+  "statement": "Pabrai bought into salesforce.com-style high-flying software names after being drawn in by growth narratives — a violation of his own framework, which he dissected publicly at subsequent shareholder meetings.",
+  "outcome": "He sold at a loss and published the analysis as a teaching case; his annual meeting 'mistakes' sessions became a celebrated transparency practice.",
+  "outcomeSourceUrl": "https://www.basehitinvesting.com/mohnish-pabrais-mistakes-4f6e2f8eeb03",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "mistakes-and-learning"
+  ]
+ },
+ {
+  "title": "Copying — the explicit adoption of others' proven frameworks",
+  "decisionDate": "2015-01-01",
+  "action": "founded",
+  "statement": "Pabrai openly articulated his belief that originality is overrated in investing: identify the best systems — Buffett's partnership, Kelly sizing, checklist investing — and copy them shamelessly.",
+  "outcome": "The 'shameless cloning' doctrine, including tracking other great investors' purchases, became his signature contribution to value-investing pedagogy.",
+  "outcomeSourceUrl": "https://www.fool.com/investing/general/2015/01/15/mohnish-pabrai-on-the-power-of-cloning.aspx",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "business-philosophy"
+  ]
+ },
+ {
+  "title": "Dakshana Foundation — funding gifted poor students at scale",
+  "decisionDate": "2005-01-01",
+  "action": "founded",
+  "statement": "Pabrai and his wife committed to giving a majority of their wealth, founding Dakshana to coach academically gifted but impoverished Indian students for the IIT entrance examination.",
+  "outcome": "Dakshana has placed thousands of students into the IITs and other top institutions, with alumni entering India's engineering elite; the Pabrais signed the Giving Pledge in 2019.",
+  "outcomeSourceUrl": "https://dakshana.org/about/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy"
+  ]
+ }
+]

@@ -1,0 +1,57 @@
+[
+ {
+  "title": "Diversifying from vanaspati into IT",
+  "decisionDate": "1977-01-01",
+  "action": "invested",
+  "statement": "Premji inherited a cooking-oil business at 21 after his father's death and pivoted the family enterprise into the nascent IT industry when he saw hardware and later software services as the growth frontier.",
+  "outcome": "WIPRO became one of India's great IT services firms; the pivot from hydrogenated vegetable oil to technology is the founding legend of Indian business diversification.",
+  "outcomeSourceUrl": "https://www.wipro.com/about-us/leadership/azim-premji/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "technology-pivot",
+   "founding-and-origins"
+  ]
+ },
+ {
+  "title": "The 1999 NYSE listing",
+  "decisionDate": "1999-10-19",
+  "action": "founded",
+  "statement": "Premji listed Wipro on the New York Stock Exchange as part of the first wave of Indian technology ADRs, accessing global capital and credibility.",
+  "outcome": "The listing, alongside Infosys's NASDAQ listing the same year, marked Indian IT's arrival as a global institutional investment class.",
+  "outcomeSourceUrl": "https://www.wipro.com/about-us/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "ipo-and-capital-markets",
+   "globalization"
+  ]
+ },
+ {
+  "title": "Azim Premji Foundation — pledging most of his wealth to education",
+  "decisionDate": "2001-01-01",
+  "action": "founded",
+  "statement": "Premji transferred billions of dollars of Wipro stock into his foundation, focusing on public primary education in India rather than elite institutions.",
+  "outcome": "The foundation became one of the world's largest private funders of education research and systems reform; Premji ultimately gave away more of his net worth proportionally than almost any living billionaire and signed the Giving Pledge.",
+  "outcomeSourceUrl": "https://azimpremjifoundation.org/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "philanthropy"
+  ]
+ },
+ {
+  "title": "Resisting the 2000-2001 rush to fire and rehire cheap staff",
+  "decisionDate": "2001-01-01",
+  "action": "founded",
+  "statement": "During the IT downturn, Premji declined to mass-retrench while competitors fired and rehired at lower wages, absorbing the margin hit.",
+  "outcome": "Wipro's retention record became a durability advantage in talent markets and a core element of Premji's reputation for frugal, long-horizon stewardship.",
+  "outcomeSourceUrl": "https://www.wipro.com/about-us/leadership/azim-premji/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "leadership-transition",
+   "management-quality"
+  ]
+ }
+]

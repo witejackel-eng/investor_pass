@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Founding Tata Airlines — the birth of Indian civil aviation",
+  "decisionDate": "1932-10-15",
+  "action": "founded",
+  "statement": "JRD Tata flew the first Karachi-Bombay mail flight himself, founding Tata Airlines, the carrier that became Air India and created Indian commercial aviation.",
+  "outcome": "The airline ran profitably for decades as a private company; its 1953 nationalization began the license-raj era's state consolidation and remained JRD's most painful public defeat.",
+  "outcomeSourceUrl": "https://www.tata.com/about-us/tata-milestones",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "infrastructure-building"
+  ]
+ },
+ {
+  "title": "Founding Tata Motors (TELCO) and the indigenous car",
+  "decisionDate": "1945-01-01",
+  "action": "founded",
+  "statement": "JRD established Tata Engineering and Locomotive Co. to build India's indigenous trucks and locomotives, refusing the import-substitution orthodoxy of assembly-only.",
+  "outcome": "TELCO became Tata Motors, India's largest automaker; the Indica project completed decades later was the culmination of his conviction that India could design its own cars.",
+  "outcomeSourceUrl": "https://www.tatamotors.com/about-us/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "infrastructure-building"
+  ]
+ },
+ {
+  "title": "The 1951 pilot strikes and worker-welfare precedent",
+  "decisionDate": "1951-01-01",
+  "action": "founded",
+  "statement": "Facing labor militancy, JRD instituted employee provident fund, gratuity and eight-hour-day provisions at Tata decades before Indian law required them.",
+  "outcome": "The welfare package became the template the Indian state later mandated nationally; JRD treated it as the trust's obligation rather than negotiation strategy.",
+  "outcomeSourceUrl": "https://www.tata.com/about-us/tata-milestones",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance",
+   "esops-and-ownership"
+  ]
+ }
+]

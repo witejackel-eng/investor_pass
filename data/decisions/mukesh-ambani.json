@@ -1,0 +1,72 @@
+[
+ {
+  "title": "Jamnagar refinery — betting the company on the world's largest refinery",
+  "decisionDate": "1999-01-01",
+  "action": "founded",
+  "statement": "Ambani committed roughly $6 billion — then the largest single foreign-currency investment by an Indian company — to build a grass-roots refinery at Jamnagar during the Asian crisis, when the rupee and the industry's outlook were both collapsing.",
+  "outcome": "Commissioned in 1999, Jamnagar became the world's largest refining complex after its 2008 doubling; its scale economics anchored Reliance's cash flows for the next two decades.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/idUSDEL295294/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "infrastructure-building",
+   "contrarianism"
+  ]
+ },
+ {
+  "title": "The Reliance Communications split after the brothers' war",
+  "decisionDate": "2005-06-18",
+  "action": "exited",
+  "statement": "After their father died without a will, Mukesh and Anil Ambani's feud reached a settlement brokered by their mother splitting the empire — Mukesh took oil, gas and petrochemicals; Anil took telecom, power and finance.",
+  "outcome": "The demerger resolved the conflict that had paralyzed both firms; within a decade Mukesh's half compounded into India's largest company while Anil's fortunes collapsed — a natural experiment in allocation.",
+  "outcomeSourceUrl": "https://www.theguardian.com/world/2005/jun/18/india",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "corporate-governance",
+   "m-and-a-acquisitions"
+  ]
+ },
+ {
+  "title": "Reliance Jio — the $25 billion 4G bet that repriced Indian data",
+  "decisionDate": "2016-09-05",
+  "action": "founded",
+  "statement": "Ambani spent more than $25 billion building a nationwide 4G network given away free for months, gambling that pricing data near zero would create India's digital-consumption market.",
+  "outcome": "Jio acquired 100 million subscribers in 170 days — the fastest in telecom history — collapsed data prices across the industry, destroyed incumbents' economics, and forced the consolidation of Indian telecom into a three-player market; Jio later raised over $20 billion from Facebook and Google.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-reliance-jio-idUSKCN11H2EG",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "disruptive-pricing",
+   "infrastructure-building"
+  ]
+ },
+ {
+  "title": "Net debt zero — the 2020 deleveraging",
+  "decisionDate": "2020-06-19",
+  "action": "exited",
+  "statement": "Facing investor concern over Reliance's oil-and-gas debt, Ambani executed the largest deleveraging in Indian corporate history: raising roughly $25 billion from Jio Platform stakes sold to Facebook, Google, KKR and others.",
+  "outcome": "Reliance became net-debt-free months ahead of his stated deadline; the transactions repriced Jio at roughly $65 billion and marked the pivot of India's most valuable company from energy toward digital and retail.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-reliance-india-results-idUSKBN23V0RS",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "debt-discipline",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Retail consolidation — building Reliance Retail into India's largest",
+  "decisionDate": "2006-01-01",
+  "action": "founded",
+  "statement": "Ambani systematically scaled Reliance Retail through formats, supply chain and acquisitions — culminating in the 2020 purchase of Future Group's assets for roughly $3.4 billion.",
+  "outcome": "Reliance Retail became India's largest retailer by revenue, store count and reach, with over 10,000 stores; the Future acquisition survived Amazon's legal challenge to consolidate grocery dominance.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-reliance-india-future-idUSKBN27Q0G4",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "scale-economics",
+   "m-and-a-acquisitions"
+  ]
+ }
+]

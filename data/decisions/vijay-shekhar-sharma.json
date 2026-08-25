@@ -1,0 +1,44 @@
+[
+ {
+  "title": "Founding Paytm as the mobile-first payment utility",
+  "decisionDate": "2010-08-01",
+  "action": "founded",
+  "statement": "After selling One97's earlier businesses, Sharma committed the company to a mobile wallet and payments platform, riding the smartphone wave.",
+  "outcome": "Paytm became India's dominant wallet, the demonetization surge's biggest beneficiary, and built the merchant QR network that digitized small commerce.",
+  "outcomeSourceUrl": "https://www.reuters.com/paytm-ipo-2021-11-08/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins",
+   "fintech-regulation"
+  ]
+ },
+ {
+  "title": "The Ant monetization and Paytm's ill-timed IPO",
+  "decisionDate": "2021-11-18",
+  "action": "exited",
+  "statement": "Paytm's $2.5 billion IPO — India's largest at the time — priced at the peak of the fintech window; Sharma personally monetized over $100 million in the offering.",
+  "outcome": "The stock fell roughly 75% from its IPO price within a year as profitability remained distant, becoming the emblem of the Indian IPO bubble of 2021.",
+  "outcomeSourceUrl": "https://www.reuters.com/business/finance/paytm-shares-plunge-record-low-2022-05-12/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "ipo-and-capital-markets",
+   "mistakes-and-learning"
+  ]
+ },
+ {
+  "title": "The RBI banking-partner shutdown",
+  "decisionDate": "2024-01-31",
+  "action": "founded",
+  "statement": "The Reserve Bank barred Paytm Payments Bank from accepting new deposits after persistent compliance failures, effectively shutting the banking core of Sharma's empire.",
+  "outcome": "Paytm survived by migrating merchants and users to partner-bank rails, refocusing on lending and distribution; the episode is the defining case of Indian fintech's regulatory reckoning.",
+  "outcomeSourceUrl": "https://www.reuters.com/world/india/rbi-orders-paytm-payments-bank-stop-accepting-new-deposits-2024-01-31/",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "fintech-regulation",
+   "crisis-management"
+  ]
+ }
+]

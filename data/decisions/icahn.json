@@ -1,0 +1,85 @@
+[
+ {
+  "title": "TWA — the original corporate-raid playbook",
+  "decisionDate": "1985-05-17",
+  "action": "acquired",
+  "statement": "Icahn accumulated control of Trans World Airlines and extracted hundreds of millions through asset sales, buybacks at premium prices and finally a leveraged buyout — the template for the 1980s raider reputation.",
+  "outcome": "Icahn profited enormously; TWA was later sold to American Airlines and its employees suffered massively, an outcome labor advocates cite against him to this day.",
+  "outcomeSourceUrl": "https://www.nytimes.com/1985/05/17/business/icahn-group-acquires-control-of-twa.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "m-and-a-acquisitions",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Texaco-Getty fight and the Pennzoil windfall",
+  "decisionDate": "1987-12-01",
+  "action": "invested",
+  "statement": "Icahn bought a large Texaco stake after a Pennsylvania jury imposed a $10.5 billion judgment on Texaco for interfering with Pennzoil's Getty acquisition, arguing the companies would settle far below par.",
+  "outcome": "Texaco entered bankruptcy protection and settled for $3 billion; the stock recovered and Icahn's position — and his greenmail premium in the settlement — produced hundreds of millions in profit.",
+  "outcomeSourceUrl": "https://www.nytimes.com/1987/12/03/business/texaco-proposal.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "crisis-management"
+  ]
+ },
+ {
+  "title": "Founding Icahn Enterprises as a public holding company",
+  "decisionDate": "1987-01-01",
+  "action": "founded",
+  "statement": "Icahn organized his holdings into a public vehicle, giving him permanent capital and public-company currency for his campaigns.",
+  "outcome": "Icahn Enterprises became his permanent activist platform; its dividend and valuation performance have been mixed, but it has funded four decades of campaigns.",
+  "outcomeSourceUrl": "https://www.icahnenterprises.com/about",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "founding-and-origins"
+  ]
+ },
+ {
+  "title": "Apple — pushing the buyback in dinner with Tim Cook",
+  "decisionDate": "2013-10-01",
+  "action": "invested",
+  "statement": "Icahn built a multi-billion dollar Apple position and pressed Tim Cook directly for a much larger buyback, arguing the market was pricing a great franchise as if it were a fading hardware maker.",
+  "outcome": "Apple expanded its buyback to become history's largest capital-return program; Icahn exited in 2016 ahead of the stock's greatest run, a sale he later called premature.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-apple-icahn-idUSBREA1N1VC20140225",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "shareholder-orientation",
+   "concentration"
+  ]
+ },
+ {
+  "title": "eBay — the PayPal separation campaign",
+  "decisionDate": "2014-01-01",
+  "action": "invested",
+  "statement": "Icahn bought into eBay and publicly demanded the separation of PayPal, arguing the two businesses had no synergy and that management was protecting its own scope.",
+  "outcome": "eBay spun PayPal off in 2015; the payment company created far more value standalone than analysts predicted, validating the separation logic.",
+  "outcomeSourceUrl": "https://www.reuters.com/article/us-ebay-paypal-idUSKBN0M0278201500309",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "turnaround-management",
+   "shareholder-orientation"
+  ]
+ },
+ {
+  "title": "Herbalife — the long side of the Ackman war",
+  "decisionDate": "2013-01-01",
+  "action": "invested",
+  "statement": "Icahn took the opposite side of Ackman's billion-dollar short, buying a large long stake with board representation, partly on valuation analysis and famously partly on personal animus.",
+  "outcome": "The stock's rise squeezed the short; Icahn's stake roughly quintupled, he called it one of his best investments ever, and the position was later reduced in 2023.",
+  "outcomeSourceUrl": "https://www.cnbc.com/2013/02/26/carl-icahn-herbalife-stake.html",
+  "confidence": "high",
+  "verified": true,
+  "tags": [
+   "contrarianism",
+   "concentration"
+  ]
+ }
+]
