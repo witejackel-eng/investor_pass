@@ -7,7 +7,15 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const people = await db.person.findMany({
     orderBy: { sortOrder: "asc" },
-    include: {
+    select: {
+      slug: true,
+      name: true,
+      shortDescription: true,
+      bio: true,
+      status: true,
+      birthYear: true,
+      kind: true,
+      region: true,
       sources: { select: { id: true, year: true }, where: { year: { not: null } } },
       _count: { select: { sources: true, decisions: true } },
     },
@@ -19,6 +27,8 @@ export async function GET() {
     bio: p.bio,
     status: p.status,
     birthYear: p.birthYear,
+    kind: p.kind,
+    region: p.region,
     sourceCount: p._count.sources,
     decisionCount: p._count.decisions,
     yearSpan:

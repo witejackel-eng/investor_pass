@@ -9,6 +9,10 @@ export type InvestorLite = {
   bio: string | null;
   status: string;
   birthYear: number | null;
+  // Persona class ("investor" | "founder") + region ("us" | "china" | "india" | null)
+  // — powers the compare picker's grouping and the founders surface.
+  kind: string;
+  region: string | null;
   sourceCount: number;
   decisionCount: number;
   yearSpan: { from: number; to: number } | null;
