@@ -597,6 +597,52 @@ async function _getFounderDirectory(): Promise<DirectoryEntry[]> {
   }));
 }
 
+/** Company directory: /companies. Every indexed company with its passage,
+ *  people and decision counts plus industry — one round trip, ordered by
+ *  record depth so the most-documented companies lead the page. */
+export type CompanyDirectoryEntry = {
+  slug: string;
+  name: string;
+  ticker: string | null;
+  industry: string | null;
+  counts: { passages: number; people: number; decisions: number };
+};
+
+async function _getCompanyDirectory(): Promise<CompanyDirectoryEntry[]> {
+  type Row = {
+    slug: string;
+    name: string;
+    ticker: string | null;
+    industry: string | null;
+    passage_count: bigint;
+    people_count: bigint;
+    decision_count: bigint;
+  };
+  const rows = await db.$queryRaw<Row[]>`
+    SELECT c.slug,
+           c.name,
+           c.ticker,
+           i.name AS industry,
+           (SELECT COUNT(*) FROM "PassageCompany" pc WHERE pc."companyId" = c.id) AS passage_count,
+           (SELECT COUNT(*) FROM "PersonCompany" pm WHERE pm."companyId" = c.id) AS people_count,
+           (SELECT COUNT(*) FROM "Decision" d WHERE d."companyId" = c.id) AS decision_count
+    FROM "Company" c
+    LEFT JOIN "Industry" i ON c."industryId" = i.id
+    ORDER BY passage_count DESC, c.name ASC`;
+
+  return rows.map((r) => ({
+    slug: r.slug,
+    name: r.name,
+    ticker: r.ticker,
+    industry: r.industry,
+    counts: {
+      passages: Number(r.passage_count),
+      people: Number(r.people_count),
+      decisions: Number(r.decision_count),
+    },
+  }));
+}
+
 // ── Sitemap enumeration ─────────────────────────────────────────────────────
 
 export type SitemapData = {
@@ -740,6 +786,9 @@ export const getInvestorDirectory = cache(() =>
 );
 export const getFounderDirectory = cache(() =>
   safe("getFounderDirectory", () => _getFounderDirectory())
+);
+export const getCompanyDirectory = cache(() =>
+  safe("getCompanyDirectory", () => _getCompanyDirectory())
 );
 export const getSitemapData = cache(() =>
   safe("getSitemapData", () => _getSitemapData())

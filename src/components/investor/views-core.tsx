@@ -121,10 +121,10 @@ export function HomeView() {
             </div>
           </div>
           <div className="border-l border-rule lg:pl-6">
-            <p className="kicker text-signal-dark">ONE QUESTION · {stats?.investors ?? 31} INVESTORS</p>
+            <p className="kicker text-signal-dark">ONE QUESTION · {stats?.investors ?? 142} PEOPLE</p>
             <RiskCoverageCard />
             <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
-              {stats?.sources ?? 619} sources · {(stats?.passages ?? 12078).toLocaleString()} research units · provenance on every record
+              {stats?.sources ?? 1356} sources · {(stats?.passages ?? 14175).toLocaleString()} research units · provenance on every record
             </p>
           </div>
         </div>

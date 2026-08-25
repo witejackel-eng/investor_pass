@@ -32,7 +32,7 @@ export default function AccountPage() {
         <p>
           Manage your Investor/Pass subscription, profile and settings — billing,
           password, email preferences, and your plan. Your subscription powers
-          the indexed record: 31 investors, 619 sources and 12,078 paraphrased
+          the indexed record: investors and founders, sources and paraphrased
           research units, every one with provenance.
         </p>
         <ul>

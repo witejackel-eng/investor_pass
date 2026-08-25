@@ -18,8 +18,8 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const { q } = await searchParams;
   const title = q ? `“${q}” — search the record` : "Search the record";
   const description = q
-    ? `Investor/Pass research results for “${q}” — who talks about it, which sources document it, across 31 indexed investors.`
-    : "Search across 31 exceptional investors — 619 sources and 12,078 paraphrased research units, every one with provenance. Ask one question, see who talks about it.";
+    ? `Investor/Pass research results for “${q}” — who talks about it, which sources document it, across the indexed record of investors and founders.`
+    : "Search the indexed public record — investors and founders, letters, memos, speeches and interviews, every unit with provenance. Ask one question, see who talks about it.";
   return {
     title,
     description,
@@ -37,9 +37,9 @@ export default async function SearchPage({ searchParams }: Props) {
       <div className="sr-only">
         <h1>Search the record</h1>
         <p>
-          Investor/Pass search covers 31 investors, 619 sources and 12,078 paraphrased research
-          units — shareholder letters, memos, speeches and interviews, every unit traceable to a
-          publisher and a date. Ask one question and see who talks about it.
+          Investor/Pass search covers the indexed record — investors and founders, shareholder
+          letters, memos, speeches and interviews, every unit traceable to a publisher and a date.
+          Ask one question and see who talks about it.
         </p>
         <ul>
           <li><Link href="/investors">Browse all investors</Link></li>

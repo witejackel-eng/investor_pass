@@ -12,7 +12,7 @@ import { AppRoot } from "@/components/investor/app-root";
 export const metadata: Metadata = {
   title: "The library — Investor/Pass",
   description:
-    "The full indexed corpus of shareholder letters, memos, speeches and interviews from 31 exceptional investors — 619 sources and 12,078 paraphrased research units, every unit traceable to a publisher and a date.",
+    "The full indexed corpus of shareholder letters, memos, speeches and interviews from investors and founders — every paraphrased research unit traceable to a publisher and a date.",
   alternates: { canonical: "/library" },
   robots: { index: false, follow: true },
   openGraph: {
@@ -31,9 +31,8 @@ export default function LibraryPage() {
         <h1>The library</h1>
         <p>
           The Investor/Pass library is the full indexed corpus — shareholder
-          letters, memos, speeches and interviews from 31 exceptional
-          investors, 619 sources and 12,078 paraphrased research units, every
-          unit traceable to a publisher and a date.
+          letters, memos, speeches and interviews from investors and founders,
+          every unit traceable to a publisher and a date.
         </p>
         <ul>
           <li><Link href="/investors">Browse all investors</Link></li>

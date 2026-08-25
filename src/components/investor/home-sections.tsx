@@ -1092,7 +1092,7 @@ export function FoundersFeature() {
             reader can follow the same thread from one to the other.
           </p>
           <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-wider text-graphite">
-            103 founders · 1,531 paraphrased references · China + India
+            111 founders · 1,729 paraphrased references · US + China + India
           </p>
         </aside>
       </div>

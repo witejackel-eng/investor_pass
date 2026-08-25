@@ -31,8 +31,9 @@ export default async function DiscoverPage() {
   let featuredInvestors: { slug: string; name: string; shortDescription: string | null }[] = [];
   let featuredFounders: { slug: string; name: string; shortDescription: string | null; region: string | null }[] = [];
   let featuredThemes: { slug: string; name: string }[] = [];
+  let featuredCompanies: { slug: string; name: string; ticker: string | null; industry: string | null; passageCount: number }[] = [];
   try {
-    const [inv, fnd, thm] = await Promise.all([
+    const [inv, fnd, thm, cmp] = await Promise.all([
       db.$queryRaw<{ slug: string; name: string; shortDescription: string | null; passageCount: number }[]>`
         SELECT p.slug, p.name, p."shortDescription", COUNT(pa.id) AS "passageCount"
         FROM "Person" p
@@ -48,10 +49,18 @@ export default async function DiscoverPage() {
         WHERE p.kind = 'founder' AND p.status = 'active'
         GROUP BY p.id ORDER BY "passageCount" DESC LIMIT 4`,
       db.theme.findMany({ take: 8, orderBy: { name: "asc" }, select: { slug: true, name: true } }),
+      db.$queryRaw<{ slug: string; name: string; ticker: string | null; industry: string | null; passageCount: number }[]>`
+        SELECT c.slug, c.name, c.ticker, i.name AS industry,
+               (SELECT COUNT(*) FROM "PassageCompany" pc WHERE pc."companyId" = c.id) AS "passageCount"
+        FROM "Company" c
+        LEFT JOIN "Industry" i ON c."industryId" = i.id
+        ORDER BY "passageCount" DESC, c.name ASC
+        LIMIT 8`,
     ]);
     featuredInvestors = inv as any;
     featuredFounders = fnd as any;
     featuredThemes = thm;
+    featuredCompanies = cmp as any;
   } catch {}
 
   return (
@@ -93,7 +102,7 @@ export default async function DiscoverPage() {
           <div className="border border-rule p-5">
             <p className="kicker text-signal-dark">FOUNDERS</p>
             <p className="mt-1 font-display text-3xl font-bold">{fmt(founders)}</p>
-            <p className="mt-1 font-reader text-sm text-graphite">Operating builders from China and India whose public record is indexed.</p>
+            <p className="mt-1 font-reader text-sm text-graphite">Operating builders from the United States, China, and India whose public record is indexed.</p>
             <div className="mt-3 space-y-1.5">
               {featuredFounders.map((fnd) => (
                 <Link key={fnd.slug} href={`/founders/${fnd.slug}`} className="block font-display text-sm font-medium hover:text-signal-dark">
@@ -130,9 +139,16 @@ export default async function DiscoverPage() {
           <Building2 className="h-5 w-5" />
           <h2 className="font-display text-2xl font-semibold tracking-tight">Companies</h2>
         </div>
-        <p className="mt-1 font-reader text-sm text-graphite">{fmt(companies)} companies linked to investors and passages.</p>
-        <Link href="/search?q=company" className="mt-3 inline-flex items-center gap-1 chip chip-signal">
-          Search companies <ArrowRight className="h-3 w-3" />
+        <p className="mt-1 font-reader text-sm text-graphite">{fmt(companies)} companies linked to investors and passages, with documented decisions.</p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {featuredCompanies.map((c) => (
+            <Link key={c.slug} href={`/companies/${c.slug}`} className="chip hover:chip-signal">
+              {c.name}
+            </Link>
+          ))}
+        </div>
+        <Link href="/companies" className="mt-3 inline-flex items-center gap-1 chip chip-signal">
+          View all companies <ArrowRight className="h-3 w-3" />
         </Link>
       </section>
 

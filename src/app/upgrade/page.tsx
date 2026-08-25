@@ -30,13 +30,12 @@ export default function UpgradePage() {
       <div className="sr-only">
         <h1>Upgrade to Investor/Pass Pro</h1>
         <p>
-          Pro unlocks the full indexed library — 619 sources and 12,078
-          paraphrased research units — plus cross-investor compare on any
-          theme, the watchlist, saved searches and collections. $9/month or
-          $79/year, cancel anytime.
+          The full indexed library — every source and paraphrased research
+          unit — plus cross-investor compare on any theme, the watchlist,
+          saved searches and collections. $9/month or $79/year, cancel anytime.
         </p>
         <ul>
-          <li><Link href="/investors">Browse all 31 investors</Link></li>
+          <li><Link href="/investors">Browse all investors</Link></li>
           <li><Link href="/login">Already a member? Log in</Link></li>
           <li><Link href="/legal/terms">Terms of service</Link></li>
         </ul>
