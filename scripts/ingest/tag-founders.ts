@@ -58,11 +58,14 @@ const INDIAN_FOUNDERS = [
 
 type Region = "us" | "china" | "india";
 
-// 8 US founders — founders-collection branch (2026-08-24): Carnegie,
-// J.P. Morgan, Rockefeller, Henry Ford, Bill Gates, Steve Jobs, Bezos, Musk.
+// 14 US founders — founders-collection branch (2026-08-24): Vanderbilt,
+// Carnegie, J.P. Morgan, Rockefeller, Henry Ford, Disney, Walton, Schultz,
+// Jobs, Gates, Hastings, Bezos, Musk, Zuckerberg. (Dalio's corpus expansion
+// lands under his existing investor row — kind stays "investor".)
 const US_FOUNDERS = [
-  "carnegie", "jp-morgan", "rockefeller", "henry-ford",
-  "bill-gates", "steve-jobs", "bezos", "elon-musk",
+  "vanderbilt", "carnegie", "jp-morgan", "rockefeller", "henry-ford",
+  "walt-disney", "sam-walton", "howard-schultz", "steve-jobs", "bill-gates",
+  "reed-hastings", "bezos", "elon-musk", "zuckerberg",
 ] as const;
 
 async function tag(slug: string, region: Region): Promise<boolean> {
@@ -79,7 +82,7 @@ async function tag(slug: string, region: Region): Promise<boolean> {
 }
 
 async function main() {
-  console.log(`Tagging founders — 8 US + 52 Chinese + 51 Indian = 111 Person rows`);
+  console.log(`Tagging founders — 14 US + 52 Chinese + 51 Indian = 117 Person rows`);
   console.log("Existing investors (Buffett/Munger/Marks/…) are untouched.\n");
 
   let usHit = 0;
